@@ -143,6 +143,8 @@
     <ClCompile Include="game.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="sprite.cpp" />
+    <ClCompile Include="tile.cpp" />
+    <ClCompile Include="tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="animatedsprite.h" />
@@ -154,6 +156,8 @@
     <ClInclude Include="sprite.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="tile.h" />
+    <ClInclude Include="tinyxml2.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="jumper.rc" />
