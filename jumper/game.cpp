@@ -28,7 +28,7 @@ void Game::gameLoop() {
 	Input input;
 	SDL_Event event;
 
-	this->_level = Level(globals::iceLevel, Vector2(96, 64), graphics);
+	this->_level = Level(globals::iceLevel, Vector2(160, 160), graphics);
 	this->_player = Player(graphics, this->_level.getPlayerSpawnPoint());
 
 	int LAST_UPDATE_TIME = SDL_GetTicks64();
@@ -55,19 +55,18 @@ void Game::gameLoop() {
 		
 		if (_canPlayerMove) {
 			if (input.isKeyHeld(SDL_SCANCODE_LEFT) == true) {
-				this->_player.moveLeft();
+				this->_player.moveLeft(this->_canPlayerMove, this->_level.getCollision());
 			}
 			else if (input.isKeyHeld(SDL_SCANCODE_RIGHT) == true) {
-				this->_player.moveRight();
+				this->_player.moveRight(this->_canPlayerMove, this->_level.getCollision());
 			}
 			else if (input.isKeyHeld(SDL_SCANCODE_UP) == true) {
-				this->_player.moveUp();
+				this->_player.moveUp(this->_canPlayerMove, this->_level.getCollision());
 			}
 			else if (input.isKeyHeld(SDL_SCANCODE_DOWN) == true) {
-				this->_player.moveDown();
+				this->_player.moveDown(this->_canPlayerMove, this->_level.getCollision());
 			}
 
-			this->_canPlayerMove = false;
 			if (!input.isKeyHeld(SDL_SCANCODE_LEFT) && !input.isKeyHeld(SDL_SCANCODE_RIGHT)
 				&& !input.isKeyHeld(SDL_SCANCODE_UP) && !input.isKeyHeld(SDL_SCANCODE_DOWN)) {
 				this->_player.stopMoving();
@@ -97,10 +96,10 @@ void Game::update(float elapsedTime) {
 	this->_level.update(elapsedTime);
 
 	//Check collisions
-	std::vector<Rectangle> others = this->_level.checkTileCollisions(this->_player.getBoundingBox());
-	
-	if (others.size() > 0) {
-		//Player collided with at least one tile. Handle it.
-		this->_player.handleTileCollisions(others);
-	}
+	//std::vector<Rectangle> others = this->_level.checkTileCollisions(this->_player.getBoundingBox());
+	//
+	//if (others.size() > 0) {
+	//	//Player collided with at least one tile. Handle it.
+	//	this->_player.handleTileCollisions(others);
+	//}
 }

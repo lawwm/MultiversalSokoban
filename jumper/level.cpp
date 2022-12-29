@@ -150,11 +150,13 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 						y = pObject->FloatAttribute("y");
 						width = pObject->FloatAttribute("width");
 						height = pObject->FloatAttribute("height");
+						// make the rectangle one unit smaller from each side so that player 
+						// character can move within tight spaces
 						this->_collisionRects.push_back(Rectangle(
-							std::ceil(x) * globals::SPRITE_SCALE,
-							std::ceil(y) * globals::SPRITE_SCALE,
-							std::ceil(width) * globals::SPRITE_SCALE,
-							std::ceil(height) * globals::SPRITE_SCALE
+							std::ceil(x) * globals::SPRITE_SCALE + 1,
+							std::ceil(y) * globals::SPRITE_SCALE + 1,
+							std::ceil(width) * globals::SPRITE_SCALE - 2,
+							std::ceil(height) * globals::SPRITE_SCALE - 2
 						));
 
 						pObject = pObject->NextSiblingElement("object");
@@ -196,6 +198,10 @@ void Level::draw(Graphics& graphics) {
 		this->_tileList.at(i).draw(graphics);
 	}
 }
+
+const std::vector<Rectangle>& Level::getCollision() {
+	return this->_collisionRects;
+};
 
 std::vector<Rectangle> Level::checkTileCollisions(const Rectangle& other) {
 	std::vector<Rectangle> others;

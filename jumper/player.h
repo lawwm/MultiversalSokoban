@@ -16,27 +16,32 @@ public:
 	/* void moveLeft
 	 * Moves the player left by -dx
 	 */
-	void moveLeft();
+	void moveLeft(bool& isMoving, const std::vector<Rectangle>& levelCollisions);
 
 	/* void moveRight
 	 * Moves the player right by dx
 	 */
-	void moveRight();
+	void moveRight(bool& isMoving, const std::vector<Rectangle>& levelCollisions);
 
 	/* void moveUp
 	 * Moves the player up by -dy
 	 */
-	void moveUp();
+	void moveUp(bool& isMoving, const std::vector<Rectangle>& levelCollisions);
 
 	/* void moveDown
 	 * Moves the player down by dy
 	 */
-	void moveDown();
+	void moveDown(bool& isMoving, const std::vector<Rectangle>& levelCollisions);
 
 	/* void stopMoving
 	 * Stops moving the player
 	 */
 	void stopMoving();
+
+	/* bool canMoveToNewPosition
+	*  check if it is possible to move to that position
+	*/
+	bool canMoveToNewPosition(const std::vector<Rectangle>& levelCollisions);
 
 	virtual void animationDone(std::string currentAnimation);
 	virtual void setupAnimations();

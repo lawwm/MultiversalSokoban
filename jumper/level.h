@@ -35,6 +35,8 @@ public:
 
 	const Vector2 getPlayerSpawnPoint() const;
 
+	const std::vector<Rectangle>& getCollision();
+
 private:
 	std::string _mapName;
 	Vector2 _spawnPoint;

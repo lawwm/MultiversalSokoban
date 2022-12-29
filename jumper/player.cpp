@@ -3,7 +3,7 @@
 #include <iostream>
 
 namespace player_constants {
-	const float WALK_SPEED = 0.2f;
+	const float WALK_SPEED = 0.15f;
 }
 
 Player::Player() {};
@@ -46,7 +46,17 @@ const float Player::getY() const {
 	return this->_y;
 }
 
-void Player::moveLeft() {
+bool Player::canMoveToNewPosition(const std::vector<Rectangle>& levelCollisions) {
+	Rectangle playerBoxNext(this->_destx, this->_desty, this->_sourceRect.w, this->_sourceRect.h);
+	for (int i = 0; i < levelCollisions.size(); i++) {
+		if (levelCollisions.at(i).collidesWith(playerBoxNext)) {
+			return false;
+		}
+	}
+	return true;
+}
+
+void Player::moveLeft(bool& isMoving, const std::vector<Rectangle>& levelCollisions) {
 	this->_dx = -player_constants::WALK_SPEED;
 	this->_dy = 0.0f;
 	
@@ -55,9 +65,16 @@ void Player::moveLeft() {
 
 	this->playAnimation("RunLeft");
 	this->_facing = LEFT;
+	
+	if (!canMoveToNewPosition(levelCollisions)) {
+		this->_destx = this->_x;
+		return;
+	}	
+	
+	isMoving = false;
 }
 
-void Player::moveRight() {
+void Player::moveRight(bool& isMoving, const std::vector<Rectangle>& levelCollisions) {
 	this->_dx = player_constants::WALK_SPEED;
 	this->_dy = 0.0f;
 
@@ -66,9 +83,15 @@ void Player::moveRight() {
 	
 	this->playAnimation("RunRight");
 	this->_facing = RIGHT;
+	
+	if (!canMoveToNewPosition(levelCollisions)) {
+		this->_destx = this->_x;
+		return;
+	}
+	isMoving = false;
 }
 
-void Player::moveUp() {
+void Player::moveUp(bool& isMoving, const std::vector<Rectangle>& levelCollisions) {
 	this->_dx = 0.0f;
 	this->_dy = -player_constants::WALK_SPEED;
 
@@ -77,9 +100,16 @@ void Player::moveUp() {
 
 	this->playAnimation("RunUp");
 	this->_facing = UP;
+
+	if (!canMoveToNewPosition(levelCollisions)) {
+		this->_desty = this->_y;
+		return;
+	}
+
+	isMoving = false;
 }
 
-void Player::moveDown() {
+void Player::moveDown(bool& isMoving, const std::vector<Rectangle>& levelCollisions) {
 	this->_dx = 0.0f;
 	this->_dy = player_constants::WALK_SPEED;
 
@@ -88,6 +118,13 @@ void Player::moveDown() {
 
 	this->playAnimation("RunDown");
 	this->_facing = DOWN;
+
+	if (!canMoveToNewPosition(levelCollisions)) {
+		this->_desty = this->_y;
+		return;
+	}
+
+	isMoving = false;
 }
 
 void Player::stopMoving() {
