@@ -27,7 +27,7 @@ void Game::gameLoop() {
 	Input input;
 	SDL_Event event;
 
-	this->_level = Level("Map 1", Vector2(100, 100), graphics);
+	this->_level = Level("Ice1", Vector2(100, 100), graphics);
 	this->_player = Player(graphics, this->_level.getPlayerSpawnPoint());
 	
 	int LAST_UPDATE_TIME = SDL_GetTicks64();

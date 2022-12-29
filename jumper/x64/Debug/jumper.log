@@ -1,10 +1,10 @@
-﻿  game.cpp
+﻿  level.cpp
 H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\tile.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(33,23): warning C4244: 'initializing': conversion from 'Uint64' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(74,24): warning C4244: 'argument': conversion from 'const _Ty' to 'float', possible loss of data
-          with
-          [
-              _Ty=int
-          ]
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(92,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\level.cpp(174,26): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\level.cpp(173,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\level.cpp(172,21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\level.cpp(171,21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\level.cpp(193,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\level.cpp(192,49): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\level.cpp(58,10): warning C4101: 'path': unreferenced local variable
   jumper.vcxproj -> H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\x64\Debug\jumper.exe

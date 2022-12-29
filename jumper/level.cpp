@@ -31,8 +31,8 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 	//Parse the .tmx file
 	XMLDocument doc;
 	std::stringstream ss;
-	std::cout << "maps/" << mapName << ".tmx" << std::endl;
-	ss << "maps/" << mapName << ".tmx"; //Pass in Map 1, we get maps/Map 1.tmx
+		
+	ss << mapName << ".tmx"; //Pass in Map 1, we get maps/Map 1.tmx
 	doc.LoadFile(ss.str().c_str());
 
 	XMLElement* mapNode = doc.FirstChildElement("map");
