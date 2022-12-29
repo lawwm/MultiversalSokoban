@@ -1,6 +1,11 @@
-﻿  graphics.cpp
-  level.cpp
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\tile.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\level.cpp(58,10): warning C4101: 'path': unreferenced local variable
-  Generating Code...
+﻿  player.cpp
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(14,87): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(14,73): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(70,41): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(74,71): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(79,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(82,71): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(101,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(105,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(105,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   jumper.vcxproj -> H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\x64\Debug\jumper.exe
