@@ -17,6 +17,7 @@ private:
 
 	Player _player;
 	Level _level;
+	bool _canPlayerMove = true;
 };
 
 #endif

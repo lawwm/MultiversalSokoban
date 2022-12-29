@@ -49,7 +49,7 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 	mapNode->QueryIntAttribute("tileheight", &tileHeight);
 	this->_tileSize = Vector2(tileWidth, tileHeight);
 
-	//Loading the tilesets
+	//Loading the tilesets, tilesets is the image that shows the tiles that are available to be used in the map
 	XMLElement* pTileset = mapNode->FirstChildElement("tileset");
 	if (pTileset != NULL) {
 		while (pTileset) {
@@ -79,19 +79,6 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 					if (pTile != NULL) {
 						int tileCounter = 0;
 						while (pTile) {
-							//Build each individual tile here
-							//If gid is 0, no tile should be drawn. Continue loop
-							if (pTile->IntAttribute("gid") == 0) {
-								tileCounter++;
-								if (pTile->NextSiblingElement("tile")) {
-									pTile = pTile->NextSiblingElement("tile");
-									continue;
-								}
-								else {
-									break;
-								}
-							}
-
 							//Get the tileset for this specific gid
 							int gid = pTile->IntAttribute("gid");
 							Tileset tls;
@@ -102,25 +89,22 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 									break;
 								}
 							}
-
-							if (tls.FirstGid == -1) {
+							
+							//If gid is 0, no tile should be drawn. Continue loop
+							if (tls.FirstGid == -1 || gid == 0) {
 								//No tileset was found for this gid
 								tileCounter++;
-								if (pTile->NextSiblingElement("tile")) {
-									pTile = pTile->NextSiblingElement("tile");
-									continue;
-								}
-								else {
+								if (!pTile->NextSiblingElement("tile")) {
 									break;
 								}
+
+								pTile = pTile->NextSiblingElement("tile");
+								continue;
 							}
 
 							//Get the position of the tile in the level
-							int xx = 0;
-							int yy = 0;
-							xx = tileCounter % width;
-							xx *= tileWidth;
-							yy += tileHeight * (tileCounter / width);
+							int xx = tileWidth * (tileCounter % width);
+							int yy = tileHeight * (tileCounter / width);
 							Vector2 finalTilePosition = Vector2(xx, yy);
 
 							//Calculate the position of the tile in the tileset
@@ -128,9 +112,8 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 							SDL_QueryTexture(tls.Texture, NULL, NULL, &tilesetWidth, &tilesetHeight);
 							int tsxx = gid % (tilesetWidth / tileWidth) - 1;
 							tsxx *= tileWidth;
-							int tsyy = 0;
-							int amt = (gid / (tilesetWidth / tileWidth));
-							tsyy = tileHeight * amt;
+							int tsyy = gid / (tilesetWidth / tileWidth);
+							tsyy *= tileHeight;
 							Vector2 finalTilesetPosition = Vector2(tsxx, tsyy);
 
 							//Build the actual tile and add it to the level's tile list

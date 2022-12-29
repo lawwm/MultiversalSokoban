@@ -11,7 +11,7 @@ public:
 	Player();
 	Player(Graphics& graphics, Vector2 spawnPoint);
 	void draw(Graphics& graphics);
-	void update(float elapsedTime);
+	void update(float elapsedTime, bool& isNotMoving);
 
 	/* void moveLeft
 	 * Moves the player left by -dx
@@ -47,11 +47,11 @@ public:
 	const float getY() const;
 
 private:
-	float _dx, _dy;
+	float _dx, _dy; // rate of change of travel
+
+	float _destx, _desty; // final position for one by one travel
 
 	Direction _facing;
-
-	bool _grounded;
 };
 
 #endif

@@ -1,23 +1,22 @@
 #include "player.h"
 #include "graphics.h"
+#include <iostream>
 
 namespace player_constants {
 	const float WALK_SPEED = 0.2f;
-
-	//const float GRAVITY = 0.002f;
-	//const float GRAVITY_CAP = 0.8f;
 }
 
-Player::Player() {}
+Player::Player() {};
 
 Player::Player(Graphics& graphics, Vector2 spawnPoint) :
-	AnimatedSprite(graphics, "sprites/ninja_2.png", 0, 0, 16, 16, spawnPoint.x, spawnPoint.y, 100),
+	AnimatedSprite(graphics, globals::eskimo, 0, 0, 16, 16, spawnPoint.x, spawnPoint.y, 100),
 	_dx(0),
 	_dy(0),
 	_facing(RIGHT),
-	_grounded(false)
+	_destx(spawnPoint.x),
+	_desty(spawnPoint.y)
 {
-	graphics.loadImage("sprites/ninja_2.png");
+	graphics.loadImage(globals::eskimo);
 
 	this->setupAnimations();
 	this->playAnimation("RunRight");
@@ -25,15 +24,16 @@ Player::Player(Graphics& graphics, Vector2 spawnPoint) :
 
 
 void Player::setupAnimations() {
+	this->addAnimation(1, 0, 0, "IdleDown", 16, 16, Vector2(0, 0));
+	this->addAnimation(1, 16, 0, "IdleUp", 16, 16, Vector2(0, 0));		
 	this->addAnimation(1, 32, 0, "IdleLeft", 16, 16, Vector2(0, 0));
 	this->addAnimation(1, 48, 0, "IdleRight", 16, 16, Vector2(0, 0));
-	this->addAnimation(1, 0, 0, "IdleDown", 16, 16, Vector2(0, 0));
-	this->addAnimation(1, 16, 0, "IdleUp", 16, 16, Vector2(0, 0));	
+
 	
-	this->addAnimation(4, 32, 0, "RunLeft", 16, 16, Vector2(0, 0));
-	this->addAnimation(4, 48, 0, "RunRight", 16, 16, Vector2(0, 0));
 	this->addAnimation(4, 0, 0, "RunDown", 16, 16, Vector2(0, 0));
 	this->addAnimation(4, 16, 0, "RunUp", 16, 16, Vector2(0, 0));
+	this->addAnimation(4, 32, 0, "RunLeft", 16, 16, Vector2(0, 0));
+	this->addAnimation(4, 48, 0, "RunRight", 16, 16, Vector2(0, 0));
 }
 
 void Player::animationDone(std::string currentAnimation) {}
@@ -49,6 +49,10 @@ const float Player::getY() const {
 void Player::moveLeft() {
 	this->_dx = -player_constants::WALK_SPEED;
 	this->_dy = 0.0f;
+	
+	// set destination of left
+	this->_destx = this->_x - 32;
+
 	this->playAnimation("RunLeft");
 	this->_facing = LEFT;
 }
@@ -56,6 +60,10 @@ void Player::moveLeft() {
 void Player::moveRight() {
 	this->_dx = player_constants::WALK_SPEED;
 	this->_dy = 0.0f;
+
+	// set destination of right
+	this->_destx = this->_x + 32;
+	
 	this->playAnimation("RunRight");
 	this->_facing = RIGHT;
 }
@@ -63,6 +71,10 @@ void Player::moveRight() {
 void Player::moveUp() {
 	this->_dx = 0.0f;
 	this->_dy = -player_constants::WALK_SPEED;
+
+	// set destination of up
+	this->_desty = this->_y - 32;
+
 	this->playAnimation("RunUp");
 	this->_facing = UP;
 }
@@ -70,6 +82,10 @@ void Player::moveUp() {
 void Player::moveDown() {
 	this->_dx = 0.0f;
 	this->_dy = player_constants::WALK_SPEED;
+
+	// set destination of down
+	this->_desty = this->_y + 32;
+
 	this->playAnimation("RunDown");
 	this->_facing = DOWN;
 }
@@ -110,7 +126,6 @@ void Player::handleTileCollisions(std::vector<Rectangle>& others) {
 			case sides::BOTTOM:
 				this->_y = others.at(i).getTop() - this->_boundingBox.getHeight() - 1;
 				this->_dy = 0;
-				this->_grounded = true;
 				break;
 			case sides::LEFT:
 				this->_x = others.at(i).getRight() + 1;
@@ -124,12 +139,28 @@ void Player::handleTileCollisions(std::vector<Rectangle>& others) {
 	}
 }
 
-void Player::update(float elapsedTime) {
+void Player::update(float elapsedTime, bool& isNotMoving) {
+	
+	if (_x == _destx && _y == _desty) {
+		isNotMoving = true;
+		return;
+	}
 
-	//Move by dx
-	this->_x += this->_dx * elapsedTime;
-	//Move by dy
-	this->_y += this->_dy * elapsedTime;
+	switch (this->_facing) {
+	case LEFT:
+		this->_x = std::max(this->_x + this->_dx * elapsedTime, _destx);
+		break;
+	case RIGHT:
+		this->_x = std::min(this->_x + this->_dx * elapsedTime, _destx);
+		break;
+	case UP:
+		this->_y = std::max(this->_y + this->_dy * elapsedTime, _desty);
+		break;
+	case DOWN:
+		this->_y = std::min(this->_y + this->_dy * elapsedTime, _desty);
+		break;
+	}
+
 
 	AnimatedSprite::update(elapsedTime);
 }
