@@ -1,5 +1,9 @@
-﻿  player.cpp
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(49,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(53,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(53,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+﻿  game.cpp
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(37,23): warning C4244: 'initializing': conversion from 'Uint64' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(71,24): warning C4244: 'argument': conversion from 'const _Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(89,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   jumper.vcxproj -> H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\x64\Debug\jumper.exe
