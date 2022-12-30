@@ -1,4 +1,17 @@
+0a. Refactor to grid system
+
 1. Move boxes
+
+// if hit a wall
+// player cannot move
+
+// if hit a crate
+// crate is moved alongside player
+
+// if hit teleporter
+// player is teleported to end of teleporter
+
+// if hit a doorway, win
 
 2. Change dimension
 

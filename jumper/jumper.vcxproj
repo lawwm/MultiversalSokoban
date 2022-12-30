@@ -152,8 +152,8 @@
     <ClInclude Include="globals.h" />
     <ClInclude Include="graphics.h" />
     <ClInclude Include="game.h" />
-    <ClInclude Include="moveable.h" />
     <ClInclude Include="level.h" />
+    <ClInclude Include="moveable.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="rectangle.h" />
     <ClInclude Include="sprite.h" />

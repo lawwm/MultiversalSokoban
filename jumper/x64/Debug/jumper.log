@@ -1,45 +1,4 @@
 ﻿  animatedsprite.cpp
 H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\animatedsprite.cpp(80,48): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\animatedsprite.cpp(81,48): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  game.cpp
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\tile.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(38,23): warning C4244: 'initializing': conversion from 'Uint64' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(82,24): warning C4244: 'argument': conversion from 'const _Ty' to 'float', possible loss of data
-          with
-          [
-              _Ty=int
-          ]
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(102,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  main.cpp
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\tile.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  moveable.cpp
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\moveable.cpp(8,80): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\moveable.cpp(8,66): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\moveable.cpp(34,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\moveable.cpp(38,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\moveable.cpp(38,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  player.cpp
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(12,82): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(12,68): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(16,8): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(17,8): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(50,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(50,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(175,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(179,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(179,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  sprite.cpp
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\sprite.cpp(22,91): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\sprite.cpp(22,59): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\sprite.cpp(22,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\sprite.cpp(22,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\sprite.cpp(28,62): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\sprite.cpp(28,62): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\sprite.cpp(29,24): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\sprite.cpp(29,24): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\sprite.cpp(35,68): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\sprite.cpp(35,23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\sprite.cpp(34,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\sprite.cpp(34,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Generating Code...
   jumper.vcxproj -> H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\x64\Debug\jumper.exe

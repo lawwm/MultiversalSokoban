@@ -46,8 +46,19 @@ const float Player::getY() const {
 	return this->_y;
 }
 
-bool Player::canMoveToNewPosition(const std::vector<Rectangle>& levelCollisions) {
+bool Player::canMoveToNewPosition(const std::vector<Rectangle>& levelCollisions, std::vector<Moveable>& crates,
+	const std::pair<int, int>& diff) {
 	Rectangle playerBoxNext(this->_destx, this->_desty, this->_sourceRect.w, this->_sourceRect.h);
+	
+	for (int i = 0; i < crates.size(); ++i) {
+		if (crates[i].getBoundingBox().collidesWith(playerBoxNext)) {
+			if (!crates[i].canMoveToNewPosition(levelCollisions, crates,
+				this->_pushing, diff, 1)) {
+				return false;
+			}
+		}
+	}
+
 	for (int i = 0; i < levelCollisions.size(); i++) {
 		if (levelCollisions.at(i).collidesWith(playerBoxNext)) {
 			return false;
@@ -56,17 +67,19 @@ bool Player::canMoveToNewPosition(const std::vector<Rectangle>& levelCollisions)
 	return true;
 }
 
-void Player::moveLeft(bool& isMoving, const std::vector<Rectangle>& levelCollisions) {
+void Player::moveLeft(bool& isMoving, const std::vector<Rectangle>& levelCollisions,
+	 std::vector<Moveable>& crates) {
+	
 	this->_dx = -player_constants::WALK_SPEED;
 	this->_dy = 0.0f;
 	
 	// set destination of left
 	this->_destx = this->_x - 32;
-
+	std::pair<int, int> diff = { -32 , 0 };
 	this->playAnimation("RunLeft");
 	this->_facing = LEFT;
 	
-	if (!canMoveToNewPosition(levelCollisions)) {
+	if (!canMoveToNewPosition(levelCollisions, crates, {-32, 0})) {
 		this->_destx = this->_x;
 		return;
 	}	
@@ -74,7 +87,9 @@ void Player::moveLeft(bool& isMoving, const std::vector<Rectangle>& levelCollisi
 	isMoving = false;
 }
 
-void Player::moveRight(bool& isMoving, const std::vector<Rectangle>& levelCollisions) {
+void Player::moveRight(bool& isMoving, const std::vector<Rectangle>& levelCollisions,
+	 std::vector<Moveable>& crates) {
+	
 	this->_dx = player_constants::WALK_SPEED;
 	this->_dy = 0.0f;
 
@@ -84,14 +99,16 @@ void Player::moveRight(bool& isMoving, const std::vector<Rectangle>& levelCollis
 	this->playAnimation("RunRight");
 	this->_facing = RIGHT;
 	
-	if (!canMoveToNewPosition(levelCollisions)) {
+	if (!canMoveToNewPosition(levelCollisions,crates, {32, 0})) {
 		this->_destx = this->_x;
 		return;
 	}
 	isMoving = false;
 }
 
-void Player::moveUp(bool& isMoving, const std::vector<Rectangle>& levelCollisions) {
+void Player::moveUp(bool& isMoving, const std::vector<Rectangle>& levelCollisions,
+	 std::vector<Moveable>& crates) {
+	
 	this->_dx = 0.0f;
 	this->_dy = -player_constants::WALK_SPEED;
 
@@ -101,7 +118,7 @@ void Player::moveUp(bool& isMoving, const std::vector<Rectangle>& levelCollision
 	this->playAnimation("RunUp");
 	this->_facing = UP;
 
-	if (!canMoveToNewPosition(levelCollisions)) {
+	if (!canMoveToNewPosition(levelCollisions, crates, {0, -32})) {
 		this->_desty = this->_y;
 		return;
 	}
@@ -109,7 +126,9 @@ void Player::moveUp(bool& isMoving, const std::vector<Rectangle>& levelCollision
 	isMoving = false;
 }
 
-void Player::moveDown(bool& isMoving, const std::vector<Rectangle>& levelCollisions) {
+void Player::moveDown(bool& isMoving, const std::vector<Rectangle>& levelCollisions,
+	 std::vector<Moveable>& crates) {
+	
 	this->_dx = 0.0f;
 	this->_dy = player_constants::WALK_SPEED;
 
@@ -119,7 +138,7 @@ void Player::moveDown(bool& isMoving, const std::vector<Rectangle>& levelCollisi
 	this->playAnimation("RunDown");
 	this->_facing = DOWN;
 
-	if (!canMoveToNewPosition(levelCollisions)) {
+	if (!canMoveToNewPosition(levelCollisions, crates, {0, 32})) {
 		this->_desty = this->_y;
 		return;
 	}
@@ -151,7 +170,7 @@ void Player::stopMoving() {
 void Player::update(float elapsedTime, bool& isNotMoving) {
 	
 	if (_x == _destx && _y == _desty) {
-		//
+		this->_pushing.clear();
 		isNotMoving = true;
 		return;
 	}
@@ -171,6 +190,10 @@ void Player::update(float elapsedTime, bool& isNotMoving) {
 		break;
 	}
 
+	for (auto& pushed : this->_pushing) {
+		auto [mptr, xdist, ydist] = pushed;
+		mptr->set(this->_x + xdist, this->_y + ydist);
+	}
 
 	AnimatedSprite::update(elapsedTime);
 }

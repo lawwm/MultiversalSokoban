@@ -1,6 +1,8 @@
 #include "moveable.h"
 #include "graphics.h"
 #include <iostream>
+#include <tuple>
+#include <utility>
 
 Moveable::Moveable() {};
 
@@ -30,10 +32,46 @@ const float Moveable::getY() const {
 	return this->_y;
 }
 
+void Moveable::set(int x, int y) {
+	this->_x = x;
+	this->_y = y;
+}
+
 void Moveable::update(float elapsedTime) {
+	if ( ((int)this->_x) % 32 != 0 || ((int)this ->_y) % 32 != 0) {
+		this->playAnimation("Moving");
+	}
+	else {
+		this->playAnimation("Idle");
+	}
 	AnimatedSprite::update(elapsedTime);
 }
 
 void Moveable::draw(Graphics& graphics) {
 	AnimatedSprite::draw(graphics, this->_x, this->_y);
+}
+
+bool Moveable::canMoveToNewPosition(const std::vector<Rectangle>& levelCollisions,
+	std::vector<Moveable>& crates, std::vector<std::tuple<Moveable*, int, int>>& _pushing,
+	std::pair<int, int> diff, int depth) {
+	
+	auto [x, y] = diff;
+	Rectangle moveableBoxNext(this->_x + x*depth + 1, this->_y + y*depth + 1, 
+		this->_sourceRect.w-2, this->_sourceRect.h-2);
+	_pushing.push_back({ this, x*depth, y*depth });
+
+	for (int i = 0; i < crates.size(); ++i) {
+		if (&crates[i] != this && crates[i].getBoundingBox().collidesWith(moveableBoxNext)
+			&& !this->canMoveToNewPosition(levelCollisions, crates, _pushing, diff, depth+1)) {
+			return false;
+		}
+	}
+
+	for (int i = 0; i < levelCollisions.size(); i++) {
+		if (levelCollisions.at(i).collidesWith(moveableBoxNext)) {
+			return false;
+		}
+	}
+	
+	return true;
 }
