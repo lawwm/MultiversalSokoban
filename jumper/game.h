@@ -3,6 +3,8 @@
 
 #include "player.h"
 #include "level.h"
+#include "moveable.h"
+#include <vector>
 
 class Graphics;
 
@@ -17,6 +19,7 @@ private:
 
 	Player _player;
 	Level _level;
+	std::vector<Moveable> _moveables;
 	bool _canPlayerMove = true;
 };
 

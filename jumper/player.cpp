@@ -148,37 +148,10 @@ void Player::stopMoving() {
 	this->playAnimation(idleDirection);
 }
 
-//void handleTileCollisions
-//Handles collisions with ALL tiles the player is colliding with
-void Player::handleTileCollisions(std::vector<Rectangle>& others) {
-	//Figure out what side the collision happened on and move the player accordingly
-	for (int i = 0; i < others.size(); i++) {
-		sides::Side collisionSide = Sprite::getCollisionSide(others.at(i));
-		if (collisionSide != sides::NONE) {
-			switch (collisionSide) {
-			case sides::TOP:
-				this->_y = others.at(i).getBottom() + 1;
-				this->_dy = 0;
-				break;
-			case sides::BOTTOM:
-				this->_y = others.at(i).getTop() - this->_boundingBox.getHeight() - 1;
-				this->_dy = 0;
-				break;
-			case sides::LEFT:
-				this->_x = others.at(i).getRight() + 1;
-				break;
-			case sides::RIGHT:
-				this->_x = others.at(i).getLeft() - this->_boundingBox.getWidth() - 1;
-				break;
-			}
-
-		}
-	}
-}
-
 void Player::update(float elapsedTime, bool& isNotMoving) {
 	
 	if (_x == _destx && _y == _desty) {
+		//
 		isNotMoving = true;
 		return;
 	}

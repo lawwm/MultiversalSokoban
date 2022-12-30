@@ -3,6 +3,7 @@
 
 #include "animatedsprite.h"
 #include "globals.h"
+#include "moveable.h"
 
 class Graphics;
 
@@ -46,8 +47,6 @@ public:
 	virtual void animationDone(std::string currentAnimation);
 	virtual void setupAnimations();
 
-	void handleTileCollisions(std::vector<Rectangle>& others);
-
 	const float getX() const;
 	const float getY() const;
 
@@ -57,6 +56,8 @@ private:
 	float _destx, _desty; // final position for one by one travel
 
 	Direction _facing;
+
+	std::vector<Moveable> _pushing;
 };
 
 #endif

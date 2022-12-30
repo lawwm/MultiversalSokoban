@@ -11,6 +11,7 @@ namespace globals {
 	const float SPRITE_WIDTH = 16.0f;
 	
 	const std::string eskimo = "sprites/ninja_2.png";
+	const std::string coin = "sprites/coin-2.png";
 
 	const std::string iceLevel = "Ice1";
 }

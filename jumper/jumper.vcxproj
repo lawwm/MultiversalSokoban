@@ -141,6 +141,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="graphics.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="moveable.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="sprite.cpp" />
     <ClCompile Include="tile.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="globals.h" />
     <ClInclude Include="graphics.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="moveable.h" />
     <ClInclude Include="level.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="rectangle.h" />

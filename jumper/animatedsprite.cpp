@@ -1,7 +1,7 @@
 #include "animatedsprite.h"
 #include "graphics.h"
 #include "sprite.h"
-
+#include <iostream>
 /* AnimatedSprite class
  * Animates our sprites
  */
@@ -15,7 +15,8 @@ AnimatedSprite::AnimatedSprite(Graphics& graphics, const std::string& filePath, 
 	_timeToUpdate(timeToUpdate),
 	_visible(true),
 	_currentAnimationOnce(false),
-	_currentAnimation("")
+	_currentAnimation(""),
+	_timeElapsed(0)
 {}
 
 void AnimatedSprite::addAnimation(int frames, int x, int y, std::string name, int width, int height, Vector2 offset) {
@@ -52,10 +53,12 @@ void AnimatedSprite::stopAnimation() {
 
 void AnimatedSprite::update(int elapsedTime) {
 	Sprite::update();
-
+	
 	this->_timeElapsed += elapsedTime;
+	std::cout << this->_frameIndex << " " << this->_timeElapsed << " " << elapsedTime << " " << this->_timeToUpdate << std::endl;
 	if (this->_timeElapsed > this->_timeToUpdate) {
 		this->_timeElapsed -= this->_timeToUpdate;
+		std::cout << this->_timeElapsed << "meme" << std::endl;
 		if (this->_frameIndex < this->_animations[this->_currentAnimation].size() - 1) {
 			this->_frameIndex++;
 		}

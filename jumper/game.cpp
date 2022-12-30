@@ -4,6 +4,7 @@
 #include "graphics.h"
 #include "input.h"
 #include "globals.h"
+#include "moveable.h"
 #include <iostream>
 /* Game class
  * This class holds all information for our main game loop
@@ -30,7 +31,10 @@ void Game::gameLoop() {
 
 	this->_level = Level(globals::iceLevel, Vector2(160, 160), graphics);
 	this->_player = Player(graphics, this->_level.getPlayerSpawnPoint());
-
+	this->_moveables.push_back(Moveable(graphics, Vector2(128, 128)));
+	this->_moveables.push_back(Moveable(graphics, Vector2(288, 96)));
+	this->_moveables.push_back(Moveable(graphics, Vector2(192, 128)));
+	this->_moveables.push_back(Moveable(graphics, Vector2(160, 128)));
 	int LAST_UPDATE_TIME = SDL_GetTicks64();
 	//Start the game loopj
 	while (true) {
@@ -87,14 +91,18 @@ void Game::draw(Graphics& graphics) {
 
 	this->_level.draw(graphics);
 	this->_player.draw(graphics);
-
+	for (auto& m : _moveables) {
+		m.draw(graphics);
+	}
 	graphics.flip();
 }
 
 void Game::update(float elapsedTime) {
 	this->_player.update(elapsedTime, _canPlayerMove);
 	this->_level.update(elapsedTime);
-
+	for (auto& m : _moveables) {
+		m.update(elapsedTime);
+	}
 	//Check collisions
 	//std::vector<Rectangle> others = this->_level.checkTileCollisions(this->_player.getBoundingBox());
 	//
