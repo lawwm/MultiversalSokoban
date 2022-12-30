@@ -12,6 +12,7 @@ namespace globals {
 	
 	const std::string eskimo = "sprites/ninja_2.png";
 	const std::string coin = "sprites/coin-2.png";
+	const std::string explode = "sprites/explode.png";
 
 	const std::string iceLevel = "Ice1";
 	const std::string roomLevel = "Room1";

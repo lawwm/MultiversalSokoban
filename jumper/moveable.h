@@ -11,11 +11,11 @@ class Moveable : public AnimatedSprite {
 public:
 	Moveable();
 	Moveable(Graphics& graphics, Vector2 spawnPoint);
-	void draw(Graphics& graphics);
-	void update(float elapsedTime, const std::vector<Rectangle>& levelCollisions);
+	void draw(Graphics& graphics) override;
+	void update(float elapsedTime, Stage& stage, Graphics& graphics);
 
-	virtual void animationDone(std::string currentAnimation);
-	virtual void setupAnimations();
+	void animationDone(std::string currentAnimation) override;
+	void setupAnimations() override;
 
 	/* bool canMoveToNewPosition
 	*  check if it is possible to move to that position

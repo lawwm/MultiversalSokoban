@@ -14,7 +14,7 @@ AnimatedSprite::AnimatedSprite(Graphics& graphics, const std::string& filePath, 
 	_frameIndex(0),
 	_timeToUpdate(timeToUpdate),
 	_visible(true),
-	_currentAnimationOnce(false),
+	_currentAnimationOnce(true),
 	_currentAnimation(""),
 	_timeElapsed(0)
 {}
@@ -68,6 +68,7 @@ void AnimatedSprite::update(int elapsedTime) {
 			this->_frameIndex++;
 		}
 		else {
+			//std::cout << this->_timeElapsed << "meme" << std::endl;
 			if (this->_currentAnimationOnce == true) {
 				this->setVisible(false);
 			}
@@ -88,4 +89,30 @@ void AnimatedSprite::draw(Graphics& graphics, int x, int y) {
 		SDL_Rect sourceRect = this->_animations[this->_currentAnimation][this->_frameIndex];
 		graphics.blitSurface(this->_spriteSheet, &sourceRect, &destinationRectangle);
 	}
+}
+
+ExplosionSprite::ExplosionSprite(Graphics& graphics, Vector2 spawnPoint) :
+	AnimatedSprite(graphics, globals::explode, 0, 0, 16, 16, spawnPoint.x, spawnPoint.y, 100)
+{
+	this->setupAnimations();
+	this->playAnimation("Explode", true);
+}
+
+void ExplosionSprite::draw(Graphics& graphics)
+{
+	AnimatedSprite::draw(graphics, this->_x, this->_y);
+}
+
+void ExplosionSprite::update(float elapsedTime)
+{
+	AnimatedSprite::update(elapsedTime);
+}
+
+void ExplosionSprite::animationDone(std::string currentAnimation)
+{
+}
+
+void ExplosionSprite::setupAnimations()
+{
+	this->addAnimation(6, 0, 0, "Explode", 32, 32, Vector2(0, 0));
 }

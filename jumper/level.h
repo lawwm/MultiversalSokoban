@@ -7,6 +7,7 @@
 #include "globals.h"
 #include "tile.h"
 #include "rectangle.h"
+#include "animatedsprite.h"
 
 class Graphics;
 struct SDL_Texture;
@@ -62,6 +63,9 @@ public:
 	void update(int elapsedTime, bool& isMoving);
 	void draw(Graphics& graphics);
 
+	/* bool checkTileCollisions
+	*  returns true if there are collisions
+	*/
 	bool checkTileCollisions(const Rectangle& other) const;
 
 	const Vector2 getPlayerSpawnPoint() const;
@@ -71,8 +75,11 @@ public:
 	void nextLevel(bool& canPlayerMove);
 	void prevLevel(bool& canPlayerMove);
 
+	void addFx(AnimatedSprite* fx);
+
 private:
 	std::vector<Level> _levels;
+	std::vector<AnimatedSprite*> _fx;
 	Vector2 _spawnPoint;
 	int _idx=0;
 	int _next=0;

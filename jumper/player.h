@@ -12,7 +12,7 @@ class Player : public AnimatedSprite {
 public:
 	Player();
 	Player(Graphics& graphics, Vector2 spawnPoint);
-	void draw(Graphics& graphics);
+	void draw(Graphics& graphics) override;
 	void update(float elapsedTime, bool& isNotMoving);
 
 	/* void moveLeft

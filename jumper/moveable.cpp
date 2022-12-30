@@ -35,15 +35,16 @@ void Moveable::set(int x, int y) {
 	this->_y = y;
 }
 
-void Moveable::update(float elapsedTime, const std::vector<Rectangle>& levelCollisions) {
-	Rectangle moveableBoxNext(this->_x, this->_y,
+void Moveable::update(float elapsedTime, Stage& stage, Graphics& graphics) {
+	Rectangle moveableBoxCurr(this->_x, this->_y,
 		this->_sourceRect.w, this->_sourceRect.h);
-	for (int i = 0; i < levelCollisions.size(); i++) {
-		if (levelCollisions.at(i).collidesWith(moveableBoxNext)) {
-			this->setVisible(false);
-			return;
-		}
+
+	if (this->getVisible() && !stage.checkTileCollisions(moveableBoxCurr)) {
+		this->setVisible(false);
+		stage.addFx(new ExplosionSprite(graphics, Vector2(this->_x, this->_y)));
+		return;
 	}
+	
 	if ( ((int)this->_x) % 32 != 0 || ((int)this ->_y) % 32 != 0) {
 		this->playAnimation("Moving");
 	}
@@ -65,12 +66,14 @@ bool Moveable::canMoveToNewPosition(const Stage& stage,
 	Rectangle moveableBoxNext(this->_x + x, this->_y + y, this->_sourceRect.w, this->_sourceRect.h);
 	_pushing.push_back({ this, x * depth, y * depth });
 
+	// check for collision with other moveables
 	for (int i = 0; i < crates.size(); ++i) {
 		if (&crates[i] != this && crates[i].getVisible() && crates[i].getBoundingBox().collidesWith(moveableBoxNext)) {
 			return crates[i].canMoveToNewPosition(stage, crates, _pushing, diff, depth+1);
 		}
 	}
 
+	// check for collision with wall
 	if (!stage.checkTileCollisions(moveableBoxNext)) return false;
 	
 	return true;

@@ -19,7 +19,7 @@ public:
 	AnimatedSprite();
 	AnimatedSprite(Graphics& graphics, const std::string& filePath, int sourceX, int sourceY, int width, int height,
 		float posX, float posY, float timeToUpdate);
-
+	
 	/* void playAnimation
 	 * Plays the animation provided if it's not already playing
 	 */
@@ -33,7 +33,7 @@ public:
 	/* void draw
 	 * Draws the sprite to the screen
 	 */
-	void draw(Graphics& graphics, int x, int y);
+	virtual void draw(Graphics& graphics)=0;
 
 	/* void getVisible
 	 * Get visibility of the animated sprite
@@ -78,7 +78,10 @@ protected:
 	 */
 	virtual void setupAnimations()=0;
 
-
+	/* void draw
+	 * Draws the sprite to the screen
+	 */
+	void draw(Graphics& graphics, int x, int y);
 private:
 	std::map<std::string, std::vector<SDL_Rect> > _animations;
 	std::map<std::string, Vector2> _offsets;
@@ -88,4 +91,16 @@ private:
 	bool _visible;
 };
 
+
+class ExplosionSprite : public AnimatedSprite 
+{
+public:
+	ExplosionSprite();
+	ExplosionSprite(Graphics& graphics, Vector2 spawnPoint);
+	void draw(Graphics& graphics);
+	void update(float elapsedTime);
+
+	void animationDone(std::string currentAnimation) override;
+	void setupAnimations() override;
+};
 #endif

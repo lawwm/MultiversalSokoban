@@ -86,7 +86,7 @@ void Game::gameLoop() {
 		
 		const int CURRENT_TIME_MS = SDL_GetTicks();
 		int ELAPSED_TIME_MS = CURRENT_TIME_MS - LAST_UPDATE_TIME;
-		this->update(std::min(ELAPSED_TIME_MS, MAX_FRAME_TIME));
+		this->update(std::min(ELAPSED_TIME_MS, MAX_FRAME_TIME), graphics);
 		LAST_UPDATE_TIME = CURRENT_TIME_MS;
 
 		this->draw(graphics);
@@ -104,13 +104,12 @@ void Game::draw(Graphics& graphics) {
 	graphics.flip();
 }
 
-void Game::update(float elapsedTime) {
+void Game::update(float elapsedTime, Graphics& graphics) {
 	
 	this->_player.update(elapsedTime, _canPlayerMove);
 	this->_stage.update(elapsedTime, _canPlayerSwitchStage);
 	for (auto& m : _moveables) {
-		//std::cout << &m << std::endl;
-		m.update(elapsedTime, this->_stage.getCollision());
+		m.update(elapsedTime, this->_stage, graphics);
 	}
 	//Check collisions
 	//std::vector<Rectangle> others = this->_level.checkTileCollisions(this->_player.getBoundingBox());

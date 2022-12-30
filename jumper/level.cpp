@@ -211,8 +211,16 @@ Stage::~Stage() {
 
 void Stage::update(int elapsedTime, bool& isMoving) {
 	this->_timeElapsed += elapsedTime;
+	
+	// update the special effects
+	for (auto& ptr : _fx) {
+		ptr->update(elapsedTime);
+	}	
+	
 	if (this->_timeElapsed > this->_timeToUpdate) {
 		this->_timeElapsed -= this->_timeToUpdate;
+		//std::cout << _fx.size() << std::endl;
+		
 		if (isMoving) {
 			return;
 		}
@@ -236,6 +244,11 @@ void Stage::update(int elapsedTime, bool& isMoving) {
 
 void Stage::draw(Graphics& graphics) {
 	this->_levels[this->_idx].draw(graphics);
+
+	for (auto& ptr : _fx) {
+		//std::cout << &(this->_fx[i]) << std::endl;
+		ptr->draw(graphics);
+	}
 }
 
 void Stage::nextLevel(bool& isMoving) {
@@ -247,6 +260,11 @@ void Stage::prevLevel(bool& isMoving) {
 	std::cout << isMoving << std::endl;
 	this->_next = (this->_idx - 1 + this->_levels.size()) % this->_levels.size();
 	isMoving = 0;
+}
+
+void Stage::addFx(AnimatedSprite* fx)
+{
+	this->_fx.push_back(fx);
 }
 
 const std::vector<Rectangle>& Stage::getCollision() {
