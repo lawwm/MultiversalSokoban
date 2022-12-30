@@ -1,7 +1,9 @@
 0a. Refactor to grid system
 
 1. Move boxes
-
+0000027DB00ACD70 32 0 1
+0000027DB00ACFB0 64 0 2
+0000027DB00ACE30 96 0 3
 // if hit a wall
 // player cannot move
 
@@ -14,6 +16,14 @@
 // if hit a doorway, win
 
 2. Change dimension
+
+// if has collision due to dimension travel
+// object is destroyed.
+
+// then make it invisible
+// ensure collision cannot occur when invisible
+
+//play the animation
 
 3. Redo feature
 
