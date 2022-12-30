@@ -1,4 +1,13 @@
-﻿  animatedsprite.cpp
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\animatedsprite.cpp(80,48): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\animatedsprite.cpp(81,48): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+﻿  player.cpp
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(12,82): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(12,68): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(16,8): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(17,8): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(51,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(51,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(167,40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(167,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(171,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(175,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(175,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   jumper.vcxproj -> H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\x64\Debug\jumper.exe
