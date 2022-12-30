@@ -63,6 +63,10 @@ private:
 	Direction _facing;
 
 	std::vector<std::tuple<Moveable*, int, int>> _pushing;
+
+	void move(bool& isMoving, const std::vector<Rectangle>& levelCollisions,
+		std::vector<Moveable>& crates, const float setdx, const float setdy,
+		int xdiff, int ydiff, std::string animation, Direction direction);
 };
 
 #endif
