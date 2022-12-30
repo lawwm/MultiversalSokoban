@@ -46,6 +46,11 @@ void AnimatedSprite::setVisible(bool visible) {
 	this->_visible = visible;
 }
 
+bool AnimatedSprite::getVisible()
+{
+	return this->_visible;
+}
+
 void AnimatedSprite::stopAnimation() {
 	this->_frameIndex = 0;
 	this->animationDone(this->_currentAnimation);

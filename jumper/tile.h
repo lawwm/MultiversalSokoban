@@ -10,7 +10,7 @@ class Tile {
 public:
 	Tile();
 	Tile(SDL_Texture* tileset, Vector2 size, Vector2 tilesetPosition, Vector2 position);
-	void update(int elapsedTime);
+	void update(int elapsedTime, const int& alpha);
 	void draw(Graphics& graphics);
 private:
 	SDL_Texture* _tileset;

@@ -28,18 +28,15 @@ public:
 	Level();
 	Level(std::string mapName, Vector2 spawnPoint, Graphics& graphics);
 	~Level();
-	void update(int elapsedTime);
+	void update(int elapsedTime, const int& alpha);
 	void draw(Graphics& graphics);
 
 	std::vector<Rectangle> checkTileCollisions(const Rectangle& other);
-
-	const Vector2 getPlayerSpawnPoint() const;
 
 	const std::vector<Rectangle>& getCollision();
 
 private:
 	std::string _mapName;
-	Vector2 _spawnPoint;
 	
 	Vector2 _size;
 	Vector2 _tileSize;
@@ -57,7 +54,32 @@ private:
 
 };
 
+class Stage {
+public:
+	Stage() {};
+	Stage(std::vector<std::string> maps, Vector2 spawnPoint, Graphics& graphics);
+	~Stage();
+	void update(int elapsedTime, bool& isMoving);
+	void draw(Graphics& graphics);
 
+	std::vector<Rectangle> checkTileCollisions(const Rectangle& other);
+
+	const Vector2 getPlayerSpawnPoint() const;
+
+	const std::vector<Rectangle>& getCollision();
+	
+	void nextLevel(bool& canPlayerMove);
+	void prevLevel(bool& canPlayerMove);
+
+private:
+	std::vector<Level> _levels;
+	Vector2 _spawnPoint;
+	int _idx=0;
+	int _next=0;
+	int _alpha=255;
+	double _timeElapsed=0;
+	double _timeToUpdate=0;
+};
 
 
 

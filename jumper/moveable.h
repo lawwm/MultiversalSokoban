@@ -11,7 +11,7 @@ public:
 	Moveable();
 	Moveable(Graphics& graphics, Vector2 spawnPoint);
 	void draw(Graphics& graphics);
-	void update(float elapsedTime);
+	void update(float elapsedTime, const std::vector<Rectangle>& levelCollisions);
 
 	virtual void animationDone(std::string currentAnimation);
 	virtual void setupAnimations();

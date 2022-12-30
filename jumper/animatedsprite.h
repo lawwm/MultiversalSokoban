@@ -35,7 +35,10 @@ public:
 	 */
 	void draw(Graphics& graphics, int x, int y);
 
-
+	/* void getVisible
+	 * Get visibility of the animated sprite
+	 */
+	bool getVisible();
 
 protected:
 	double _timeToUpdate;
@@ -61,6 +64,8 @@ protected:
 	 * Changes the visibility of the animated sprite
 	 */
 	void setVisible(bool visible);
+
+
 
 	/* void animationDone
 	 * Logic that happens when an animation ends

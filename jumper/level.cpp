@@ -17,7 +17,6 @@ Level::Level() {}
 
 Level::Level(std::string mapName, Vector2 spawnPoint, Graphics& graphics) :
 	_mapName(mapName),
-	_spawnPoint(spawnPoint),
 	_size(Vector2(0, 0))
 {
 	this->loadMap(mapName, graphics);
@@ -163,25 +162,6 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 					}
 				}
 			}
-			//Other objectgroups go here with an else if (ss.str() == "whatever")
-			else if (ss.str() == "spawn points") {
-				XMLElement* pObject = pObjectGroup->FirstChildElement("object");
-				if (pObject != NULL) {
-					while (pObject) {
-						float x = pObject->FloatAttribute("x");
-						float y = pObject->FloatAttribute("y");
-						const char* name = pObject->Attribute("name");
-						std::stringstream ss;
-						ss << name;
-						if (ss.str() == "player") {
-							this->_spawnPoint = Vector2(std::ceil(x) * globals::SPRITE_SCALE,
-								std::ceil(y) * globals::SPRITE_SCALE);
-						}
-
-						pObject = pObject->NextSiblingElement("object");
-					}
-				}
-			}
 
 			pObjectGroup = pObjectGroup->NextSiblingElement("objectgroup");
 		}
@@ -189,8 +169,10 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 
 }
 
-void Level::update(int elapsedTime) {
-
+void Level::update(int elapsedTime, const int& alpha) {
+	for (Tile& t : this->_tileList) {
+		t.update(elapsedTime, alpha);
+	}
 }
 
 void Level::draw(Graphics& graphics) {
@@ -213,7 +195,66 @@ std::vector<Rectangle> Level::checkTileCollisions(const Rectangle& other) {
 	return others;
 }
 
-const Vector2 Level::getPlayerSpawnPoint() const {
+const Vector2 Stage::getPlayerSpawnPoint() const {
 	return this->_spawnPoint;
 }
 
+Stage::Stage(std::vector<std::string> maps, Vector2 spawnPoint, Graphics& graphics) :
+	_spawnPoint(spawnPoint)
+{
+	for (auto& map : maps) {
+		this->_levels.push_back(Level(map, Vector2(160, 160), graphics));
+	}
+}
+
+Stage::~Stage() {
+
+}
+
+void Stage::update(int elapsedTime, bool& isMoving) {
+	this->_timeElapsed += elapsedTime;
+	if (this->_timeElapsed > this->_timeToUpdate) {
+		this->_timeElapsed -= this->_timeToUpdate;
+		if (isMoving) {
+			return;
+		}
+
+		if (this->_alpha > 0) { // fade out previous stage
+			this->_levels[this->_idx].update(elapsedTime, this->_alpha);
+		} else if (this->_alpha == 0) { // set current idx to next idx 
+			this->_idx = this->_next; 
+		} else { // fade in next stage
+			this->_levels[this->_idx].update(elapsedTime, -1 * this->_alpha);
+			if (this->_alpha == -255) {
+				this->_alpha = 255;
+				isMoving = true;
+			}
+		}
+		
+		this->_alpha -= 1;
+		
+	}
+}
+
+void Stage::draw(Graphics& graphics) {
+	this->_levels[this->_idx].draw(graphics);
+}
+
+void Stage::nextLevel(bool& isMoving) {
+	this->_next = (this->_idx + 1) % this->_levels.size();
+	isMoving = 0;
+}
+
+void Stage::prevLevel(bool& isMoving) {
+	std::cout << isMoving << std::endl;
+	this->_next = (this->_idx - 1 + this->_levels.size()) % this->_levels.size();
+	isMoving = 0;
+}
+
+const std::vector<Rectangle>& Stage::getCollision() {
+	return this->_levels[this->_idx].getCollision();
+};
+
+std::vector<Rectangle> Stage::checkTileCollisions(const Rectangle& other) {
+	return this->_levels[this->_idx].checkTileCollisions(other);
+}

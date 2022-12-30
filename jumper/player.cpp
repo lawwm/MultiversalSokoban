@@ -51,7 +51,7 @@ bool Player::canMoveToNewPosition(const std::vector<Rectangle>& levelCollisions,
 	Rectangle playerBoxNext(this->_destx, this->_desty, this->_sourceRect.w, this->_sourceRect.h);
 	
 	for (int i = 0; i < crates.size(); ++i) {
-		if (crates[i].getBoundingBox().collidesWith(playerBoxNext)) {
+		if (crates[i].getVisible() && crates[i].getBoundingBox().collidesWith(playerBoxNext)) {
 			if (!crates[i].canMoveToNewPosition(levelCollisions, crates,
 				this->_pushing, diff, 1)) {
 				return false;

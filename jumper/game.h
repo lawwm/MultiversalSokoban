@@ -18,9 +18,10 @@ private:
 	void update(float elapsedTime);
 
 	Player _player;
-	Level _level;
+	Stage _stage;
 	std::vector<Moveable> _moveables;
 	bool _canPlayerMove = true;
+	bool _canPlayerSwitchStage = true;
 };
 
 #endif
