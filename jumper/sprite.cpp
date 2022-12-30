@@ -29,8 +29,8 @@ void Sprite::draw(Graphics& graphics, int x, int y) {
 }
 
 void Sprite::update() {
-	this->_boundingBox = Rectangle(this->_x+1, this->_y+1,
-		this->_sourceRect.w * globals::SPRITE_SCALE -2 , this->_sourceRect.h * globals::SPRITE_SCALE - 2);
+	this->_boundingBox = Rectangle(this->_x, this->_y,
+		this->_sourceRect.w * globals::SPRITE_SCALE, this->_sourceRect.h * globals::SPRITE_SCALE);
 }
 
 const Rectangle Sprite::getBoundingBox() const {

@@ -153,10 +153,10 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 						// make the rectangle one unit smaller from each side so that player 
 						// character can move within tight spaces
 						this->_collisionRects.push_back(Rectangle(
-							std::ceil(x) * globals::SPRITE_SCALE + 1,
-							std::ceil(y) * globals::SPRITE_SCALE + 1,
-							std::ceil(width) * globals::SPRITE_SCALE - 2,
-							std::ceil(height) * globals::SPRITE_SCALE - 2
+							std::ceil(x) * globals::SPRITE_SCALE,
+							std::ceil(y) * globals::SPRITE_SCALE,
+							std::ceil(width) * globals::SPRITE_SCALE,
+							std::ceil(height) * globals::SPRITE_SCALE
 						));
 
 						pObject = pObject->NextSiblingElement("object");

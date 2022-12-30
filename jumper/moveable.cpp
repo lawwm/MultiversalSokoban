@@ -56,8 +56,8 @@ bool Moveable::canMoveToNewPosition(const std::vector<Rectangle>& levelCollision
 	std::pair<int, int> diff, int depth) {
 	
 	auto [x, y] = diff;
-	Rectangle moveableBoxNext(this->_x + x*depth + 1, this->_y + y*depth + 1, 
-		this->_sourceRect.w-2, this->_sourceRect.h-2);
+	Rectangle moveableBoxNext(this->_x + x*depth, this->_y + y*depth, 
+		this->_sourceRect.w, this->_sourceRect.h);
 	_pushing.push_back({ this, x*depth, y*depth });
 
 	for (int i = 0; i < crates.size(); ++i) {
