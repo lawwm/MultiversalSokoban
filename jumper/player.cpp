@@ -189,10 +189,12 @@ void Player::update(float elapsedTime, bool& isNotMoving) {
 		this->_y = std::min(this->_y + this->_dy * elapsedTime, _desty);
 		break;
 	}
-
-	for (auto& pushed : this->_pushing) {
-		auto [mptr, xdist, ydist] = pushed;
+	//std::cout << "player: " << this->_x << " " << this->_y << std::endl;
+	for (int i = 0; i < this->_pushing.size(); ++i) {
+		auto [mptr, xdist, ydist] = _pushing[i];
+		
 		mptr->set(this->_x + xdist, this->_y + ydist);
+		//std::cout << "val: " << i << " " << mptr << " " << mptr->getX() << " " << mptr->getY() << std::endl;
 	}
 
 	AnimatedSprite::update(elapsedTime);

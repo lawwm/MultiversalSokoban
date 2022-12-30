@@ -32,9 +32,10 @@ void Game::gameLoop() {
 	this->_level = Level(globals::iceLevel, Vector2(160, 160), graphics);
 	this->_player = Player(graphics, this->_level.getPlayerSpawnPoint());
 	this->_moveables.push_back(Moveable(graphics, Vector2(128, 128)));
-	this->_moveables.push_back(Moveable(graphics, Vector2(288, 96)));
-	this->_moveables.push_back(Moveable(graphics, Vector2(192, 128)));
 	this->_moveables.push_back(Moveable(graphics, Vector2(160, 128)));
+	this->_moveables.push_back(Moveable(graphics, Vector2(224, 128)));
+	this->_moveables.push_back(Moveable(graphics, Vector2(192, 128)));
+	
 	int LAST_UPDATE_TIME = SDL_GetTicks64();
 	//Start the game loopj
 	while (true) {
@@ -101,6 +102,7 @@ void Game::update(float elapsedTime) {
 	this->_player.update(elapsedTime, _canPlayerMove);
 	this->_level.update(elapsedTime);
 	for (auto& m : _moveables) {
+		//std::cout << &m << std::endl;
 		m.update(elapsedTime);
 	}
 	//Check collisions
