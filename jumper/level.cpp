@@ -185,14 +185,12 @@ const std::vector<Rectangle>& Level::getCollision() {
 	return this->_collisionRects;
 };
 
-std::vector<Rectangle> Level::checkTileCollisions(const Rectangle& other) {
-	std::vector<Rectangle> others;
-	for (int i = 0; i < this->_collisionRects.size(); i++) {
-		if (this->_collisionRects.at(i).collidesWith(other)) {
-			others.push_back(this->_collisionRects.at(i));
-		}
+bool Level::checkTileCollisions(const Rectangle& other) const {
+	for (int i = 0; i < _collisionRects.size(); i++) {
+		if (_collisionRects.at(i).collidesWith(other)) return false;
 	}
-	return others;
+
+	return true;
 }
 
 const Vector2 Stage::getPlayerSpawnPoint() const {
@@ -255,6 +253,6 @@ const std::vector<Rectangle>& Stage::getCollision() {
 	return this->_levels[this->_idx].getCollision();
 };
 
-std::vector<Rectangle> Stage::checkTileCollisions(const Rectangle& other) {
+bool Stage::checkTileCollisions(const Rectangle& other) const {
 	return this->_levels[this->_idx].checkTileCollisions(other);
 }

@@ -57,30 +57,21 @@ void Moveable::draw(Graphics& graphics) {
 	AnimatedSprite::draw(graphics, this->_x, this->_y);
 }
 
-bool Moveable::canMoveToNewPosition(const std::vector<Rectangle>& levelCollisions,
+bool Moveable::canMoveToNewPosition(const Stage& stage,
 	std::vector<Moveable>& crates, std::vector<std::tuple<Moveable*, int, int>>& _pushing,
 	std::pair<int, int> diff, int depth) {
 	
 	auto [x, y] = diff;
-	Rectangle moveableBoxNext(this->_x + x, this->_y + y, 
-		this->_sourceRect.w, this->_sourceRect.h);
-	//std::cout << this->_x + x * depth << " " << this->_y + y * depth << " " << this->_sourceRect.w << " " << this->_sourceRect.h << std::endl;
-	//std::cout << this << " " << x * depth << " " << y * depth << " " << depth << std::endl;
-	_pushing.push_back({ this, x*depth, y*depth });
+	Rectangle moveableBoxNext(this->_x + x, this->_y + y, this->_sourceRect.w, this->_sourceRect.h);
+	_pushing.push_back({ this, x * depth, y * depth });
 
 	for (int i = 0; i < crates.size(); ++i) {
 		if (&crates[i] != this && crates[i].getVisible() && crates[i].getBoundingBox().collidesWith(moveableBoxNext)) {
-			//std::cout << &crates[i] << " ";
-			//crates[i].getBoundingBox().print();
-			return crates[i].canMoveToNewPosition(levelCollisions, crates, _pushing, diff, depth+1);
+			return crates[i].canMoveToNewPosition(stage, crates, _pushing, diff, depth+1);
 		}
 	}
 
-	for (int i = 0; i < levelCollisions.size(); i++) {
-		if (levelCollisions.at(i).collidesWith(moveableBoxNext)) {
-			return false;
-		}
-	}
+	if (!stage.checkTileCollisions(moveableBoxNext)) return false;
 	
 	return true;
 }

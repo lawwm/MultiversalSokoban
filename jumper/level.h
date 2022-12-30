@@ -31,7 +31,7 @@ public:
 	void update(int elapsedTime, const int& alpha);
 	void draw(Graphics& graphics);
 
-	std::vector<Rectangle> checkTileCollisions(const Rectangle& other);
+	bool checkTileCollisions(const Rectangle& other) const;
 
 	const std::vector<Rectangle>& getCollision();
 
@@ -62,7 +62,7 @@ public:
 	void update(int elapsedTime, bool& isMoving);
 	void draw(Graphics& graphics);
 
-	std::vector<Rectangle> checkTileCollisions(const Rectangle& other);
+	bool checkTileCollisions(const Rectangle& other) const;
 
 	const Vector2 getPlayerSpawnPoint() const;
 

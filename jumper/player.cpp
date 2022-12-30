@@ -46,52 +46,46 @@ const float Player::getY() const {
 	return this->_y;
 }
 
-bool Player::canMoveToNewPosition(const std::vector<Rectangle>& levelCollisions, std::vector<Moveable>& crates,
+bool Player::canMoveToNewPosition(const Stage& stage, std::vector<Moveable>& crates,
 	const std::pair<int, int>& diff) {
-	Rectangle playerBoxNext(this->_destx, this->_desty, this->_sourceRect.w, this->_sourceRect.h);
+	const Rectangle playerBoxNext(this->_destx, this->_desty, this->_sourceRect.w, this->_sourceRect.h);
 	
 	for (int i = 0; i < crates.size(); ++i) {
 		if (crates[i].getVisible() && crates[i].getBoundingBox().collidesWith(playerBoxNext)) {
-			if (!crates[i].canMoveToNewPosition(levelCollisions, crates,
-				this->_pushing, diff, 1)) {
-				return false;
-			}
+			return crates[i].canMoveToNewPosition(stage, crates, this->_pushing, diff, 1);
 		}
 	}
 
-	for (int i = 0; i < levelCollisions.size(); i++) {
-		if (levelCollisions.at(i).collidesWith(playerBoxNext)) {
-			return false;
-		}
-	}
+	if (!stage.checkTileCollisions(playerBoxNext)) return false;
+
 	return true;
 }
 
-void Player::moveLeft(bool& isMoving, const std::vector<Rectangle>& levelCollisions,
+void Player::moveLeft(bool& isMoving, const Stage& stage,
 	 std::vector<Moveable>& crates) {
-	move(isMoving, levelCollisions, crates, -player_constants::WALK_SPEED, 0.0f,
+	move(isMoving, stage, crates, -player_constants::WALK_SPEED, 0.0f,
 		-32, 0, "RunLeft", LEFT);
 }
 
-void Player::moveRight(bool& isMoving, const std::vector<Rectangle>& levelCollisions,
+void Player::moveRight(bool& isMoving, const Stage& stage,
 	 std::vector<Moveable>& crates) {
-	move(isMoving, levelCollisions, crates, player_constants::WALK_SPEED, 0.0f,
+	move(isMoving, stage, crates, player_constants::WALK_SPEED, 0.0f,
 		32, 0, "RunRight", RIGHT);
 }
 
-void Player::moveUp(bool& isMoving, const std::vector<Rectangle>& levelCollisions,
+void Player::moveUp(bool& isMoving, const Stage& stage,
 	 std::vector<Moveable>& crates) {
-	move(isMoving, levelCollisions, crates, 0.0f, -player_constants::WALK_SPEED,
+	move(isMoving, stage, crates, 0.0f, -player_constants::WALK_SPEED,
 		0, -32, "RunUp", UP);
 }
 
-void Player::moveDown(bool& isMoving, const std::vector<Rectangle>& levelCollisions,
+void Player::moveDown(bool& isMoving, const Stage& stage,
 	 std::vector<Moveable>& crates) {
-	move(isMoving, levelCollisions, crates, 0.0f, player_constants::WALK_SPEED,
+	move(isMoving, stage, crates, 0.0f, player_constants::WALK_SPEED,
 		0, 32, "RunDown", DOWN);
 }
 
-void Player::move(bool& isMoving, const std::vector<Rectangle>& levelCollisions,
+void Player::move(bool& isMoving, const Stage& stage,
 	std::vector<Moveable>& crates, const float setdx, const float setdy,
 	int xdiff, int ydiff, std::string animation, Direction direction) {
 
@@ -108,7 +102,7 @@ void Player::move(bool& isMoving, const std::vector<Rectangle>& levelCollisions,
 	this->_facing = direction;
 
 	// check if able to move to new position
-	if (!canMoveToNewPosition(levelCollisions, crates, { xdiff, ydiff })) {
+	if (!canMoveToNewPosition(stage, crates, { xdiff, ydiff })) {
 		this->_destx = this->_x;
 		this->_desty = this->_y;
 		return;

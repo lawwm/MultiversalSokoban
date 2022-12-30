@@ -2,6 +2,7 @@
 #define MOVEABLE_H
 
 #include "animatedsprite.h"
+#include "level.h"
 #include "globals.h"
 
 class Graphics;
@@ -19,7 +20,7 @@ public:
 	/* bool canMoveToNewPosition
 	*  check if it is possible to move to that position
 	*/
-	bool canMoveToNewPosition(const std::vector<Rectangle>& levelCollisions,
+	bool canMoveToNewPosition(const Stage& stage,
 		std::vector<Moveable>& crates, std::vector<std::tuple<Moveable*, int, int>>& _pushing,
 		std::pair<int, int> diff, int depth);
 

@@ -60,16 +60,16 @@ void Game::gameLoop() {
 		
 		if (_canPlayerMove && _canPlayerSwitchStage) {
 			if (input.isKeyHeld(SDL_SCANCODE_LEFT) == true) {
-				this->_player.moveLeft(this->_canPlayerMove, this->_stage.getCollision(), this->_moveables);
+				this->_player.moveLeft(this->_canPlayerMove, this->_stage, this->_moveables);
 			}
 			else if (input.isKeyHeld(SDL_SCANCODE_RIGHT) == true) {
-				this->_player.moveRight(this->_canPlayerMove, this->_stage.getCollision(), this->_moveables);
+				this->_player.moveRight(this->_canPlayerMove, this->_stage, this->_moveables);
 			}
 			else if (input.isKeyHeld(SDL_SCANCODE_UP) == true) {
-				this->_player.moveUp(this->_canPlayerMove, this->_stage.getCollision(), this->_moveables);
+				this->_player.moveUp(this->_canPlayerMove, this->_stage, this->_moveables);
 			}
 			else if (input.isKeyHeld(SDL_SCANCODE_DOWN) == true) {
-				this->_player.moveDown(this->_canPlayerMove, this->_stage.getCollision(), this->_moveables);
+				this->_player.moveDown(this->_canPlayerMove, this->_stage, this->_moveables);
 			}
 			else if (input.isKeyHeld(SDL_SCANCODE_A) == true) {
 				this->_stage.prevLevel(this->_canPlayerSwitchStage);
