@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <stack>
 
 #include "globals.h"
 #include "tile.h"
@@ -72,11 +73,15 @@ public:
 
 	const std::vector<Rectangle>& getCollision();
 	
-	void nextLevel(bool& canPlayerMove);
-	void prevLevel(bool& canPlayerMove);
+	void nextLevel(bool& isMoving, Ticket& ticket, bool isUndoable=true);
+	void prevLevel(bool& isMoving, Ticket& ticket, bool isUndoable=true);
 
 	void addFx(AnimatedSprite* fx);
 
+	void undo(int ticketNum, bool& isMoving, Ticket& ticket);
+
+	void storeCurrState(int ticket, bool shouldMoveLeft);
+	
 private:
 	std::vector<Level> _levels;
 	std::vector<AnimatedSprite*> _fx;
@@ -86,6 +91,7 @@ private:
 	int _alpha=255;
 	double _timeElapsed=0;
 	double _timeToUpdate=0;
+	std::stack<std::tuple<int, std::string>> _prevstates; //  ticket, function
 };
 
 

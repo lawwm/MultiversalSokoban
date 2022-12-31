@@ -5,6 +5,7 @@
 #include "globals.h"
 #include "moveable.h"
 #include "level.h"
+#include "rectangle.h"
 
 class Graphics;
 
@@ -18,26 +19,22 @@ public:
 	/* void moveLeft
 	 * Moves the player left by -dx
 	 */
-	void moveLeft(bool& isMoving, const Stage& stage,
-		 std::vector<Moveable>& crates);
+	void moveLeft(bool& isMoving, const Stage& stage, std::vector<Moveable>& crates, Ticket& ticket);
 
 	/* void moveRight
 	 * Moves the player right by dx
 	 */
-	void moveRight(bool& isMoving, const Stage& stage,
-		 std::vector<Moveable>& crates);
+	void moveRight(bool& isMoving, const Stage& stage, std::vector<Moveable>& crates, Ticket& ticket);
 
 	/* void moveUp
 	 * Moves the player up by -dy
 	 */
-	void moveUp(bool& isMoving, const Stage& stage,
-		 std::vector<Moveable>& crates);
+	void moveUp(bool& isMoving, const Stage& stage, std::vector<Moveable>& crates, Ticket& ticket);
 
 	/* void moveDown
 	 * Moves the player down by dy
 	 */
-	void moveDown(bool& isMoving, const Stage& stage,
-		 std::vector<Moveable>& crates);
+	void moveDown(bool& isMoving, const Stage& stage, std::vector<Moveable>& crates, Ticket& ticket);
 
 	/* void stopMoving
 	 * Stops moving the player
@@ -56,6 +53,9 @@ public:
 	const float getX() const;
 	const float getY() const;
 
+	void undo(int ticket);
+	void storeCurrState(int ticket);
+	
 private:
 	float _dx, _dy; // rate of change of travel
 
@@ -67,7 +67,9 @@ private:
 
 	void move(bool& isMoving, const Stage& stage,
 		std::vector<Moveable>& crates, const float setdx, const float setdy,
-		int xdiff, int ydiff, std::string animation, Direction direction);
+		int xdiff, int ydiff, std::string animation, Direction direction, Ticket& ticket);
+
+	std::stack<std::tuple<int, int, int, int, Direction>> _prevstates; // ticketnumber, x, y, visible, direction,
 };
 
 #endif

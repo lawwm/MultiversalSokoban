@@ -30,6 +30,23 @@ const float Moveable::getY() const {
 	return this->_y;
 }
 
+void Moveable::undo(int ticket)
+{
+	if (_prevstates.empty() || std::get<0>(_prevstates.top()) != ticket) return;
+	
+	auto [ticketNumber, x, y, isVisible] = this->_prevstates.top();
+	this->_prevstates.pop();
+	this->_x = x;
+	this->_y = y;
+	this->setVisible(isVisible);
+	this->playAnimation("Idle");
+}
+
+void Moveable::storeCurrState(int ticket)
+{
+	this->_prevstates.emplace(ticket, this->_x, this->_y, this->getVisible());
+}
+
 void Moveable::set(int x, int y) {
 	this->_x = x;
 	this->_y = y;

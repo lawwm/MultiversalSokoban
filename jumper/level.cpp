@@ -259,13 +259,25 @@ void Stage::draw(Graphics& graphics) {
 	}
 }
 
-void Stage::nextLevel(bool& isMoving) {
+void Stage::nextLevel(bool& isMoving, Ticket& ticket, bool isUndoable) {
+	if (isUndoable) {
+		int generatedTicket = ticket.insertTicket();
+		this->storeCurrState(generatedTicket, true);		
+	}
+
 	this->_next = (this->_idx + 1) % this->_levels.size();
+
 	isMoving = false;
 }
 
-void Stage::prevLevel(bool& isMoving) {
+void Stage::prevLevel(bool& isMoving, Ticket& ticket, bool isUndoable) {
+	if (isUndoable) {
+		int generatedTicket = ticket.insertTicket();
+		this->storeCurrState(generatedTicket, false);		
+	}
+
 	this->_next = (this->_idx - 1 + this->_levels.size()) % this->_levels.size();
+
 	isMoving = false;
 }
 
@@ -281,3 +293,23 @@ const std::vector<Rectangle>& Stage::getCollision() {
 bool Stage::checkTileCollisions(const Rectangle& other) const {
 	return this->_levels[this->_idx].checkTileCollisions(other);
 }
+
+void Stage::undo(int ticketNum, bool& isMoving, Ticket& ticket)
+{
+	//std::cout << ticket << " ticket " << std::get<0>(_prevstates.top()) << std::endl;
+	if (_prevstates.empty() || std::get<0>(_prevstates.top()) != ticketNum) return;
+	
+	auto [ticketNumber, x] = this->_prevstates.top();
+	this->_prevstates.pop();
+	if (x == "prev") {
+		this->prevLevel(isMoving, ticket, false);
+	} else {
+		this->nextLevel(isMoving, ticket, false);
+	}
+}
+
+void Stage::storeCurrState(int ticket, bool isPrev)
+{
+	this->_prevstates.emplace(ticket, isPrev ? "prev" : "next");
+}
+

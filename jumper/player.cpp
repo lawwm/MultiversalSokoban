@@ -62,32 +62,32 @@ bool Player::canMoveToNewPosition(const Stage& stage, std::vector<Moveable>& cra
 }
 
 void Player::moveLeft(bool& isMoving, const Stage& stage,
-	 std::vector<Moveable>& crates) {
+	 std::vector<Moveable>& crates, Ticket& ticket) {
 	move(isMoving, stage, crates, -player_constants::WALK_SPEED, 0.0f,
-		-32, 0, "RunLeft", LEFT);
+		-32, 0, "RunLeft", LEFT, ticket);
 }
 
 void Player::moveRight(bool& isMoving, const Stage& stage,
-	 std::vector<Moveable>& crates) {
+	 std::vector<Moveable>& crates, Ticket& ticket) {
 	move(isMoving, stage, crates, player_constants::WALK_SPEED, 0.0f,
-		32, 0, "RunRight", RIGHT);
+		32, 0, "RunRight", RIGHT, ticket);
 }
 
 void Player::moveUp(bool& isMoving, const Stage& stage,
-	 std::vector<Moveable>& crates) {
+	 std::vector<Moveable>& crates, Ticket& ticket) {
 	move(isMoving, stage, crates, 0.0f, -player_constants::WALK_SPEED,
-		0, -32, "RunUp", UP);
+		0, -32, "RunUp", UP, ticket);
 }
 
 void Player::moveDown(bool& isMoving, const Stage& stage,
-	 std::vector<Moveable>& crates) {
+	 std::vector<Moveable>& crates, Ticket& ticket) {
 	move(isMoving, stage, crates, 0.0f, player_constants::WALK_SPEED,
-		0, 32, "RunDown", DOWN);
+		0, 32, "RunDown", DOWN, ticket);
 }
 
 void Player::move(bool& isMoving, const Stage& stage,
 	std::vector<Moveable>& crates, const float setdx, const float setdy,
-	int xdiff, int ydiff, std::string animation, Direction direction) {
+	int xdiff, int ydiff, std::string animation, Direction direction, Ticket& ticket) {
 
 	// set the speed of travel
 	this->_dx = setdx;
@@ -107,9 +107,20 @@ void Player::move(bool& isMoving, const Stage& stage,
 		this->_desty = this->_y;
 		return;
 	}
+	
+	// store previous state within stack
+	int generatedTicket = ticket.insertTicket();
+	this->storeCurrState(generatedTicket);
+	for (auto& crate : _pushing) {
+		std::get<0>(crate)->storeCurrState(generatedTicket);
+	}
+
 	isMoving = false;
 }
 
+void Player::storeCurrState(int ticket) {
+	_prevstates.emplace(ticket, this->_x, this->_y, this->getVisible(), this->_facing);
+}
 
 void Player::stopMoving() {
 	this->_dx = 0.0f;
@@ -174,4 +185,17 @@ void Player::update(float elapsedTime, bool& isNotMoving, Stage& stage, Graphics
 
 void Player::draw(Graphics& graphics) {
 	AnimatedSprite::draw(graphics, this->_x, this->_y);
+}
+
+void Player::undo(int ticket)
+{
+	if (_prevstates.empty() || std::get<0>(_prevstates.top()) != ticket) return;
+	
+	auto [ticketNumber, x, y, isVisible, dir] = this->_prevstates.top();
+	this->_prevstates.pop();
+	this->_x = x;
+	this->_y = y;
+	this->setVisible(isVisible);
+	this->_facing = dir;
+	this->stopMoving();
 }

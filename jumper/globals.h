@@ -16,6 +16,7 @@ namespace globals {
 
 	const std::string iceLevel = "Ice1";
 	const std::string roomLevel = "Room1";
+	const std::string pierLevel = "Pier1";
 }
 
 namespace sides {

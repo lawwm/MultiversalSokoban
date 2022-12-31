@@ -5,6 +5,8 @@
 #include "level.h"
 #include "globals.h"
 
+#include <stack>
+
 class Graphics;
 
 class Moveable : public AnimatedSprite {
@@ -29,8 +31,13 @@ public:
 	const float getX() const;
 	const float getY() const;
 
+	void undo(int ticket);
+
+	void storeCurrState(int ticket);
+
 private:
 	Direction _facing;
+	std::stack<std::tuple<int, int, int, int>> _prevstates; // ticket number, x, y, visible,
 };
 
 #endif

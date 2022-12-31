@@ -29,7 +29,7 @@ void Game::gameLoop() {
 	Input input;
 	SDL_Event event;
 
-	this->_stage = Stage({ globals::iceLevel , globals::roomLevel}, Vector2(160, 160), graphics);
+	this->_stage = Stage({ globals::iceLevel , globals::roomLevel, globals::pierLevel }, Vector2(160, 160), graphics);
 	this->_player = Player(graphics, this->_stage.getPlayerSpawnPoint());
 	this->_moveables.push_back(Moveable(graphics, Vector2(128, 128)));
 	this->_moveables.push_back(Moveable(graphics, Vector2(160, 128)));
@@ -58,24 +58,30 @@ void Game::gameLoop() {
 			return;
 		}
 		
+
+		
 		if (_canPlayerMove && _canPlayerSwitchStage && _player.getVisible()) {
-			if (input.isKeyHeld(SDL_SCANCODE_LEFT) == true) {
-				this->_player.moveLeft(this->_canPlayerMove, this->_stage, this->_moveables);
+			if (input.isKeyHeld(SDL_SCANCODE_Z) && input.wasKeyPressed(SDL_SCANCODE_Z)) {
+				std::cout << "soy" << std::endl;
+				this->undo();
+			}
+			else if (input.isKeyHeld(SDL_SCANCODE_LEFT) == true) {
+				this->_player.moveLeft(this->_canPlayerMove, this->_stage, this->_moveables, this->_ticket);
 			}
 			else if (input.isKeyHeld(SDL_SCANCODE_RIGHT) == true) {
-				this->_player.moveRight(this->_canPlayerMove, this->_stage, this->_moveables);
+				this->_player.moveRight(this->_canPlayerMove, this->_stage, this->_moveables, this->_ticket);
 			}
 			else if (input.isKeyHeld(SDL_SCANCODE_UP) == true) {
-				this->_player.moveUp(this->_canPlayerMove, this->_stage, this->_moveables);
+				this->_player.moveUp(this->_canPlayerMove, this->_stage, this->_moveables, this->_ticket);
 			}
 			else if (input.isKeyHeld(SDL_SCANCODE_DOWN) == true) {
-				this->_player.moveDown(this->_canPlayerMove, this->_stage, this->_moveables);
+				this->_player.moveDown(this->_canPlayerMove, this->_stage, this->_moveables, this->_ticket);
 			}
-			else if (input.isKeyHeld(SDL_SCANCODE_A) == true) {
-				this->_stage.prevLevel(this->_canPlayerSwitchStage);
+			else if (input.isKeyHeld(SDL_SCANCODE_A) && input.wasKeyPressed(SDL_SCANCODE_A)) {
+				this->_stage.prevLevel(this->_canPlayerSwitchStage, this->_ticket);
 			}
-			else if (input.isKeyHeld(SDL_SCANCODE_D) == true) {
-				this->_stage.nextLevel(this->_canPlayerSwitchStage);
+			else if (input.isKeyHeld(SDL_SCANCODE_D) && input.wasKeyPressed(SDL_SCANCODE_D)) {
+				this->_stage.nextLevel(this->_canPlayerSwitchStage, this->_ticket);
 			}
 			
 			if (!input.isKeyHeld(SDL_SCANCODE_LEFT) && !input.isKeyHeld(SDL_SCANCODE_RIGHT)
@@ -111,11 +117,15 @@ void Game::update(float elapsedTime, Graphics& graphics) {
 	for (auto& m : _moveables) {
 		m.update(elapsedTime, this->_stage, graphics);
 	}
-	//Check collisions
-	//std::vector<Rectangle> others = this->_level.checkTileCollisions(this->_player.getBoundingBox());
-	//
-	//if (others.size() > 0) {
-	//	//Player collided with at least one tile. Handle it.
-	//	this->_player.handleTileCollisions(others);
-	//}
+}
+
+void Game::undo() {
+	int retrievedTicket = this->_ticket.pollTicket();
+	if (!retrievedTicket) return;
+	
+	this->_player.undo(retrievedTicket);
+	this->_stage.undo(retrievedTicket, this->_canPlayerSwitchStage, this->_ticket);
+	for (auto& m : _moveables) {
+		m.undo(retrievedTicket);
+	}
 }
