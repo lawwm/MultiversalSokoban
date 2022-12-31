@@ -76,11 +76,13 @@ public:
 	const std::vector<Rectangle>& getCollision();
 	
 	void nextLevel(bool& isMoving, Ticket& ticket, Player& p, std::vector<Moveable>& moveables, bool isUndoable=true);
+	
 	void prevLevel(bool& isMoving, Ticket& ticket, Player& p, std::vector<Moveable>& moveables, bool isUndoable=true);
-
+	
+	
 	void addFx(AnimatedSprite* fx);
 
-	void undo(int ticketNum, bool& isMoving, Ticket& ticket, Player& p, std::vector<Moveable>& moveables);
+	void undo(int ticketNum, bool& isMoving);
 
 	void storeCurrState(int ticket, bool shouldMoveLeft);
 	
@@ -94,6 +96,9 @@ private:
 	double _timeElapsed=0;
 	double _timeToUpdate=0;
 	std::stack<std::tuple<int, std::string>> _prevstates; //  ticket, function
+
+	void prevLevel(bool& isMoving);
+	void nextLevel(bool& isMoving);
 };
 
 

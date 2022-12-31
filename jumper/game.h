@@ -2,8 +2,7 @@
 #define GAME_H
 
 #include "player.h"
-#include "level.h"
-#include "moveable.h"
+#include "zone.h"
 #include <vector>
 
 class Graphics;
@@ -20,8 +19,7 @@ private:
 
 	
 	Player _player;
-	Stage _stage;
-	std::vector<Moveable> _moveables;
+	Zone _zone;
 	Ticket _ticket = Ticket();
 	bool _canPlayerMove = true;
 	bool _canPlayerSwitchStage = true;

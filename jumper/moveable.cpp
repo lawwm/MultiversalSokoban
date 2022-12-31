@@ -7,7 +7,7 @@
 Moveable::Moveable() {};
 
 Moveable::Moveable(Graphics& graphics, Vector2 spawnPoint) :
-	AnimatedSprite(graphics, globals::coin, 0, 0, 16, 16, spawnPoint.x, spawnPoint.y, 100),
+	AnimatedSprite(graphics, globals::coin, 0, 0, 12, 12, spawnPoint.x, spawnPoint.y, 100),
 	_facing(RIGHT)
 {
 	this->setupAnimations();
@@ -16,8 +16,8 @@ Moveable::Moveable(Graphics& graphics, Vector2 spawnPoint) :
 
 
 void Moveable::setupAnimations() {
-	this->addAnimation(4, 0, 0, "Idle", 10, 10, Vector2(0, 0));
-	this->addAnimation(1, 0, 0, "Moving", 10, 10, Vector2(0, 0));
+	this->addAnimation(4, 0, 0, "Idle", 10, 10, Vector2(2, 2));
+	this->addAnimation(1, 0, 0, "Moving", 10, 10, Vector2(2, 2));
 }
 
 void Moveable::animationDone(std::string currentAnimation) {}

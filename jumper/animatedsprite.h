@@ -103,4 +103,17 @@ public:
 	void animationDone(std::string currentAnimation) override;
 	void setupAnimations() override;
 };
+
+
+class EndPointSprite : public AnimatedSprite
+{
+public:
+	EndPointSprite();
+	EndPointSprite(Graphics& graphics, Vector2 spawnPoint);
+	void draw(Graphics& graphics);
+	void update(float elapsedTime);
+
+	void animationDone(std::string currentAnimation) override;
+	void setupAnimations() override;
+};
 #endif

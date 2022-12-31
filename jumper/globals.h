@@ -2,22 +2,8 @@
 #define GLOBALS_H
 
 #include <string>
-
-namespace globals {
-	const int SCREEN_WIDTH = 600;
-	const int SCREEN_HEIGHT = 480;
-
-	const float SPRITE_SCALE = 2.0f;
-	const float SPRITE_WIDTH = 16.0f;
-	
-	const std::string eskimo = "sprites/ninja_2.png";
-	const std::string coin = "sprites/coin-2.png";
-	const std::string explode = "sprites/explode.png";
-
-	const std::string iceLevel = "Ice1";
-	const std::string roomLevel = "Room1";
-	const std::string pierLevel = "Pier1";
-}
+#include <tuple>
+#include <vector>
 
 namespace sides {
 	enum Side {
@@ -58,5 +44,29 @@ struct Vector2 {
 	}
 };
 
+typedef std::tuple<std::vector<std::string>, Vector2, Vector2, std::vector<Vector2>> zonedata; // paths to map, spawn coordinates, end points, coordinates of moveables, 
+
+namespace globals {
+	const int SCREEN_WIDTH = 600;
+	const int SCREEN_HEIGHT = 480;
+
+	const float SPRITE_SCALE = 2.0f;
+	const float SPRITE_WIDTH = 16.0f;
+	
+	const std::string eskimo = "sprites/1.png";
+	const std::string coin = "sprites/coin-2.png";
+	const std::string explode = "sprites/explode.png";
+	const std::string endpoint = "sprites/2.png";
+
+	const std::string iceLevel = "Ice1";
+	const std::string roomLevel = "Room1";
+	const std::string pierLevel = "Pier1";
+	const std::string bushLevel = "Bush1";
+
+	const std::vector<zonedata> data = {
+		{{iceLevel, roomLevel, }, Vector2(160, 160), Vector2(160, 192), {{128,128}, {160,128}, {224,128}, {192,128}} },
+		{{pierLevel, bushLevel}, Vector2(160, 160), Vector2(224, 224), {{224,128}, {192,128}} }
+	};
+}
 
 #endif

@@ -270,8 +270,16 @@ void Stage::nextLevel(bool& isMoving, Ticket& ticket, Player& p, std::vector<Mov
 		}
 	}
 
+	this->nextLevel(isMoving);
+}
+
+void Stage::nextLevel(bool& isMoving)
+{
 	this->_next = (this->_idx + 1) % this->_levels.size();
 
+	// prevent switching stages when there is only one stage
+	if (this->_next == this->_idx) return;
+	
 	isMoving = false;
 }
 
@@ -285,8 +293,16 @@ void Stage::prevLevel(bool& isMoving, Ticket& ticket, Player& p, std::vector<Mov
 		}
 	}
 
-	this->_next = (this->_idx - 1 + this->_levels.size()) % this->_levels.size();
+	this->prevLevel(isMoving);
+}
 
+void Stage::prevLevel(bool& isMoving)
+{
+	this->_next = (this->_idx - 1 + this->_levels.size()) % this->_levels.size();
+	
+	// prevent switching stages when there is only one stage
+	if (this->_next == this->_idx) return;
+	
 	isMoving = false;
 }
 
@@ -303,7 +319,7 @@ bool Stage::checkTileCollisions(const Rectangle& other) const {
 	return this->_levels[this->_idx].checkTileCollisions(other);
 }
 
-void Stage::undo(int ticketNum, bool& isMoving, Ticket& ticket, Player& p, std::vector<Moveable>& moveables)
+void Stage::undo(int ticketNum, bool& isMoving)
 {
 	//std::cout << ticket << " ticket " << std::get<0>(_prevstates.top()) << std::endl;
 	if (_prevstates.empty() || std::get<0>(_prevstates.top()) != ticketNum) return;
@@ -311,9 +327,9 @@ void Stage::undo(int ticketNum, bool& isMoving, Ticket& ticket, Player& p, std::
 	auto [ticketNumber, x] = this->_prevstates.top();
 	this->_prevstates.pop();
 	if (x == "prev") {
-		this->prevLevel(isMoving, ticket, p, moveables, false);
+		this->prevLevel(isMoving);
 	} else {
-		this->nextLevel(isMoving, ticket, p , moveables, false);
+		this->nextLevel(isMoving);
 	}
 }
 
@@ -321,4 +337,6 @@ void Stage::storeCurrState(int ticket, bool isPrev)
 {
 	this->_prevstates.emplace(ticket, isPrev ? "prev" : "next");
 }
+
+
 

@@ -81,8 +81,8 @@ void AnimatedSprite::update(int elapsedTime) {
 void AnimatedSprite::draw(Graphics& graphics, int x, int y) {
 	if (this->_visible) {
 		SDL_Rect destinationRectangle;
-		destinationRectangle.x = x + this->_offsets[this->_currentAnimation].x;
-		destinationRectangle.y = y + this->_offsets[this->_currentAnimation].y;
+		destinationRectangle.x = x + this->_offsets[this->_currentAnimation].x * globals::SPRITE_SCALE;
+		destinationRectangle.y = y + this->_offsets[this->_currentAnimation].y * globals::SPRITE_SCALE;
 		destinationRectangle.w = this->_sourceRect.w * globals::SPRITE_SCALE;
 		destinationRectangle.h = this->_sourceRect.h * globals::SPRITE_SCALE;
 
@@ -120,3 +120,35 @@ void ExplosionSprite::setupAnimations()
 {
 	this->addAnimation(6, 0, 0, "Explode", 32, 32, Vector2(0, 0));
 }
+
+
+EndPointSprite::EndPointSprite()
+{
+}
+
+EndPointSprite::EndPointSprite(Graphics& graphics, Vector2 spawnPoint) :
+	AnimatedSprite(graphics, globals::endpoint, 0, 0, 16, 16, spawnPoint.x, spawnPoint.y, 100)
+{
+	this->setupAnimations();
+	this->playAnimation("Glow");
+}
+
+void EndPointSprite::draw(Graphics& graphics)
+{
+	AnimatedSprite::draw(graphics, this->_x, this->_y);
+}
+
+void EndPointSprite::update(float elapsedTime)
+{
+	AnimatedSprite::update(elapsedTime);
+}
+
+void EndPointSprite::animationDone(std::string currentAnimation)
+{
+}
+
+void EndPointSprite::setupAnimations()
+{
+	this->addAnimation(6, 0, 0, "Glow", 47, 47, Vector2(0, 0));
+}
+
