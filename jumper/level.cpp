@@ -213,9 +213,17 @@ void Stage::update(int elapsedTime, bool& isMoving) {
 	this->_timeElapsed += elapsedTime;
 	
 	// update the special effects
-	for (auto& ptr : _fx) {
-		ptr->update(elapsedTime);
-	}	
+	for (auto itr = _fx.begin(); itr != _fx.end();) {
+		if ((*itr)->getVisible()) {
+			(*itr)->update(elapsedTime);
+			itr++;
+			continue;
+		}
+		// clean up the effect
+		delete *itr;
+		*itr = nullptr;
+		itr = _fx.erase(itr);
+	}
 	
 	if (this->_timeElapsed > this->_timeToUpdate) {
 		this->_timeElapsed -= this->_timeToUpdate;
@@ -253,13 +261,12 @@ void Stage::draw(Graphics& graphics) {
 
 void Stage::nextLevel(bool& isMoving) {
 	this->_next = (this->_idx + 1) % this->_levels.size();
-	isMoving = 0;
+	isMoving = false;
 }
 
 void Stage::prevLevel(bool& isMoving) {
-	std::cout << isMoving << std::endl;
 	this->_next = (this->_idx - 1 + this->_levels.size()) % this->_levels.size();
-	isMoving = 0;
+	isMoving = false;
 }
 
 void Stage::addFx(AnimatedSprite* fx)

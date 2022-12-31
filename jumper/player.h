@@ -13,7 +13,7 @@ public:
 	Player();
 	Player(Graphics& graphics, Vector2 spawnPoint);
 	void draw(Graphics& graphics) override;
-	void update(float elapsedTime, bool& isNotMoving);
+	void update(float elapsedTime, bool& isNotMoving, Stage& stage, Graphics& graphics);
 
 	/* void moveLeft
 	 * Moves the player left by -dx

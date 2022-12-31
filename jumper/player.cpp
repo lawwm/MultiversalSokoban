@@ -132,8 +132,15 @@ void Player::stopMoving() {
 	this->playAnimation(idleDirection);
 }
 
-void Player::update(float elapsedTime, bool& isNotMoving) {
+void Player::update(float elapsedTime, bool& isNotMoving, Stage& stage, Graphics& graphics) {
+	Rectangle playerCurr(this->_x, this->_y, this->_sourceRect.w, this->_sourceRect.h);
 	
+	if (this->getVisible() && !stage.checkTileCollisions(playerCurr)) {
+		this->setVisible(false);
+		stage.addFx(new ExplosionSprite(graphics, Vector2(this->_x, this->_y)));
+		return;
+	}
+
 	if (_x == _destx && _y == _desty) {
 		this->_pushing.clear();
 		isNotMoving = true;

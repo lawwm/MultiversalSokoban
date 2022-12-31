@@ -36,8 +36,7 @@ void Moveable::set(int x, int y) {
 }
 
 void Moveable::update(float elapsedTime, Stage& stage, Graphics& graphics) {
-	Rectangle moveableBoxCurr(this->_x, this->_y,
-		this->_sourceRect.w, this->_sourceRect.h);
+	Rectangle moveableBoxCurr(this->_x, this->_y, this->_sourceRect.w, this->_sourceRect.h);
 
 	if (this->getVisible() && !stage.checkTileCollisions(moveableBoxCurr)) {
 		this->setVisible(false);

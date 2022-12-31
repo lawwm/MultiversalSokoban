@@ -58,7 +58,7 @@ void Game::gameLoop() {
 			return;
 		}
 		
-		if (_canPlayerMove && _canPlayerSwitchStage) {
+		if (_canPlayerMove && _canPlayerSwitchStage && _player.getVisible()) {
 			if (input.isKeyHeld(SDL_SCANCODE_LEFT) == true) {
 				this->_player.moveLeft(this->_canPlayerMove, this->_stage, this->_moveables);
 			}
@@ -106,7 +106,7 @@ void Game::draw(Graphics& graphics) {
 
 void Game::update(float elapsedTime, Graphics& graphics) {
 	
-	this->_player.update(elapsedTime, _canPlayerMove);
+	this->_player.update(elapsedTime, _canPlayerMove, this->_stage, graphics);
 	this->_stage.update(elapsedTime, _canPlayerSwitchStage);
 	for (auto& m : _moveables) {
 		m.update(elapsedTime, this->_stage, graphics);

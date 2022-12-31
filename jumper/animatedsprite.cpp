@@ -91,6 +91,10 @@ void AnimatedSprite::draw(Graphics& graphics, int x, int y) {
 	}
 }
 
+ExplosionSprite::ExplosionSprite()
+{
+}
+
 ExplosionSprite::ExplosionSprite(Graphics& graphics, Vector2 spawnPoint) :
 	AnimatedSprite(graphics, globals::explode, 0, 0, 16, 16, spawnPoint.x, spawnPoint.y, 100)
 {
