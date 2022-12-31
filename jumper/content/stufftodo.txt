@@ -27,6 +27,19 @@
 
 3. Redo feature
 
+store
+position, visibility, direction of player
+position, visibility of moveables
+position of idx in stage.
+
+3456
+
+ ice room pier ice room pier ice room pier 
+
+3a. Both the visibility and change dimension should have same ticket.
+3b. Allow undo when player is dead.
+
 4. Make levels
 
 5. Refactor
+

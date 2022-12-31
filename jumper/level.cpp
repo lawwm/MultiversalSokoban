@@ -1,6 +1,7 @@
 #include "level.h"
 #include "graphics.h"
 #include "globals.h"
+#include "player.h"
 
 #include "tinyxml2.h"
 
@@ -259,10 +260,14 @@ void Stage::draw(Graphics& graphics) {
 	}
 }
 
-void Stage::nextLevel(bool& isMoving, Ticket& ticket, bool isUndoable) {
+void Stage::nextLevel(bool& isMoving, Ticket& ticket, Player& p, std::vector<Moveable>& moveables, bool isUndoable) {
 	if (isUndoable) {
 		int generatedTicket = ticket.insertTicket();
-		this->storeCurrState(generatedTicket, true);		
+		this->storeCurrState(generatedTicket, true);
+		p.storeCurrState(generatedTicket);
+		for (auto& moveable : moveables) {
+			moveable.storeCurrState(generatedTicket);
+		}
 	}
 
 	this->_next = (this->_idx + 1) % this->_levels.size();
@@ -270,10 +275,14 @@ void Stage::nextLevel(bool& isMoving, Ticket& ticket, bool isUndoable) {
 	isMoving = false;
 }
 
-void Stage::prevLevel(bool& isMoving, Ticket& ticket, bool isUndoable) {
+void Stage::prevLevel(bool& isMoving, Ticket& ticket, Player& p, std::vector<Moveable>& moveables, bool isUndoable) {
 	if (isUndoable) {
 		int generatedTicket = ticket.insertTicket();
-		this->storeCurrState(generatedTicket, false);		
+		this->storeCurrState(generatedTicket, false);
+		p.storeCurrState(generatedTicket);
+		for (auto& moveable : moveables) {
+			moveable.storeCurrState(generatedTicket);
+		}
 	}
 
 	this->_next = (this->_idx - 1 + this->_levels.size()) % this->_levels.size();
@@ -294,7 +303,7 @@ bool Stage::checkTileCollisions(const Rectangle& other) const {
 	return this->_levels[this->_idx].checkTileCollisions(other);
 }
 
-void Stage::undo(int ticketNum, bool& isMoving, Ticket& ticket)
+void Stage::undo(int ticketNum, bool& isMoving, Ticket& ticket, Player& p, std::vector<Moveable>& moveables)
 {
 	//std::cout << ticket << " ticket " << std::get<0>(_prevstates.top()) << std::endl;
 	if (_prevstates.empty() || std::get<0>(_prevstates.top()) != ticketNum) return;
@@ -302,9 +311,9 @@ void Stage::undo(int ticketNum, bool& isMoving, Ticket& ticket)
 	auto [ticketNumber, x] = this->_prevstates.top();
 	this->_prevstates.pop();
 	if (x == "prev") {
-		this->prevLevel(isMoving, ticket, false);
+		this->prevLevel(isMoving, ticket, p, moveables, false);
 	} else {
-		this->nextLevel(isMoving, ticket, false);
+		this->nextLevel(isMoving, ticket, p , moveables, false);
 	}
 }
 

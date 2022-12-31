@@ -11,6 +11,8 @@
 #include "animatedsprite.h"
 
 class Graphics;
+class Moveable;
+class Player;
 struct SDL_Texture;
 
 struct Tileset {
@@ -73,12 +75,12 @@ public:
 
 	const std::vector<Rectangle>& getCollision();
 	
-	void nextLevel(bool& isMoving, Ticket& ticket, bool isUndoable=true);
-	void prevLevel(bool& isMoving, Ticket& ticket, bool isUndoable=true);
+	void nextLevel(bool& isMoving, Ticket& ticket, Player& p, std::vector<Moveable>& moveables, bool isUndoable=true);
+	void prevLevel(bool& isMoving, Ticket& ticket, Player& p, std::vector<Moveable>& moveables, bool isUndoable=true);
 
 	void addFx(AnimatedSprite* fx);
 
-	void undo(int ticketNum, bool& isMoving, Ticket& ticket);
+	void undo(int ticketNum, bool& isMoving, Ticket& ticket, Player& p, std::vector<Moveable>& moveables);
 
 	void storeCurrState(int ticket, bool shouldMoveLeft);
 	

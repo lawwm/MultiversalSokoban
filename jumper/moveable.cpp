@@ -52,10 +52,10 @@ void Moveable::set(int x, int y) {
 	this->_y = y;
 }
 
-void Moveable::update(float elapsedTime, Stage& stage, Graphics& graphics) {
+void Moveable::update(float elapsedTime, Stage& stage, Graphics& graphics, bool& canPlayerSwitchStage) {
 	Rectangle moveableBoxCurr(this->_x, this->_y, this->_sourceRect.w, this->_sourceRect.h);
 
-	if (this->getVisible() && !stage.checkTileCollisions(moveableBoxCurr)) {
+	if (this->getVisible() && !stage.checkTileCollisions(moveableBoxCurr) && canPlayerSwitchStage) {
 		this->setVisible(false);
 		stage.addFx(new ExplosionSprite(graphics, Vector2(this->_x, this->_y)));
 		return;

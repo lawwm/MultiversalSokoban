@@ -59,13 +59,13 @@ void Game::gameLoop() {
 		}
 		
 
-		
-		if (_canPlayerMove && _canPlayerSwitchStage && _player.getVisible()) {
-			if (input.isKeyHeld(SDL_SCANCODE_Z) && input.wasKeyPressed(SDL_SCANCODE_Z)) {
-				std::cout << "soy" << std::endl;
+		if (input.isKeyHeld(SDL_SCANCODE_Z) && input.wasKeyPressed(SDL_SCANCODE_Z) && _canPlayerMove && _canPlayerSwitchStage) {
 				this->undo();
-			}
-			else if (input.isKeyHeld(SDL_SCANCODE_LEFT) == true) {
+		}
+		
+		if (_canPlayerMove && _canPlayerSwitchStage && this->_player.getVisible()) {
+			
+			if (input.isKeyHeld(SDL_SCANCODE_LEFT) == true) {
 				this->_player.moveLeft(this->_canPlayerMove, this->_stage, this->_moveables, this->_ticket);
 			}
 			else if (input.isKeyHeld(SDL_SCANCODE_RIGHT) == true) {
@@ -78,10 +78,10 @@ void Game::gameLoop() {
 				this->_player.moveDown(this->_canPlayerMove, this->_stage, this->_moveables, this->_ticket);
 			}
 			else if (input.isKeyHeld(SDL_SCANCODE_A) && input.wasKeyPressed(SDL_SCANCODE_A)) {
-				this->_stage.prevLevel(this->_canPlayerSwitchStage, this->_ticket);
+				this->_stage.prevLevel(this->_canPlayerSwitchStage, this->_ticket, this->_player, this->_moveables);
 			}
 			else if (input.isKeyHeld(SDL_SCANCODE_D) && input.wasKeyPressed(SDL_SCANCODE_D)) {
-				this->_stage.nextLevel(this->_canPlayerSwitchStage, this->_ticket);
+				this->_stage.nextLevel(this->_canPlayerSwitchStage, this->_ticket, this->_player, this->_moveables);
 			}
 			
 			if (!input.isKeyHeld(SDL_SCANCODE_LEFT) && !input.isKeyHeld(SDL_SCANCODE_RIGHT)
@@ -112,10 +112,10 @@ void Game::draw(Graphics& graphics) {
 
 void Game::update(float elapsedTime, Graphics& graphics) {
 	
-	this->_player.update(elapsedTime, _canPlayerMove, this->_stage, graphics);
+	this->_player.update(elapsedTime, _canPlayerMove, this->_stage, graphics, this->_canPlayerSwitchStage);
 	this->_stage.update(elapsedTime, _canPlayerSwitchStage);
 	for (auto& m : _moveables) {
-		m.update(elapsedTime, this->_stage, graphics);
+		m.update(elapsedTime, this->_stage, graphics, _canPlayerSwitchStage);
 	}
 }
 
@@ -123,8 +123,8 @@ void Game::undo() {
 	int retrievedTicket = this->_ticket.pollTicket();
 	if (!retrievedTicket) return;
 	
+	this->_stage.undo(retrievedTicket, this->_canPlayerSwitchStage, this->_ticket, this->_player, this->_moveables);
 	this->_player.undo(retrievedTicket);
-	this->_stage.undo(retrievedTicket, this->_canPlayerSwitchStage, this->_ticket);
 	for (auto& m : _moveables) {
 		m.undo(retrievedTicket);
 	}

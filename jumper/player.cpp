@@ -143,21 +143,24 @@ void Player::stopMoving() {
 	this->playAnimation(idleDirection);
 }
 
-void Player::update(float elapsedTime, bool& isNotMoving, Stage& stage, Graphics& graphics) {
+void Player::update(float elapsedTime, bool& isNotMoving, Stage& stage, Graphics& graphics, bool& canPlayerSwitchStage) {
 	Rectangle playerCurr(this->_x, this->_y, this->_sourceRect.w, this->_sourceRect.h);
 	
-	if (this->getVisible() && !stage.checkTileCollisions(playerCurr)) {
+	// if player collides with a hitbox, he dies, display animation
+	if (this->getVisible() && !stage.checkTileCollisions(playerCurr) && canPlayerSwitchStage) {
 		this->setVisible(false);
 		stage.addFx(new ExplosionSprite(graphics, Vector2(this->_x, this->_y)));
 		return;
 	}
 
+	// if player has reached destination, stop moving and pushing
 	if (_x == _destx && _y == _desty) {
 		this->_pushing.clear();
 		isNotMoving = true;
 		return;
 	}
 
+	// calculate position depending on direction faced
 	switch (this->_facing) {
 	case LEFT:
 		this->_x = std::max(this->_x + this->_dx * elapsedTime, _destx);
@@ -172,12 +175,12 @@ void Player::update(float elapsedTime, bool& isNotMoving, Stage& stage, Graphics
 		this->_y = std::min(this->_y + this->_dy * elapsedTime, _desty);
 		break;
 	}
-	//std::cout << "player: " << this->_x << " " << this->_y << std::endl;
+
+	// observer pattern, change the position of items that player is pushing
 	for (int i = 0; i < this->_pushing.size(); ++i) {
 		auto [mptr, xdist, ydist] = _pushing[i];
 		
 		mptr->set(this->_x + xdist, this->_y + ydist);
-		//std::cout << "val: " << i << " " << mptr << " " << mptr->getX() << " " << mptr->getY() << std::endl;
 	}
 
 	AnimatedSprite::update(elapsedTime);
@@ -194,7 +197,11 @@ void Player::undo(int ticket)
 	auto [ticketNumber, x, y, isVisible, dir] = this->_prevstates.top();
 	this->_prevstates.pop();
 	this->_x = x;
+	this->_destx = x;
 	this->_y = y;
+	this->_desty = y;
+	this->_dx = 0.0f;
+	this->_dy = 0.0f;
 	this->setVisible(isVisible);
 	this->_facing = dir;
 	this->stopMoving();

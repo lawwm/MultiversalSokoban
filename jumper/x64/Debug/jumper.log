@@ -1,13 +1,125 @@
 ﻿  player.cpp
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\tile.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(12,82): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(12,68): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(16,8): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
 H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(17,8): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(51,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(51,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(167,40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(167,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(171,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(175,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(175,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(51,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(51,36): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(147,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(147,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(152,67): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(152,57): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(183,40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(183,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(186,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(190,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(190,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(199,13): warning C4244: '=': conversion from '_This' to 'float', possible loss of data
+          with
+          [
+              _This=int
+          ]
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(200,17): warning C4244: '=': conversion from '_This' to 'float', possible loss of data
+          with
+          [
+              _This=int
+          ]
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(201,13): warning C4244: '=': conversion from '_This' to 'float', possible loss of data
+          with
+          [
+              _This=int
+          ]
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(202,17): warning C4244: '=': conversion from '_This' to 'float', possible loss of data
+          with
+          [
+              _This=int
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(144,47): warning C4244: 'initializing': conversion from 'float' to '_Ty', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(239,1): message : see reference to function template instantiation 'std::_Tuple_val<_This>::_Tuple_val<float&>(_Other)' being compiled
+          with
+          [
+              _This=int,
+              _Other=float &
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(239,81): message : see reference to function template instantiation 'std::_Tuple_val<_This>::_Tuple_val<float&>(_Other)' being compiled
+          with
+          [
+              _This=int,
+              _Other=float &
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(239,1): message : see reference to function template instantiation 'std::tuple<int,int,int,Direction>::tuple<std::_Exact_args_t,float&,float&,_Ty,Direction&,0>(_Tag,_This2,float &,_Ty &&,Direction &)' being compiled
+          with
+          [
+              _Ty=bool,
+              _Tag=std::_Exact_args_t,
+              _This2=float &
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(239,18): message : see reference to function template instantiation 'std::tuple<int,int,int,Direction>::tuple<std::_Exact_args_t,float&,float&,_Ty,Direction&,0>(_Tag,_This2,float &,_Ty &&,Direction &)' being compiled
+          with
+          [
+              _Ty=bool,
+              _Tag=std::_Exact_args_t,
+              _This2=float &
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(285,1): message : see reference to function template instantiation 'std::tuple<int,int,int,int,Direction>::tuple<std::_Exact_args_t,int&,float&,float&,_Ty,Direction&,0>(_Tag,_This2,float &,float &,_Ty &&,Direction &)' being compiled
+          with
+          [
+              _Ty=bool,
+              _Tag=std::_Exact_args_t,
+              _This2=int &
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(285,16): message : see reference to function template instantiation 'std::tuple<int,int,int,int,Direction>::tuple<std::_Exact_args_t,int&,float&,float&,_Ty,Direction&,0>(_Tag,_This2,float &,float &,_Ty &&,Direction &)' being compiled
+          with
+          [
+              _Ty=bool,
+              _Tag=std::_Exact_args_t,
+              _This2=int &
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xmemory(673,1): message : see reference to function template instantiation 'std::tuple<int,int,int,int,Direction>::tuple<int&,float&,float&,_Ty,Direction&,0>(_This2,float &,float &,_Ty &&,Direction &) noexcept' being compiled
+          with
+          [
+              _Ty=bool,
+              _This2=int &
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xmemory(680,47): message : see reference to function template instantiation 'std::tuple<int,int,int,int,Direction>::tuple<int&,float&,float&,_Ty,Direction&,0>(_This2,float &,float &,_Ty &&,Direction &) noexcept' being compiled
+          with
+          [
+              _Ty=bool,
+              _This2=int &
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\deque(1148,1): message : see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,int&,float&,float&,bool,Direction&>(_Alloc &,_Objty *const ,int &,float &,float &,bool &&,Direction &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<std::tuple<int,int,int,int,Direction>>,
+              _Ty=std::tuple<int,int,int,int,Direction>,
+              _Objty=std::tuple<int,int,int,int,Direction>
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\deque(1159,32): message : see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,int&,float&,float&,bool,Direction&>(_Alloc &,_Objty *const ,int &,float &,float &,bool &&,Direction &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<std::tuple<int,int,int,int,Direction>>,
+              _Ty=std::tuple<int,int,int,int,Direction>,
+              _Objty=std::tuple<int,int,int,int,Direction>
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\deque(856,1): message : see reference to function template instantiation 'void std::deque<std::tuple<int,int,int,int,Direction>,std::allocator<std::tuple<int,int,int,int,Direction>>>::_Emplace_back_internal<int&,float&,float&,_Ty,Direction&>(int &,float &,float &,_Ty &&,Direction &)' being compiled
+          with
+          [
+              _Ty=bool
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\deque(858,31): message : see reference to function template instantiation 'void std::deque<std::tuple<int,int,int,int,Direction>,std::allocator<std::tuple<int,int,int,int,Direction>>>::_Emplace_back_internal<int&,float&,float&,_Ty,Direction&>(int &,float &,float &,_Ty &&,Direction &)' being compiled
+          with
+          [
+              _Ty=bool
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\stack(124,1): message : see reference to function template instantiation 'std::tuple<int,int,int,int,Direction> &std::deque<std::tuple<int,int,int,int,Direction>,std::allocator<std::tuple<int,int,int,int,Direction>>>::emplace_back<int&,float&,float&,_Ty,Direction&>(int &,float &,float &,_Ty &&,Direction &)' being compiled
+          with
+          [
+              _Ty=bool
+          ]
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\player.cpp(122,83): message : see reference to function template instantiation 'std::tuple<int,int,int,int,Direction> &std::stack<std::tuple<int,int,int,int,Direction>,std::deque<std::tuple<int,int,int,int,Direction>,std::allocator<std::tuple<int,int,int,int,Direction>>>>::emplace<int&,float&,float&,bool,Direction&>(int &,float &,float &,bool &&,Direction &)' being compiled
   jumper.vcxproj -> H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\x64\Debug\jumper.exe

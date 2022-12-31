@@ -14,7 +14,7 @@ public:
 	Moveable();
 	Moveable(Graphics& graphics, Vector2 spawnPoint);
 	void draw(Graphics& graphics) override;
-	void update(float elapsedTime, Stage& stage, Graphics& graphics);
+	void update(float elapsedTime, Stage& stage, Graphics& graphics, bool& canPlayerSwitchStage);
 
 	void animationDone(std::string currentAnimation) override;
 	void setupAnimations() override;
