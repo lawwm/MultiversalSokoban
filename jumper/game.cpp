@@ -33,7 +33,8 @@ void Game::gameLoop() {
 	std::unordered_map<std::string, std::string> dialogueData({
 		{globals::died_dialogue, "You lost. Press Z to undo or R to restart"},
 		{globals::won_dialogue, "You won. Press N to proceed."},
-		{globals::exit_dialogue, "Press Esc again to confirm exit.\nPress A to continue playing."},
+		{globals::exit_dialogue, "Press Esc again to confirm exit.\nPress A to continue playing.\nPress D for level select."},
+		{globals::overworld_exit_dialogue, "Press Esc again to confirm exit.\nPress A to continue playing."},
 	});
 	
 	// initialise global values
@@ -44,7 +45,7 @@ void Game::gameLoop() {
 	}
 	
 	this->_zone = Zone(globals::data, graphics, 0);
-	this->initialisePlayer(graphics);
+	this->_player = Player(graphics, Vector2(globals::overworld_spawn_x, globals::overworld_spawn_y));
 	this->_textbox = TextBox(graphics, dialogueData);
 	
 	this->_overworld = Stage({ globals::overworld }, { 256, 256 }, graphics);
@@ -148,6 +149,11 @@ bool Game::individualZone(Graphics& graphics, Input& input, int& LAST_UPDATE_TIM
 		else if (input.wasKeyPressed(SDL_SCANCODE_A)) { // close menu
 			this->_textbox.clearDialogue();
 		}
+		else if (input.wasKeyPressed(SDL_SCANCODE_D)) {
+			this->_textbox.clearDialogue();
+			this->_player = Player(graphics, Vector2(globals::overworld_spawn_x, globals::overworld_spawn_y));
+			this->_currScreen = OVERWORLD;
+		}
 		else if (this->_textbox.getKey() != globals::exit_dialogue) { // first clicking exit
 			this->_textbox.set(globals::exit_dialogue);
 			this->draw(graphics);
@@ -229,15 +235,15 @@ bool Game::overworld(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 {
 	std::vector<Moveable> empty;
 	// leave the game
-	if (input.wasKeyPressed(SDL_SCANCODE_ESCAPE) || this->_textbox.getKey() == globals::exit_dialogue) {
-		if (input.wasKeyPressed(SDL_SCANCODE_ESCAPE) && this->_textbox.getKey() == globals::exit_dialogue) {
+	if (input.wasKeyPressed(SDL_SCANCODE_ESCAPE) || this->_textbox.getKey() == globals::overworld_exit_dialogue) {
+		if (input.wasKeyPressed(SDL_SCANCODE_ESCAPE) && this->_textbox.getKey() == globals::overworld_exit_dialogue) {
 			return false;
 		}
 		else if (input.wasKeyPressed(SDL_SCANCODE_A)) { // close menu
 			this->_textbox.clearDialogue();
 		}
-		else if (this->_textbox.getKey() != globals::exit_dialogue) { // first clicking exit
-			this->_textbox.set(globals::exit_dialogue);
+		else if (this->_textbox.getKey() != globals::overworld_exit_dialogue) { // first clicking exit
+			this->_textbox.set(globals::overworld_exit_dialogue);
 			this->draw(graphics);
 		}
 		return true;

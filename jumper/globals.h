@@ -94,6 +94,10 @@ namespace globals {
 	const std::string died_dialogue = "died";
 	const std::string won_dialogue = "won";
 	const std::string exit_dialogue = "exit";
+	const std::string overworld_exit_dialogue = "overwolrd_exit";
+
+	const float overworld_spawn_x = 288;
+	const float overworld_spawn_y = 192;
 	//std::unordered_map<std::string, std::string> dialogueData({
 	//	{died_dialogue, "You lost. Press Z to undo or R to restart"},
 	//	{won_dialogue, "You won. Press N to proceed."},
