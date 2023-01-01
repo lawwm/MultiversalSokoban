@@ -257,8 +257,9 @@ bool Game::overworld(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 		else if (this->_isPlayerInLevelSelect == 1) {
 			if (input.wasKeyPressed(SDL_SCANCODE_A)) {
 				this->_currScreen = ZONE;
+				this->_zone.selectZone(graphics, value);
 				this->initialisePlayer(graphics);
-				this->_zone.selectZone(graphics, value - 1);
+				this->_textbox.clearDialogue();
 			}
 			else if (input.wasKeyPressed(SDL_SCANCODE_D)) {
 				this->_isPlayerInLevelSelect = 2;

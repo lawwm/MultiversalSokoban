@@ -33,6 +33,7 @@ void Zone::nextZone(Graphics& graphics)
 
 void Zone::selectZone(Graphics& graphics, int level)
 {
+	this->_zonenumber = level;
 	auto [paths, spawn, endpoint, moveablecoors] = this->_data[this->_zonenumber];
 	this->_endpoint = EndPointSprite(graphics, endpoint);
 
