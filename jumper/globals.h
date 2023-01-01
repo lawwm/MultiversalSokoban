@@ -25,6 +25,11 @@ namespace sides {
 	}
 }
 
+enum Screen {
+	OVERWORLD,
+	ZONE
+};
+
 enum Direction {
 	LEFT,
 	RIGHT,
@@ -64,20 +69,37 @@ namespace globals {
 	const std::string roomLevel = "Room1";
 	const std::string pierLevel = "Pier1";
 	const std::string bushLevel = "Bush1";
-
+	const std::string overworld = "overworld";
+	
 	const std::vector<zonedata> data = {
-		{{iceLevel, roomLevel, }, Vector2(160, 160), Vector2(160, 192), {{128,128}, {160,128}, {224,128}, {192,128}} },
+		{{iceLevel, roomLevel }, Vector2(160, 160), Vector2(160, 192), {{128,128}, {160,128}, {224,128}, {192,128}} },
 		{{pierLevel, bushLevel}, Vector2(160, 160), Vector2(224, 224), {{224,128}, {192,128}} }
+	};
+
+	const std::unordered_map<int, int> overworldstages = {
+		{96064, 0},
+		{57728, 1},
+		{19392, 2},
+		{19584, 3},
+		{58048, 4},
+		{96512, 5},
+		{173312, 6},
+		{211648, 7},
+		{249984, 8},
+		{249792, 9},
+		{211328, 10},
+		{172864, 11}
 	};
 
 	const std::string died_dialogue = "died";
 	const std::string won_dialogue = "won";
 	const std::string exit_dialogue = "exit";
-	const std::unordered_map<std::string, std::string> dialogueData({
-		{died_dialogue, "You lost. Press Z to undo or R to restart"},
-		{won_dialogue, "You won. Press N to proceed."},
-		{exit_dialogue, "Press Esc again to confirm exit.\nPress A to continue playing."}
-	});
+	//std::unordered_map<std::string, std::string> dialogueData({
+	//	{died_dialogue, "You lost. Press Z to undo or R to restart"},
+	//	{won_dialogue, "You won. Press N to proceed."},
+	//	{exit_dialogue, "Press Esc again to confirm exit.\nPress A to continue playing."},
+	//	{"1", "Press A to proceed to Stage 1"}
+	//});
 }
 
 #endif

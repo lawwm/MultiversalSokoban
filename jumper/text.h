@@ -12,7 +12,7 @@ class TextBox {
 public:
 	TextBox() {}
 
-	TextBox(Graphics& graphics, std::unordered_map<std::string, std::string> texts) {
+	TextBox(Graphics& graphics, std::unordered_map<std::string, std::string>& texts) {
 		TTF_Font* font = TTF_OpenFont("fonts/zx-spectrum.ttf", 11);
 		SDL_Color white = { 0, 0, 0 };
 		int texW = 0;

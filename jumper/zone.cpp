@@ -28,9 +28,14 @@ void Zone::nextZone(Graphics& graphics)
 {
 	this->_zonenumber = (this->_zonenumber + 1) % this->_data.size();
 	
+	this->selectZone(graphics, this->_zonenumber);
+}
+
+void Zone::selectZone(Graphics& graphics, int level)
+{
 	auto [paths, spawn, endpoint, moveablecoors] = this->_data[this->_zonenumber];
 	this->_endpoint = EndPointSprite(graphics, endpoint);
-	
+
 	this->_stage = Stage(paths, spawn, graphics);
 	this->_moveables.clear();
 	for (Vector2 coors : moveablecoors) {

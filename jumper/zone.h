@@ -20,6 +20,8 @@ public:
 	void undo(int ticket, bool& canPlayerSwitchStage);
 
 	void nextZone(Graphics& graphics);
+	void selectZone(Graphics& graphics, int level);
+	
 	Vector2 getSpawnPoint();
 
 	bool areAllMoveablesVisible();
