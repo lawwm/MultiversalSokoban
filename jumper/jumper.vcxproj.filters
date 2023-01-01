@@ -54,6 +54,9 @@
     <ClCompile Include="moveable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="zone.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -93,6 +96,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="moveable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="zone.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="text.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

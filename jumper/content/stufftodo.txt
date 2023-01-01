@@ -41,5 +41,30 @@ position of idx in stage.
 
 4. Make levels
 
-5. Refactor
+4a. Generate a win state
+// reach the end tile with none of the items destroyed
+tileset widht and height is 24
+set tile property on map grid size
 
+// vector of paths
+// spawnpoints
+// vector of moveables
+
+
+5. Text displays
+When win -> "You won. Press N to proceed to the next level."
+When player dies -> "You died. Press Z to undo or R to restart".
+When click on esc -> "Press Esc again to confirm exit. All progress will be lost."
+When click on h -> display help menu
+Two screens:
+Opening Screen
+Closing Screen
+
+
+315, 60
+
+630, 120
+
+600, 480
+
+A white rat with red eyes pushing a golden coin across a snow landscape, wide angle, pixel art 
