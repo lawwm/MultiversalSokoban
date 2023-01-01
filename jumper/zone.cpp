@@ -1,4 +1,5 @@
 #include "zone.h"
+#include "player.h"
 
 Zone::Zone()
 {
@@ -41,6 +42,19 @@ Vector2 Zone::getSpawnPoint()
 {
 	return this->_stage.getPlayerSpawnPoint();
 }
+
+bool Zone::hasWon(Player& player)
+{
+	if (!player.getBoundingBox().collidesWith(this->_endpoint.getBoundingBox())) {
+		return false;
+	}
+	for (Moveable& movable : this->_moveables) {
+		if (!movable.getVisible()) {
+			return false;
+		}
+	}
+	return true;
+};
 
 Stage& Zone::getStage()
 {

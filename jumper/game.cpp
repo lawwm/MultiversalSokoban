@@ -5,6 +5,8 @@
 #include "input.h"
 #include "globals.h"
 #include "moveable.h"
+
+
 #include <iostream>
 /* Game class
  * This class holds all information for our main game loop
@@ -31,12 +33,14 @@ void Game::gameLoop() {
 	
 	this->_zone = Zone(globals::data, graphics, 0);
 	this->_player = Player(graphics, this->_zone.getSpawnPoint());
+	this->_textbox = TextBox(graphics, globals::dialogueData);
 	
 	int LAST_UPDATE_TIME = SDL_GetTicks64();
 	//Start the game loop
 	while (true) {
 		input.beginNewFrame();
 
+		// store key register data
 		if (SDL_PollEvent(&event)) {
 			if (event.type == SDL_KEYDOWN) {
 				if (event.key.repeat == 0) {
@@ -50,18 +54,29 @@ void Game::gameLoop() {
 				return;
 			}
 		}
+		
+		// leave the game
 		if (input.wasKeyPressed(SDL_SCANCODE_ESCAPE) == true) {
-			return;
+			if (this->_textbox.getKey() == globals::exit_dialogue) {
+				return;
+			}
+			else {
+				this->_textbox.set(globals::exit_dialogue);
+				continue;
+			}
 		}
+		
+		// undo
 		if (input.isKeyHeld(SDL_SCANCODE_P) && input.wasKeyPressed(SDL_SCANCODE_P)) {
-			std::cout << "meme" << std::endl;
 			this->_zone.nextZone(graphics);
 		}
 
+		// undo
 		if (input.isKeyHeld(SDL_SCANCODE_Z) && input.wasKeyPressed(SDL_SCANCODE_Z) && _canPlayerMove && _canPlayerSwitchStage) {
 			this->undo();
 		}
 		
+		// movement and switching dimension
 		if (_canPlayerMove && _canPlayerSwitchStage && this->_player.getVisible()) {
 			
 			if (input.isKeyHeld(SDL_SCANCODE_LEFT) == true) {
@@ -101,9 +116,12 @@ void Game::gameLoop() {
 void Game::draw(Graphics& graphics) {
 	graphics.clear();
 
-	this->_zone.draw(graphics);
-	this->_player.draw(graphics);
 
+	this->_zone.draw(graphics);
+	this->_player.draw(graphics);	
+	
+	this->_textbox.draw(graphics);
+	
 	graphics.flip();
 }
 
@@ -111,6 +129,11 @@ void Game::update(float elapsedTime, Graphics& graphics) {
 	
 	this->_player.update(elapsedTime, _canPlayerMove, this->_zone.getStage(), graphics, this->_canPlayerSwitchStage);
 	this->_zone.update(elapsedTime, graphics, this->_canPlayerSwitchStage);
+
+	// display undo dialogue text if player has died
+	if (this->_player.getVisible() == false) {
+		this->_textbox.set(globals::died_dialogue);
+	}
 }
 
 void Game::undo() {

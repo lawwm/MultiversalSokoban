@@ -21,6 +21,8 @@ public:
 
 	void nextZone(Graphics& graphics);
 	Vector2 getSpawnPoint();
+
+	bool hasWon(Player& player);
 private:
 	Stage _stage;
 	std::vector<Moveable> _moveables;

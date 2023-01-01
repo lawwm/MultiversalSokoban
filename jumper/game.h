@@ -3,6 +3,8 @@
 
 #include "player.h"
 #include "zone.h"
+#include "text.h"
+
 #include <vector>
 
 class Graphics;
@@ -17,7 +19,7 @@ private:
 	void update(float elapsedTime, Graphics& graphics);
 	void undo();
 
-	
+	TextBox _textbox;
 	Player _player;
 	Zone _zone;
 	Ticket _ticket = Ticket();

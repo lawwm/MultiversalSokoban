@@ -1,5 +1,6 @@
 #include "SDL.h"
 #include "SDL_image.h"
+#include "SDL_ttf.h"
 
 #include "graphics.h"
 #include "globals.h"
@@ -11,11 +12,13 @@
 
 Graphics::Graphics() {
 	SDL_CreateWindowAndRenderer(globals::SCREEN_WIDTH, globals::SCREEN_HEIGHT, 0, &this->_window, &this->_renderer);
-	
+
+	TTF_Init();
 	SDL_SetWindowTitle(this->_window, "Jumper");
 }
 
 Graphics::~Graphics() {
+	TTF_Quit();
 	SDL_DestroyWindow(this->_window);
 	SDL_DestroyRenderer(this->_renderer);
 }

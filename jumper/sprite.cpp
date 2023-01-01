@@ -29,6 +29,12 @@ void Sprite::draw(Graphics& graphics, int x, int y) {
 	graphics.blitSurface(this->_spriteSheet, &this->_sourceRect, &destinationRectangle);
 }
 
+void Sprite::draw(Graphics& graphics, int x, int y, int width, int height) {
+	SDL_Rect destinationRectangle = { x, y, width * globals::SPRITE_SCALE,
+			height* globals::SPRITE_SCALE };
+	graphics.blitSurface(this->_spriteSheet, &this->_sourceRect, &destinationRectangle);
+}
+
 void Sprite::update() {
 	this->_boundingBox = Rectangle(this->_x, this->_y,
 		this->_sourceRect.w * globals::SPRITE_SCALE, this->_sourceRect.h * globals::SPRITE_SCALE);
