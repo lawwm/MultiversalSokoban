@@ -47,6 +47,14 @@ void Moveable::storeCurrState(int ticket)
 	this->_prevstates.emplace(ticket, this->_x, this->_y, this->getVisible());
 }
 
+void Moveable::restart(Vector2 spawn, int ticket)
+{
+	this->storeCurrState(ticket);
+	this->_x = spawn.x;
+	this->_y = spawn.y;
+	this->setVisible(true);
+}
+
 void Moveable::set(int x, int y) {
 	this->_x = x;
 	this->_y = y;
@@ -55,6 +63,7 @@ void Moveable::set(int x, int y) {
 void Moveable::update(float elapsedTime, Stage& stage, Graphics& graphics, bool& canPlayerSwitchStage) {
 	Rectangle moveableBoxCurr(this->_x, this->_y, this->_sourceRect.w, this->_sourceRect.h);
 
+	// if a moveable collides with a hit bocx, it dies.
 	if (this->getVisible() && !stage.checkTileCollisions(moveableBoxCurr) && canPlayerSwitchStage) {
 		this->setVisible(false);
 		stage.addFx(new ExplosionSprite(graphics, Vector2(this->_x, this->_y)));

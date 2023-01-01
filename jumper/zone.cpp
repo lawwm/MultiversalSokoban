@@ -43,18 +43,30 @@ Vector2 Zone::getSpawnPoint()
 	return this->_stage.getPlayerSpawnPoint();
 }
 
-bool Zone::hasWon(Player& player)
+bool Zone::areAllMoveablesVisible()
 {
-	if (!player.getBoundingBox().collidesWith(this->_endpoint.getBoundingBox())) {
-		return false;
-	}
 	for (Moveable& movable : this->_moveables) {
 		if (!movable.getVisible()) {
 			return false;
 		}
 	}
 	return true;
-};
+}
+
+bool Zone::hasPlayerReachedEndPoint(Player& player)
+{
+	return player.getBoundingBox().collidesWith(this->_endpoint.getBoundingBox());
+}
+
+void Zone::restart(Graphics& graphics, int ticket)
+{
+	auto [paths, spawn, endpoint, moveablecoors] = this->_data[this->_zonenumber];
+	for (int i = 0; i < moveablecoors.size(); ++i) {
+		this->_moveables[i].restart(moveablecoors[i], ticket);
+	}
+	this->_stage.restart(ticket);
+}
+
 
 Stage& Zone::getStage()
 {

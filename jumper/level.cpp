@@ -234,6 +234,7 @@ void Stage::update(int elapsedTime, bool& isMoving) {
 			return;
 		}
 
+		// for transition when switching levels
 		if (this->_alpha > 0) { // fade out previous stage
 			this->_levels[this->_idx].update(elapsedTime, this->_alpha);
 		} else if (this->_alpha == 0) { // set current idx to next idx 
@@ -260,11 +261,13 @@ void Stage::draw(Graphics& graphics) {
 	}
 }
 
-void Stage::nextLevel(bool& isMoving, Ticket& ticket, Player& p, std::vector<Moveable>& moveables, bool isUndoable) {
+void Stage::nextLevel(bool& isMoving, Ticket& ticket, Player& player, std::vector<Moveable>& moveables, bool isUndoable) {
+	if (this->_levels.size() == 1) return;
+	
 	if (isUndoable) {
 		int generatedTicket = ticket.insertTicket();
-		this->storeCurrState(generatedTicket, true);
-		p.storeCurrState(generatedTicket);
+		this->storeCurrState(generatedTicket, this->_idx);
+		player.storeCurrState(generatedTicket);
 		for (auto& moveable : moveables) {
 			moveable.storeCurrState(generatedTicket);
 		}
@@ -283,11 +286,13 @@ void Stage::nextLevel(bool& isMoving)
 	isMoving = false;
 }
 
-void Stage::prevLevel(bool& isMoving, Ticket& ticket, Player& p, std::vector<Moveable>& moveables, bool isUndoable) {
+void Stage::prevLevel(bool& isMoving, Ticket& ticket, Player& player, std::vector<Moveable>& moveables, bool isUndoable) {
+	if (this->_levels.size() == 1) return;
+	
 	if (isUndoable) {
 		int generatedTicket = ticket.insertTicket();
-		this->storeCurrState(generatedTicket, false);
-		p.storeCurrState(generatedTicket);
+		this->storeCurrState(generatedTicket, this->_idx);
+		player.storeCurrState(generatedTicket);
 		for (auto& moveable : moveables) {
 			moveable.storeCurrState(generatedTicket);
 		}
@@ -326,17 +331,21 @@ void Stage::undo(int ticketNum, bool& isMoving)
 	
 	auto [ticketNumber, x] = this->_prevstates.top();
 	this->_prevstates.pop();
-	if (x == "prev") {
-		this->prevLevel(isMoving);
-	} else {
-		this->nextLevel(isMoving);
-	}
+	this->_idx = x;
+	this->_next = x;
+	this->_levels[this->_idx].update(0, this->_alpha);
 }
 
-void Stage::storeCurrState(int ticket, bool isPrev)
+void Stage::storeCurrState(int ticket, int savedIdx)
 {
-	this->_prevstates.emplace(ticket, isPrev ? "prev" : "next");
+	this->_prevstates.emplace(ticket, savedIdx);
 }
 
-
+void Stage::restart(int generatedTicket)
+{
+	this->storeCurrState(generatedTicket, this->_idx);
+	this->_idx = 0;
+	this->_next = 0;
+	this->_levels[this->_idx].update(0, this->_alpha);
+}
 

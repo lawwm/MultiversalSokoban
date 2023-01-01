@@ -18,6 +18,7 @@ private:
 	void draw(Graphics& graphics);
 	void update(float elapsedTime, Graphics& graphics);
 	void undo();
+	void restart(Graphics& graphics);
 
 	TextBox _textbox;
 	Player _player;

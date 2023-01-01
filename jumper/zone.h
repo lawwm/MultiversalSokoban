@@ -22,7 +22,11 @@ public:
 	void nextZone(Graphics& graphics);
 	Vector2 getSpawnPoint();
 
-	bool hasWon(Player& player);
+	bool areAllMoveablesVisible();
+	bool hasPlayerReachedEndPoint(Player& player);
+	
+	void restart(Graphics& graphics, int ticket);
+	
 private:
 	Stage _stage;
 	std::vector<Moveable> _moveables;

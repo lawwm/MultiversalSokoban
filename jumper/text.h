@@ -41,6 +41,10 @@ public:
 		this->_currKey = key;
 	}
 
+	void clearDialogue() {
+		this->_currKey = "";
+	}
+
 	std::string getKey() {
 		return this->_currKey;
 	}
@@ -50,7 +54,7 @@ public:
 			return;
 		}
 		this->_dialogue.draw(graphics, 48, 336, 252, 48); // x offset, y offset, width, height
-		graphics.blitSurface(_texts[_currKey].first, NULL, &_texts[_currKey].second);
+		graphics.blitSurface(_texts[_currKey].first, nullptr, &_texts[_currKey].second);
 	}
 
 private:

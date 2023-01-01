@@ -84,7 +84,9 @@ public:
 
 	void undo(int ticketNum, bool& isMoving);
 
-	void storeCurrState(int ticket, bool shouldMoveLeft);
+	void storeCurrState(int ticket, int savedIdx);
+
+	void restart(int ticket);
 	
 private:
 	std::vector<Level> _levels;
@@ -95,7 +97,7 @@ private:
 	int _alpha=255;
 	double _timeElapsed=0;
 	double _timeToUpdate=0;
-	std::stack<std::tuple<int, std::string>> _prevstates; //  ticket, function
+	std::stack<std::tuple<int, int>> _prevstates; //  ticket, function
 
 	void prevLevel(bool& isMoving);
 	void nextLevel(bool& isMoving);

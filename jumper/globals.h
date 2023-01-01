@@ -74,9 +74,9 @@ namespace globals {
 	const std::string won_dialogue = "won";
 	const std::string exit_dialogue = "exit";
 	const std::unordered_map<std::string, std::string> dialogueData({
-		{died_dialogue, "You died. Press Z to undo or R to restart"},
-		{won_dialogue, "You won.Press N to proceed to the next level."},
-		{exit_dialogue, "Press Esc again to confirm exit.\nAll progress will be lost."}
+		{died_dialogue, "You lost. Press Z to undo or R to restart"},
+		{won_dialogue, "You won. Press N to proceed."},
+		{exit_dialogue, "Press Esc again to confirm exit.\nPress A to continue playing."}
 	});
 }
 

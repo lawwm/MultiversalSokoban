@@ -35,6 +35,8 @@ public:
 
 	void storeCurrState(int ticket);
 
+	void restart(Vector2 spawn, int ticket);
+	
 private:
 	Direction _facing;
 	std::stack<std::tuple<int, int, int, int>> _prevstates; // ticket number, x, y, visible,

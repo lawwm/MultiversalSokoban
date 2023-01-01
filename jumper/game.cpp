@@ -56,28 +56,52 @@ void Game::gameLoop() {
 		}
 		
 		// leave the game
-		if (input.wasKeyPressed(SDL_SCANCODE_ESCAPE) == true) {
-			if (this->_textbox.getKey() == globals::exit_dialogue) {
+		if (input.wasKeyPressed(SDL_SCANCODE_ESCAPE) || this->_textbox.getKey() == globals::exit_dialogue) {
+			if (input.wasKeyPressed(SDL_SCANCODE_ESCAPE) && this->_textbox.getKey() == globals::exit_dialogue) {
 				return;
 			}
-			else {
+			else if (input.wasKeyPressed(SDL_SCANCODE_A)) { // close menu
+				this->_textbox.clearDialogue();
+			}
+			else if  (this->_textbox.getKey() != globals::exit_dialogue) { // first clicking exit
 				this->_textbox.set(globals::exit_dialogue);
+				this->draw(graphics);	
+			}
+			continue;
+		}
+		
+
+		// check whether this player has won
+		bool hasPlayerWon = this->_zone.areAllMoveablesVisible() && this->_zone.hasPlayerReachedEndPoint(this->_player);
+		if (hasPlayerWon) {
+			this->_textbox.set(globals::won_dialogue);
+			if (input.isKeyHeld(SDL_SCANCODE_N) && input.wasKeyPressed(SDL_SCANCODE_N)) {
+				this->_zone.nextZone(graphics);
+				this->_textbox.clearDialogue();
 				continue;
 			}
 		}
-		
-		// undo
-		if (input.isKeyHeld(SDL_SCANCODE_P) && input.wasKeyPressed(SDL_SCANCODE_P)) {
-			this->_zone.nextZone(graphics);
+
+		// undo or restart
+		if (_canPlayerMove && _canPlayerSwitchStage && !hasPlayerWon) {
+			if (input.isKeyHeld(SDL_SCANCODE_Z) && input.wasKeyPressed(SDL_SCANCODE_Z)) {
+				this->undo();
+				if (this->_textbox.getKey() == globals::died_dialogue) {
+					this->_textbox.clearDialogue();
+				}				
+			}
+			else if (input.isKeyHeld(SDL_SCANCODE_R) && input.wasKeyPressed(SDL_SCANCODE_R)) {
+				this->restart(graphics);
+				if (this->_textbox.getKey() == globals::died_dialogue) {
+					this->_textbox.clearDialogue();
+				}
+			}
+
 		}
 
-		// undo
-		if (input.isKeyHeld(SDL_SCANCODE_Z) && input.wasKeyPressed(SDL_SCANCODE_Z) && _canPlayerMove && _canPlayerSwitchStage) {
-			this->undo();
-		}
 		
 		// movement and switching dimension
-		if (_canPlayerMove && _canPlayerSwitchStage && this->_player.getVisible()) {
+		if (_canPlayerMove && _canPlayerSwitchStage && this->_player.getVisible() && !hasPlayerWon && this->_zone.areAllMoveablesVisible()) {
 			
 			if (input.isKeyHeld(SDL_SCANCODE_LEFT) == true) {
 				this->_player.moveLeft(this->_canPlayerMove, this->_zone.getStage(), this->_zone.getMoveables(), this->_ticket);
@@ -101,10 +125,12 @@ void Game::gameLoop() {
 			if (!input.isKeyHeld(SDL_SCANCODE_LEFT) && !input.isKeyHeld(SDL_SCANCODE_RIGHT)
 				&& !input.isKeyHeld(SDL_SCANCODE_UP) && !input.isKeyHeld(SDL_SCANCODE_DOWN)) {
 				this->_player.stopMoving();
-			}			
+			}
 		}
 		
-		const int CURRENT_TIME_MS = SDL_GetTicks();
+		
+		
+		const int CURRENT_TIME_MS = SDL_GetTicks64();
 		int ELAPSED_TIME_MS = CURRENT_TIME_MS - LAST_UPDATE_TIME;
 		this->update(std::min(ELAPSED_TIME_MS, MAX_FRAME_TIME), graphics);
 		LAST_UPDATE_TIME = CURRENT_TIME_MS;
@@ -131,7 +157,7 @@ void Game::update(float elapsedTime, Graphics& graphics) {
 	this->_zone.update(elapsedTime, graphics, this->_canPlayerSwitchStage);
 
 	// display undo dialogue text if player has died
-	if (this->_player.getVisible() == false) {
+	if (this->_player.getVisible() == false || !this->_zone.areAllMoveablesVisible()) {
 		this->_textbox.set(globals::died_dialogue);
 	}
 }
@@ -142,4 +168,12 @@ void Game::undo() {
 	
 	this->_zone.undo(retrievedTicket, this->_canPlayerSwitchStage);
 	this->_player.undo(retrievedTicket);
+}
+
+void Game::restart(Graphics& graphics)
+{
+	int insertTicket = this->_ticket.insertTicket();
+	Vector2 spawn = this->_zone.getSpawnPoint();
+	this->_zone.restart(graphics, insertTicket);
+	this->_player.restart(spawn, insertTicket);
 }

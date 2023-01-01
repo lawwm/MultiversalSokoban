@@ -122,6 +122,20 @@ void Player::storeCurrState(int ticket) {
 	_prevstates.emplace(ticket, this->_x, this->_y, this->getVisible(), this->_facing);
 }
 
+void Player::restart(Vector2 spawn, int ticket)
+{
+	this->storeCurrState(ticket);
+	this->_x = spawn.x;
+	this->_destx = spawn.x;
+	this->_y = spawn.y;
+	this->_desty = spawn.y;
+	this->_dx = 0.0f;
+	this->_dy = 0.0f;
+	this->_facing = RIGHT;
+	this->setVisible(true);
+	this->stopMoving();
+}
+
 void Player::stopMoving() {
 	this->_dx = 0.0f;
 	this->_dy = 0.0f;

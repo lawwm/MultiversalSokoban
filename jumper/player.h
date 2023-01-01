@@ -55,6 +55,8 @@ public:
 
 	void undo(int ticket);
 	void storeCurrState(int ticket);
+
+	void restart(Vector2 spawn, int ticket);
 	
 private:
 	float _dx, _dy; // rate of change of travel
