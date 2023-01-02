@@ -153,6 +153,7 @@
     <ClInclude Include="globals.h" />
     <ClInclude Include="graphics.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="savestate.h" />
     <ClInclude Include="text.h" />
     <ClInclude Include="zone.h" />
     <ClInclude Include="level.h" />

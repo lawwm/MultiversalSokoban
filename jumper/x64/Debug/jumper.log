@@ -1,10 +1,55 @@
-﻿  game.cpp
+﻿  animatedsprite.cpp
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\animatedsprite.cpp(84,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\animatedsprite.cpp(85,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\animatedsprite.cpp(86,48): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\animatedsprite.cpp(87,48): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\animatedsprite.cpp(99,83): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\animatedsprite.cpp(99,69): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\animatedsprite.cpp(107,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\animatedsprite.cpp(107,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\animatedsprite.cpp(112,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\animatedsprite.cpp(131,84): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\animatedsprite.cpp(131,70): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\animatedsprite.cpp(139,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\animatedsprite.cpp(139,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\animatedsprite.cpp(144,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\animatedsprite.cpp(159,81): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\animatedsprite.cpp(159,67): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\animatedsprite.cpp(169,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\animatedsprite.cpp(169,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\animatedsprite.cpp(177,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  game.cpp
 H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\tile.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\text.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(38,23): warning C4244: 'initializing': conversion from 'Uint64' to 'int', possible loss of data
-H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(109,24): warning C4244: 'argument': conversion from 'const _Ty' to 'float', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(48,80): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(48,52): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(53,23): warning C4244: 'initializing': conversion from 'Uint64' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(107,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(150,82): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(150,54): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(225,44): warning C4244: 'initializing': conversion from 'Uint64' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(225,28): warning C4244: 'initializing': conversion from 'Uint64' to 'const int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(227,23): warning C4244: 'argument': conversion from 'const _Ty' to 'float', possible loss of data
           with
           [
               _Ty=int
           ]
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(255,36): warning C4244: 'argument': conversion from 'float' to 'const _Kty', possible loss of data
+          with
+          [
+              _Kty=int
+          ]
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(256,46): warning C4244: 'argument': conversion from 'float' to 'const _Kty', possible loss of data
+          with
+          [
+              _Kty=int
+          ]
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(308,44): warning C4244: 'initializing': conversion from 'Uint64' to 'int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(308,28): warning C4244: 'initializing': conversion from 'Uint64' to 'const int', possible loss of data
+H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\jumper\game.cpp(310,23): warning C4244: 'argument': conversion from 'const _Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+  Generating Code...
   jumper.vcxproj -> H:\Desktop\NUS\Y3S2\misc\learncpp\jumper\x64\Debug\jumper.exe

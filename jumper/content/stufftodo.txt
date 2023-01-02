@@ -55,6 +55,9 @@ set tile property on map grid size
 When win -> "You won. Press N to proceed to the next level."
 When player dies -> "You died. Press Z to undo or R to restart".
 When click on esc -> "Press Esc again to confirm exit. All progress will be lost."
+-> click Esc again exit
+-> click A to close menu
+
 When click on h -> display help menu
 Two screens:
 Opening Screen
@@ -68,3 +71,47 @@ Closing Screen
 600, 480
 
 A white rat with red eyes pushing a golden coin across a snow landscape, wide angle, pixel art 
+
+6. Create level picker.
+Main menu screen.
+End game screen.
+
+64 160 level 1
+128 96 level 2
+192 32 level 3
+
+384 32 level 4
+448 96 level 5
+512 160 level 6
+
+512 288 level 7
+448 352 level 8
+384 416 level 9
+
+192 416 level 10
+128 352 level 11
+64 288 level 12
+
+
+y * 600 + x
+
+7. Create a save state
+7a. Create the treasure chest sprite
+-> when win, -> set level completed
+
+7b. Create a save state in xml
+-> convert completion state to xml
+-> convert xml to completion state
+
+7c. 
+Create opening screen
+Creating win screen
+Create help screen
+
+8a. Refactor so that moveables is encapsulated within zone
+8b. The stack for undo could possibly overflow
+8c. Create a static variable for coin frames so that they rotate together.
+
+9. Add sound
+
+10. Design the actual levels lmao

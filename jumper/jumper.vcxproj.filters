@@ -104,6 +104,9 @@
     <ClInclude Include="text.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="savestate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="jumper.rc">
