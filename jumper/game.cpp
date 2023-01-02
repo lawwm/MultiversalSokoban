@@ -36,11 +36,13 @@ void Game::gameLoop() {
 		{globals::exit_dialogue, "Press Esc again to confirm exit.\nPress A to continue playing.\nPress D for level select."},
 		{globals::overworld_exit_dialogue, "Press Esc again to confirm exit.\nPress A to continue playing."},
 	});
-	
+
 	this->_zone = Zone(globals::data, graphics, 0);
 	this->_player = Player(graphics, Vector2(globals::overworld_spawn_x, globals::overworld_spawn_y));
 	this->_overworld = Overworld(Vector2(256, 256), graphics, dialogueData);
 	
+	this->_openingScreen = OpeningScreen(graphics);
+	this->_victoryScreen = VictoryScreen(graphics);
 	
 	this->_textbox = TextBox(graphics, dialogueData); // need to insert last as it uses the dialogueData
 	
@@ -64,12 +66,25 @@ void Game::gameLoop() {
 			}
 		}
 
-		if (this->_currScreen == ZONE && !individualZone(graphics, input, LAST_UPDATE_TIME)) {
-			return;
+		if (this->_currScreen == ZONE) {
+			if (!individualZone(graphics, input, LAST_UPDATE_TIME)) {
+				return;
+			}
 		}
-		else if (this->_currScreen == OVERWORLD && !overworld(graphics, input, LAST_UPDATE_TIME)) {
-			return;
-
+		else if (this->_currScreen == OVERWORLD) {
+			if (!overworld(graphics, input, LAST_UPDATE_TIME)) {
+				return;
+			}
+		}
+		else if (this->_currScreen == START_SCREEN) {
+			if (!openingscreen(graphics, input, LAST_UPDATE_TIME)) {
+				return;
+			}
+		}
+		else if (this->_currScreen == VICTORY_SCREEN) {
+			if (!victoryscreen(graphics, input, LAST_UPDATE_TIME)) {
+				return;
+			}
 		}
 
 	}
@@ -83,13 +98,20 @@ void Game::draw(Graphics& graphics) {
 	if (this->_currScreen == OVERWORLD) {
 		this->_overworld.draw(graphics);
 		this->_player.draw(graphics);
+		this->_textbox.draw(graphics);
 	}
 	else if (this->_currScreen == ZONE) {
 		this->_zone.draw(graphics);
 		this->_player.draw(graphics);	
+		this->_textbox.draw(graphics);
 	}
-
-	this->_textbox.draw(graphics);
+	else if (this->_currScreen == START_SCREEN) {
+		this->_openingScreen.draw(graphics);
+	}
+	else if (this->_currScreen == VICTORY_SCREEN) {
+		this->_victoryScreen.draw(graphics);
+	}
+	
 	
 	graphics.flip();
 }
@@ -109,7 +131,12 @@ void Game::update(float elapsedTime, Graphics& graphics) {
 			this->_textbox.set(globals::died_dialogue);
 		}		
 	}
-
+	else if (this->_currScreen == START_SCREEN) {
+		this->_openingScreen.update(elapsedTime, graphics);
+	}
+	else if (this->_currScreen == VICTORY_SCREEN) {
+		this->_victoryScreen.update(elapsedTime, graphics);
+	}
 }
 
 void Game::undo() {
@@ -167,7 +194,7 @@ bool Game::individualZone(Graphics& graphics, Input& input, int& LAST_UPDATE_TIM
 		
 		// if player decides to skip to next screen
 		if (input.isKeyHeld(SDL_SCANCODE_N) && input.wasKeyPressed(SDL_SCANCODE_N)) {
-			this->_zone.nextZone(graphics);
+			this->_zone.nextZone(graphics, this->_currScreen);
 			this->_textbox.clearDialogue();
 			return true;
 		}
@@ -304,6 +331,46 @@ bool Game::overworld(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 		}
 	}
 	
+	const int CURRENT_TIME_MS = SDL_GetTicks64();
+	int ELAPSED_TIME_MS = CURRENT_TIME_MS - LAST_UPDATE_TIME;
+	this->update(std::min(ELAPSED_TIME_MS, MAX_FRAME_TIME), graphics);
+	LAST_UPDATE_TIME = CURRENT_TIME_MS;
+
+	this->draw(graphics);
+
+	return true;
+}
+
+bool Game::openingscreen(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
+{
+	if (input.wasKeyPressed(SDL_SCANCODE_A)) {
+		this->_currScreen = OVERWORLD;
+		return true;
+	}
+	else if (input.wasKeyPressed(SDL_SCANCODE_ESCAPE))  {
+		return false;
+	}
+
+	const int CURRENT_TIME_MS = SDL_GetTicks64();
+	int ELAPSED_TIME_MS = CURRENT_TIME_MS - LAST_UPDATE_TIME;
+	this->update(std::min(ELAPSED_TIME_MS, MAX_FRAME_TIME), graphics);
+	LAST_UPDATE_TIME = CURRENT_TIME_MS;
+
+	this->draw(graphics);
+
+	return true;
+}
+
+bool Game::victoryscreen(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
+{
+	if (input.wasKeyPressed(SDL_SCANCODE_A)) {
+		this->_currScreen = OVERWORLD;
+		return true;
+	}
+	else if (input.wasKeyPressed(SDL_SCANCODE_ESCAPE)) {
+		return false;
+	}
+
 	const int CURRENT_TIME_MS = SDL_GetTicks64();
 	int ELAPSED_TIME_MS = CURRENT_TIME_MS - LAST_UPDATE_TIME;
 	this->update(std::min(ELAPSED_TIME_MS, MAX_FRAME_TIME), graphics);

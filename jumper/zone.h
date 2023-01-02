@@ -19,7 +19,7 @@ public:
 	void update(float elapsedTime, Graphics& graphics, bool& canPlayerSwitchStage);
 	void undo(int ticket, bool& canPlayerSwitchStage);
 
-	void nextZone(Graphics& graphics);
+	void nextZone(Graphics& graphics, Screen& currentScreen);
 	void selectZone(Graphics& graphics, int level);
 	int getZoneNumber();
 	

@@ -24,10 +24,14 @@ Zone::~Zone()
 {
 }
 
-void Zone::nextZone(Graphics& graphics)
+void Zone::nextZone(Graphics& graphics, Screen& currScreen)
 {
-	this->_zonenumber = (this->_zonenumber + 1) % this->_data.size();
+	if (this->_zonenumber + 1 == this->_data.size()) {
+		currScreen = VICTORY_SCREEN;
+		return;
+	}
 	
+	this->_zonenumber += 1;
 	this->selectZone(graphics, this->_zonenumber);
 }
 

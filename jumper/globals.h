@@ -27,7 +27,9 @@ namespace sides {
 
 enum Screen {
 	OVERWORLD,
-	ZONE
+	ZONE,
+	START_SCREEN,
+	VICTORY_SCREEN
 };
 
 enum Direction {
@@ -65,7 +67,10 @@ namespace globals {
 	const std::string endpoint = "sprites/2.png";
 	const std::string dialogue = "sprites/dialogue-bubble.png";
 	const std::string chest = "sprites/little-treasure-chest.png";
+	
+	const std::string opening_screen = "sprites/opening_screen.png";
 
+	
 	const std::string iceLevel = "Ice1";
 	const std::string roomLevel = "Room1";
 	const std::string pierLevel = "Pier1";
