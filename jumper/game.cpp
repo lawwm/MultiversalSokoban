@@ -38,8 +38,8 @@ void Game::gameLoop() {
 	});
 
 	this->_zone = Zone(globals::data, graphics, 0);
-	//this->_player = Player(graphics, Vector2(globals::overworld_spawn_x, globals::overworld_spawn_y));
-	this->_player = Player(graphics, Vector2(160, 160));
+	this->_player = Player(graphics, Vector2(globals::overworld_spawn_x, globals::overworld_spawn_y));
+	//this->_player = Player(graphics, Vector2(128, 128));
 	this->_overworld = Overworld(Vector2(256, 256), graphics, dialogueData);
 	
 	this->_openingScreen = OpeningScreen(graphics);
@@ -196,6 +196,7 @@ bool Game::individualZone(Graphics& graphics, Input& input, int& LAST_UPDATE_TIM
 		// if player decides to skip to next screen
 		if (input.isKeyHeld(SDL_SCANCODE_N) && input.wasKeyPressed(SDL_SCANCODE_N)) {
 			this->_zone.nextZone(graphics, this->_currScreen);
+			this->_player = Player(graphics, this->_zone.getSpawnPoint());
 			this->_textbox.clearDialogue();
 			return true;
 		}

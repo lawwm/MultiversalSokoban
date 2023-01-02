@@ -74,6 +74,9 @@ namespace globals {
 	const std::string a_room = "a_room";
 	const std::string a_ice = "a_ice";
 
+	const std::string b_room = "b_room";
+	const std::string b_ice = "b_ice";
+
 	const std::string iceLevel = "Ice1";
 	const std::string roomLevel = "Room1";
 	const std::string pierLevel = "Pier1";
@@ -81,7 +84,8 @@ namespace globals {
 	const std::string overworld = "overworld";
 	
 	const std::vector<zonedata> data = {
-		{{a_room, a_ice }, Vector2(160, 160), Vector2(448, 224), {{224,160}, {352,160}, {384,160}, {384, 192}, {384, 224}, {352, 224}, {416, 256}, {416, 288}, {416, 128}} },
+		{{a_room, a_ice }, Vector2(128, 128), Vector2(480, 128), {{160,96}, {160, 128}, {160,  160}} },
+		{{b_room, b_ice }, Vector2(160, 160), Vector2(448, 224), {{224,160}, {352,160}, {384,160}, {384, 192}, {384, 224}, {352, 224}, {416, 256}, {416, 288}, {416, 128}} },
 		{{iceLevel, roomLevel }, Vector2(160, 160), Vector2(160, 192), {{128,128}, {160,128}, {224,128}, {192,128}} },
 		{{pierLevel, bushLevel}, Vector2(160, 160), Vector2(224, 224), {{224,128}, {192,128}} }
 	};
@@ -89,7 +93,7 @@ namespace globals {
 	const std::string died_dialogue = "died";
 	const std::string won_dialogue = "won";
 	const std::string exit_dialogue = "exit";
-	const std::string overworld_exit_dialogue = "overwolrd_exit";
+	const std::string overworld_exit_dialogue = "overworld_exit";
 
 	const float overworld_spawn_x = 288;
 	const float overworld_spawn_y = 192;
