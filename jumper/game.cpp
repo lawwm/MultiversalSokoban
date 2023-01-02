@@ -38,7 +38,8 @@ void Game::gameLoop() {
 	});
 
 	this->_zone = Zone(globals::data, graphics, 0);
-	this->_player = Player(graphics, Vector2(globals::overworld_spawn_x, globals::overworld_spawn_y));
+	//this->_player = Player(graphics, Vector2(globals::overworld_spawn_x, globals::overworld_spawn_y));
+	this->_player = Player(graphics, Vector2(160, 160));
 	this->_overworld = Overworld(Vector2(256, 256), graphics, dialogueData);
 	
 	this->_openingScreen = OpeningScreen(graphics);

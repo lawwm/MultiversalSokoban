@@ -38,7 +38,7 @@ private:
 	Player _player;
 	Ticket _ticket = Ticket();
 	
-	Screen _currScreen = START_SCREEN;
+	Screen _currScreen = ZONE;
 
 	bool _canPlayerMove = true;
 	bool _canPlayerSwitchStage = true;

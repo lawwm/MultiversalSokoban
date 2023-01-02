@@ -40,11 +40,11 @@ public:
 	//bool collidesWith
 	//Takes in another Rectangle and checks if the two are colliding
 	const bool collidesWith(const Rectangle& other) const {
-		return
-			this->getRight() > other.getLeft() &&
+		bool isColliding = this->getRight() > other.getLeft() &&
 			this->getLeft() < other.getRight() &&
 			this->getTop() < other.getBottom() &&
 			this->getBottom() > other.getTop();
+		return isColliding;
 	}
 
 	const bool isValidRectangle() const {

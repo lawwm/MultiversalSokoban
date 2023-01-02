@@ -71,6 +71,9 @@ namespace globals {
 	const std::string opening_screen = "sprites/opening_screen.png";
 
 	
+	const std::string a_room = "a_room";
+	const std::string a_ice = "a_ice";
+
 	const std::string iceLevel = "Ice1";
 	const std::string roomLevel = "Room1";
 	const std::string pierLevel = "Pier1";
@@ -78,6 +81,7 @@ namespace globals {
 	const std::string overworld = "overworld";
 	
 	const std::vector<zonedata> data = {
+		{{a_room, a_ice }, Vector2(160, 160), Vector2(448, 224), {{224,160}, {352,160}, {384,160}, {384, 192}, {384, 224}, {352, 224}, {416, 256}, {416, 288}, {416, 128}} },
 		{{iceLevel, roomLevel }, Vector2(160, 160), Vector2(160, 192), {{128,128}, {160,128}, {224,128}, {192,128}} },
 		{{pierLevel, bushLevel}, Vector2(160, 160), Vector2(224, 224), {{224,128}, {192,128}} }
 	};
