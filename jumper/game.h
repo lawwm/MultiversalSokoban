@@ -26,14 +26,15 @@ private:
 	
 	void initialisePlayer(Graphics& graphics);
 
-	Stage _overworld;
+	Zone _zone;
+	Overworld _overworld;
+
 	TextBox _textbox;
 	Player _player;
-	Zone _zone;
 	Ticket _ticket = Ticket();
 	
 	Screen _currScreen =  OVERWORLD;	
-	
+
 	bool _canPlayerMove = true;
 	bool _canPlayerSwitchStage = true;
 	int _isPlayerInLevelSelect = 0;

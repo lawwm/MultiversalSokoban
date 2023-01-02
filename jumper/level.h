@@ -103,6 +103,20 @@ private:
 	void nextLevel(bool& isMoving);
 };
 
+class Overworld {
+public:
+	Overworld();
+	Overworld(Vector2 spawnPoint, Graphics& graphics);
+	~Overworld();
+	void update(int elapsedTime, bool& isMoving);
+	void draw(Graphics& graphics);
+	void setZoneCompleted(int zonenumber);
+	
+	Stage& getStage();
 
+private:
+	std::vector<CompletionSprite> _completionSprites;
+	Stage _overworld;
+};
 
 #endif

@@ -349,3 +349,52 @@ void Stage::restart(int generatedTicket)
 	this->_levels[this->_idx].update(0, this->_alpha);
 }
 
+Overworld::Overworld()
+{
+}
+
+Overworld::Overworld(Vector2 spawnPoint, Graphics& graphics)
+{
+	this->_overworld = Stage({ globals::overworld }, spawnPoint, graphics);
+
+	// initialise chest at level select area
+	for (auto& [key, value] : globals::overworldstages) {
+		int xpos = key % globals::SCREEN_WIDTH;
+		int ypos = key / globals::SCREEN_WIDTH;
+		this->_completionSprites.emplace_back(graphics, Vector2(xpos, ypos), value, false);
+	}
+}
+
+Overworld::~Overworld()
+{
+}
+
+void Overworld::update(int elapsedTime, bool& isMoving)
+{
+	this->_overworld.update(elapsedTime, isMoving);
+	for (CompletionSprite& completionSprite : this->_completionSprites) {
+		completionSprite.update(elapsedTime);
+	}
+}
+
+void Overworld::draw(Graphics& graphics)
+{
+	this->_overworld.draw(graphics);
+	for (CompletionSprite& completionSprite : this->_completionSprites) {
+		completionSprite.draw(graphics);
+	}
+}
+
+Stage& Overworld::getStage()
+{
+	return this->_overworld;
+}
+
+void Overworld::setZoneCompleted(int zonenumber)
+{
+	for (CompletionSprite& completionSprite : this->_completionSprites) {
+		if (completionSprite.getLevelNumber() == zonenumber) {
+			completionSprite.setCompleted(true);
+		}
+	}
+}

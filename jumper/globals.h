@@ -64,7 +64,8 @@ namespace globals {
 	const std::string explode = "sprites/explode.png";
 	const std::string endpoint = "sprites/2.png";
 	const std::string dialogue = "sprites/dialogue-bubble.png";
-	
+	const std::string chest = "sprites/little-treasure-chest.png";
+
 	const std::string iceLevel = "Ice1";
 	const std::string roomLevel = "Room1";
 	const std::string pierLevel = "Pier1";
@@ -98,12 +99,6 @@ namespace globals {
 
 	const float overworld_spawn_x = 288;
 	const float overworld_spawn_y = 192;
-	//std::unordered_map<std::string, std::string> dialogueData({
-	//	{died_dialogue, "You lost. Press Z to undo or R to restart"},
-	//	{won_dialogue, "You won. Press N to proceed."},
-	//	{exit_dialogue, "Press Esc again to confirm exit.\nPress A to continue playing."},
-	//	{"1", "Press A to proceed to Stage 1"}
-	//});
 }
 
 #endif

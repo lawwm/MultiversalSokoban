@@ -47,12 +47,9 @@ void Game::gameLoop() {
 	this->_zone = Zone(globals::data, graphics, 0);
 	this->_player = Player(graphics, Vector2(globals::overworld_spawn_x, globals::overworld_spawn_y));
 	this->_textbox = TextBox(graphics, dialogueData);
+
+	this->_overworld = Overworld(Vector2(256, 256), graphics);
 	
-	this->_overworld = Stage({ globals::overworld }, { 256, 256 }, graphics);
-
-
-
-
 	int LAST_UPDATE_TIME = SDL_GetTicks64();
 	//Start the game loop
 	while (true) {
@@ -98,7 +95,6 @@ void Game::draw(Graphics& graphics) {
 		this->_player.draw(graphics);	
 	}
 
-	
 	this->_textbox.draw(graphics);
 	
 	graphics.flip();
@@ -107,7 +103,7 @@ void Game::draw(Graphics& graphics) {
 void Game::update(float elapsedTime, Graphics& graphics) {
 	
 	if (this->_currScreen == OVERWORLD) {
-		this->_player.update(elapsedTime, _canPlayerMove, this->_overworld, graphics, this->_canPlayerSwitchStage);
+		this->_player.update(elapsedTime, _canPlayerMove, this->_overworld.getStage(), graphics, this->_canPlayerSwitchStage);
 		this->_overworld.update(elapsedTime, this->_canPlayerSwitchStage);
 	}
 	else if (this->_currScreen == ZONE) {
@@ -166,6 +162,11 @@ bool Game::individualZone(Graphics& graphics, Input& input, int& LAST_UPDATE_TIM
 	bool hasPlayerWon = this->_zone.areAllMoveablesVisible() && this->_zone.hasPlayerReachedEndPoint(this->_player);
 	if (hasPlayerWon) {
 		this->_textbox.set(globals::won_dialogue);
+		
+		// set zone to completed in overworld
+		this->_overworld.setZoneCompleted(this->_zone.getZoneNumber());
+		
+		// if player decides to skip to next screen
 		if (input.isKeyHeld(SDL_SCANCODE_N) && input.wasKeyPressed(SDL_SCANCODE_N)) {
 			this->_zone.nextZone(graphics);
 			this->_textbox.clearDialogue();
@@ -286,16 +287,16 @@ bool Game::overworld(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 	if (_canPlayerMove && _canPlayerSwitchStage && this->_player.getVisible()) {
 
 		if (input.isKeyHeld(SDL_SCANCODE_LEFT) == true) {
-			this->_player.moveLeft(this->_canPlayerMove, this->_overworld, empty, this->_ticket);
+			this->_player.moveLeft(this->_canPlayerMove, this->_overworld.getStage(), empty, this->_ticket);
 		}
 		else if (input.isKeyHeld(SDL_SCANCODE_RIGHT) == true) {
-			this->_player.moveRight(this->_canPlayerMove, this->_overworld, empty, this->_ticket);
+			this->_player.moveRight(this->_canPlayerMove, this->_overworld.getStage(), empty, this->_ticket);
 		}
 		else if (input.isKeyHeld(SDL_SCANCODE_UP) == true) {
-			this->_player.moveUp(this->_canPlayerMove, this->_overworld, empty, this->_ticket);
+			this->_player.moveUp(this->_canPlayerMove, this->_overworld.getStage(), empty, this->_ticket);
 		}
 		else if (input.isKeyHeld(SDL_SCANCODE_DOWN) == true) {
-			this->_player.moveDown(this->_canPlayerMove, this->_overworld, empty, this->_ticket);
+			this->_player.moveDown(this->_canPlayerMove, this->_overworld.getStage(), empty, this->_ticket);
 		}
 
 		if (!input.isKeyHeld(SDL_SCANCODE_LEFT) && !input.isKeyHeld(SDL_SCANCODE_RIGHT)

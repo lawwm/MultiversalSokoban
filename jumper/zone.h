@@ -21,6 +21,7 @@ public:
 
 	void nextZone(Graphics& graphics);
 	void selectZone(Graphics& graphics, int level);
+	int getZoneNumber();
 	
 	Vector2 getSpawnPoint();
 

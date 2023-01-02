@@ -84,6 +84,11 @@ std::vector<Moveable>& Zone::getMoveables()
 	return this->_moveables;
 }
 
+int Zone::getZoneNumber()
+{
+	return this->_zonenumber;
+}
+
 void Zone::draw(Graphics& graphics)
 {
 	this->_stage.draw(graphics);
