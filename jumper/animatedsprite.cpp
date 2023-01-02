@@ -123,6 +123,7 @@ void ExplosionSprite::setupAnimations()
 
 
 
+
 EndPointSprite::EndPointSprite()
 {
 }
@@ -187,9 +188,14 @@ void CompletionSprite::setupAnimations()
 	this->addAnimation(1, 16, 0, "Open", 16, 16, Vector2(0, 0));
 }
 
-int CompletionSprite::getLevelNumber()
+int CompletionSprite::getLevelNumber() const
 {
 	return this->_levelNumber;
+}
+
+bool CompletionSprite::getCompleted() const
+{
+	return this->_isCompleted;
 }
 
 void CompletionSprite::setCompleted(bool isCompleted)

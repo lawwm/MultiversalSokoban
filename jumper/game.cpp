@@ -37,18 +37,12 @@ void Game::gameLoop() {
 		{globals::overworld_exit_dialogue, "Press Esc again to confirm exit.\nPress A to continue playing."},
 	});
 	
-	// initialise global values
-	for (int i = 1; i <= 12; ++i) {
-		std::string stagenumber = std::to_string(i);
-		std::string prompt = "Press A to proceed to Stage " + stagenumber + ".";
-		dialogueData[stagenumber] = prompt;
-	}
-	
 	this->_zone = Zone(globals::data, graphics, 0);
 	this->_player = Player(graphics, Vector2(globals::overworld_spawn_x, globals::overworld_spawn_y));
-	this->_textbox = TextBox(graphics, dialogueData);
-
-	this->_overworld = Overworld(Vector2(256, 256), graphics);
+	this->_overworld = Overworld(Vector2(256, 256), graphics, dialogueData);
+	
+	
+	this->_textbox = TextBox(graphics, dialogueData); // need to insert last as it uses the dialogueData
 	
 	int LAST_UPDATE_TIME = SDL_GetTicks64();
 	//Start the game loop
@@ -161,10 +155,15 @@ bool Game::individualZone(Graphics& graphics, Input& input, int& LAST_UPDATE_TIM
 	// check whether this player has won
 	bool hasPlayerWon = this->_zone.areAllMoveablesVisible() && this->_zone.hasPlayerReachedEndPoint(this->_player);
 	if (hasPlayerWon) {
-		this->_textbox.set(globals::won_dialogue);
 		
 		// set zone to completed in overworld
-		this->_overworld.setZoneCompleted(this->_zone.getZoneNumber());
+		if (this->_textbox.getKey() != globals::won_dialogue) {
+			this->_textbox.set(globals::won_dialogue);
+			this->_overworld.setZoneCompleted(this->_zone.getZoneNumber());
+			this->_overworld.save();
+		}
+
+		
 		
 		// if player decides to skip to next screen
 		if (input.isKeyHeld(SDL_SCANCODE_N) && input.wasKeyPressed(SDL_SCANCODE_N)) {
@@ -252,19 +251,19 @@ bool Game::overworld(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 	
 	// level select
 	float key = this->_player.getY() * globals::SCREEN_WIDTH + this->_player.getX();
-	if (globals::overworldstages.find(key) != globals::overworldstages.end()) {
-		int value = (globals::overworldstages.find(key))->second;	
 
+	if (this->_overworld.getZoneMapValue(key)) {
+		int value = this->_overworld.getZoneMapValue(key);
 		if (this->_isPlayerInLevelSelect == 0) {
 			this->_isPlayerInLevelSelect = 1;
-			this->_textbox.set(std::to_string(value + 1));
+			this->_textbox.set(std::to_string(value));
 			this->draw(graphics);
 			return true;
 		}
 		else if (this->_isPlayerInLevelSelect == 1) {
 			if (input.wasKeyPressed(SDL_SCANCODE_A)) {
 				this->_currScreen = ZONE;
-				this->_zone.selectZone(graphics, value);
+				this->_zone.selectZone(graphics, value-1);
 				this->initialisePlayer(graphics);
 				this->_textbox.clearDialogue();
 			}

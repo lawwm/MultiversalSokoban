@@ -9,6 +9,7 @@
 #include "tile.h"
 #include "rectangle.h"
 #include "animatedsprite.h"
+#include "savestate.h"
 
 class Graphics;
 class Moveable;
@@ -106,17 +107,22 @@ private:
 class Overworld {
 public:
 	Overworld();
-	Overworld(Vector2 spawnPoint, Graphics& graphics);
+	Overworld(Vector2 spawnPoint, Graphics& graphics, std::unordered_map<std::string, std::string>& dialogueData);
 	~Overworld();
 	void update(int elapsedTime, bool& isMoving);
 	void draw(Graphics& graphics);
 	void setZoneCompleted(int zonenumber);
+	
+	int getZoneMapValue(int key);
+	void save();
 	
 	Stage& getStage();
 
 private:
 	std::vector<CompletionSprite> _completionSprites;
 	Stage _overworld;
+	SaveState _save;
+	std::unordered_map<int, int> _overworldzone_map;
 };
 
 #endif

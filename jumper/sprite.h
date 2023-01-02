@@ -24,7 +24,8 @@ public:
 	void draw(Graphics& graphics, int x, int y);
 	void draw(Graphics& graphics, int x, int y, int width, int height);
 	const Rectangle getBoundingBox() const;
-	
+	int getX() const;
+	int getY() const;
 protected:
 	SDL_Rect _sourceRect;
 	SDL_Texture* _spriteSheet;

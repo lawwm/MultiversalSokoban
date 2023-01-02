@@ -353,15 +353,24 @@ Overworld::Overworld()
 {
 }
 
-Overworld::Overworld(Vector2 spawnPoint, Graphics& graphics)
+Overworld::Overworld(Vector2 spawnPoint, Graphics& graphics, std::unordered_map<std::string, std::string>& dialogueData)
 {
 	this->_overworld = Stage({ globals::overworld }, spawnPoint, graphics);
 
-	// initialise chest at level select area
-	for (auto& [key, value] : globals::overworldstages) {
-		int xpos = key % globals::SCREEN_WIDTH;
-		int ypos = key / globals::SCREEN_WIDTH;
-		this->_completionSprites.emplace_back(graphics, Vector2(xpos, ypos), value, false);
+	// initialise chest at level select area from xml file
+	this->_save.parse(globals::overworld, this->_completionSprites, graphics);
+	
+	// fill out coordinates map
+	for (auto& completionSprite : this->_completionSprites) {
+
+		// fill out coordinates map
+		int key = completionSprite.getX() + completionSprite.getY() * globals::SCREEN_WIDTH;
+		this->_overworldzone_map.insert({ key, completionSprite.getLevelNumber() });
+	
+		// insert into the dialogueData
+		std::string stagenumber = std::to_string(completionSprite.getLevelNumber());
+		std::string prompt = "Press A to proceed to Stage " + stagenumber + ".";
+		dialogueData[stagenumber] = prompt;
 	}
 }
 
@@ -380,7 +389,9 @@ void Overworld::update(int elapsedTime, bool& isMoving)
 void Overworld::draw(Graphics& graphics)
 {
 	this->_overworld.draw(graphics);
+	
 	for (CompletionSprite& completionSprite : this->_completionSprites) {
+		//std::cout << completionSprite.getX() << " " << completionSprite.getY() << std::endl;
 		completionSprite.draw(graphics);
 	}
 }
@@ -392,9 +403,25 @@ Stage& Overworld::getStage()
 
 void Overworld::setZoneCompleted(int zonenumber)
 {
+	zonenumber++;
 	for (CompletionSprite& completionSprite : this->_completionSprites) {
 		if (completionSprite.getLevelNumber() == zonenumber) {
+			std::cout << completionSprite.getLevelNumber() << std::endl;
 			completionSprite.setCompleted(true);
 		}
 	}
+}
+
+int Overworld::getZoneMapValue(int key) // return 0 if cannot be found
+{
+	if (this->_overworldzone_map.find(key) == this->_overworldzone_map.end()) {
+		return 0;
+	}
+	
+	return this->_overworldzone_map[key];
+}
+
+void Overworld::save()
+{
+	this->_save.update(globals::overworld, this->_completionSprites);
 }

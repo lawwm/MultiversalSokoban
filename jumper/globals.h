@@ -77,21 +77,6 @@ namespace globals {
 		{{pierLevel, bushLevel}, Vector2(160, 160), Vector2(224, 224), {{224,128}, {192,128}} }
 	};
 
-	const std::unordered_map<int, int> overworldstages = {
-		{96064, 0},
-		{57728, 1},
-		{19392, 2},
-		{19584, 3},
-		{58048, 4},
-		{96512, 5},
-		{173312, 6},
-		{211648, 7},
-		{249984, 8},
-		{249792, 9},
-		{211328, 10},
-		{172864, 11}
-	};
-
 	const std::string died_dialogue = "died";
 	const std::string won_dialogue = "won";
 	const std::string exit_dialogue = "exit";

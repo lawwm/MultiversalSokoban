@@ -43,3 +43,11 @@ void Sprite::update() {
 const Rectangle Sprite::getBoundingBox() const {
 	return this->_boundingBox;
 }
+
+int Sprite::getX() const {
+	return this->_x;
+}
+
+int Sprite::getY() const {
+	return this->_y;
+}

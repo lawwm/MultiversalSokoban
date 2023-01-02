@@ -128,7 +128,8 @@ public:
 	void animationDone(std::string currentAnimation) override;
 	void setupAnimations() override;
 	
-	int getLevelNumber();
+	int getLevelNumber() const;
+	bool getCompleted() const;
 	void setCompleted(bool isCompleted);
 
 private:
