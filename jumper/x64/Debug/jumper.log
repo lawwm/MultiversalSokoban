@@ -1,1 +1,872 @@
-﻿  jumper.vcxproj -> C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\x64\Debug\jumper.exe
+﻿  animatedsprite.cpp
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,1): error C2236: unexpected token 'struct'. Did you forget a ';'?
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2059: syntax error: '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2143: syntax error: missing ';' before '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,46): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,55): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,76): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,69): error C2923: 'std::vector': 'Vector2' is not a valid template type argument for parameter '_Ty'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,76): message : see declaration of 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,69): error C2976: 'std::vector': too few template arguments
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\vector(494,1): message : see declaration of 'std::vector'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,14): error C3544: '_Types': parameter pack expects a type template argument
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,86): error C2955: 'std::tuple': use of class template requires template argument list
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(183,7): message : see declaration of 'std::tuple'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,20): error C3203: 'tuple': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(92,22): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(92,41): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(93,22): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(93,41): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(94,28): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(94,47): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(95,28): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(95,47): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,37): error C2440: 'initializing': cannot convert from 'initializer list' to 'std::vector<int,std::allocator<int>>'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,37): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(51,87): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,24): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,7): error C2923: 'std::map': 'Vector2' is not a valid template type argument for parameter '_Ty'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,24): message : see declaration of 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,7): error C2976: 'std::map': too few template arguments
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(73,1): message : see declaration of 'std::map'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,33): error C2955: 'std::map': use of class template requires template argument list
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(73,1): message : see declaration of 'std::map'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(99,38): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(112,37): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(124,39): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(9,34): error C2512: 'std::map': no appropriate default constructor available
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(73,1): message : see declaration of 'std::map'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(20,1): error C2512: 'std::map': no appropriate default constructor available
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(73,1): message : see declaration of 'std::map'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(22,102): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(29,47): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(29,29): error C2923: 'std::pair': 'Vector2' is not a valid template type argument for parameter '_Ty2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(29,47): message : see declaration of 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(29,62): error C2065: 'offset': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(29,16): error C2672: 'std::map<_Kty,_Ty,_Pr,_Alloc>::insert': no matching overloaded function found
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(189,14): message : could be 'map<_Kty,_Ty,_Pr,_Alloc>::_Tree<std::_Tmap_traits<_Kty,_Ty,_Pr,_Alloc,false>>::iterator std::map<_Kty,_Ty,_Pr,_Alloc>::insert(map<_Kty,_Ty,_Pr,_Alloc>::_Tree<std::_Tmap_traits<_Kty,_Ty,_Pr,_Alloc,false>>::const_iterator,_Valty &&)'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(29,16): message : 'map<_Kty,_Ty,_Pr,_Alloc>::_Tree<std::_Tmap_traits<_Kty,_Ty,_Pr,_Alloc,false>>::iterator std::map<_Kty,_Ty,_Pr,_Alloc>::insert(map<_Kty,_Ty,_Pr,_Alloc>::_Tree<std::_Tmap_traits<_Kty,_Ty,_Pr,_Alloc,false>>::const_iterator,_Valty &&)': expects 2 arguments - 1 provided
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(184,26): message : or       'std::pair<map<_Kty,_Ty,_Pr,_Alloc>::_Tree<std::_Tmap_traits<_Kty,_Ty,_Pr,_Alloc,false>>::iterator,bool> std::map<_Kty,_Ty,_Pr,_Alloc>::insert(_Valty &&)'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(34,17): error C2039: 'clear': is not a member of 'std::map'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(73,1): message : see declaration of 'std::map'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(84,36): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::map' (or there is no acceptable conversion)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(344,18): message : could be '_Ty &std::map<_Kty,_Ty,_Pr,_Alloc>::operator [](const _Kty &)'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(173,18): message : or       '_Ty &std::map<_Kty,_Ty,_Pr,_Alloc>::operator [](_Kty &&)'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(84,36): message : while trying to match the argument list '(std::map, std::string)'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(85,36): error C2678: binary '[': no operator found which takes a left-hand operand of type 'std::map' (or there is no acceptable conversion)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(344,18): message : could be '_Ty &std::map<_Kty,_Ty,_Pr,_Alloc>::operator [](const _Kty &)'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(173,18): message : or       '_Ty &std::map<_Kty,_Ty,_Pr,_Alloc>::operator [](_Kty &&)'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(85,36): message : while trying to match the argument list '(std::map, std::string)'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(86,48): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(87,48): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(98,54): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(99,59): error C2065: 'spawnPoint': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(99,73): error C2065: 'spawnPoint': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(99,16): error C2661: 'AnimatedSprite::AnimatedSprite': no overloaded function takes 7 arguments
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(99,16): message : while trying to match the argument list '(Graphics, const std::string, int, int, int, int, int)'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(107,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(107,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(112,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(121,49): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(131,52): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(132,60): error C2065: 'spawnPoint': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(132,74): error C2065: 'spawnPoint': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(132,16): error C2661: 'AnimatedSprite::AnimatedSprite': no overloaded function takes 7 arguments
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(132,16): message : while trying to match the argument list '(Graphics, const std::string, int, int, int, int, int)'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(140,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(140,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(145,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(154,46): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(159,56): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(160,57): error C2065: 'spawnPoint': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(160,71): error C2065: 'spawnPoint': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(160,16): error C2661: 'AnimatedSprite::AnimatedSprite': no overloaded function takes 7 arguments
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(160,16): message : while trying to match the argument list '(Graphics, const std::string, int, int, int, int, int)'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(163,23): error C2065: 'levelNumber': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(164,23): error C2065: 'isCompleted': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(170,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(170,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(178,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(187,47): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.cpp(188,47): error C3861: 'Vector2': identifier not found
+  game.cpp
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,1): error C2236: unexpected token 'struct'. Did you forget a ';'?
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2059: syntax error: '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2143: syntax error: missing ';' before '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,46): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,55): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,76): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,69): error C2923: 'std::vector': 'Vector2' is not a valid template type argument for parameter '_Ty'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,76): message : see declaration of 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,69): error C2976: 'std::vector': too few template arguments
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\vector(494,1): message : see declaration of 'std::vector'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,14): error C3544: '_Types': parameter pack expects a type template argument
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,86): error C2955: 'std::tuple': use of class template requires template argument list
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(183,7): message : see declaration of 'std::tuple'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,20): error C3203: 'tuple': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(92,22): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(92,41): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(93,22): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(93,41): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(94,28): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(94,47): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(95,28): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(95,47): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,37): error C2440: 'initializing': cannot convert from 'initializer list' to 'std::vector<int,std::allocator<int>>'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,37): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(51,87): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,24): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,7): error C2923: 'std::map': 'Vector2' is not a valid template type argument for parameter '_Ty'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,24): message : see declaration of 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,7): error C2976: 'std::map': too few template arguments
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(73,1): message : see declaration of 'std::map'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,33): error C2955: 'std::map': use of class template requires template argument list
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(73,1): message : see declaration of 'std::map'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(99,38): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(112,37): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(124,39): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(12,29): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(17,10): error C3646: '_size': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(17,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(18,10): error C3646: '_tilesetPosition': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(18,26): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(19,10): error C3646: '_position': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(19,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\savestate.h(68,46): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(34,29): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(46,10): error C3646: '_size': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(46,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(47,10): error C3646: '_tileSize': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(47,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(65,39): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(75,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(75,16): error C3646: 'getPlayerSpawnPoint': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(75,36): error C2059: syntax error: ')'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(75,43): error C2238: unexpected token(s) preceding ';'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(95,10): error C3646: '_spawnPoint': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(95,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(110,12): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(110,2): error C2535: 'Overworld::Overworld(void)': member function already defined or declared
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(109,2): message : see declaration of 'Overworld::Overworld'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.h(15,31): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.h(38,15): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.h(15,29): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.h(59,15): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.h(13,19): error C3203: 'tuple': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.h(26,10): error C3646: 'getSpawnPoint': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.h(26,23): error C2059: syntax error: '('
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.h(26,25): error C2238: unexpected token(s) preceding ';'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.h(38,14): error C3203: 'tuple': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\text.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(65,35): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(67,31): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(77,23): warning C4244: 'initializing': conversion from 'Uint64' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(151,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(181,2): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(181,10): error C2146: syntax error: missing ';' before identifier 'spawn'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(181,10): error C2065: 'spawn': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(181,30): error C2039: 'getSpawnPoint': is not a member of 'Zone'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.h(10,7): message : see declaration of 'Zone'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(183,24): error C2065: 'spawn': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(201,37): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(228,49): error C2039: 'getSpawnPoint': is not a member of 'Zone'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.h(10,7): message : see declaration of 'Zone'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(168,113): error C2065: '_Pr': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(282,44): warning C4244: 'initializing': conversion from 'Uint64' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(282,28): warning C4244: 'initializing': conversion from 'Uint64' to 'const int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(284,23): warning C4244: 'argument': conversion from 'const _Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(315,39): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(316,48): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(367,44): warning C4244: 'initializing': conversion from 'Uint64' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(367,28): warning C4244: 'initializing': conversion from 'Uint64' to 'const int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(369,23): warning C4244: 'argument': conversion from 'const _Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(401,44): warning C4244: 'initializing': conversion from 'Uint64' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(401,28): warning C4244: 'initializing': conversion from 'Uint64' to 'const int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(403,23): warning C4244: 'argument': conversion from 'const _Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(423,44): warning C4244: 'initializing': conversion from 'Uint64' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(423,28): warning C4244: 'initializing': conversion from 'Uint64' to 'const int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(425,23): warning C4244: 'argument': conversion from 'const _Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\game.cpp(435,47): error C2039: 'getSpawnPoint': is not a member of 'Zone'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.h(10,7): message : see declaration of 'Zone'
+  graphics.cpp
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,1): error C2236: unexpected token 'struct'. Did you forget a ';'?
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2059: syntax error: '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2143: syntax error: missing ';' before '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,46): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,55): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,76): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,69): error C2923: 'std::vector': 'Vector2' is not a valid template type argument for parameter '_Ty'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,76): message : see declaration of 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,69): error C2976: 'std::vector': too few template arguments
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\vector(494,1): message : see declaration of 'std::vector'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,14): error C3544: '_Types': parameter pack expects a type template argument
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,86): error C2955: 'std::tuple': use of class template requires template argument list
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(183,7): message : see declaration of 'std::tuple'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,20): error C3203: 'tuple': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(92,22): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(92,41): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(93,22): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(93,41): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(94,28): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(94,47): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(95,28): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(95,47): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,37): error C2440: 'initializing': cannot convert from 'initializer list' to 'std::vector<int,std::allocator<int>>'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,37): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+  level.cpp
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,1): error C2236: unexpected token 'struct'. Did you forget a ';'?
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2059: syntax error: '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2143: syntax error: missing ';' before '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,46): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,55): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,76): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,69): error C2923: 'std::vector': 'Vector2' is not a valid template type argument for parameter '_Ty'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,76): message : see declaration of 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,69): error C2976: 'std::vector': too few template arguments
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\vector(494,1): message : see declaration of 'std::vector'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,14): error C3544: '_Types': parameter pack expects a type template argument
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,86): error C2955: 'std::tuple': use of class template requires template argument list
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(183,7): message : see declaration of 'std::tuple'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,20): error C3203: 'tuple': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(92,22): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(92,41): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(93,22): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(93,41): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(94,28): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(94,47): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(95,28): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(95,47): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,37): error C2440: 'initializing': cannot convert from 'initializer list' to 'std::vector<int,std::allocator<int>>'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,37): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(12,29): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(17,10): error C3646: '_size': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(17,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(18,10): error C3646: '_tilesetPosition': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(18,26): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(19,10): error C3646: '_position': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(19,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(51,87): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,24): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,7): error C2923: 'std::map': 'Vector2' is not a valid template type argument for parameter '_Ty'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,24): message : see declaration of 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,7): error C2976: 'std::map': too few template arguments
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(73,1): message : see declaration of 'std::map'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,33): error C2955: 'std::map': use of class template requires template argument list
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(73,1): message : see declaration of 'std::map'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(99,38): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(112,37): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(124,39): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\savestate.h(68,46): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(34,29): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(46,10): error C3646: '_size': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(46,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(47,10): error C3646: '_tileSize': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(47,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(65,39): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(75,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(75,16): error C3646: 'getPlayerSpawnPoint': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(75,36): error C2059: syntax error: ')'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(75,43): error C2238: unexpected token(s) preceding ';'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(95,10): error C3646: '_spawnPoint': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(95,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(110,12): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(110,2): error C2535: 'Overworld::Overworld(void)': member function already defined or declared
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(109,2): message : see declaration of 'Overworld::Overworld'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.h(15,31): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.h(38,15): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.h(15,29): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.h(59,15): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(19,35): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(21,8): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(21,2): error C2614: 'Level': illegal member initialization: '_size' is not a base or member
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(23,25): error C2065: 'graphics': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(44,8): error C2039: '_size': is not a member of 'Level'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(31,7): message : see declaration of 'Level'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(44,16): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(50,8): error C2039: '_tileSize': is not a member of 'Level'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(31,7): message : see declaration of 'Level'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(50,20): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(108,8): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(108,16): error C2146: syntax error: missing ';' before identifier 'finalTilePosition'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(108,16): error C2065: 'finalTilePosition': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(108,36): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(117,8): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(117,16): error C2146: syntax error: missing ';' before identifier 'finalTilesetPosition'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(117,16): error C2065: 'finalTilesetPosition': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(117,39): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(120,31): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(121,9): error C2065: 'finalTilesetPosition': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(121,31): error C2065: 'finalTilePosition': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(159,26): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(158,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(157,21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(156,21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(197,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(197,22): error C2039: 'getPlayerSpawnPoint': is not a member of 'Stage'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(62,7): message : see declaration of 'Stage'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(197,41): error C2146: syntax error: missing ';' before identifier 'getPlayerSpawnPoint'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(197,42): error C2059: syntax error: ')'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(197,50): error C2143: syntax error: missing ';' before '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(197,50): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(201,45): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(202,14): error C2065: 'spawnPoint': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(202,2): error C2614: 'Stage': illegal member initialization: '_spawnPoint' is not a base or member
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(205,38): error C2064: term does not evaluate to a function taking 2 arguments
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(205,57): error C2065: 'graphics': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(306,78): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(356,12): error C7550: 'Overworld::{ctor}': the qualified name in this context names a constructor, not a type
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(356,30): error C2146: syntax error: missing ')' before identifier 'spawnPoint'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(357,1): error C2143: syntax error: missing ';' before '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(357,1): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.cpp(385,27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  main.cpp
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,1): error C2236: unexpected token 'struct'. Did you forget a ';'?
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2059: syntax error: '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2143: syntax error: missing ';' before '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,46): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,55): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,76): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,69): error C2923: 'std::vector': 'Vector2' is not a valid template type argument for parameter '_Ty'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,76): message : see declaration of 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,69): error C2976: 'std::vector': too few template arguments
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\vector(494,1): message : see declaration of 'std::vector'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,14): error C3544: '_Types': parameter pack expects a type template argument
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,86): error C2955: 'std::tuple': use of class template requires template argument list
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(183,7): message : see declaration of 'std::tuple'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,20): error C3203: 'tuple': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(92,22): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(92,41): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(93,22): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(93,41): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(94,28): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(94,47): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(95,28): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(95,47): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,37): error C2440: 'initializing': cannot convert from 'initializer list' to 'std::vector<int,std::allocator<int>>'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,37): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(51,87): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,24): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,7): error C2923: 'std::map': 'Vector2' is not a valid template type argument for parameter '_Ty'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,24): message : see declaration of 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,7): error C2976: 'std::map': too few template arguments
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(73,1): message : see declaration of 'std::map'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,33): error C2955: 'std::map': use of class template requires template argument list
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(73,1): message : see declaration of 'std::map'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(99,38): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(112,37): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(124,39): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(12,29): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(17,10): error C3646: '_size': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(17,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(18,10): error C3646: '_tilesetPosition': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(18,26): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(19,10): error C3646: '_position': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(19,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\savestate.h(68,46): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(34,29): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(46,10): error C3646: '_size': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(46,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(47,10): error C3646: '_tileSize': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(47,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(65,39): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(75,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(75,16): error C3646: 'getPlayerSpawnPoint': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(75,36): error C2059: syntax error: ')'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(75,43): error C2238: unexpected token(s) preceding ';'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(95,10): error C3646: '_spawnPoint': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(95,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(110,12): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(110,2): error C2535: 'Overworld::Overworld(void)': member function already defined or declared
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(109,2): message : see declaration of 'Overworld::Overworld'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.h(15,31): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.h(38,15): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.h(15,29): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.h(59,15): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.h(13,19): error C3203: 'tuple': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.h(26,10): error C3646: 'getSpawnPoint': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.h(26,23): error C2059: syntax error: '('
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.h(26,25): error C2238: unexpected token(s) preceding ';'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.h(38,14): error C3203: 'tuple': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\text.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  moveable.cpp
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,1): error C2236: unexpected token 'struct'. Did you forget a ';'?
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2059: syntax error: '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2143: syntax error: missing ';' before '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,46): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,55): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,76): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,69): error C2923: 'std::vector': 'Vector2' is not a valid template type argument for parameter '_Ty'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,76): message : see declaration of 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,69): error C2976: 'std::vector': too few template arguments
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\vector(494,1): message : see declaration of 'std::vector'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,14): error C3544: '_Types': parameter pack expects a type template argument
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,86): error C2955: 'std::tuple': use of class template requires template argument list
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(183,7): message : see declaration of 'std::tuple'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,20): error C3203: 'tuple': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(92,22): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(92,41): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(93,22): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(93,41): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(94,28): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(94,47): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(95,28): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(95,47): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,37): error C2440: 'initializing': cannot convert from 'initializer list' to 'std::vector<int,std::allocator<int>>'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,37): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(51,87): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,24): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,7): error C2923: 'std::map': 'Vector2' is not a valid template type argument for parameter '_Ty'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,24): message : see declaration of 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,7): error C2976: 'std::map': too few template arguments
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(73,1): message : see declaration of 'std::map'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,33): error C2955: 'std::map': use of class template requires template argument list
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(73,1): message : see declaration of 'std::map'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(99,38): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(112,37): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(124,39): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(12,29): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(17,10): error C3646: '_size': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(17,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(18,10): error C3646: '_tilesetPosition': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(18,26): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(19,10): error C3646: '_position': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(19,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\savestate.h(68,46): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(34,29): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(46,10): error C3646: '_size': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(46,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(47,10): error C3646: '_tileSize': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(47,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(65,39): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(75,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(75,16): error C3646: 'getPlayerSpawnPoint': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(75,36): error C2059: syntax error: ')'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(75,43): error C2238: unexpected token(s) preceding ';'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(95,10): error C3646: '_spawnPoint': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(95,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(110,12): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(110,2): error C2535: 'Overworld::Overworld(void)': member function already defined or declared
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(109,2): message : see declaration of 'Overworld::Overworld'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.h(15,31): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.h(38,15): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.cpp(9,40): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.cpp(10,56): error C2065: 'spawnPoint': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.cpp(10,70): error C2065: 'spawnPoint': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.cpp(10,16): error C2661: 'AnimatedSprite::AnimatedSprite': no overloaded function takes 7 arguments
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.cpp(10,16): message : while trying to match the argument list '(Graphics, const std::string, int, int, int, int, int)'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.cpp(19,46): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.cpp(20,48): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.cpp(39,13): warning C4244: '=': conversion from '_This' to 'float', possible loss of data
+          with
+          [
+              _This=int
+          ]
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.cpp(40,13): warning C4244: '=': conversion from '_This' to 'float', possible loss of data
+          with
+          [
+              _This=int
+          ]
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.cpp(50,32): error C2761: 'void Moveable::restart(void)': redeclaration of member is not allowed
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.cpp(50,24): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.cpp(50,32): error C2146: syntax error: missing ')' before identifier 'spawn'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.cpp(51,1): error C2143: syntax error: missing ';' before '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.cpp(51,1): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.cpp(59,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.cpp(60,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.cpp(64,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.cpp(64,32): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.cpp(69,45): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.cpp(79,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.cpp(83,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.cpp(83,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.cpp(91,51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.cpp(91,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  player.cpp
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,1): error C2236: unexpected token 'struct'. Did you forget a ';'?
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2059: syntax error: '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2143: syntax error: missing ';' before '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,46): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,55): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,76): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,69): error C2923: 'std::vector': 'Vector2' is not a valid template type argument for parameter '_Ty'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,76): message : see declaration of 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,69): error C2976: 'std::vector': too few template arguments
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\vector(494,1): message : see declaration of 'std::vector'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,14): error C3544: '_Types': parameter pack expects a type template argument
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,86): error C2955: 'std::tuple': use of class template requires template argument list
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(183,7): message : see declaration of 'std::tuple'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,20): error C3203: 'tuple': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(92,22): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(92,41): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(93,22): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(93,41): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(94,28): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(94,47): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(95,28): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(95,47): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,37): error C2440: 'initializing': cannot convert from 'initializer list' to 'std::vector<int,std::allocator<int>>'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,37): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(51,87): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,24): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,7): error C2923: 'std::map': 'Vector2' is not a valid template type argument for parameter '_Ty'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,24): message : see declaration of 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,7): error C2976: 'std::map': too few template arguments
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(73,1): message : see declaration of 'std::map'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,33): error C2955: 'std::map': use of class template requires template argument list
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(73,1): message : see declaration of 'std::map'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(99,38): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(112,37): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(124,39): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(12,29): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(17,10): error C3646: '_size': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(17,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(18,10): error C3646: '_tilesetPosition': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(18,26): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(19,10): error C3646: '_position': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(19,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\savestate.h(68,46): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(34,29): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(46,10): error C3646: '_size': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(46,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(47,10): error C3646: '_tileSize': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(47,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(65,39): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(75,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(75,16): error C3646: 'getPlayerSpawnPoint': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(75,36): error C2059: syntax error: ')'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(75,43): error C2238: unexpected token(s) preceding ';'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(95,10): error C3646: '_spawnPoint': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(95,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(110,12): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(110,2): error C2535: 'Overworld::Overworld(void)': member function already defined or declared
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(109,2): message : see declaration of 'Overworld::Overworld'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.h(15,31): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.h(38,15): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.h(15,29): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.h(59,15): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(11,36): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(12,58): error C2065: 'spawnPoint': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(12,72): error C2065: 'spawnPoint': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(16,9): error C2065: 'spawnPoint': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(17,9): error C2065: 'spawnPoint': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(12,16): error C2661: 'AnimatedSprite::AnimatedSprite': no overloaded function takes 7 arguments
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(12,16): message : while trying to match the argument list '(Graphics, const std::string, int, int, int, int, int)'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(27,50): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(28,49): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(29,51): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(30,52): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(33,49): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(34,48): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(35,50): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(36,51): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(51,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(51,36): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(125,30): error C2761: 'void Player::restart(void)': redeclaration of member is not allowed
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(125,22): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(125,30): error C2146: syntax error: missing ')' before identifier 'spawn'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(126,1): error C2143: syntax error: missing ';' before '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(126,1): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(161,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(161,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(166,45): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(197,40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(197,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(200,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(204,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(204,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(213,13): warning C4244: '=': conversion from '_This' to 'float', possible loss of data
+          with
+          [
+              _This=int
+          ]
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(214,17): warning C4244: '=': conversion from '_This' to 'float', possible loss of data
+          with
+          [
+              _This=int
+          ]
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(215,13): warning C4244: '=': conversion from '_This' to 'float', possible loss of data
+          with
+          [
+              _This=int
+          ]
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.cpp(216,17): warning C4244: '=': conversion from '_This' to 'float', possible loss of data
+          with
+          [
+              _This=int
+          ]
+  screen.cpp
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,1): error C2236: unexpected token 'struct'. Did you forget a ';'?
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2059: syntax error: '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2143: syntax error: missing ';' before '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,46): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,55): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,76): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,69): error C2923: 'std::vector': 'Vector2' is not a valid template type argument for parameter '_Ty'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,76): message : see declaration of 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,69): error C2976: 'std::vector': too few template arguments
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\vector(494,1): message : see declaration of 'std::vector'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,14): error C3544: '_Types': parameter pack expects a type template argument
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,86): error C2955: 'std::tuple': use of class template requires template argument list
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(183,7): message : see declaration of 'std::tuple'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,20): error C3203: 'tuple': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(92,22): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(92,41): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(93,22): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(93,41): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(94,28): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(94,47): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(95,28): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(95,47): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,37): error C2440: 'initializing': cannot convert from 'initializer list' to 'std::vector<int,std::allocator<int>>'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,37): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+  sprite.cpp
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,1): error C2236: unexpected token 'struct'. Did you forget a ';'?
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2059: syntax error: '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2143: syntax error: missing ';' before '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,46): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,55): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,76): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,69): error C2923: 'std::vector': 'Vector2' is not a valid template type argument for parameter '_Ty'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,76): message : see declaration of 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,69): error C2976: 'std::vector': too few template arguments
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\vector(494,1): message : see declaration of 'std::vector'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,14): error C3544: '_Types': parameter pack expects a type template argument
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,86): error C2955: 'std::tuple': use of class template requires template argument list
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(183,7): message : see declaration of 'std::tuple'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,20): error C3203: 'tuple': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(92,22): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(92,41): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(93,22): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(93,41): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(94,28): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(94,47): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(95,28): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(95,47): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,37): error C2440: 'initializing': cannot convert from 'initializer list' to 'std::vector<int,std::allocator<int>>'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,37): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\sprite.cpp(11,31): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\sprite.cpp(11,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\sprite.cpp(27,62): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\sprite.cpp(27,62): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\sprite.cpp(28,24): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\sprite.cpp(28,24): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\sprite.cpp(33,48): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\sprite.cpp(33,48): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\sprite.cpp(34,10): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\sprite.cpp(34,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\sprite.cpp(40,68): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\sprite.cpp(40,23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\sprite.cpp(39,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\sprite.cpp(39,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\sprite.cpp(48,13): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\sprite.cpp(52,13): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+  tile.cpp
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,1): error C2236: unexpected token 'struct'. Did you forget a ';'?
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2059: syntax error: '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2143: syntax error: missing ';' before '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,46): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,55): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,76): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,69): error C2923: 'std::vector': 'Vector2' is not a valid template type argument for parameter '_Ty'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,76): message : see declaration of 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,69): error C2976: 'std::vector': too few template arguments
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\vector(494,1): message : see declaration of 'std::vector'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,14): error C3544: '_Types': parameter pack expects a type template argument
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,86): error C2955: 'std::tuple': use of class template requires template argument list
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(183,7): message : see declaration of 'std::tuple'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,20): error C3203: 'tuple': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(92,22): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(92,41): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(93,22): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(93,41): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(94,28): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(94,47): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(95,28): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(95,47): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,37): error C2440: 'initializing': cannot convert from 'initializer list' to 'std::vector<int,std::allocator<int>>'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,37): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(12,29): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(17,10): error C3646: '_size': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(17,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(18,10): error C3646: '_tilesetPosition': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(18,26): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(19,10): error C3646: '_position': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(19,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.cpp(8,34): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.cpp(10,8): error C2065: 'size': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.cpp(11,19): error C2065: 'tilesetPosition': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.cpp(12,20): error C2065: 'position': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.cpp(12,55): error C2065: 'position': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.cpp(12,12): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.cpp(10,2): error C2614: 'Tile': illegal member initialization: '_size' is not a base or member
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.cpp(11,2): error C2614: 'Tile': illegal member initialization: '_tilesetPosition' is not a base or member
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.cpp(12,2): error C2614: 'Tile': illegal member initialization: '_position' is not a base or member
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.cpp(20,30): error C2039: '_position': is not a member of 'Tile'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(9,7): message : see declaration of 'Tile'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.cpp(20,49): error C2039: '_position': is not a member of 'Tile'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(9,7): message : see declaration of 'Tile'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.cpp(21,10): error C2039: '_size': is not a member of 'Tile'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(9,7): message : see declaration of 'Tile'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.cpp(21,49): error C2039: '_size': is not a member of 'Tile'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(9,7): message : see declaration of 'Tile'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.cpp(22,32): error C2039: '_tilesetPosition': is not a member of 'Tile'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(9,7): message : see declaration of 'Tile'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.cpp(22,58): error C2039: '_tilesetPosition': is not a member of 'Tile'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(9,7): message : see declaration of 'Tile'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.cpp(22,84): error C2039: '_size': is not a member of 'Tile'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(9,7): message : see declaration of 'Tile'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.cpp(22,99): error C2039: '_size': is not a member of 'Tile'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(9,7): message : see declaration of 'Tile'
+  zone.cpp
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,1): error C2236: unexpected token 'struct'. Did you forget a ';'?
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2059: syntax error: '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2143: syntax error: missing ';' before '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(47,16): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,46): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,55): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,76): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,69): error C2923: 'std::vector': 'Vector2' is not a valid template type argument for parameter '_Ty'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,76): message : see declaration of 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,69): error C2976: 'std::vector': too few template arguments
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\vector(494,1): message : see declaration of 'std::vector'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,14): error C3544: '_Types': parameter pack expects a type template argument
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(60,86): error C2955: 'std::tuple': use of class template requires template argument list
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(183,7): message : see declaration of 'std::tuple'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,20): error C3203: 'tuple': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(92,22): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(92,41): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(93,22): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(93,41): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(94,28): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(94,47): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(95,28): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(95,47): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,37): error C2440: 'initializing': cannot convert from 'initializer list' to 'std::vector<int,std::allocator<int>>'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\globals.h(91,37): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(51,87): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,24): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,7): error C2923: 'std::map': 'Vector2' is not a valid template type argument for parameter '_Ty'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,24): message : see declaration of 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,7): error C2976: 'std::map': too few template arguments
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(73,1): message : see declaration of 'std::map'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(87,33): error C2955: 'std::map': use of class template requires template argument list
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(73,1): message : see declaration of 'std::map'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(99,38): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(112,37): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\animatedsprite.h(124,39): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(12,29): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(17,10): error C3646: '_size': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(17,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(18,10): error C3646: '_tilesetPosition': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(18,26): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(19,10): error C3646: '_position': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\tile.h(19,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\savestate.h(68,46): error C3861: 'Vector2': identifier not found
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(34,29): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(46,10): error C3646: '_size': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(46,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(47,10): error C3646: '_tileSize': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(47,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(65,39): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(75,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(75,16): error C3646: 'getPlayerSpawnPoint': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(75,36): error C2059: syntax error: ')'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(75,43): error C2238: unexpected token(s) preceding ';'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(95,10): error C3646: '_spawnPoint': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(95,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(110,12): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(110,2): error C2535: 'Overworld::Overworld(void)': member function already defined or declared
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\level.h(109,2): message : see declaration of 'Overworld::Overworld'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.h(15,31): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.h(38,15): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.h(13,19): error C3203: 'tuple': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.h(26,10): error C3646: 'getSpawnPoint': unknown override specifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.h(26,23): error C2059: syntax error: '('
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.h(26,25): error C2238: unexpected token(s) preceding ';'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.h(38,14): error C3203: 'tuple': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.h(15,29): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\player.h(59,15): error C2061: syntax error: identifier 'Vector2'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(9,24): error C3203: 'tuple': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(14,64): error C3617: initializers of structured bindings must be of array or non-union class type; type '_Ty' is not permitted
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(15,34): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'EndPointSprite'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(15,34): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(17,22): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'Stage'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(17,22): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(18,7): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(18,15): error C2146: syntax error: missing ';' before identifier 'coors'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(18,21): error C2143: syntax error: missing ';' before ':'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(18,21): error C2143: syntax error: missing ')' before ':'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(18,21): error C2059: syntax error: ':'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(18,36): error C2059: syntax error: ')'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(18,38): error C2143: syntax error: missing ';' before '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(19,49): error C2065: 'coors': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(41,78): error C3617: initializers of structured bindings must be of array or non-union class type; type '_Ty' is not permitted
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(42,34): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'EndPointSprite'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(42,34): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(44,22): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'Stage'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(44,22): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(46,7): error C2065: 'Vector2': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(46,15): error C2146: syntax error: missing ';' before identifier 'coors'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(46,21): error C2143: syntax error: missing ';' before ':'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(46,21): error C2143: syntax error: missing ')' before ':'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(46,21): error C2059: syntax error: ':'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(46,36): error C2059: syntax error: ')'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(46,38): error C2143: syntax error: missing ';' before '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(47,49): error C2065: 'coors': undeclared identifier
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(51,15): error C2039: 'getSpawnPoint': is not a member of 'Zone'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.h(10,7): message : see declaration of 'Zone'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(51,28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(51,28): error C2146: syntax error: missing ';' before identifier 'getSpawnPoint'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(52,1): error C2143: syntax error: missing ';' before '{'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(52,1): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(73,78): error C3617: initializers of structured bindings must be of array or non-union class type; type '_Ty' is not permitted
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(75,22): error C2660: 'Moveable::restart': function does not take 2 arguments
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\moveable.h(38,7): message : see declaration of 'Moveable::restart'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(75,22): message : while trying to match the argument list '()'
+C:\Users\Elliot Phua\Downloads\MultiversalSokoban-dimension-branch\MultiversalSokoban\jumper\zone.cpp(107,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
