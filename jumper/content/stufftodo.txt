@@ -108,10 +108,35 @@ Create opening screen
 Creating win screen
 Create help screen
 
+203 13
+600 -203 = 397
+480 - 13 = 467
+
 8a. Refactor so that moveables is encapsulated within zone
 8b. The stack for undo could possibly overflow
 8c. Create a static variable for coin frames so that they rotate together.
 
 9. Add sound
 
+9a. Opening Screen and overworld - theme 1
+    Individual level - theme 4/ theme 16
+    victory - theme 6
+
+sound for death - kill
+sound for move
+sound for win - success
+sound for dialogue box
+
+control sound volume?
+
+or at least mute
+
+convert ogg files to WAV
+
 10. Design the actual levels lmao
+
+11. steps
+C/C++ -> additional include directories
+Linker -> Additional library directories
+Input -> Additional dependencies
+Paste .dll file in the project

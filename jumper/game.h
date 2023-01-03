@@ -6,6 +6,7 @@
 #include "screen.h"
 #include "text.h"
 #include "globals.h"
+#include "audio.h"
 
 #include <vector>
 
@@ -39,6 +40,7 @@ private:
 	Ticket _ticket = Ticket();
 	
 	Screen _currScreen = START_SCREEN;
+	Audio _audio;
 
 	bool _canPlayerMove = true;
 	bool _canPlayerSwitchStage = true;

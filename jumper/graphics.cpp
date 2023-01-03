@@ -13,7 +13,7 @@
 Graphics::Graphics() {
 	SDL_CreateWindowAndRenderer(globals::SCREEN_WIDTH, globals::SCREEN_HEIGHT, 0, &this->_window, &this->_renderer);
 
-	TTF_Init();
+	TTF_Init(); // might need to move this to game.cpp
 	SDL_SetWindowTitle(this->_window, "Jumper");
 }
 

@@ -1,10 +1,11 @@
 #include "SDL.h"
+#include "SDL_mixer.h"
+#include "SDL_image.h"
 
 #include "game.h"
 #include "graphics.h"
 #include "input.h"
 #include "moveable.h"
-
 
 #include <iostream>
 /* Game class
@@ -17,7 +18,28 @@ namespace {
 }
 
 Game::Game() {
-	SDL_Init(SDL_INIT_EVERYTHING);
+	// Initialize SDL
+	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0)
+	{
+		printf("SDL could not initialize! SDL Error: %s\n", SDL_GetError());
+		return;
+	}
+
+	//Initialize PNG loading
+	int imgFlags = IMG_INIT_PNG;
+	if (!(IMG_Init(imgFlags) & imgFlags))
+	{
+		printf("SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError());
+		return;
+	}
+
+	//Initialize SDL_mixer
+	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
+	{
+		printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
+		return;
+	}
+
 	this->gameLoop();
 }
 
@@ -29,6 +51,8 @@ void Game::gameLoop() {
 	Graphics graphics;
 	Input input;
 	SDL_Event event;
+	
+
 	
 	std::unordered_map<std::string, std::string> dialogueData({
 		{globals::died_dialogue, "You lost. Press Z to undo or R to restart"},
@@ -46,6 +70,9 @@ void Game::gameLoop() {
 	this->_victoryScreen = VictoryScreen(graphics);
 	
 	this->_textbox = TextBox(graphics, dialogueData); // need to insert last as it uses the dialogueData
+	this->_audio = Audio();
+	
+	//this->_audio.toggle();
 	
 	int LAST_UPDATE_TIME = SDL_GetTicks64();
 	//Start the game loop
@@ -159,6 +186,8 @@ void Game::restart(Graphics& graphics)
 
 bool Game::individualZone(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME) // true to continue, false to return
 {
+	//this->_audio.setCurrentMusic("game");
+	
 	// leave the game
 	if (input.wasKeyPressed(SDL_SCANCODE_ESCAPE) || this->_textbox.getKey() == globals::exit_dialogue) {
 		if (input.wasKeyPressed(SDL_SCANCODE_ESCAPE) && this->_textbox.getKey() == globals::exit_dialogue) {
@@ -262,6 +291,8 @@ bool Game::individualZone(Graphics& graphics, Input& input, int& LAST_UPDATE_TIM
 
 bool Game::overworld(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 {
+	//this->_audio.setCurrentMusic("opening");
+
 	std::vector<Moveable> empty;
 	// leave the game
 	if (input.wasKeyPressed(SDL_SCANCODE_ESCAPE) || this->_textbox.getKey() == globals::overworld_exit_dialogue) {
@@ -345,12 +376,26 @@ bool Game::overworld(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 
 bool Game::openingscreen(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 {
+	//this->_audio.setCurrentMusic("opening");
+	
 	if (input.wasKeyPressed(SDL_SCANCODE_A)) {
 		this->_currScreen = OVERWORLD;
 		return true;
 	}
 	else if (input.wasKeyPressed(SDL_SCANCODE_ESCAPE))  {
 		return false;
+	}
+	else if (input.wasKeyPressed(SDL_SCANCODE_0)) {
+		this->_audio.toggle();
+	}
+	else if (input.wasKeyPressed(SDL_SCANCODE_1)) {
+		this->_audio.playSound("game");
+	}
+	else if (input.wasKeyPressed(SDL_SCANCODE_2)) {
+		this->_audio.playSound("victory");
+	}
+	else if (input.wasKeyPressed(SDL_SCANCODE_3)) {
+		this->_audio.playSound("kill");
 	}
 
 	const int CURRENT_TIME_MS = SDL_GetTicks64();
@@ -365,6 +410,8 @@ bool Game::openingscreen(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME
 
 bool Game::victoryscreen(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 {
+	//this->_audio.setCurrentMusic("victory");
+
 	if (input.wasKeyPressed(SDL_SCANCODE_A)) {
 		this->_currScreen = OVERWORLD;
 		return true;

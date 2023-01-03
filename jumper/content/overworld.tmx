@@ -667,7 +667,7 @@
         </object>
         <object id="76" name="4" x="192" y="16" width="16" height="16">
             <properties>
-                <property name="iscompleted" type="bool" value="0"/>
+                <property name="iscompleted" type="bool" value="1"/>
             </properties>
         </object>
         <object id="77" name="5" x="224" y="48" width="16" height="16">
@@ -712,7 +712,7 @@
         </object>
         <object id="88" name="3" x="96" y="16" width="16" height="16">
             <properties>
-                <property name="iscompleted" type="bool" value="0"/>
+                <property name="iscompleted" type="bool" value="1"/>
             </properties>
         </object>
     </objectgroup>
