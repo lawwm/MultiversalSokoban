@@ -93,6 +93,13 @@ void Game::gameLoop() {
 			}
 		}
 
+		if (input.wasKeyPressed(SDL_SCANCODE_M)) {
+			this->_audio.toggle();
+		}
+		else if (input.wasKeyPressed(SDL_SCANCODE_K)) {
+			this->_foley.toggle();
+		}
+
 		if (this->_currScreen == ZONE) {
 			if (!individualZone(graphics, input, LAST_UPDATE_TIME)) {
 				return;
