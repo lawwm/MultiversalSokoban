@@ -1,36 +1,37 @@
 #include "audio.h"
 
 
-Audio::Audio() {
-	_music.insert({ "opening", "audio/opening-music.wav" });
-	_music.insert({ "game", "audio/game-music.wav" });
-	_music.insert({ "victory", "audio/victory-music.wav" });
+void Audio::initializeData() {
+	_music = {
+		{ "opening", Mix_LoadMUS("audio/opening-music.wav") },
+		{ "game", Mix_LoadMUS("audio/game-music.wav") },
+		{ "victory", Mix_LoadMUS("audio/victory-music.wav")},
+	};
 }
 
-Audio::~Audio() {
-	
+void Audio::destroyData()
+{
+	for (auto& [key, value] : _music) {
+		Mix_FreeMusic(value);
+	}
 }
 
 void Audio::setCurrentMusic(std::string key) {
-	if (key == this->_currMusicKey) return;
+	if (key == _key) return;
 
-	if (this->_currMusic != nullptr) {
-		Mix_HaltMusic();
-		Mix_FreeMusic(this->_currMusic);
-	}
 
-	this->_currMusicKey = key;
-	this->_currMusic = Mix_LoadMUS(this->_music.at(_currMusicKey).c_str());
+	Mix_HaltMusic();
+	_key = key;
 
 	if (!IsMuted) {
-		this->toggle();
+		Audio::toggle();
 	}
 }
 
 void Audio::toggle() {
 	if (Mix_PlayingMusic() == 0) {
 		//Play the music
-		Mix_PlayMusic(_currMusic, -1);
+		Mix_PlayMusic(_music[_key], -1);
 		IsMuted = false;
 	}
 	else {
@@ -52,39 +53,38 @@ void Audio::toggle() {
 }
 
 bool Audio::IsMuted = false;
-
-Foley::Foley() {
-	_sound.insert({ "walk", "audio/walk-sound.wav" });
-	_sound.insert({ "collide", "audio/collide-sound.wav" });
-	_sound.insert({ "kill", "audio/kill-sound.wav" });
-	_sound.insert({ "menu", "audio/menu-sound.wav" });
-	_sound.insert({ "transition", "audio/transition-sound.wav" });
-	_sound.insert({ "victory", "audio/victory-sound.wav" });
-	_sound.insert({ "menu-close", "audio/menu-close-sound.wav" });
-	_sound.insert({ "undo", "audio/undo-sound.wav" });
-}
+std::unordered_map<std::string, Mix_Music*> Audio::_music = {};
+std::string Audio::_key = "";
 
 void Foley::playSound(std::string key) {
-	if (IsMuted) return;
+	if (IsMuted || _sound.find(key) == _sound.end()) return;
 	
-	if (key == this->_currChunkKey) {
-		Mix_PlayChannel(-1, this->_currChunk, 0);
-		return;
-	}
-
-	if (this->_currChunk != nullptr) {
-		Mix_FreeChunk(this->_currChunk);
-	}
-
-	this->_currChunkKey = key;
-	this->_currChunk = Mix_LoadWAV(this->_sound.at(_currChunkKey).c_str());
-	Mix_PlayChannel(-1, this->_currChunk, 0);
+	Mix_PlayChannel(-1, _sound[key], 0);
 }
 
 void Foley::toggle() {
 	IsMuted = !IsMuted;
 }
 
-bool Foley::IsMuted = false;
+void Foley::initializeData() {
+	_sound = {
+		{ "walk", Mix_LoadWAV("audio/walk-sound.wav") },
+		{ "collide", Mix_LoadWAV("audio/collide-sound.wav") },
+		{ "kill", Mix_LoadWAV("audio/kill-sound.wav") },
+		{ "menu", Mix_LoadWAV("audio/menu-sound.wav") },
+		{ "transition", Mix_LoadWAV("audio/transition-sound.wav") },
+		{ "victory", Mix_LoadWAV("audio/victory-sound.wav") },
+		{ "menu-close", Mix_LoadWAV("audio/menu-close-sound.wav") },
+		{ "undo", Mix_LoadWAV("audio/undo-sound.wav") }
+	};
+}
 
-Foley::~Foley() {};
+void Foley::destroyData() {
+	for (auto& [key, value] : _sound) {
+		Mix_FreeChunk(value);
+	}
+}
+
+bool Foley::IsMuted = false;
+std::unordered_map<std::string, Mix_Chunk*> Foley::_sound = {};
+

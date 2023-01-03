@@ -101,8 +101,6 @@ private:
 	double _timeToUpdate=0;
 	std::stack<std::tuple<int, int>> _prevstates; //  ticket, function
 
-	Foley _foley;
-
 	void prevLevel(bool& isMoving);
 	void nextLevel(bool& isMoving);
 };

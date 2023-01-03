@@ -5,42 +5,34 @@
 
 #include <iostream>
 #include <unordered_map>
-
+#include <memory>
 #include <exception>
 #include <stdexcept>
+#include <string>
 
 class Audio {
 public:
-	~Audio();
-
-	void setCurrentMusic(std::string key);
+	void static setCurrentMusic(std::string key);
+	void static toggle();
+	void static initializeData();
+	void static destroyData();
 	
-	void toggle();
-
-	Audio();
-
 private:
-	std::unordered_map<std::string, std::string> _music;
-	std::string _currMusicKey = "";
-	Mix_Music* _currMusic = nullptr;
+	static std::string _key;
+	static std::unordered_map<std::string, Mix_Music*> _music;
 	static bool IsMuted;
 };
 
 
 class Foley {
 public:
-	~Foley();
-
-	void playSound(std::string key);
-
-	void toggle();
-
-	Foley();
-
+	void static playSound(std::string key);
+	void static toggle();
+	void static initializeData();
+	void static destroyData();
+	
 private:
-	std::unordered_map<std::string, std::string> _sound;
-	std::string _currChunkKey = "";
-	Mix_Chunk* _currChunk = nullptr;
+	static std::unordered_map<std::string, Mix_Chunk*> _sound;
 	static bool IsMuted;
 };
 #endif

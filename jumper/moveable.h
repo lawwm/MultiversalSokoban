@@ -41,7 +41,6 @@ public:
 private:
 	Direction _facing;
 	std::stack<std::tuple<int, int, int, int>> _prevstates; // ticket number, x, y, visible,
-	Foley _foley;
 };
 
 #endif

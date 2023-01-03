@@ -280,7 +280,7 @@ void Stage::nextLevel(bool& isMoving, Ticket& ticket, Player& player, std::vecto
 void Stage::nextLevel(bool& isMoving)
 {
 	this->_next = (this->_idx + 1) % this->_levels.size();
-	this->_foley.playSound("transition");
+	Foley::playSound("transition");
 	isMoving = false;
 }
 
@@ -303,7 +303,7 @@ void Stage::prevLevel(bool& isMoving, Ticket& ticket, Player& player, std::vecto
 void Stage::prevLevel(bool& isMoving)
 {
 	this->_next = (this->_idx - 1 + this->_levels.size()) % this->_levels.size();
-	this->_foley.playSound("transition");
+	Foley::playSound("transition");
 	isMoving = false;
 }
 

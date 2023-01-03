@@ -68,8 +68,6 @@ private:
 
 	std::vector<std::tuple<Moveable*, int, int>> _pushing;
 
-	Foley _foley;
-
 	void move(bool& isMoving, const Stage& stage,
 		std::vector<Moveable>& crates, const float setdx, const float setdy,
 		int xdiff, int ydiff, std::string animation, Direction direction, Ticket& ticket);
