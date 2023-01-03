@@ -21,7 +21,7 @@ OpeningScreen::OpeningScreen(Graphics& graphics)
 	// find dimensions of the created texture, and assign it to output so it is not stretched
 	SDL_QueryTexture(message, NULL, NULL, &texW, &texH);
 	std::cout << texW << " " << texH << std::endl;
-	SDL_Rect message_rect{ 198, 380, texW, texH };
+	SDL_Rect message_rect{ 198, 400, texW, texH };
 
 	_texts["start"] = std::make_pair(message, message_rect);
 	
@@ -69,7 +69,7 @@ VictoryScreen::VictoryScreen(Graphics& graphics)
 	_texts["start"] = std::make_pair(message, message_rect);
 
 
-	this->_background = Sprite(graphics, globals::opening_screen, 0, 0, 600, 480, 0, 0);
+	this->_background = Sprite(graphics, globals::closing_screen, 0, 0, 600, 480, 0, 0);
 }
 
 void VictoryScreen::draw(Graphics& graphics)
