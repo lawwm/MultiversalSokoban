@@ -72,7 +72,6 @@ void Game::gameLoop() {
 	this->_textbox = TextBox(graphics, dialogueData); // need to insert last as it uses the dialogueData
 	this->_audio = Audio();
 	
-	//this->_audio.toggle();
 	
 	int LAST_UPDATE_TIME = SDL_GetTicks64();
 	//Start the game loop
@@ -186,7 +185,7 @@ void Game::restart(Graphics& graphics)
 
 bool Game::individualZone(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME) // true to continue, false to return
 {
-	//this->_audio.setCurrentMusic("game");
+	this->_audio.setCurrentMusic("game");
 	
 	// leave the game
 	if (input.wasKeyPressed(SDL_SCANCODE_ESCAPE) || this->_textbox.getKey() == globals::exit_dialogue) {
@@ -291,7 +290,7 @@ bool Game::individualZone(Graphics& graphics, Input& input, int& LAST_UPDATE_TIM
 
 bool Game::overworld(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 {
-	//this->_audio.setCurrentMusic("opening");
+	this->_audio.setCurrentMusic("opening");
 
 	std::vector<Moveable> empty;
 	// leave the game
@@ -376,7 +375,7 @@ bool Game::overworld(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 
 bool Game::openingscreen(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 {
-	//this->_audio.setCurrentMusic("opening");
+	this->_audio.setCurrentMusic("opening");
 	
 	if (input.wasKeyPressed(SDL_SCANCODE_A)) {
 		this->_currScreen = OVERWORLD;
@@ -410,7 +409,7 @@ bool Game::openingscreen(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME
 
 bool Game::victoryscreen(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 {
-	//this->_audio.setCurrentMusic("victory");
+	this->_audio.setCurrentMusic("victory");
 
 	if (input.wasKeyPressed(SDL_SCANCODE_A)) {
 		this->_currScreen = OVERWORLD;

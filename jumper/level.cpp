@@ -241,7 +241,7 @@ void Stage::update(int elapsedTime, bool& isMoving) {
 			this->_idx = this->_next; 
 		} else { // fade in next stage
 			this->_levels[this->_idx].update(elapsedTime, -1 * this->_alpha);
-			if (this->_alpha == -255) {
+			if (this->_alpha <= -255) {
 				this->_alpha = 255;
 				isMoving = true;
 			}

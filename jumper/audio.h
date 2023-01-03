@@ -30,11 +30,17 @@ public:
 	}
 
 	void setCurrentMusic(std::string key) {
-		if (key == this->_currMusicKey || this->_currMusic == nullptr) return;
+		
+		if (key == this->_currMusicKey) return;
 
-		Mix_FreeMusic(this->_currMusic);
+		if (this->_currMusic != nullptr) {
+			Mix_HaltMusic();
+			Mix_FreeMusic(this->_currMusic);			
+		}
+
 		this->_currMusicKey = key;
 		this->_currMusic = Mix_LoadMUS(this->_music.at(_currMusicKey).c_str());
+		this->toggle();
 	}
 	
 	std::string what(const std::exception_ptr& eptr = std::current_exception())
@@ -78,18 +84,18 @@ public:
 	}
 
 	Audio() {
-		this->_currMusic = Mix_LoadMUS("audio/game-music.ogg");
-		if (this->_currMusic == NULL) {
-			std::cout << "FUCK WHAT THE FUCK" << Mix_GetError() << std::endl;
-		}
-		_music.insert({ "opening", "audio/game-music.ogg" });
-		_music.insert({ "game", "audio/game-music.ogg" });
-		_music.insert({ "victory", "audio/victory-music.ogg" });
+		//this->_currMusic = Mix_LoadMUS("audio/victory-music.wav");
+		//if (this->_currMusic == NULL) {
+		//	std::cout << "FUCK WHAT THE FUCK" << Mix_GetError() << std::endl;
+		//}
+		_music.insert({ "opening", "audio/opening-music.wav" });
+		_music.insert({ "game", "audio/game-music.wav" });
+		_music.insert({ "victory", "audio/victory-music.wav" });
 
-		_sound.insert({ "walk", "audio/walk-sound.ogg" });
-		_sound.insert({ "collide", "audio/collide-sound.ogg" });
-		_sound.insert({ "kill", "audio/kill-sound.ogg" });
-		_sound.insert({ "menu", "audio/menu-sound.ogg" });
+		_sound.insert({ "walk", "audio/walk-sound.wav" });
+		_sound.insert({ "collide", "audio/collide-sound.wav" });
+		_sound.insert({ "kill", "audio/kill-sound.wav" });
+		_sound.insert({ "menu", "audio/menu-sound.wav" });
 
 		//this->toggle();
 	}
@@ -97,8 +103,8 @@ public:
 private:
 	std::unordered_map<std::string, std::string> _music;
 	std::unordered_map<std::string, std::string> _sound;
-	std::string _currMusicKey = "opening";
-	std::string _currChunkKey = "walk";
+	std::string _currMusicKey = "";
+	std::string _currChunkKey = "";
 	Mix_Music* _currMusic = nullptr;
 	Mix_Chunk* _currChunk = nullptr;
 };
