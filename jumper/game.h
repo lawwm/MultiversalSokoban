@@ -41,6 +41,7 @@ private:
 	
 	Screen _currScreen = START_SCREEN;
 	Audio _audio;
+	Foley _foley;
 
 	bool _canPlayerMove = true;
 	bool _canPlayerSwitchStage = true;

@@ -12,22 +12,7 @@
 class Audio {
 public:
 	~Audio() {
-		//for (auto& [key, value] : _sound) {
-		//	Mix_FreeChunk(value);
-		//}
-		//for (auto& [key, value] : _music) {
-		//	Mix_FreeMusic(value);
-		//}
 	};
-
-	void playSound(std::string key) {
-		if (key == this->_currChunkKey || this->_currChunk == nullptr) return;
-		
-		Mix_FreeChunk(this->_currChunk);
-		this->_currChunkKey = key;
-		this->_currChunk = Mix_LoadWAV(this->_sound.at(_currChunkKey).c_str());
-		Mix_PlayChannel(-1, this->_currChunk, 0);
-	}
 
 	void setCurrentMusic(std::string key) {
 		
@@ -84,29 +69,54 @@ public:
 	}
 
 	Audio() {
-		//this->_currMusic = Mix_LoadMUS("audio/victory-music.wav");
-		//if (this->_currMusic == NULL) {
-		//	std::cout << "FUCK WHAT THE FUCK" << Mix_GetError() << std::endl;
-		//}
 		_music.insert({ "opening", "audio/opening-music.wav" });
 		_music.insert({ "game", "audio/game-music.wav" });
 		_music.insert({ "victory", "audio/victory-music.wav" });
+	}
+
+private:
+	std::unordered_map<std::string, std::string> _music;
+	std::string _currMusicKey = "";
+	Mix_Music* _currMusic = nullptr;
+};
+
+
+class Foley {
+public:
+	~Foley() {
+	};
+
+	void playSound(std::string key) {
+		if (key == this->_currChunkKey) {
+			Mix_PlayChannel(-1, this->_currChunk, 0);
+			return;
+		}
+
+		if (this->_currChunk != nullptr) {
+			Mix_FreeChunk(this->_currChunk);
+		}
+
+		this->_currChunkKey = key;
+		this->_currChunk = Mix_LoadWAV(this->_sound.at(_currChunkKey).c_str());
+		Mix_PlayChannel(-1, this->_currChunk, 0);
+	}
+
+
+	Foley() {
 
 		_sound.insert({ "walk", "audio/walk-sound.wav" });
 		_sound.insert({ "collide", "audio/collide-sound.wav" });
 		_sound.insert({ "kill", "audio/kill-sound.wav" });
 		_sound.insert({ "menu", "audio/menu-sound.wav" });
-
-		//this->toggle();
+		_sound.insert({ "transition", "audio/transition-sound.wav" });
+		_sound.insert({ "victory", "audio/victory-sound.wav" });
+		_sound.insert({ "menu-close", "audio/menu-close-sound.wav" });
+		_sound.insert({ "undo", "audio/undo-sound.wav" });
 	}
 
 private:
-	std::unordered_map<std::string, std::string> _music;
 	std::unordered_map<std::string, std::string> _sound;
-	std::string _currMusicKey = "";
 	std::string _currChunkKey = "";
-	Mix_Music* _currMusic = nullptr;
 	Mix_Chunk* _currChunk = nullptr;
 };
-
 #endif

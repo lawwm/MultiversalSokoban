@@ -10,6 +10,7 @@
 #include "rectangle.h"
 #include "animatedsprite.h"
 #include "savestate.h"
+#include "audio.h"
 
 class Graphics;
 class Moveable;
@@ -99,6 +100,8 @@ private:
 	double _timeElapsed=0;
 	double _timeToUpdate=0;
 	std::stack<std::tuple<int, int>> _prevstates; //  ticket, function
+
+	Foley _foley;
 
 	void prevLevel(bool& isMoving);
 	void nextLevel(bool& isMoving);

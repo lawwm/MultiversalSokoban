@@ -5,6 +5,8 @@
 
 #include "graphics.h"
 #include "globals.h";
+#include "audio.h"
+
 #include <vector>
 #include <unordered_map>
 
@@ -13,6 +15,7 @@ public:
 	TextBox() {}
 
 	TextBox(Graphics& graphics, std::unordered_map<std::string, std::string>& texts) {
+		this->_foley = Foley();
 		TTF_Font* font = TTF_OpenFont("fonts/zx-spectrum.ttf", 11);
 		SDL_Color white = { 0, 0, 0 };
 		int texW = 0;
@@ -38,6 +41,9 @@ public:
 	}
 
 	void set(std::string key) {
+		if (key == this->_currKey) return;
+		
+		this->_foley.playSound("menu");
 		this->_currKey = key;
 	}
 
@@ -61,6 +67,7 @@ private:
 	std::unordered_map<std::string, std::pair<SDL_Texture*, SDL_Rect>> _texts;
 	std::string _currKey = "";
 	Sprite _dialogue;
+	Foley _foley;
 };
 
 #endif

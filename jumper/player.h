@@ -6,6 +6,7 @@
 #include "moveable.h"
 #include "level.h"
 #include "rectangle.h"
+#include "audio.h"
 
 class Graphics;
 
@@ -66,6 +67,8 @@ private:
 	Direction _facing;
 
 	std::vector<std::tuple<Moveable*, int, int>> _pushing;
+
+	Foley _foley;
 
 	void move(bool& isMoving, const Stage& stage,
 		std::vector<Moveable>& crates, const float setdx, const float setdy,

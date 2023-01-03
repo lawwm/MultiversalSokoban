@@ -71,7 +71,7 @@ void Game::gameLoop() {
 	
 	this->_textbox = TextBox(graphics, dialogueData); // need to insert last as it uses the dialogueData
 	this->_audio = Audio();
-	
+	this->_foley = Foley();
 	
 	int LAST_UPDATE_TIME = SDL_GetTicks64();
 	//Start the game loop
@@ -194,11 +194,13 @@ bool Game::individualZone(Graphics& graphics, Input& input, int& LAST_UPDATE_TIM
 		}
 		else if (input.wasKeyPressed(SDL_SCANCODE_A)) { // close menu
 			this->_textbox.clearDialogue();
+			this->_foley.playSound("menu-close");
 		}
 		else if (input.wasKeyPressed(SDL_SCANCODE_D)) {
 			this->_textbox.clearDialogue();
 			this->_player = Player(graphics, Vector2(globals::overworld_spawn_x, globals::overworld_spawn_y));
 			this->_currScreen = OVERWORLD;
+			this->_foley.playSound("menu-close");
 		}
 		else if (this->_textbox.getKey() != globals::exit_dialogue) { // first clicking exit
 			this->_textbox.set(globals::exit_dialogue);
@@ -212,10 +214,11 @@ bool Game::individualZone(Graphics& graphics, Input& input, int& LAST_UPDATE_TIM
 	bool hasPlayerWon = this->_zone.areAllMoveablesVisible() && this->_zone.hasPlayerReachedEndPoint(this->_player);
 	if (hasPlayerWon) {
 		
-		// set zone to completed in overworld
+		// first frame of winning
 		if (this->_textbox.getKey() != globals::won_dialogue) {
 			this->_textbox.set(globals::won_dialogue);
-			this->_overworld.setZoneCompleted(this->_zone.getZoneNumber());
+			this->_overworld.setZoneCompleted(this->_zone.getZoneNumber()); // set zone to completed in overworld
+			this->_foley.playSound("victory");
 			this->_overworld.save();
 		}
 
@@ -226,6 +229,7 @@ bool Game::individualZone(Graphics& graphics, Input& input, int& LAST_UPDATE_TIM
 			this->_zone.nextZone(graphics, this->_currScreen);
 			this->_player = Player(graphics, this->_zone.getSpawnPoint());
 			this->_textbox.clearDialogue();
+			this->_foley.playSound("menu-close");
 			return true;
 		}
 	}
@@ -234,12 +238,14 @@ bool Game::individualZone(Graphics& graphics, Input& input, int& LAST_UPDATE_TIM
 	if (_canPlayerMove && _canPlayerSwitchStage && !hasPlayerWon) {
 		if (input.isKeyHeld(SDL_SCANCODE_Z) && input.wasKeyPressed(SDL_SCANCODE_Z)) {
 			this->undo();
+			this->_foley.playSound("undo");
 			if (this->_textbox.getKey() == globals::died_dialogue) {
 				this->_textbox.clearDialogue();
 			}
 		}
 		else if (input.isKeyHeld(SDL_SCANCODE_R) && input.wasKeyPressed(SDL_SCANCODE_R)) {
 			this->restart(graphics);
+			this->_foley.playSound("undo");
 			if (this->_textbox.getKey() == globals::died_dialogue) {
 				this->_textbox.clearDialogue();
 			}
@@ -299,6 +305,7 @@ bool Game::overworld(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 			return false;
 		}
 		else if (input.wasKeyPressed(SDL_SCANCODE_A)) { // close menu
+			this->_foley.playSound("menu-close");
 			this->_textbox.clearDialogue();
 		}
 		else if (this->_textbox.getKey() != globals::overworld_exit_dialogue) { // first clicking exit
@@ -325,10 +332,12 @@ bool Game::overworld(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 				this->_zone.selectZone(graphics, value-1);
 				this->initialisePlayer(graphics);
 				this->_textbox.clearDialogue();
+				this->_foley.playSound("menu-close");
 			}
 			else if (input.wasKeyPressed(SDL_SCANCODE_D)) {
 				this->_isPlayerInLevelSelect = 2;
 				this->_textbox.clearDialogue();
+				this->_foley.playSound("menu-close");
 			}			
 			return true;
 		}
@@ -379,22 +388,11 @@ bool Game::openingscreen(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME
 	
 	if (input.wasKeyPressed(SDL_SCANCODE_A)) {
 		this->_currScreen = OVERWORLD;
+		this->_foley.playSound("menu");
 		return true;
 	}
 	else if (input.wasKeyPressed(SDL_SCANCODE_ESCAPE))  {
 		return false;
-	}
-	else if (input.wasKeyPressed(SDL_SCANCODE_0)) {
-		this->_audio.toggle();
-	}
-	else if (input.wasKeyPressed(SDL_SCANCODE_1)) {
-		this->_audio.playSound("game");
-	}
-	else if (input.wasKeyPressed(SDL_SCANCODE_2)) {
-		this->_audio.playSound("victory");
-	}
-	else if (input.wasKeyPressed(SDL_SCANCODE_3)) {
-		this->_audio.playSound("kill");
 	}
 
 	const int CURRENT_TIME_MS = SDL_GetTicks64();
@@ -413,6 +411,7 @@ bool Game::victoryscreen(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME
 
 	if (input.wasKeyPressed(SDL_SCANCODE_A)) {
 		this->_currScreen = OVERWORLD;
+		this->_foley.playSound("menu-close");
 		return true;
 	}
 	else if (input.wasKeyPressed(SDL_SCANCODE_ESCAPE)) {

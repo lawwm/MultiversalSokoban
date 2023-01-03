@@ -10,7 +10,6 @@ Zone::Zone(std::vector<zonedata> data, Graphics& graphics, int zonenumber)
 {
 	this->_data = data;
 	this->_zonenumber = zonenumber;
-	
 	auto [paths, spawn, endpoint, moveablecoors] = data[zonenumber];
 	this->_endpoint = EndPointSprite(graphics, endpoint);
 	

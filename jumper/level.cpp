@@ -262,6 +262,7 @@ void Stage::draw(Graphics& graphics) {
 }
 
 void Stage::nextLevel(bool& isMoving, Ticket& ticket, Player& player, std::vector<Moveable>& moveables, bool isUndoable) {
+	// prevent switching stages when there is only one stage
 	if (this->_levels.size() == 1) return;
 	
 	if (isUndoable) {
@@ -279,14 +280,12 @@ void Stage::nextLevel(bool& isMoving, Ticket& ticket, Player& player, std::vecto
 void Stage::nextLevel(bool& isMoving)
 {
 	this->_next = (this->_idx + 1) % this->_levels.size();
-
-	// prevent switching stages when there is only one stage
-	if (this->_next == this->_idx) return;
-	
+	this->_foley.playSound("transition");
 	isMoving = false;
 }
 
 void Stage::prevLevel(bool& isMoving, Ticket& ticket, Player& player, std::vector<Moveable>& moveables, bool isUndoable) {
+	// prevent switching stages when there is only one stage
 	if (this->_levels.size() == 1) return;
 	
 	if (isUndoable) {
@@ -304,10 +303,7 @@ void Stage::prevLevel(bool& isMoving, Ticket& ticket, Player& player, std::vecto
 void Stage::prevLevel(bool& isMoving)
 {
 	this->_next = (this->_idx - 1 + this->_levels.size()) % this->_levels.size();
-	
-	// prevent switching stages when there is only one stage
-	if (this->_next == this->_idx) return;
-	
+	this->_foley.playSound("transition");
 	isMoving = false;
 }
 

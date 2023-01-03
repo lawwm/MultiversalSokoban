@@ -1,5 +1,6 @@
 #include "moveable.h"
 #include "graphics.h"
+
 #include <iostream>
 #include <tuple>
 #include <utility>
@@ -10,6 +11,7 @@ Moveable::Moveable(Graphics& graphics, Vector2 spawnPoint) :
 	AnimatedSprite(graphics, globals::coin, 0, 0, 12, 12, spawnPoint.x, spawnPoint.y, 100),
 	_facing(RIGHT)
 {
+	this->_foley = Foley();
 	this->setupAnimations();
 	this->playAnimation("Idle");
 }
@@ -66,6 +68,7 @@ void Moveable::update(float elapsedTime, Stage& stage, Graphics& graphics, bool&
 	// if a moveable collides with a hit bocx, it dies.
 	if (this->getVisible() && !stage.checkTileCollisions(moveableBoxCurr) && canPlayerSwitchStage) {
 		this->setVisible(false);
+		this->_foley.playSound("kill");
 		stage.addFx(new ExplosionSprite(graphics, Vector2(this->_x, this->_y)));
 		return;
 	}

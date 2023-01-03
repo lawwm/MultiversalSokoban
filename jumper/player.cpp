@@ -18,6 +18,7 @@ Player::Player(Graphics& graphics, Vector2 spawnPoint) :
 {
 	graphics.loadImage(globals::eskimo);
 
+	this->_foley = Foley();
 	this->setupAnimations();
 	this->playAnimation("RunRight");
 }
@@ -103,11 +104,14 @@ void Player::move(bool& isMoving, const Stage& stage,
 
 	// check if able to move to new position
 	if (!canMoveToNewPosition(stage, crates, { xdiff, ydiff })) {
+		this->_foley.playSound("collide");
 		this->_destx = this->_x;
 		this->_desty = this->_y;
 		return;
 	}
 	
+	this->_foley.playSound("walk");
+
 	// store previous state within stack
 	int generatedTicket = ticket.insertTicket();
 	this->storeCurrState(generatedTicket);
@@ -162,6 +166,7 @@ void Player::update(float elapsedTime, bool& isNotMoving, Stage& stage, Graphics
 	
 	// if player collides with a hitbox, he dies, display animation
 	if (this->getVisible() && !stage.checkTileCollisions(playerCurr) && canPlayerSwitchStage) {
+		this->_foley.playSound("kill");
 		this->setVisible(false);
 		stage.addFx(new ExplosionSprite(graphics, Vector2(this->_x, this->_y)));
 		return;
