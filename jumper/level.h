@@ -9,8 +9,11 @@
 #include "tile.h"
 #include "rectangle.h"
 #include "animatedsprite.h"
+#include "tiletype.h"
 #include "savestate.h"
 #include "audio.h"
+
+
 
 class Graphics;
 class Moveable;
@@ -112,7 +115,7 @@ private:
 	Vector2 _spawnPoint;
 	std::vector<Vector2> _moveableSpawnPoints;
 	std::vector<Moveable> _moveables;
-	EndPointSprite _endpoint;
+	std::vector<EndPointSprite> _endpoint;
 
 	void prevLevel(bool& isMoving);
 	void nextLevel(bool& isMoving);

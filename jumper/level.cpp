@@ -165,48 +165,6 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 					}
 				}
 			}
-			else if (ss.str() == "spawnpoint") {
-				// parse out the spawn point
-				XMLElement* pObject = pObjectGroup->FirstChildElement("object");
-				if (pObject != NULL) {
-					while (pObject) {
-						float x, y, width, height;
-						x = pObject->FloatAttribute("x");
-						y = pObject->FloatAttribute("y");
-
-						// add to spawn
-						pObject = pObject->NextSiblingElement("object");
-					}
-				}
-			} 
-			else if (ss.str() == "endpoint") {
-				// parse out the endstate
-				XMLElement* pObject = pObjectGroup->FirstChildElement("object");
-				if (pObject != NULL) {
-					while (pObject) {
-						float x, y, width, height;
-						x = pObject->FloatAttribute("x");
-						y = pObject->FloatAttribute("y");
-
-						// add to spawn
-						pObject = pObject->NextSiblingElement("object");
-					}
-				}
-			}
-			else if (ss.str() == "coin") {
-				// parse out coin positions
-				XMLElement* pObject = pObjectGroup->FirstChildElement("object");
-				if (pObject != NULL) {
-					while (pObject) {
-						float x, y, width, height;
-						x = pObject->FloatAttribute("x");
-						y = pObject->FloatAttribute("y");
-
-						// add to spawn
-						pObject = pObject->NextSiblingElement("object");
-					}
-				}
-			}
 
 			pObjectGroup = pObjectGroup->NextSiblingElement("objectgroup");
 		}
@@ -322,7 +280,7 @@ void Stage::loadElements(std::string mapName, Graphics& graphics) {
 						}
 
 						// add to endpoint
-						this->_endpoint = EndPointSprite(graphics, Vector2(x, y), shouldShow);
+						this->_endpoint.push_back(EndPointSprite(graphics, Vector2(x, y), shouldShow));
 
 						pObject = pObject->NextSiblingElement("object");
 					}
@@ -362,7 +320,16 @@ bool Stage::areAllMoveablesVisible()
 
 bool Stage::hasPlayerReachedEndPoint(Player& player)
 {
-	return player.getBoundingBox().collidesWith(this->_endpoint.getBoundingBox());
+	for (auto& completionSprite : this->_endpoint) {
+		bool hasCollision = player.getBoundingBox().collidesWith(completionSprite.getBoundingBox());
+		for (auto& moveable : this->_moveables) {
+			hasCollision |= moveable.getBoundingBox().collidesWith(completionSprite.getBoundingBox());
+			if (hasCollision) continue;
+		}
+		
+		if (!hasCollision) return false;
+	}
+	return true;
 }
 
 std::vector<Moveable>& Stage::getMoveables()
@@ -392,7 +359,9 @@ void Stage::update(int elapsedTime, bool& isMoving, Graphics& graphics) {
 	}
 
 	// update the endpoint
-	this->_endpoint.update(elapsedTime);
+	for (auto& ep : this->_endpoint) {
+		ep.update(elapsedTime);
+	}
 
 	// Update the transition between dimensions
 	if (this->_timeElapsed > this->_timeToUpdate) {
@@ -432,7 +401,11 @@ void Stage::draw(Graphics& graphics) {
 	for (auto& m : this->_moveables) {
 		m.draw(graphics);
 	}
-	this->_endpoint.draw(graphics);
+
+	for (auto& ep : this->_endpoint) {
+		ep.draw(graphics);
+	}
+	
 }
 
 void Stage::nextLevel(bool& isMoving, Ticket& ticket, Player& player, std::vector<Moveable>& moveables, bool isUndoable) {
