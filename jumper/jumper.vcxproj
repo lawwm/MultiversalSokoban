@@ -136,6 +136,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="animatedsprite.cpp" />
+    <ClCompile Include="audio.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="level.cpp" />
     <ClCompile Include="main.cpp" />
@@ -146,6 +147,7 @@
     <ClCompile Include="screen.cpp" />
     <ClCompile Include="sprite.cpp" />
     <ClCompile Include="tile.cpp" />
+    <ClCompile Include="tiletype.cpp" />
     <ClCompile Include="tinyxml2.cpp" />
     <ClCompile Include="zone.cpp" />
   </ItemGroup>
@@ -158,6 +160,7 @@
     <ClInclude Include="savestate.h" />
     <ClInclude Include="screen.h" />
     <ClInclude Include="text.h" />
+    <ClInclude Include="tiletype.h" />
     <ClInclude Include="zone.h" />
     <ClInclude Include="level.h" />
     <ClInclude Include="moveable.h" />

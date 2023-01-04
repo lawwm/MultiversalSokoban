@@ -83,6 +83,8 @@ namespace globals {
 	const std::string d_room = "d_room";
 	const std::string d_ice = "d_ice";
 
+	const std::string e_room = "e_room";
+	const std::string e_ice = "e_ice";
 
 	const std::string iceLevel = "Ice1";
 	const std::string roomLevel = "Room1";
@@ -95,7 +97,13 @@ namespace globals {
 
 		{{b_room, b_ice }},
 
+		{{e_ice, e_room}},
+		
 		{{c_room, c_ice }},
+		
+		{{d_room, d_ice}}
+
+		
 	};
 
 	const std::string died_dialogue = "died";

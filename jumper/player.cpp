@@ -125,6 +125,10 @@ void Player::storeCurrState(int ticket) {
 	_prevstates.emplace(ticket, this->_x, this->_y, this->getVisible(), this->_facing);
 }
 
+bool Player::isStationary() {
+	return this->_x == this->_destx && this->_y == this->_desty && this->_dx == 0 && this->_dy == 0;
+}
+
 void Player::restart(Vector2 spawn, int ticket)
 {
 	this->storeCurrState(ticket);

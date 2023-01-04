@@ -123,9 +123,15 @@ Create help screen
     victory - theme 6
 
 sound for death - kill
+
 sound for move
+sound for change dimension
+
 sound for win - success
 sound for dialogue box
+
+sound for undo and restart
+sound clicking A in menu
 
 control sound volume?
 
@@ -133,6 +139,8 @@ or at least mute
 
 convert ogg files to WAV
 
+10. Create a help screen
+11. Create
 10. Design the actual levels lmao
 
 11. steps
@@ -140,3 +148,37 @@ C/C++ -> additional include directories
 Linker -> Additional library directories
 Input -> Additional dependencies
 Paste .dll file in the project
+
+
+
+Ideas:
+switch stage
+coins can stack
+
+1. one long line
+
+2. two guarded
+b, a, b
+
+
+12.
+Parse from .tmx file
+
+// spawn point
+// coins
+// end point
+
+
+remember to reset coin position
+13. 
+Add a sack for coin
+
+14.
+Refactor
+
+15.
+Add a type of moveable that needs to be destroyed
+
+16. Add a type of moveable that can destroy collision tiles
+
+

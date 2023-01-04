@@ -320,6 +320,10 @@ bool Stage::areAllMoveablesVisible()
 
 bool Stage::hasPlayerReachedEndPoint(Player& player)
 {
+	if (!player.isStationary()) {
+		return false;
+	}
+
 	for (auto& completionSprite : this->_endpoint) {
 		bool hasCollision = player.getBoundingBox().collidesWith(completionSprite.getBoundingBox());
 		for (auto& moveable : this->_moveables) {

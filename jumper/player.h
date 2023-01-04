@@ -59,6 +59,12 @@ public:
 
 	void restart(Vector2 spawn, int ticket);
 	
+	bool isStationary();
+
+	void print() {
+		std::cout << _x << " " << _y << " " << _destx << " " << _desty << std::endl;
+	}
+
 private:
 	float _dx, _dy; // rate of change of travel
 

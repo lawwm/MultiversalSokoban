@@ -223,7 +223,6 @@ bool Game::individualZone(Graphics& graphics, Input& input, int& LAST_UPDATE_TIM
 	// check whether this player has won
 	bool hasPlayerWon = this->_zone.areAllMoveablesVisible() && this->_zone.hasPlayerReachedEndPoint(this->_player);
 	if (hasPlayerWon) {
-		
 		// first frame of winning
 		if (this->_textbox.getKey() != globals::won_dialogue) {
 			this->_textbox.set(globals::won_dialogue);
@@ -232,7 +231,6 @@ bool Game::individualZone(Graphics& graphics, Input& input, int& LAST_UPDATE_TIM
 			this->_overworld.save();
 		}
 
-		
 		
 		// if player decides to skip to next screen
 		if (input.isKeyHeld(SDL_SCANCODE_N) && input.wasKeyPressed(SDL_SCANCODE_N)) {
