@@ -32,8 +32,6 @@ public:
 	
 private:
 	Stage _stage;
-	std::vector<Moveable> _moveables;
-	EndPointSprite _endpoint;
 	int _zonenumber = 0;
 	std::vector<zonedata> _data;
 };

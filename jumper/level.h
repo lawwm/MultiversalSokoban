@@ -32,7 +32,7 @@ struct Tileset {
 class Level {
 public:
 	Level();
-	Level(std::string mapName, Vector2 spawnPoint, Graphics& graphics);
+	Level(std::string mapName, Graphics& graphics);
 	~Level();
 	void update(int elapsedTime, const int& alpha);
 	void draw(Graphics& graphics);
@@ -63,9 +63,9 @@ private:
 class Stage {
 public:
 	Stage() {};
-	Stage(std::vector<std::string> maps, Vector2 spawnPoint, Graphics& graphics);
+	Stage(std::vector<std::string> maps, Graphics& graphics);
 	~Stage();
-	void update(int elapsedTime, bool& isMoving);
+	void update(int elapsedTime, bool& isMoving, Graphics& graphics);
 	void draw(Graphics& graphics);
 
 	/* bool checkTileCollisions
@@ -89,17 +89,30 @@ public:
 	void storeCurrState(int ticket, int savedIdx);
 
 	void restart(int ticket);
+
+	void loadElements(std::string, Graphics& graphics);
+
+	bool areAllMoveablesVisible();
 	
+	bool hasPlayerReachedEndPoint(Player& player);
+	
+	std::vector<Moveable>& getMoveables();
+
 private:
 	std::vector<Level> _levels;
 	std::vector<AnimatedSprite*> _fx;
-	Vector2 _spawnPoint;
+	
 	int _idx=0;
 	int _next=0;
 	int _alpha=255;
 	double _timeElapsed=0;
 	double _timeToUpdate=0;
 	std::stack<std::tuple<int, int>> _prevstates; //  ticket, function
+
+	Vector2 _spawnPoint;
+	std::vector<Vector2> _moveableSpawnPoints;
+	std::vector<Moveable> _moveables;
+	EndPointSprite _endpoint;
 
 	void prevLevel(bool& isMoving);
 	void nextLevel(bool& isMoving);
@@ -110,7 +123,7 @@ public:
 	Overworld();
 	Overworld(Vector2 spawnPoint, Graphics& graphics, std::unordered_map<std::string, std::string>& dialogueData);
 	~Overworld();
-	void update(int elapsedTime, bool& isMoving);
+	void update(int elapsedTime, bool& isMoving, Graphics& graphics);
 	void draw(Graphics& graphics);
 	void setZoneCompleted(int zonenumber);
 	

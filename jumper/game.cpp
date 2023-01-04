@@ -157,7 +157,7 @@ void Game::update(float elapsedTime, Graphics& graphics) {
 	
 	if (this->_currScreen == OVERWORLD) {
 		this->_player.update(elapsedTime, _canPlayerMove, this->_overworld.getStage(), graphics, this->_canPlayerSwitchStage);
-		this->_overworld.update(elapsedTime, this->_canPlayerSwitchStage);
+		this->_overworld.update(elapsedTime, this->_canPlayerSwitchStage, graphics);
 	}
 	else if (this->_currScreen == ZONE) {
 		this->_player.update(elapsedTime, _canPlayerMove, this->_zone.getStage(), graphics, this->_canPlayerSwitchStage);

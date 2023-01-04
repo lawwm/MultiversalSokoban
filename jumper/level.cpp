@@ -16,7 +16,7 @@ using namespace tinyxml2;
 
 Level::Level() {}
 
-Level::Level(std::string mapName, Vector2 spawnPoint, Graphics& graphics) :
+Level::Level(std::string mapName, Graphics& graphics) :
 	_mapName(mapName),
 	_size(Vector2(0, 0))
 {
@@ -134,13 +134,15 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 		}
 	}
 
-	//Parse out the collisions
+	
 	XMLElement* pObjectGroup = mapNode->FirstChildElement("objectgroup");
 	if (pObjectGroup != NULL) {
 		while (pObjectGroup) {
 			const char* name = pObjectGroup->Attribute("name");
 			std::stringstream ss;
 			ss << name;
+
+			//Parse out the collisions
 			if (ss.str() == "collisions") {
 				XMLElement* pObject = pObjectGroup->FirstChildElement("object");
 				if (pObject != NULL) {
@@ -163,11 +165,58 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 					}
 				}
 			}
+			else if (ss.str() == "spawnpoint") {
+				// parse out the spawn point
+				XMLElement* pObject = pObjectGroup->FirstChildElement("object");
+				if (pObject != NULL) {
+					while (pObject) {
+						float x, y, width, height;
+						x = pObject->FloatAttribute("x");
+						y = pObject->FloatAttribute("y");
+
+						// add to spawn
+						pObject = pObject->NextSiblingElement("object");
+					}
+				}
+			} 
+			else if (ss.str() == "endpoint") {
+				// parse out the endstate
+				XMLElement* pObject = pObjectGroup->FirstChildElement("object");
+				if (pObject != NULL) {
+					while (pObject) {
+						float x, y, width, height;
+						x = pObject->FloatAttribute("x");
+						y = pObject->FloatAttribute("y");
+
+						// add to spawn
+						pObject = pObject->NextSiblingElement("object");
+					}
+				}
+			}
+			else if (ss.str() == "coin") {
+				// parse out coin positions
+				XMLElement* pObject = pObjectGroup->FirstChildElement("object");
+				if (pObject != NULL) {
+					while (pObject) {
+						float x, y, width, height;
+						x = pObject->FloatAttribute("x");
+						y = pObject->FloatAttribute("y");
+
+						// add to spawn
+						pObject = pObject->NextSiblingElement("object");
+					}
+				}
+			}
 
 			pObjectGroup = pObjectGroup->NextSiblingElement("objectgroup");
 		}
 	}
 
+	
+
+	
+
+	
 }
 
 void Level::update(int elapsedTime, const int& alpha) {
@@ -198,19 +247,130 @@ const Vector2 Stage::getPlayerSpawnPoint() const {
 	return this->_spawnPoint;
 }
 
-Stage::Stage(std::vector<std::string> maps, Vector2 spawnPoint, Graphics& graphics) :
-	_spawnPoint(spawnPoint)
+Stage::Stage(std::vector<std::string> maps, Graphics& graphics)
 {
 	for (auto& map : maps) {
-		this->_levels.push_back(Level(map, Vector2(160, 160), graphics));
+		this->_levels.push_back(Level(map, graphics));
 	}
+	
+	this->loadElements(maps[0], graphics);
 }
 
 Stage::~Stage() {
 
 }
 
-void Stage::update(int elapsedTime, bool& isMoving) {
+void Stage::loadElements(std::string mapName, Graphics& graphics) {
+	//Parse the .tmx file
+	XMLDocument doc;
+	std::stringstream ss;
+
+	ss << mapName << ".tmx"; //Pass in Map 1, we get maps/Map 1.tmx
+	doc.LoadFile(ss.str().c_str());
+
+	XMLElement* mapNode = doc.FirstChildElement("map");
+
+	XMLElement* pObjectGroup = mapNode->FirstChildElement("objectgroup");
+	if (pObjectGroup != NULL) {
+		while (pObjectGroup) {
+			const char* name = pObjectGroup->Attribute("name");
+			std::stringstream ss;
+			ss << name;
+			if (ss.str() == "spawnpoint") {
+				// parse out the spawn point
+				XMLElement* pObject = pObjectGroup->FirstChildElement("object");
+				if (pObject != NULL) {
+					while (pObject) {
+						float x, y;
+						x = pObject->FloatAttribute("x") * globals::SPRITE_SCALE;
+						y = pObject->FloatAttribute("y") * globals::SPRITE_SCALE;
+
+						// add to spawn
+						std::cout << "soy " << x << " " << y << std::endl;
+						this->_spawnPoint = Vector2(x, y);
+						
+						pObject = pObject->NextSiblingElement("object");
+					}
+				}
+			}
+			else if (ss.str() == "endpoint") {
+				// parse out the endstate
+				XMLElement* pObject = pObjectGroup->FirstChildElement("object");
+				if (pObject != NULL) {
+					while (pObject) {
+						float x, y;
+						bool shouldShow = true;
+						x = pObject->FloatAttribute("x") * globals::SPRITE_SCALE;
+						y = pObject->FloatAttribute("y") * globals::SPRITE_SCALE;
+
+						// check properties for whether the chest has been completed
+						XMLElement* pProperties = pObjectGroup->FirstChildElement("properties");
+						while (pProperties) {
+							XMLElement* pProperty = pProperties->FirstChildElement("property");
+							std::cout << "soy awdawdawdAwdwdwd" << std::endl;
+							while (pProperty) {
+								const char* name = pProperty->Attribute("name");
+								std::stringstream ss;
+								ss << name;
+								std::cout << ss.str() << " snalowjrojadfjoasdawd" << std::endl;
+								if (ss.str() == "visible") {
+									shouldShow = pProperty->BoolAttribute("value");
+								}
+								pProperty = pProperty->NextSiblingElement("property");
+							}
+							pProperties = pProperties->NextSiblingElement("properties");
+						}
+
+						// add to endpoint
+						this->_endpoint = EndPointSprite(graphics, Vector2(x, y), shouldShow);
+
+						pObject = pObject->NextSiblingElement("object");
+					}
+				}
+			}
+			else if (ss.str() == "moveables") {
+				// parse out coin positions
+				XMLElement* pObject = pObjectGroup->FirstChildElement("object");
+				if (pObject != NULL) {
+					while (pObject) {
+						float x, y;
+						x = pObject->FloatAttribute("x") * globals::SPRITE_SCALE;
+						y = pObject->FloatAttribute("y") * globals::SPRITE_SCALE;
+
+						// add to moveables
+						this->_moveables.push_back(Moveable(graphics, Vector2(x, y)));
+						this->_moveableSpawnPoints.push_back(Vector2(x, y));
+						pObject = pObject->NextSiblingElement("object");
+					}
+				}
+			}
+
+			pObjectGroup = pObjectGroup->NextSiblingElement("objectgroup");
+		}
+	}
+}
+
+bool Stage::areAllMoveablesVisible()
+{
+	for (Moveable& movable : this->_moveables) {
+		if (!movable.getVisible()) {
+			return false;
+		}
+	}
+	return true;
+}
+
+bool Stage::hasPlayerReachedEndPoint(Player& player)
+{
+	return player.getBoundingBox().collidesWith(this->_endpoint.getBoundingBox());
+}
+
+std::vector<Moveable>& Stage::getMoveables()
+{
+	return this->_moveables;
+}
+
+void Stage::update(int elapsedTime, bool& isMoving, Graphics& graphics) {
 	this->_timeElapsed += elapsedTime;
 	
 	// update the special effects
@@ -226,6 +386,15 @@ void Stage::update(int elapsedTime, bool& isMoving) {
 		itr = _fx.erase(itr);
 	}
 	
+	// update the moveables
+	for (auto& m : _moveables) {
+		m.update(elapsedTime, *this, graphics, isMoving);
+	}
+
+	// update the endpoint
+	this->_endpoint.update(elapsedTime);
+
+	// Update the transition between dimensions
 	if (this->_timeElapsed > this->_timeToUpdate) {
 		this->_timeElapsed -= this->_timeToUpdate;
 		//std::cout << _fx.size() << std::endl;
@@ -259,6 +428,11 @@ void Stage::draw(Graphics& graphics) {
 		//std::cout << &(this->_fx[i]) << std::endl;
 		ptr->draw(graphics);
 	}
+
+	for (auto& m : this->_moveables) {
+		m.draw(graphics);
+	}
+	this->_endpoint.draw(graphics);
 }
 
 void Stage::nextLevel(bool& isMoving, Ticket& ticket, Player& player, std::vector<Moveable>& moveables, bool isUndoable) {
@@ -322,7 +496,12 @@ bool Stage::checkTileCollisions(const Rectangle& other) const {
 
 void Stage::undo(int ticketNum, bool& isMoving)
 {
-	//std::cout << ticket << " ticket " << std::get<0>(_prevstates.top()) << std::endl;
+	// undo moveables
+	for (auto& m : this->_moveables) {
+		m.undo(ticketNum);
+	}
+	
+	// switch dimension undo
 	if (_prevstates.empty() || std::get<0>(_prevstates.top()) != ticketNum) return;
 	
 	auto [ticketNumber, x] = this->_prevstates.top();
@@ -339,10 +518,16 @@ void Stage::storeCurrState(int ticket, int savedIdx)
 
 void Stage::restart(int generatedTicket)
 {
+	// restart dimension position
 	this->storeCurrState(generatedTicket, this->_idx);
 	this->_idx = 0;
 	this->_next = 0;
 	this->_levels[this->_idx].update(0, this->_alpha);
+
+	// restart moveables position
+	for (int i = 0; i < _moveables.size(); ++i) {
+		this->_moveables[i].restart(_moveableSpawnPoints[i], generatedTicket);
+	}
 }
 
 Overworld::Overworld()
@@ -351,7 +536,7 @@ Overworld::Overworld()
 
 Overworld::Overworld(Vector2 spawnPoint, Graphics& graphics, std::unordered_map<std::string, std::string>& dialogueData)
 {
-	this->_overworld = Stage({ globals::overworld }, spawnPoint, graphics);
+	this->_overworld = Stage({ globals::overworld }, graphics);
 
 	// initialise chest at level select area from xml file
 	this->_save.parse(globals::overworld, this->_completionSprites, graphics);
@@ -374,9 +559,9 @@ Overworld::~Overworld()
 {
 }
 
-void Overworld::update(int elapsedTime, bool& isMoving)
+void Overworld::update(int elapsedTime, bool& isMoving, Graphics& graphics)
 {
-	this->_overworld.update(elapsedTime, isMoving);
+	this->_overworld.update(elapsedTime, isMoving, graphics);
 	for (CompletionSprite& completionSprite : this->_completionSprites) {
 		completionSprite.update(elapsedTime);
 	}

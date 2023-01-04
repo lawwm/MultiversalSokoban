@@ -135,6 +135,14 @@ EndPointSprite::EndPointSprite(Graphics& graphics, Vector2 spawnPoint) :
 	this->playAnimation("Glow");
 }
 
+EndPointSprite::EndPointSprite(Graphics& graphics, Vector2 spawnPoint, bool visibility) :
+	AnimatedSprite(graphics, globals::endpoint, 0, 0, 16, 16, spawnPoint.x, spawnPoint.y, 100)
+{
+	this->setupAnimations();
+	this->playAnimation("Glow");
+	this->setVisible(visibility);
+}
+
 void EndPointSprite::draw(Graphics& graphics)
 {
 	AnimatedSprite::draw(graphics, this->_x, this->_y);

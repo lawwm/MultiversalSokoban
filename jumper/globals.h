@@ -52,7 +52,7 @@ struct Vector2 {
 	}
 };
 
-typedef std::tuple<std::vector<std::string>, Vector2, Vector2, std::vector<Vector2>> zonedata; // paths to map, spawn coordinates, end points, coordinates of moveables, 
+typedef std::tuple<std::vector<std::string>> zonedata; // paths to map, spawn coordinates, end points, coordinates of moveables, 
 
 namespace globals {
 	const int SCREEN_WIDTH = 600;
@@ -69,7 +69,7 @@ namespace globals {
 	const std::string chest = "sprites/little-treasure-chest.png";
 	
 	const std::string opening_screen = "sprites/opening_screen.png";
-
+	const std::string closing_screen = "sprites/closing_screen.png";
 	
 	const std::string a_room = "a_room";
 	const std::string a_ice = "a_ice";
@@ -77,17 +77,25 @@ namespace globals {
 	const std::string b_room = "b_room";
 	const std::string b_ice = "b_ice";
 
+	const std::string c_room = "c_room";
+	const std::string c_ice = "c_ice";
+
+	const std::string d_room = "d_room";
+	const std::string d_ice = "d_ice";
+
+
 	const std::string iceLevel = "Ice1";
 	const std::string roomLevel = "Room1";
 	const std::string pierLevel = "Pier1";
 	const std::string bushLevel = "Bush1";
 	const std::string overworld = "overworld";
 	
-	const std::vector<zonedata> data = {
-		{{a_room, a_ice }, Vector2(128, 128), Vector2(480, 128), {{160,96}, {160, 128}, {160,  160}} },
-		{{b_room, b_ice }, Vector2(160, 160), Vector2(448, 224), {{224,160}, {352,160}, {384,160}, {384, 192}, {384, 224}, {352, 224}, {416, 256}, {416, 288}, {416, 128}} },
-		{{iceLevel, roomLevel }, Vector2(160, 160), Vector2(160, 192), {{128,128}, {160,128}, {224,128}, {192,128}} },
-		{{pierLevel, bushLevel}, Vector2(160, 160), Vector2(224, 224), {{224,128}, {192,128}} }
+	const std::vector<zonedata> data = { // first element of each vector contains the element location details
+		{{a_room, a_ice }},
+
+		{{b_room, b_ice }},
+
+		{{c_room, c_ice }},
 	};
 
 	const std::string died_dialogue = "died";

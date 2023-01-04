@@ -110,6 +110,7 @@ class EndPointSprite : public AnimatedSprite
 public:
 	EndPointSprite();
 	EndPointSprite(Graphics& graphics, Vector2 spawnPoint);
+	EndPointSprite(Graphics& graphics, Vector2 spawnPoint, bool setVisibility);
 	void draw(Graphics& graphics);
 	void update(float elapsedTime);
 
