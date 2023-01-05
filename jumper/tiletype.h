@@ -7,6 +7,7 @@ class CompletionSprite : public AnimatedSprite
 public:
 	CompletionSprite();
 	CompletionSprite(Graphics& graphics, Vector2 spawnPoint, int levelNumber, bool isCompleted);
+	~CompletionSprite() {}
 	void draw(Graphics& graphics);
 	void update(float elapsedTime);
 

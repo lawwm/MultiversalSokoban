@@ -12,6 +12,15 @@ public:
 	Zone();
 	Zone(std::vector<zonedata> data, Graphics& graphics, int zonenumber = 0);
 	~Zone();
+
+	// copy constructor and operator
+	Zone(const Zone& t)=delete;
+	Zone& operator=(const Zone& t)=delete;
+
+	// move constructor and operator
+	Zone(Zone&& t) noexcept;
+	Zone& operator=(Zone&& t) noexcept;
+
 	Stage& getStage();
 	std::vector<Moveable>& getMoveables();
 	

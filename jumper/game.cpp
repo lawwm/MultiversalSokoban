@@ -61,11 +61,11 @@ void Game::gameLoop() {
 		{globals::overworld_exit_dialogue, "Press Esc again to confirm exit.\nPress A to continue playing."},
 	});
 
-	this->_zone = Zone(globals::data, graphics, 0);
+	this->_zone = std::move(Zone(globals::data, graphics, 0));
 	this->_player = Player(graphics, Vector2(globals::overworld_spawn_x, globals::overworld_spawn_y));
 	//this->_player = Player(graphics, Vector2(128, 128));
-	this->_overworld = Overworld(Vector2(256, 256), graphics, dialogueData);
-	
+	this->_overworld = std::move(Overworld(Vector2(256, 256), graphics, dialogueData));
+
 	this->_openingScreen = OpeningScreen(graphics);
 	this->_victoryScreen = VictoryScreen(graphics);
 	

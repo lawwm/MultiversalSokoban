@@ -14,6 +14,48 @@ Tile::Tile(std::shared_ptr<SDL_Texture> tileset, Vector2 size, Vector2 tilesetPo
 	//std::cout << "create" << std::endl;
 }
 
+Tile::Tile(const Tile& t) 
+	: _tileset(t._tileset), _size(t._size), _tilesetPosition(t._tilesetPosition), 
+	_position(t._position)
+{
+	//std::cout << "tile copy constructor" << std::endl;
+}
+
+Tile& Tile::operator=(const Tile& t) noexcept
+{
+	if (this == &t) return *this;
+
+	//std::cout << "tile copy opeartor" << std::endl;
+
+	this->_size = t._size;
+	this->_tilesetPosition = t._tilesetPosition;
+	this->_position = t._position;
+	this->_tileset = t._tileset;
+
+	return *this;
+}
+
+Tile::Tile(Tile&& t) noexcept 
+	: _tileset(std::exchange(t._tileset, nullptr)), _size(t._size), 
+	_tilesetPosition(t._tilesetPosition), _position(t._position)
+{
+	//std::cout << "tile move constructor" << std::endl;
+}
+
+Tile& Tile::operator=(Tile&& t) noexcept
+{
+	if (this == &t) return *this;
+
+	//std::cout << "tile move operator" << std::endl;
+
+	this->_tileset = std::exchange(t._tileset, nullptr);
+	this->_size = t._size;
+	this->_tilesetPosition = t._tilesetPosition;
+	this->_position = t._position;
+
+	return *this;
+}
+
 void Tile::update(int elapsedTime, const int& alpha) {
 	SDL_SetTextureColorMod(_tileset.get(), alpha, alpha, alpha);
 }

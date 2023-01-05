@@ -28,6 +28,73 @@ Level::~Level() {
 
 }
 
+
+Level::Level(const Level& t)
+{
+	std::cout << "level copy constructor" << std::endl;
+	
+	this->_mapName = t._mapName;
+	this->_size = t._size;
+	this->_tileSize = t._tileSize;
+
+	this->_tileList = t._tileList;
+	this->_tilesets = t._tilesets;
+	this->_collisionRects = t._collisionRects;
+	
+	
+}
+
+Level& Level::operator=(const Level& t) noexcept
+{
+	//std::cout << "tile copy opeartor" << std::endl;
+
+	this->_mapName = t._mapName;
+	this->_size = t._size;
+	this->_tileSize = t._tileSize;
+
+	this->_tileList = t._tileList;
+	this->_tilesets = t._tilesets;
+	this->_collisionRects = t._collisionRects;
+
+	return *this;
+}
+
+Level::Level(Level&& t) noexcept
+{
+	//std::cout << "tile move constructor" << std::endl;
+
+	this->_mapName = std::move(t._mapName);
+	this->_size = std::move(t._size);
+	this->_tileSize = std::move(t._tileSize);
+
+	this->_tileList = std::move(t._tileList);
+	this->_tilesets = std::move(t._tilesets);
+	this->_collisionRects = std::move(t._collisionRects);
+
+	t._tileList.clear();
+	t._tilesets.clear();
+	t._collisionRects.clear();
+}
+
+Level& Level::operator=(Level&& t) noexcept
+{
+	if (this == &t) return *this;
+
+	this->_mapName = std::move(t._mapName);
+	this->_size = std::move(t._size);
+	this->_tileSize = std::move(t._tileSize);
+	
+	this->_tileList = std::move(t._tileList);
+	this->_tilesets = std::move(t._tilesets);
+	this->_collisionRects = std::move(t._collisionRects);
+
+	t._tileList.clear();
+	t._tilesets.clear();
+	t._collisionRects.clear();
+	
+	return *this;
+}
+
 void Level::loadMap(std::string mapName, Graphics& graphics) {
 	//Parse the .tmx file
 	XMLDocument doc;
@@ -209,7 +276,7 @@ const Vector2 Stage::getPlayerSpawnPoint() const {
 Stage::Stage(std::vector<std::string> maps, Graphics& graphics)
 {
 	for (auto& map : maps) {
-		this->_levels.push_back(Level(map, graphics));
+		this->_levels.push_back(std::move(Level(map, graphics)));
 	}
 	
 	this->loadElements(maps[0], graphics);
@@ -218,6 +285,62 @@ Stage::Stage(std::vector<std::string> maps, Graphics& graphics)
 Stage::~Stage() {
 
 }
+
+Stage::Stage(Stage&& t) noexcept
+{
+	//std::cout << "tile move constructor" << std::endl;
+
+	this->_levels = std::move(t._levels);
+	this->_fx = std::move(t._fx);
+	
+	this->_idx = t._idx;
+	this->_next = t._next;
+	this->_alpha = t._alpha;
+	this->_timeElapsed = t._timeElapsed;
+	this->_timeToUpdate = t._timeToUpdate;
+	
+	this->_prevstates = t._prevstates;
+	this->_spawnPoint = t._spawnPoint;
+	this->_moveableSpawnPoints = std::move(t._moveableSpawnPoints);
+	this->_moveables = std::move(t._moveables);
+	this->_endpoint = std::move(t._endpoint);
+
+	t._levels.clear();
+	t._fx.clear();
+	t._moveableSpawnPoints.clear();
+	t._moveables.clear();
+	t._endpoint.clear();
+
+}
+
+Stage& Stage::operator=(Stage&& t) noexcept
+{
+	if (this == &t) return *this;
+
+	this->_levels = std::move(t._levels);
+	this->_fx = std::move(t._fx);
+
+	this->_idx = t._idx;
+	this->_next = t._next;
+	this->_alpha = t._alpha;
+	this->_timeElapsed = t._timeElapsed;
+	this->_timeToUpdate = t._timeToUpdate;
+
+	this->_prevstates = t._prevstates;
+	this->_spawnPoint = t._spawnPoint;
+	this->_moveableSpawnPoints = std::move(t._moveableSpawnPoints);
+	this->_moveables = std::move(t._moveables);
+	this->_endpoint = std::move(t._endpoint);
+
+	t._levels.clear();
+	t._fx.clear();
+	t._moveableSpawnPoints.clear();
+	t._moveables.clear();
+	t._endpoint.clear();
+	
+	return *this;
+}
+
 
 void Stage::loadElements(std::string mapName, Graphics& graphics) {
 	//Parse the .tmx file
@@ -266,12 +389,10 @@ void Stage::loadElements(std::string mapName, Graphics& graphics) {
 						XMLElement* pProperties = pObjectGroup->FirstChildElement("properties");
 						while (pProperties) {
 							XMLElement* pProperty = pProperties->FirstChildElement("property");
-							std::cout << "soy awdawdawdAwdwdwd" << std::endl;
 							while (pProperty) {
 								const char* name = pProperty->Attribute("name");
 								std::stringstream ss;
 								ss << name;
-								std::cout << ss.str() << " snalowjrojadfjoasdawd" << std::endl;
 								if (ss.str() == "visible") {
 									shouldShow = pProperty->BoolAttribute("value");
 								}
@@ -325,10 +446,10 @@ bool Stage::hasPlayerReachedEndPoint(Player& player)
 		return false;
 	}
 
-	for (auto& completionSprite : this->_endpoint) {
-		bool hasCollision = player.getBoundingBox().collidesWith(completionSprite.getBoundingBox());
+	for (auto& endpointSprite : this->_endpoint) {
+		bool hasCollision = player.getBoundingBox().collidesWith(endpointSprite.getBoundingBox());
 		for (auto& moveable : this->_moveables) {
-			hasCollision |= moveable.getBoundingBox().collidesWith(completionSprite.getBoundingBox());
+			hasCollision |= moveable.getBoundingBox().collidesWith(endpointSprite.getBoundingBox());
 			if (hasCollision) continue;
 		}
 		
@@ -353,8 +474,6 @@ void Stage::update(int elapsedTime, bool& isMoving, Graphics& graphics) {
 			continue;
 		}
 		// clean up the effect
-		delete *itr;
-		*itr = nullptr;
 		itr = _fx.erase(itr);
 	}
 	
@@ -459,9 +578,9 @@ void Stage::prevLevel(bool& isMoving)
 	isMoving = false;
 }
 
-void Stage::addFx(AnimatedSprite* fx)
+void Stage::addFx(std::unique_ptr<AnimatedSprite>&& fx)
 {
-	this->_fx.push_back(fx);
+	this->_fx.push_back(std::move(fx));
 }
 
 const std::vector<Rectangle>& Stage::getCollision() {
@@ -514,10 +633,12 @@ Overworld::Overworld()
 
 Overworld::Overworld(Vector2 spawnPoint, Graphics& graphics, std::unordered_map<std::string, std::string>& dialogueData)
 {
-	this->_overworld = Stage({ globals::overworld }, graphics);
+	this->_overworld = std::move(Stage({ globals::overworld }, graphics));
 
 	// initialise chest at level select area from xml file
 	this->_save.parse(globals::overworld, this->_completionSprites, graphics);
+	
+	std::cout << "how many ocmpletion sprites" << this->_completionSprites.size() << std::endl;
 	
 	// fill out coordinates map
 	for (auto& completionSprite : this->_completionSprites) {
@@ -535,6 +656,31 @@ Overworld::Overworld(Vector2 spawnPoint, Graphics& graphics, std::unordered_map<
 
 Overworld::~Overworld()
 {
+}
+
+
+Overworld::Overworld(Overworld&& t) noexcept
+{
+	this->_completionSprites = std::move(t._completionSprites);
+	this->_overworld = std::move(t._overworld);
+	this->_save = std::move(t._save);
+	this->_overworldzone_map = std::move(t._overworldzone_map);
+
+	t._overworldzone_map.clear();
+}
+
+Overworld& Overworld::operator=(Overworld&& t) noexcept
+{
+	if (this == &t) return *this;
+
+	this->_completionSprites = std::move(t._completionSprites);
+	this->_overworld = std::move(t._overworld);
+	this->_save = std::move(t._save);
+	this->_overworldzone_map = std::move(t._overworldzone_map);
+
+	t._completionSprites.clear();
+	t._overworldzone_map.clear();
+	return *this;
 }
 
 void Overworld::update(int elapsedTime, bool& isMoving, Graphics& graphics)

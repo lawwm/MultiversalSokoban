@@ -19,44 +19,13 @@ public:
 		//SDL_DestroyTexture(this->_tileset);
 	}
 	
-	Tile(const Tile& t) : _tileset(t._tileset), _size(t._size), _tilesetPosition(t._tilesetPosition), _position(t._position)
-	{
-		//std::cout << "tile copy constructor" << std::endl;
-	}
-	 
-	Tile& operator=(const Tile& t) noexcept
-	{
-		if (this == &t) return *this;
-		
-		//std::cout << "tile copy opeartor" << std::endl;
+	// copy constructor and operator
+	Tile(const Tile& t);
+	Tile& operator=(const Tile& t) noexcept;
 
-		this->_size = t._size;
-		this->_tilesetPosition = t._tilesetPosition;
-		this->_position = t._position;
-		this->_tileset = t._tileset;
-		
-		return *this;
-	}
-
-
-	Tile(Tile&& t) noexcept : _tileset(std::exchange(t._tileset, nullptr)), _size(t._size), _tilesetPosition(t._tilesetPosition), _position(t._position) 
-	{
-		//std::cout << "tile move constructor" << std::endl;
-	}
-
-	Tile& operator=(Tile&& t) noexcept
-	{
-		if (this == &t) return *this;
-
-		//std::cout << "tile move operator" << std::endl;
-
-		this->_tileset = std::exchange(t._tileset, nullptr);
-		this->_size = t._size;
-		this->_tilesetPosition = t._tilesetPosition;
-		this->_position = t._position;
-
-		return *this;
-	}
+	// move constructor and operator
+	Tile(Tile&& t) noexcept;
+	Tile& operator=(Tile&& t) noexcept;
 
 	void update(int elapsedTime, const int& alpha);
 	void draw(Graphics& graphics);

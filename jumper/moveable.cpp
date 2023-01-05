@@ -4,6 +4,7 @@
 #include <iostream>
 #include <tuple>
 #include <utility>
+#include <memory>
 
 Moveable::Moveable() {};
 
@@ -68,7 +69,7 @@ void Moveable::update(float elapsedTime, Stage& stage, Graphics& graphics, bool&
 	if (this->getVisible() && !stage.checkTileCollisions(moveableBoxCurr) && canPlayerSwitchStage) {
 		this->setVisible(false);
 		Foley::playSound("kill");
-		stage.addFx(new ExplosionSprite(graphics, Vector2(this->_x, this->_y)));
+		stage.addFx(std::make_unique<ExplosionSprite>(graphics, Vector2(this->_x, this->_y)));
 		return;
 	}
 	
