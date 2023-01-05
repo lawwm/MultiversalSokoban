@@ -29,15 +29,6 @@ public:
 	const int getWidth() const { return this->_width; }
 	const int getHeight() const { return this->_height; }
 
-	const int getSide(const sides::Side side) const {
-		return
-			side == sides::LEFT ? this->getLeft() :
-			side == sides::RIGHT ? this->getRight() :
-			side == sides::TOP ? this->getTop() :
-			side == sides::BOTTOM ? this->getBottom() :
-			sides::NONE;
-	}
-
 	//bool collidesWith
 	//Takes in another Rectangle and checks if the two are colliding
 	const bool collidesWith(const Rectangle& other) const {

@@ -66,14 +66,14 @@ Vector2 Zone::getSpawnPoint()
 	return this->_stage.getPlayerSpawnPoint();
 }
 
-bool Zone::areAllMoveablesVisible()
+bool Zone::hasPlayerWon(Player& player)
 {
-	return this->_stage.areAllMoveablesVisible();
+	return this->_stage.hasPlayerWon(player);
 }
 
-bool Zone::hasPlayerReachedEndPoint(Player& player)
+bool Zone::isItPossibleToWin()
 {
-	return this->_stage.hasPlayerReachedEndPoint(player);
+	return this->_stage.isItPossibleToWin();
 }
 
 void Zone::restart(Graphics& graphics, int ticket)

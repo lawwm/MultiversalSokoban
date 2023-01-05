@@ -34,8 +34,9 @@ public:
 	
 	Vector2 getSpawnPoint();
 
-	bool areAllMoveablesVisible();
-	bool hasPlayerReachedEndPoint(Player& player);
+	bool hasPlayerWon(Player& player);
+
+	bool isItPossibleToWin();
 	
 	void restart(Graphics& graphics, int ticket);
 	

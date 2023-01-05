@@ -51,7 +51,8 @@ public:
 	void draw(Graphics& graphics);
 
 	bool checkTileCollisions(const Rectangle& other) const;
-
+	bool checkTilePoison(const Rectangle& other) const;
+	
 	const std::vector<Rectangle>& getCollision();
 
 private:
@@ -63,7 +64,7 @@ private:
 	std::vector<Tile> _tileList;
 	std::vector<Tileset> _tilesets;
 	std::vector<Rectangle> _collisionRects;
-	
+	std::vector<Rectangle> _poisonRects;
 	/* void loadMap
 	 * Loads a map
 	 */
@@ -92,7 +93,8 @@ public:
 	*  returns true if there are collisions
 	*/
 	bool checkTileCollisions(const Rectangle& other) const;
-
+	bool checkTilePoison(const Rectangle& other) const;
+	
 	const Vector2 getPlayerSpawnPoint() const;
 
 	const std::vector<Rectangle>& getCollision();
@@ -112,9 +114,9 @@ public:
 
 	void loadElements(std::string, Graphics& graphics);
 
-	bool areAllMoveablesVisible();
+	bool hasPlayerWon(Player& player);
 	
-	bool hasPlayerReachedEndPoint(Player& player);
+	bool isItPossibleToWin();
 	
 	std::vector<Moveable*>& getMoveables();
 

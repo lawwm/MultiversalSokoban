@@ -6,25 +6,6 @@
 #include <vector>
 #include <unordered_map>
 
-namespace sides {
-	enum Side {
-		TOP,
-		BOTTOM,
-		LEFT,
-		RIGHT,
-		NONE
-	};
-
-	inline Side getOppositeSide(Side side) {
-		return
-			side == TOP ? BOTTOM :
-			side == BOTTOM ? TOP :
-			side == LEFT ? RIGHT :
-			side == RIGHT ? LEFT :
-			NONE;
-	}
-}
-
 enum Screen {
 	OVERWORLD,
 	ZONE,
@@ -69,6 +50,7 @@ namespace globals {
 	
 	const std::string eskimo = "sprites/21.png";
 	const std::string coin = "sprites/coin-2.png";
+	const std::string sushi = "sprites/sushi.png";
 	const std::string explode = "sprites/explode.png";
 	const std::string endpoint = "sprites/2.png";
 	const std::string dialogue = "sprites/dialogue-bubble.png";
@@ -92,6 +74,9 @@ namespace globals {
 	const std::string e_room = "e_room";
 	const std::string e_ice = "e_ice";
 
+	const std::string f_room = "f_room";
+	const std::string f_ice = "f_ice";
+
 	const std::string iceLevel = "Ice1";
 	const std::string roomLevel = "Room1";
 	const std::string pierLevel = "Pier1";
@@ -107,9 +92,9 @@ namespace globals {
 		
 		{{c_room, c_ice }},
 		
-		{{d_room, d_ice}}
-
+		{{d_room, d_ice}},
 		
+		{{f_room, f_ice }}
 	};
 
 	const std::string died_dialogue = "died";

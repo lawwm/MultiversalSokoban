@@ -12,6 +12,7 @@
 #include <cmath>
 #include <iostream>
 #include <memory>
+#include <cassert>
 
 using namespace tinyxml2;
 
@@ -40,7 +41,7 @@ Level::Level(const Level& t)
 	this->_tileList = t._tileList;
 	this->_tilesets = t._tilesets;
 	this->_collisionRects = t._collisionRects;
-	
+	this->_poisonRects = t._poisonRects;
 	
 }
 
@@ -55,6 +56,7 @@ Level& Level::operator=(const Level& t) noexcept
 	this->_tileList = t._tileList;
 	this->_tilesets = t._tilesets;
 	this->_collisionRects = t._collisionRects;
+	this->_poisonRects = t._poisonRects;
 
 	return *this;
 }
@@ -70,6 +72,7 @@ Level::Level(Level&& t) noexcept
 	this->_tileList = std::move(t._tileList);
 	this->_tilesets = std::move(t._tilesets);
 	this->_collisionRects = std::move(t._collisionRects);
+	this->_poisonRects = std::move(t._poisonRects);
 
 	t._tileList.clear();
 	t._tilesets.clear();
@@ -87,6 +90,7 @@ Level& Level::operator=(Level&& t) noexcept
 	this->_tileList = std::move(t._tileList);
 	this->_tilesets = std::move(t._tilesets);
 	this->_collisionRects = std::move(t._collisionRects);
+	this->_poisonRects = std::move(t._poisonRects);
 
 	t._tileList.clear();
 	t._tilesets.clear();
@@ -212,8 +216,9 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 		std::stringstream ss;
 		ss << name;
 
+		std::cout << ss.str() << std::endl;
 		//Parse out the collisions
-		if (ss.str() == "collisions") {
+		if (ss.str() == "collisions" || ss.str() == "poison") {
 			XMLElement* pObject = pObjectGroup->FirstChildElement("object");
 
 			while (pObject) {
@@ -224,12 +229,23 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 				height = pObject->FloatAttribute("height");
 				// make the rectangle one unit smaller from each side so that player 
 				// character can move within tight spaces
-				this->_collisionRects.push_back(Rectangle(
-					std::ceil(x) * globals::SPRITE_SCALE,
-					std::ceil(y) * globals::SPRITE_SCALE,
-					std::ceil(width) * globals::SPRITE_SCALE,
-					std::ceil(height) * globals::SPRITE_SCALE
-				));
+				Rectangle rec(
+					std::ceil(x)* globals::SPRITE_SCALE,
+					std::ceil(y)* globals::SPRITE_SCALE,
+					std::ceil(width)* globals::SPRITE_SCALE,
+					std::ceil(height)* globals::SPRITE_SCALE
+				);
+				std::cout << ss.str() << " blocsk awdoawdwd" << std::endl;
+				if (ss.str() == "collisions") {
+					this->_collisionRects.push_back(rec);
+				}
+				else if (ss.str() == "poison") {
+					this->_poisonRects.push_back(rec);
+				}
+				else {
+					assert(false);
+				}
+				
 
 				pObject = pObject->NextSiblingElement("object");
 			}
@@ -264,6 +280,15 @@ const std::vector<Rectangle>& Level::getCollision() {
 bool Level::checkTileCollisions(const Rectangle& other) const {
 	for (int i = 0; i < _collisionRects.size(); i++) {
 		if (_collisionRects.at(i).collidesWith(other)) return false;
+	}
+
+	return true;
+}
+
+bool Level::checkTilePoison(const Rectangle& other) const {
+	std::cout << "poison" << this->_poisonRects.size() << std::endl;
+	for (int i = 0; i < this->_poisonRects.size(); i++) {
+		if (this->_poisonRects.at(i).collidesWith(other)) return false;
 	}
 
 	return true;
@@ -408,7 +433,7 @@ void Stage::loadElements(std::string mapName, Graphics& graphics) {
 					}
 				}
 			}
-			else if (ss.str() == "moveables") {
+			else if (ss.str() == "coins" || ss.str() == "sushi") {
 				// parse out coin positions
 				XMLElement* pObject = pObjectGroup->FirstChildElement("object");
 				if (pObject != NULL) {
@@ -418,45 +443,62 @@ void Stage::loadElements(std::string mapName, Graphics& graphics) {
 						y = pObject->FloatAttribute("y") * globals::SPRITE_SCALE;
 
 						// add to moveables
-						this->_moveables.push_back(new Coin(graphics, Vector2(x, y)));
+						if (ss.str() == "coins") {
+							this->_moveables.push_back(new Coin(graphics, Vector2(x, y)));
+						}
+						else if (ss.str() == "sushi") {
+							this->_moveables.push_back(new Sushi(graphics, Vector2(x, y)));
+						}
+						else {
+							assert(false);
+						}
 						this->_moveableSpawnPoints.push_back(Vector2(x, y));
 						pObject = pObject->NextSiblingElement("object");
 					}
 				}
 			}
-
 			pObjectGroup = pObjectGroup->NextSiblingElement("objectgroup");
 		}
 	}
 }
 
-bool Stage::areAllMoveablesVisible()
+bool Stage::hasPlayerWon(Player& player)
+{
+	// check that player is stationary and not visible
+	if (!player.isStationary() || !player.getVisible()) {
+		return false;
+	}
+
+	// check that each check point has collided with a coin
+	for (auto& endpointSprite : this->_endpoint) {
+		bool hasCollision = player.getBoundingBox().collidesWith(endpointSprite.getBoundingBox());
+		for (auto& moveable : this->_moveables) {
+			hasCollision |= moveable->collidesWith(endpointSprite.getBoundingBox());
+			if (hasCollision) continue;
+		}
+
+		if (!hasCollision) return false;
+	}
+
+	// check that no coins are destroyed and all sushi are destroyed, i.e. they are in a winnable state
+	for (auto& moveable : this->_moveables) {
+		if (!moveable->hasItWon()) return false;
+	}
+	
+	return true;
+}
+
+
+bool Stage::isItPossibleToWin()
 {
 	for (Moveable* movable : this->_moveables) {
-		if (!movable->getVisible()) {
+		if (!movable->isItPossibleToWin()) {
 			return false;
 		}
 	}
 	return true;
 }
 
-bool Stage::hasPlayerReachedEndPoint(Player& player)
-{
-	if (!player.isStationary()) {
-		return false;
-	}
-
-	for (auto& endpointSprite : this->_endpoint) {
-		bool hasCollision = player.getBoundingBox().collidesWith(endpointSprite.getBoundingBox());
-		for (auto& moveable : this->_moveables) {
-			hasCollision |= moveable->getBoundingBox().collidesWith(endpointSprite.getBoundingBox());
-			if (hasCollision) continue;
-		}
-		
-		if (!hasCollision) return false;
-	}
-	return true;
-}
 
 std::vector<Moveable*>& Stage::getMoveables()
 {
@@ -589,6 +631,10 @@ const std::vector<Rectangle>& Stage::getCollision() {
 
 bool Stage::checkTileCollisions(const Rectangle& other) const {
 	return this->_levels[this->_idx].checkTileCollisions(other);
+}
+
+bool Stage::checkTilePoison(const Rectangle& other) const {
+	return this->_levels[this->_idx].checkTilePoison(other);
 }
 
 void Stage::undo(int ticketNum, bool& isMoving)

@@ -164,7 +164,7 @@ void Game::update(float elapsedTime, Graphics& graphics) {
 		this->_zone.update(elapsedTime, graphics, this->_canPlayerSwitchStage);
 
 		// display undo dialogue text if player has died
-		if (this->_player.getVisible() == false || !this->_zone.areAllMoveablesVisible()) {
+		if (this->_player.getVisible() == false || !this->_zone.isItPossibleToWin()) {
 			this->_textbox.set(globals::died_dialogue);
 		}		
 	}
@@ -221,7 +221,7 @@ bool Game::individualZone(Graphics& graphics, Input& input, int& LAST_UPDATE_TIM
 
 
 	// check whether this player has won
-	bool hasPlayerWon = this->_zone.areAllMoveablesVisible() && this->_zone.hasPlayerReachedEndPoint(this->_player);
+	bool hasPlayerWon = this->_zone.hasPlayerWon(this->_player);
 	if (hasPlayerWon) {
 		// first frame of winning
 		if (this->_textbox.getKey() != globals::won_dialogue) {
@@ -263,7 +263,7 @@ bool Game::individualZone(Graphics& graphics, Input& input, int& LAST_UPDATE_TIM
 
 
 	// movement and switching dimension
-	if (_canPlayerMove && _canPlayerSwitchStage && this->_player.getVisible() && !hasPlayerWon && this->_zone.areAllMoveablesVisible()) {
+	if (_canPlayerMove && _canPlayerSwitchStage && this->_player.getVisible() && !hasPlayerWon && this->_zone.isItPossibleToWin()) {
 
 		if (input.isKeyHeld(SDL_SCANCODE_LEFT) == true) {
 			this->_player.moveLeft(this->_canPlayerMove, this->_zone.getStage(), this->_zone.getMoveables(), this->_ticket);

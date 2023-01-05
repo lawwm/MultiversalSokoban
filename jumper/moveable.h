@@ -38,10 +38,13 @@ public:
 	
 	virtual void draw(Graphics& graphics)=0;
 	virtual void update(float elapsedTime, Stage& stage, Graphics& graphics, bool& canPlayerSwitchStage)=0;
+	virtual bool collidesWith(Rectangle other)=0;
+	virtual bool isItPossibleToWin()=0;
+	virtual bool hasItWon()=0;
 };
 
 
-class Coin : public Moveable {
+class Coin : public Moveable { // to be pushed to endpoint
 public:
 	Coin();
 	Coin(Graphics& graphics, Vector2 spawnPoint);
@@ -57,9 +60,34 @@ public:
 
 	void restart(Vector2 spawn, int ticket) override;
 	
+	bool collidesWith(Rectangle other);
+	bool isItPossibleToWin();
+	bool hasItWon();
 private:
 	LimitedStack<std::tuple<int, int, int, int>> _prevstates; // ticket number, x, y, visible,
 };
 	
+class Sushi : public Moveable { // to be destroyed in order to win
+public:
+	Sushi();
+	Sushi(Graphics& graphics, Vector2 spawnPoint);
+	void draw(Graphics& graphics) override;
+	void update(float elapsedTime, Stage& stage, Graphics& graphics, bool& canPlayerSwitchStage) override;
+
+	void animationDone(std::string currentAnimation) override;
+	void setupAnimations() override;
+
+	void undo(int ticket) override;
+
+	void storeCurrState(int ticket) override;
+
+	void restart(Vector2 spawn, int ticket) override;
+	
+	bool collidesWith(Rectangle other);
+	bool isItPossibleToWin();
+	bool hasItWon();
+private:
+	LimitedStack<std::tuple<int, int, int, int>> _prevstates; // ticket number, x, y, visible,
+};
 #endif
 

@@ -6,10 +6,14 @@
 #include <utility>
 #include <memory>
 
+/**
+Base class for pushing functionality
+*/
+
 Moveable::Moveable() {};
 
 Moveable::Moveable(Graphics& graphics, Vector2 spawnPoint, std::string filePath, int sourceX, int sourceY, int width, int height, float timeToUpdate) :
-	AnimatedSprite(graphics, globals::coin, sourceX, sourceY, width, height, spawnPoint.x, spawnPoint.y, timeToUpdate)
+	AnimatedSprite(graphics, filePath, sourceX, sourceY, width, height, spawnPoint.x, spawnPoint.y, timeToUpdate)
 {
 }
 
@@ -47,6 +51,10 @@ bool Moveable::canMoveToNewPosition(const Stage& stage,
 	return true;
 }
 
+/**
+Coin class
+It is a moveable which is meant to be at endpoint in order for player to win
+*/
 
 Coin::Coin() {};
 
@@ -113,3 +121,91 @@ void Coin::update(float elapsedTime, Stage& stage, Graphics& graphics, bool& can
 void Coin::draw(Graphics& graphics) {
 	AnimatedSprite::draw(graphics, this->_x, this->_y);
 }
+
+bool Coin::collidesWith(Rectangle other) {
+	return this->getBoundingBox().collidesWith(other);
+};
+
+bool Coin::isItPossibleToWin() {
+	return this->getVisible();
+};
+
+bool Coin::hasItWon() {
+	return this->getVisible();
+};
+
+/**
+Sushi class
+It is a moveable which is meant to be at endpoint in order for player to win
+*/
+
+Sushi::Sushi() {};
+
+Sushi::Sushi(Graphics& graphics, Vector2 spawnPoint) :
+	Moveable(graphics, spawnPoint, globals::sushi, 0, 0, 16, 16, 100)
+{
+	this->setupAnimations();
+	this->playAnimation("Idle");
+}
+
+void Sushi::setupAnimations() {
+	this->addAnimation(1, 0, 0, "Idle", 16, 16, Vector2(0, 0));
+}
+
+void Sushi::animationDone(std::string currentAnimation) {}
+
+
+void Sushi::undo(int ticket)
+{
+	if (_prevstates.empty() || std::get<0>(_prevstates.top()) != ticket) return;
+
+	auto [ticketNumber, x, y, isVisible] = this->_prevstates.top();
+	this->_prevstates.pop();
+	this->_x = x;
+	this->_y = y;
+	this->setVisible(isVisible);
+	this->playAnimation("Idle");
+}
+
+void Sushi::storeCurrState(int ticket)
+{
+	this->_prevstates.emplace(ticket, this->_x, this->_y, this->getVisible());
+}
+
+void Sushi::restart(Vector2 spawn, int ticket)
+{
+	this->storeCurrState(ticket);
+	this->_x = spawn.x;
+	this->_y = spawn.y;
+	this->setVisible(true);
+}
+
+void Sushi::update(float elapsedTime, Stage& stage, Graphics& graphics, bool& canPlayerSwitchStage) {
+	Rectangle moveableBoxCurr(this->_x, this->_y, this->_sourceRect.w, this->_sourceRect.h);
+
+	// if a moveable collides with a hit box, it dies.
+	if (this->getVisible() && !stage.checkTileCollisions(moveableBoxCurr) && canPlayerSwitchStage) {
+		this->setVisible(false);
+		Foley::playSound("kill");
+		stage.addFx(std::make_unique<ExplosionSprite>(graphics, Vector2(this->_x, this->_y)));
+		return;
+	}
+
+	AnimatedSprite::update(elapsedTime);
+}
+
+void Sushi::draw(Graphics& graphics) {
+	AnimatedSprite::draw(graphics, this->_x, this->_y);
+}
+
+bool Sushi::collidesWith(Rectangle other) {
+	return false;
+};
+
+bool Sushi::isItPossibleToWin() {
+	return true;
+};
+
+bool Sushi::hasItWon() {
+	return !this->getVisible();
+};

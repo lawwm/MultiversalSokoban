@@ -56,8 +56,7 @@ bool Player::canMoveToNewPosition(const Stage& stage, std::vector<Moveable*>& cr
 		}
 	}
 
-	if (!stage.checkTileCollisions(playerBoxNext)) return false;
-
+	if (!stage.checkTileCollisions(playerBoxNext) || !stage.checkTilePoison(playerBoxNext)) return false;
 	return true;
 }
 
@@ -126,7 +125,11 @@ void Player::storeCurrState(int ticket) {
 }
 
 bool Player::isStationary() {
-	return this->_x == this->_destx && this->_y == this->_desty && this->_dx == 0 && this->_dy == 0;
+	int intx = floor(this->_x);
+	int inty = floor(this->_y);
+	bool isCloseToInt = std::abs(this->_x - floor(this->_x)) < 0.000000001f && std::abs(this->_y - floor(this->_y)) < 0.000000001f;
+	int spritesize = floor(globals::SPRITE_SCALE * globals::SPRITE_WIDTH);
+	return !(intx % spritesize) && !(inty % spritesize) && isCloseToInt;
 }
 
 void Player::restart(Vector2 spawn, int ticket)
