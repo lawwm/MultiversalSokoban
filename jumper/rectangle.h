@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <stack>
+#include <deque>
 
 class Rectangle {
 public:
@@ -59,6 +60,54 @@ private:
 	int _x, _y, _width, _height;
 };
 
+template<typename T>
+class LimitedStack {
+private:
+	std::deque<T> _dq;
+	int _limit;	
+public:
+
+	LimitedStack(int limit) : _limit(limit) {}
+	LimitedStack() : _limit(1000) {}
+	
+	void push(const T& t) {
+		if (_dq.size() == _limit) {
+			_dq.pop_front();
+		}
+		this->emplace(t);
+	}
+
+	void push(T&& t) {
+		if (_dq.size() == _limit) {
+			_dq.pop_front();
+		}
+		this->emplace(std::move(t));
+	}
+
+	template<typename... Args>
+	void emplace(Args&&... args) {
+		this->_dq.emplace_back(std::forward<Args>(args)...);
+	}
+
+	bool empty() {
+		return _dq.empty();
+	}
+
+	T pop() {
+		T item = _dq.back();
+		_dq.pop_back();
+		return item;
+	}
+
+	T top() {
+		return _dq.back();
+	}
+
+	int size() {
+		return _dq.size();
+	}
+};
+
 class Ticket {
 public:
 	Ticket() {};
@@ -89,7 +138,7 @@ public:
 	}
 	
 private:
-	std::stack<int> _ticket;
+	LimitedStack<int> _ticket;
 	int curr = 1;
 };
 

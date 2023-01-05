@@ -40,7 +40,7 @@ public:
 	
 private:
 	Direction _facing;
-	std::stack<std::tuple<int, int, int, int>> _prevstates; // ticket number, x, y, visible,
+	LimitedStack<std::tuple<int, int, int, int>> _prevstates; // ticket number, x, y, visible,
 };
 
 #endif
