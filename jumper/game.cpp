@@ -328,13 +328,13 @@ bool Game::overworld(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 
 	if (this->_overworld.getZoneMapValue(key)) {
 		int value = this->_overworld.getZoneMapValue(key);
-		if (this->_isPlayerInLevelSelect == 0) {
-			this->_isPlayerInLevelSelect = 1;
+		if (this->_isPlayerInLevelSelect == NO) {
+			this->_isPlayerInLevelSelect = YES;
 			this->_textbox.set(std::to_string(value));
 			this->draw(graphics);
 			return true;
 		}
-		else if (this->_isPlayerInLevelSelect == 1) {
+		else if (this->_isPlayerInLevelSelect == YES) {
 			if (input.wasKeyPressed(SDL_SCANCODE_A)) {
 				this->_currScreen = ZONE;
 				this->_zone.selectZone(graphics, value-1);
@@ -343,18 +343,18 @@ bool Game::overworld(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 				Foley::playSound("menu-close");
 			}
 			else if (input.wasKeyPressed(SDL_SCANCODE_D)) {
-				this->_isPlayerInLevelSelect = 2;
+				this->_isPlayerInLevelSelect = ESC;
 				this->_textbox.clearDialogue();
 				Foley::playSound("menu-close");
 			}			
 			return true;
 		}
-		else if (this->_isPlayerInLevelSelect == 2) {
+		else if (this->_isPlayerInLevelSelect == ESC) {
 			
 		}
 	}
 	else {
-		this->_isPlayerInLevelSelect = 0;
+		this->_isPlayerInLevelSelect = NO;
 	}
 
 
