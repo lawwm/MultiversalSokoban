@@ -418,7 +418,7 @@ void Stage::loadElements(std::string mapName, Graphics& graphics) {
 						y = pObject->FloatAttribute("y") * globals::SPRITE_SCALE;
 
 						// add to moveables
-						this->_moveables.push_back(Moveable(graphics, Vector2(x, y)));
+						this->_moveables.push_back(new Coin(graphics, Vector2(x, y)));
 						this->_moveableSpawnPoints.push_back(Vector2(x, y));
 						pObject = pObject->NextSiblingElement("object");
 					}
@@ -432,8 +432,8 @@ void Stage::loadElements(std::string mapName, Graphics& graphics) {
 
 bool Stage::areAllMoveablesVisible()
 {
-	for (Moveable& movable : this->_moveables) {
-		if (!movable.getVisible()) {
+	for (Moveable* movable : this->_moveables) {
+		if (!movable->getVisible()) {
 			return false;
 		}
 	}
@@ -449,7 +449,7 @@ bool Stage::hasPlayerReachedEndPoint(Player& player)
 	for (auto& endpointSprite : this->_endpoint) {
 		bool hasCollision = player.getBoundingBox().collidesWith(endpointSprite.getBoundingBox());
 		for (auto& moveable : this->_moveables) {
-			hasCollision |= moveable.getBoundingBox().collidesWith(endpointSprite.getBoundingBox());
+			hasCollision |= moveable->getBoundingBox().collidesWith(endpointSprite.getBoundingBox());
 			if (hasCollision) continue;
 		}
 		
@@ -458,7 +458,7 @@ bool Stage::hasPlayerReachedEndPoint(Player& player)
 	return true;
 }
 
-std::vector<Moveable>& Stage::getMoveables()
+std::vector<Moveable*>& Stage::getMoveables()
 {
 	return this->_moveables;
 }
@@ -479,7 +479,7 @@ void Stage::update(int elapsedTime, bool& isMoving, Graphics& graphics) {
 	
 	// update the moveables
 	for (auto& m : _moveables) {
-		m.update(elapsedTime, *this, graphics, isMoving);
+		m->update(elapsedTime, *this, graphics, isMoving);
 	}
 
 	// update the endpoint
@@ -523,7 +523,7 @@ void Stage::draw(Graphics& graphics) {
 	}
 
 	for (auto& m : this->_moveables) {
-		m.draw(graphics);
+		m->draw(graphics);
 	}
 
 	for (auto& ep : this->_endpoint) {
@@ -532,7 +532,7 @@ void Stage::draw(Graphics& graphics) {
 	
 }
 
-void Stage::nextLevel(bool& isMoving, Ticket& ticket, Player& player, std::vector<Moveable>& moveables, bool isUndoable) {
+void Stage::nextLevel(bool& isMoving, Ticket& ticket, Player& player, std::vector<Moveable*>& moveables, bool isUndoable) {
 	// prevent switching stages when there is only one stage
 	if (this->_levels.size() == 1) return;
 	
@@ -541,7 +541,7 @@ void Stage::nextLevel(bool& isMoving, Ticket& ticket, Player& player, std::vecto
 		this->storeCurrState(generatedTicket, this->_idx);
 		player.storeCurrState(generatedTicket);
 		for (auto& moveable : moveables) {
-			moveable.storeCurrState(generatedTicket);
+			moveable->storeCurrState(generatedTicket);
 		}
 	}
 
@@ -555,7 +555,7 @@ void Stage::nextLevel(bool& isMoving)
 	isMoving = false;
 }
 
-void Stage::prevLevel(bool& isMoving, Ticket& ticket, Player& player, std::vector<Moveable>& moveables, bool isUndoable) {
+void Stage::prevLevel(bool& isMoving, Ticket& ticket, Player& player, std::vector<Moveable*>& moveables, bool isUndoable) {
 	// prevent switching stages when there is only one stage
 	if (this->_levels.size() == 1) return;
 	
@@ -564,7 +564,7 @@ void Stage::prevLevel(bool& isMoving, Ticket& ticket, Player& player, std::vecto
 		this->storeCurrState(generatedTicket, this->_idx);
 		player.storeCurrState(generatedTicket);
 		for (auto& moveable : moveables) {
-			moveable.storeCurrState(generatedTicket);
+			moveable->storeCurrState(generatedTicket);
 		}
 	}
 
@@ -595,7 +595,7 @@ void Stage::undo(int ticketNum, bool& isMoving)
 {
 	// undo moveables
 	for (auto& m : this->_moveables) {
-		m.undo(ticketNum);
+		m->undo(ticketNum);
 	}
 	
 	// switch dimension undo
@@ -623,7 +623,7 @@ void Stage::restart(int generatedTicket)
 
 	// restart moveables position
 	for (int i = 0; i < _moveables.size(); ++i) {
-		this->_moveables[i].restart(_moveableSpawnPoints[i], generatedTicket);
+		this->_moveables[i]->restart(_moveableSpawnPoints[i], generatedTicket);
 	}
 }
 

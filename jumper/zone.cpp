@@ -87,7 +87,7 @@ Stage& Zone::getStage()
 	return this->_stage;
 }
 
-std::vector<Moveable>& Zone::getMoveables()
+std::vector<Moveable*>& Zone::getMoveables()
 {
 	return this->_stage.getMoveables();
 }

@@ -20,22 +20,22 @@ public:
 	/* void moveLeft
 	 * Moves the player left by -dx
 	 */
-	void moveLeft(bool& isMoving, const Stage& stage, std::vector<Moveable>& crates, Ticket& ticket);
+	void moveLeft(bool& isMoving, const Stage& stage, std::vector<Moveable*>& crates, Ticket& ticket);
 
 	/* void moveRight
 	 * Moves the player right by dx
 	 */
-	void moveRight(bool& isMoving, const Stage& stage, std::vector<Moveable>& crates, Ticket& ticket);
+	void moveRight(bool& isMoving, const Stage& stage, std::vector<Moveable*>& crates, Ticket& ticket);
 
 	/* void moveUp
 	 * Moves the player up by -dy
 	 */
-	void moveUp(bool& isMoving, const Stage& stage, std::vector<Moveable>& crates, Ticket& ticket);
+	void moveUp(bool& isMoving, const Stage& stage, std::vector<Moveable*>& crates, Ticket& ticket);
 
 	/* void moveDown
 	 * Moves the player down by dy
 	 */
-	void moveDown(bool& isMoving, const Stage& stage, std::vector<Moveable>& crates, Ticket& ticket);
+	void moveDown(bool& isMoving, const Stage& stage, std::vector<Moveable*>& crates, Ticket& ticket);
 
 	/* void stopMoving
 	 * Stops moving the player
@@ -45,7 +45,7 @@ public:
 	/* bool canMoveToNewPosition
 	*  check if it is possible to move to that position
 	*/
-	bool canMoveToNewPosition(const Stage& levelCollisions,  std::vector<Moveable>& crates,
+	bool canMoveToNewPosition(const Stage& levelCollisions,  std::vector<Moveable*>& crates,
 		const std::pair<int, int>& diff);
 
 	virtual void animationDone(std::string currentAnimation);
@@ -75,7 +75,7 @@ private:
 	std::vector<std::tuple<Moveable*, int, int>> _pushing;
 
 	void move(bool& isMoving, const Stage& stage,
-		std::vector<Moveable>& crates, const float setdx, const float setdy,
+		std::vector<Moveable*>& crates, const float setdx, const float setdy,
 		int xdiff, int ydiff, std::string animation, Direction direction, Ticket& ticket);
 
 	LimitedStack<std::tuple<int, int, int, int, Direction>> _prevstates; // ticketnumber, x, y, visible, direction,

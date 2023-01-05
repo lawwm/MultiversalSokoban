@@ -22,7 +22,7 @@ public:
 	Zone& operator=(Zone&& t) noexcept;
 
 	Stage& getStage();
-	std::vector<Moveable>& getMoveables();
+	std::vector<Moveable*>& getMoveables();
 	
 	void draw(Graphics& graphics);
 	void update(float elapsedTime, Graphics& graphics, bool& canPlayerSwitchStage);

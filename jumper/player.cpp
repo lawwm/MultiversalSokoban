@@ -46,13 +46,13 @@ const float Player::getY() const {
 	return this->_y;
 }
 
-bool Player::canMoveToNewPosition(const Stage& stage, std::vector<Moveable>& crates,
+bool Player::canMoveToNewPosition(const Stage& stage, std::vector<Moveable*>& crates,
 	const std::pair<int, int>& diff) {
 	const Rectangle playerBoxNext(this->_destx, this->_desty, this->_sourceRect.w, this->_sourceRect.h);
 	
 	for (int i = 0; i < crates.size(); ++i) {
-		if (crates[i].getVisible() && crates[i].getBoundingBox().collidesWith(playerBoxNext)) {
-			return crates[i].canMoveToNewPosition(stage, crates, this->_pushing, diff, 1);
+		if (crates[i]->getVisible() && crates[i]->getBoundingBox().collidesWith(playerBoxNext)) {
+			return crates[i]->canMoveToNewPosition(stage, crates, this->_pushing, diff, 1);
 		}
 	}
 
@@ -62,31 +62,31 @@ bool Player::canMoveToNewPosition(const Stage& stage, std::vector<Moveable>& cra
 }
 
 void Player::moveLeft(bool& isMoving, const Stage& stage,
-	 std::vector<Moveable>& crates, Ticket& ticket) {
+	 std::vector<Moveable*>& crates, Ticket& ticket) {
 	move(isMoving, stage, crates, -player_constants::WALK_SPEED, 0.0f,
 		-32, 0, "RunLeft", LEFT, ticket);
 }
 
 void Player::moveRight(bool& isMoving, const Stage& stage,
-	 std::vector<Moveable>& crates, Ticket& ticket) {
+	 std::vector<Moveable*>& crates, Ticket& ticket) {
 	move(isMoving, stage, crates, player_constants::WALK_SPEED, 0.0f,
 		32, 0, "RunRight", RIGHT, ticket);
 }
 
 void Player::moveUp(bool& isMoving, const Stage& stage,
-	 std::vector<Moveable>& crates, Ticket& ticket) {
+	 std::vector<Moveable*>& crates, Ticket& ticket) {
 	move(isMoving, stage, crates, 0.0f, -player_constants::WALK_SPEED,
 		0, -32, "RunUp", UP, ticket);
 }
 
 void Player::moveDown(bool& isMoving, const Stage& stage,
-	 std::vector<Moveable>& crates, Ticket& ticket) {
+	 std::vector<Moveable*>& crates, Ticket& ticket) {
 	move(isMoving, stage, crates, 0.0f, player_constants::WALK_SPEED,
 		0, 32, "RunDown", DOWN, ticket);
 }
 
 void Player::move(bool& isMoving, const Stage& stage,
-	std::vector<Moveable>& crates, const float setdx, const float setdy,
+	std::vector<Moveable*>& crates, const float setdx, const float setdy,
 	int xdiff, int ydiff, std::string animation, Direction direction, Ticket& ticket) {
 
 	// set the speed of travel

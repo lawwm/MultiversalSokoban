@@ -306,7 +306,7 @@ bool Game::overworld(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 {
 	Audio::setCurrentMusic("opening");
 
-	std::vector<Moveable> empty;
+	std::vector<Moveable*> empty;
 	// leave the game
 	if (input.wasKeyPressed(SDL_SCANCODE_ESCAPE) || this->_textbox.getKey() == globals::overworld_exit_dialogue) {
 		if (input.wasKeyPressed(SDL_SCANCODE_ESCAPE) && this->_textbox.getKey() == globals::overworld_exit_dialogue) {

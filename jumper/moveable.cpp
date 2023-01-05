@@ -8,21 +8,10 @@
 
 Moveable::Moveable() {};
 
-Moveable::Moveable(Graphics& graphics, Vector2 spawnPoint) :
-	AnimatedSprite(graphics, globals::coin, 0, 0, 12, 12, spawnPoint.x, spawnPoint.y, 100),
-	_facing(RIGHT)
+Moveable::Moveable(Graphics& graphics, Vector2 spawnPoint, std::string filePath, int sourceX, int sourceY, int width, int height, float timeToUpdate) :
+	AnimatedSprite(graphics, globals::coin, sourceX, sourceY, width, height, spawnPoint.x, spawnPoint.y, timeToUpdate)
 {
-	this->setupAnimations();
-	this->playAnimation("Idle");
 }
-
-
-void Moveable::setupAnimations() {
-	this->addAnimation(4, 0, 0, "Idle", 10, 10, Vector2(2, 2));
-	this->addAnimation(1, 0, 0, "Moving", 10, 10, Vector2(2, 2));
-}
-
-void Moveable::animationDone(std::string currentAnimation) {}
 
 const float Moveable::getX() const {
 	return this->_x;
@@ -32,7 +21,51 @@ const float Moveable::getY() const {
 	return this->_y;
 }
 
-void Moveable::undo(int ticket)
+void Moveable::set(int x, int y) {
+	this->_x = x;
+	this->_y = y;
+}
+
+bool Moveable::canMoveToNewPosition(const Stage& stage,
+	std::vector<Moveable*>& crates, std::vector<std::tuple<Moveable*, int, int>>& _pushing,
+	std::pair<int, int> diff, int depth) {
+	
+	auto [x, y] = diff;
+	Rectangle moveableBoxNext(this->_x + x, this->_y + y, this->_sourceRect.w, this->_sourceRect.h);
+	_pushing.push_back({ this, x * depth, y * depth });
+
+	// check for collision with other moveables
+	for (int i = 0; i < crates.size(); ++i) {
+		if (crates[i] != this && crates[i]->getVisible() && crates[i]->getBoundingBox().collidesWith(moveableBoxNext)) {
+			return crates[i]->canMoveToNewPosition(stage, crates, _pushing, diff, depth+1);
+		}
+	}
+
+	// check for collision with wall
+	if (!stage.checkTileCollisions(moveableBoxNext)) return false;
+	
+	return true;
+}
+
+
+Coin::Coin() {};
+
+Coin::Coin(Graphics& graphics, Vector2 spawnPoint) :
+	Moveable(graphics, spawnPoint, globals::coin, 0, 0, 12, 12, 100)
+{
+	this->setupAnimations();
+	this->playAnimation("Idle");
+}
+
+void Coin::setupAnimations() {
+	this->addAnimation(4, 0, 0, "Idle", 10, 10, Vector2(2, 2));
+	this->addAnimation(1, 0, 0, "Moving", 10, 10, Vector2(2, 2));
+}
+
+void Coin::animationDone(std::string currentAnimation) {}
+
+
+void Coin::undo(int ticket)
 {
 	if (_prevstates.empty() || std::get<0>(_prevstates.top()) != ticket) return;
 	
@@ -44,12 +77,12 @@ void Moveable::undo(int ticket)
 	this->playAnimation("Idle");
 }
 
-void Moveable::storeCurrState(int ticket)
+void Coin::storeCurrState(int ticket)
 {
 	this->_prevstates.emplace(ticket, this->_x, this->_y, this->getVisible());
 }
 
-void Moveable::restart(Vector2 spawn, int ticket)
+void Coin::restart(Vector2 spawn, int ticket)
 {
 	this->storeCurrState(ticket);
 	this->_x = spawn.x;
@@ -57,23 +90,18 @@ void Moveable::restart(Vector2 spawn, int ticket)
 	this->setVisible(true);
 }
 
-void Moveable::set(int x, int y) {
-	this->_x = x;
-	this->_y = y;
-}
-
-void Moveable::update(float elapsedTime, Stage& stage, Graphics& graphics, bool& canPlayerSwitchStage) {
+void Coin::update(float elapsedTime, Stage& stage, Graphics& graphics, bool& canPlayerSwitchStage) {
 	Rectangle moveableBoxCurr(this->_x, this->_y, this->_sourceRect.w, this->_sourceRect.h);
 
-	// if a moveable collides with a hit bocx, it dies.
+	// if a moveable collides with a hit box, it dies.
 	if (this->getVisible() && !stage.checkTileCollisions(moveableBoxCurr) && canPlayerSwitchStage) {
 		this->setVisible(false);
 		Foley::playSound("kill");
 		stage.addFx(std::make_unique<ExplosionSprite>(graphics, Vector2(this->_x, this->_y)));
 		return;
 	}
-	
-	if ( ((int)this->_x) % 32 != 0 || ((int)this ->_y) % 32 != 0) {
+
+	if (((int)this->_x) % 32 != 0 || ((int)this->_y) % 32 != 0) {
 		this->playAnimation("Moving");
 	}
 	else {
@@ -82,27 +110,6 @@ void Moveable::update(float elapsedTime, Stage& stage, Graphics& graphics, bool&
 	AnimatedSprite::update(elapsedTime);
 }
 
-void Moveable::draw(Graphics& graphics) {
+void Coin::draw(Graphics& graphics) {
 	AnimatedSprite::draw(graphics, this->_x, this->_y);
-}
-
-bool Moveable::canMoveToNewPosition(const Stage& stage,
-	std::vector<Moveable>& crates, std::vector<std::tuple<Moveable*, int, int>>& _pushing,
-	std::pair<int, int> diff, int depth) {
-	
-	auto [x, y] = diff;
-	Rectangle moveableBoxNext(this->_x + x, this->_y + y, this->_sourceRect.w, this->_sourceRect.h);
-	_pushing.push_back({ this, x * depth, y * depth });
-
-	// check for collision with other moveables
-	for (int i = 0; i < crates.size(); ++i) {
-		if (&crates[i] != this && crates[i].getVisible() && crates[i].getBoundingBox().collidesWith(moveableBoxNext)) {
-			return crates[i].canMoveToNewPosition(stage, crates, _pushing, diff, depth+1);
-		}
-	}
-
-	// check for collision with wall
-	if (!stage.checkTileCollisions(moveableBoxNext)) return false;
-	
-	return true;
 }

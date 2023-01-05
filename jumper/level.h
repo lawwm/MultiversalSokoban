@@ -97,9 +97,9 @@ public:
 
 	const std::vector<Rectangle>& getCollision();
 	
-	void nextLevel(bool& isMoving, Ticket& ticket, Player& p, std::vector<Moveable>& moveables, bool isUndoable=true);
+	void nextLevel(bool& isMoving, Ticket& ticket, Player& p, std::vector<Moveable*>& moveables, bool isUndoable=true);
 	
-	void prevLevel(bool& isMoving, Ticket& ticket, Player& p, std::vector<Moveable>& moveables, bool isUndoable=true);
+	void prevLevel(bool& isMoving, Ticket& ticket, Player& p, std::vector<Moveable*>& moveables, bool isUndoable=true);
 	
 	
 	void addFx(std::unique_ptr<AnimatedSprite>&& fx);
@@ -116,7 +116,7 @@ public:
 	
 	bool hasPlayerReachedEndPoint(Player& player);
 	
-	std::vector<Moveable>& getMoveables();
+	std::vector<Moveable*>& getMoveables();
 
 private:
 	std::vector<Level> _levels;
@@ -131,7 +131,7 @@ private:
 
 	Vector2 _spawnPoint;
 	std::vector<Vector2> _moveableSpawnPoints;
-	std::vector<Moveable> _moveables;
+	std::vector<Moveable*> _moveables;
 	std::vector<EndPointSprite> _endpoint;
 
 	void prevLevel(bool& isMoving);
