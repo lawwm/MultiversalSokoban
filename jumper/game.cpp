@@ -349,9 +349,6 @@ bool Game::overworld(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 			}			
 			return true;
 		}
-		else if (this->_isPlayerInLevelSelect == ESC) {
-			
-		}
 	}
 	else {
 		this->_isPlayerInLevelSelect = NO;
