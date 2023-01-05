@@ -110,7 +110,7 @@ private:
 	int _alpha=255;
 	double _timeElapsed=0;
 	double _timeToUpdate=0;
-	std::stack<std::tuple<int, int>> _prevstates; //  ticket, function
+	LimitedStack<std::tuple<int, int>> _prevstates; //  ticket, function
 
 	Vector2 _spawnPoint;
 	std::vector<Vector2> _moveableSpawnPoints;

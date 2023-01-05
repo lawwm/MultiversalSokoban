@@ -78,7 +78,7 @@ private:
 		std::vector<Moveable>& crates, const float setdx, const float setdy,
 		int xdiff, int ydiff, std::string animation, Direction direction, Ticket& ticket);
 
-	std::stack<std::tuple<int, int, int, int, Direction>> _prevstates; // ticketnumber, x, y, visible, direction,
+	LimitedStack<std::tuple<int, int, int, int, Direction>> _prevstates; // ticketnumber, x, y, visible, direction,
 };
 
 #endif
