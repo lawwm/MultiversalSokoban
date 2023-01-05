@@ -11,6 +11,7 @@
 #include <algorithm>
 #include <cmath>
 #include <iostream>
+#include <memory>
 
 using namespace tinyxml2;
 
@@ -49,132 +50,132 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 	mapNode->QueryIntAttribute("tileheight", &tileHeight);
 	this->_tileSize = Vector2(tileWidth, tileHeight);
 
+
 	//Loading the tilesets, tilesets is the image that shows the tiles that are available to be used in the map
 	XMLElement* pTileset = mapNode->FirstChildElement("tileset");
-	if (pTileset != NULL) {
-		while (pTileset) {
-			int firstgid;
-			const char* source = pTileset->FirstChildElement("image")->Attribute("source");
-			char* path;
-			std::stringstream ss;
-			ss << source;
-			pTileset->QueryIntAttribute("firstgid", &firstgid);
-			SDL_Texture* tex = SDL_CreateTextureFromSurface(graphics.getRenderer(), graphics.loadImage(ss.str()));
-			this->_tilesets.push_back(Tileset(tex, firstgid));
+	
+	while (pTileset) {
+		int firstgid;
+		const char* source = pTileset->FirstChildElement("image")->Attribute("source");
+		char* path;
+		std::stringstream ss;
+		ss << source;
+		pTileset->QueryIntAttribute("firstgid", &firstgid);
+		
+		std::shared_ptr<SDL_Texture> tex(SDL_CreateTextureFromSurface(graphics.getRenderer(), graphics.loadImage(ss.str())), [](SDL_Texture* texture) {
+			std::cout << "destory texture" << std::endl;
+			SDL_DestroyTexture(texture);
+		});
+		
+		this->_tilesets.push_back(Tileset(tex, firstgid));
 
-			pTileset = pTileset->NextSiblingElement("tileset");
-		}
+		pTileset = pTileset->NextSiblingElement("tileset");
 	}
+	
 
 	//Loading the layers
 	XMLElement* pLayer = mapNode->FirstChildElement("layer");
-	if (pLayer != NULL) {
-		while (pLayer) {
-			//Loading the data element
-			XMLElement* pData = pLayer->FirstChildElement("data");
-			if (pData != NULL) {
-				while (pData) {
-					//Loading the tile element
-					XMLElement* pTile = pData->FirstChildElement("tile");
-					if (pTile != NULL) {
-						int tileCounter = 0;
-						while (pTile) {
-							//Get the tileset for this specific gid
-							int gid = pTile->IntAttribute("gid");
-							Tileset tls;
-							for (int i = 0; i < this->_tilesets.size(); i++) {
-								if (this->_tilesets[i].FirstGid <= gid) {
-									//This is the tileset we want
-									tls = this->_tilesets.at(i);
-									break;
-								}
-							}
+
+	while (pLayer) {
+		//Loading the data element
+		XMLElement* pData = pLayer->FirstChildElement("data");
+		while (pData) {
+			//Loading the tile element
+			XMLElement* pTile = pData->FirstChildElement("tile");
+
+			int tileCounter = 0;
+			while (pTile) {
+				//Get the tileset for this specific gid
+				int gid = pTile->IntAttribute("gid");
+				Tileset tls;
+				for (int i = 0; i < this->_tilesets.size(); i++) {
+					if (this->_tilesets[i].FirstGid <= gid) {
+						//This is the tileset we want
+						tls = this->_tilesets.at(i);
+						break;
+					}
+				}
 							
-							//If gid is 0, no tile should be drawn. Continue loop
-							if (tls.FirstGid == -1 || gid == 0) {
-								//No tileset was found for this gid
-								tileCounter++;
-								if (!pTile->NextSiblingElement("tile")) {
-									break;
-								}
-
-								pTile = pTile->NextSiblingElement("tile");
-								continue;
-							}
-
-							//Get the position of the tile in the level
-							int xx = tileWidth * (tileCounter % width);
-							int yy = tileHeight * (tileCounter / width);
-							Vector2 finalTilePosition = Vector2(xx, yy);
-
-							//Calculate the position of the tile in the tileset
-							int tilesetWidth, tilesetHeight;
-							SDL_QueryTexture(tls.Texture, NULL, NULL, &tilesetWidth, &tilesetHeight);
-							int tsxx = gid % (tilesetWidth / tileWidth) - 1;
-							tsxx *= tileWidth;
-							int tsyy = gid / (tilesetWidth / tileWidth);
-							tsyy *= tileHeight;
-							Vector2 finalTilesetPosition = Vector2(tsxx, tsyy);
-
-							//Build the actual tile and add it to the level's tile list
-							Tile tile(tls.Texture, Vector2(tileWidth, tileHeight),
-								finalTilesetPosition, finalTilePosition);
-							this->_tileList.push_back(tile);
-							tileCounter++;
-
-							pTile = pTile->NextSiblingElement("tile");
-						}
+				//If gid is 0, no tile should be drawn. Continue loop
+				if (tls.FirstGid == -1 || gid == 0) {
+					//No tileset was found for this gid
+					tileCounter++;
+					if (!pTile->NextSiblingElement("tile")) {
+						break;
 					}
 
-					pData = pData->NextSiblingElement("data");
+					pTile = pTile->NextSiblingElement("tile");
+					continue;
 				}
+
+				//Get the position of the tile in the level
+				int xx = tileWidth * (tileCounter % width);
+				int yy = tileHeight * (tileCounter / width);
+				Vector2 finalTilePosition = Vector2(xx, yy);
+
+				//Calculate the position of the tile in the tileset
+				int tilesetWidth, tilesetHeight;
+				SDL_QueryTexture(tls.Texture.get(), NULL, NULL, &tilesetWidth, &tilesetHeight);
+				int tsxx = gid % (tilesetWidth / tileWidth) - 1;
+				tsxx *= tileWidth;
+				int tsyy = gid / (tilesetWidth / tileWidth);
+				tsyy *= tileHeight;
+				Vector2 finalTilesetPosition = Vector2(tsxx, tsyy);
+
+				//Build the actual tile and add it to the level's tile list
+				Tile tile(tls.Texture, Vector2(tileWidth, tileHeight),
+					finalTilesetPosition, finalTilePosition);
+				this->_tileList.push_back(std::move(tile));
+				tileCounter++;
+
+				pTile = pTile->NextSiblingElement("tile");
 			}
-
-			pLayer = pLayer->NextSiblingElement("layer");
+			
+			pData = pData->NextSiblingElement("data");
 		}
-	}
+		
 
+		pLayer = pLayer->NextSiblingElement("layer");
+	}
 	
 	XMLElement* pObjectGroup = mapNode->FirstChildElement("objectgroup");
-	if (pObjectGroup != NULL) {
-		while (pObjectGroup) {
-			const char* name = pObjectGroup->Attribute("name");
-			std::stringstream ss;
-			ss << name;
 
-			//Parse out the collisions
-			if (ss.str() == "collisions") {
-				XMLElement* pObject = pObjectGroup->FirstChildElement("object");
-				if (pObject != NULL) {
-					while (pObject) {
-						float x, y, width, height;
-						x = pObject->FloatAttribute("x");
-						y = pObject->FloatAttribute("y");
-						width = pObject->FloatAttribute("width");
-						height = pObject->FloatAttribute("height");
-						// make the rectangle one unit smaller from each side so that player 
-						// character can move within tight spaces
-						this->_collisionRects.push_back(Rectangle(
-							std::ceil(x) * globals::SPRITE_SCALE,
-							std::ceil(y) * globals::SPRITE_SCALE,
-							std::ceil(width) * globals::SPRITE_SCALE,
-							std::ceil(height) * globals::SPRITE_SCALE
-						));
+	while (pObjectGroup) {
+		const char* name = pObjectGroup->Attribute("name");
+		std::stringstream ss;
+		ss << name;
 
-						pObject = pObject->NextSiblingElement("object");
-					}
-				}
+		//Parse out the collisions
+		if (ss.str() == "collisions") {
+			XMLElement* pObject = pObjectGroup->FirstChildElement("object");
+
+			while (pObject) {
+				float x, y, width, height;
+				x = pObject->FloatAttribute("x");
+				y = pObject->FloatAttribute("y");
+				width = pObject->FloatAttribute("width");
+				height = pObject->FloatAttribute("height");
+				// make the rectangle one unit smaller from each side so that player 
+				// character can move within tight spaces
+				this->_collisionRects.push_back(Rectangle(
+					std::ceil(x) * globals::SPRITE_SCALE,
+					std::ceil(y) * globals::SPRITE_SCALE,
+					std::ceil(width) * globals::SPRITE_SCALE,
+					std::ceil(height) * globals::SPRITE_SCALE
+				));
+
+				pObject = pObject->NextSiblingElement("object");
 			}
-
-			pObjectGroup = pObjectGroup->NextSiblingElement("objectgroup");
 		}
+
+		pObjectGroup = pObjectGroup->NextSiblingElement("objectgroup");
 	}
-
 	
 
 	
 
 	
+
 }
 
 void Level::update(int elapsedTime, const int& alpha) {

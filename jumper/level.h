@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <stack>
+#include <memory>
 
 #include "globals.h"
 #include "tile.h"
@@ -21,12 +22,12 @@ class Player;
 struct SDL_Texture;
 
 struct Tileset {
-	SDL_Texture* Texture;
+	std::shared_ptr<SDL_Texture> Texture;
 	int FirstGid;
 	Tileset() {
 		this->FirstGid = -1;
 	}
-	Tileset(SDL_Texture* texture, int firstGid) {
+	Tileset(std::shared_ptr<SDL_Texture> texture, int firstGid) {
 		this->Texture = texture;
 		this->FirstGid = firstGid;
 	}
