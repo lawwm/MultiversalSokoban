@@ -216,7 +216,6 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 		std::stringstream ss;
 		ss << name;
 
-		std::cout << ss.str() << std::endl;
 		//Parse out the collisions
 		if (ss.str() == "collisions" || ss.str() == "poison") {
 			XMLElement* pObject = pObjectGroup->FirstChildElement("object");
@@ -235,7 +234,6 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 					std::ceil(width)* globals::SPRITE_SCALE,
 					std::ceil(height)* globals::SPRITE_SCALE
 				);
-				std::cout << ss.str() << " blocsk awdoawdwd" << std::endl;
 				if (ss.str() == "collisions") {
 					this->_collisionRects.push_back(rec);
 				}
@@ -286,7 +284,6 @@ bool Level::checkTileCollisions(const Rectangle& other) const {
 }
 
 bool Level::checkTilePoison(const Rectangle& other) const {
-	std::cout << "poison" << this->_poisonRects.size() << std::endl;
 	for (int i = 0; i < this->_poisonRects.size(); i++) {
 		if (this->_poisonRects.at(i).collidesWith(other)) return false;
 	}
