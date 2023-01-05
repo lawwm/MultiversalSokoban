@@ -12,11 +12,34 @@ Zone::Zone(std::vector<zonedata> data, Graphics& graphics, int zonenumber)
 	this->_zonenumber = zonenumber;
 	auto [paths] = data[zonenumber];
 	
-	this->_stage = Stage(paths, graphics);
+	this->_stage = std::move(Stage(paths, graphics));
 }
 
 Zone::~Zone()
 {
+}
+
+Zone::Zone(Zone&& t) noexcept
+{
+	//std::cout << "tile move constructor" << std::endl;
+	this->_stage = std::move(t._stage);
+	this->_zonenumber = t._zonenumber;
+	this->_data = std::move(t._data);
+
+	t._data.clear();
+}
+
+Zone& Zone::operator=(Zone&& t) noexcept
+{
+	if (this == &t) return *this;
+
+	this->_stage = std::move(t._stage);
+	this->_zonenumber = t._zonenumber;
+	this->_data = std::move(t._data);
+
+	t._data.clear();
+
+	return *this;
 }
 
 void Zone::nextZone(Graphics& graphics, Screen& currScreen)
@@ -35,7 +58,7 @@ void Zone::selectZone(Graphics& graphics, int level)
 	this->_zonenumber = level;
 	auto [paths] = this->_data[this->_zonenumber];
 	
-	this->_stage = Stage(paths, graphics);
+	this->_stage = std::move(Stage(paths, graphics));
 }
 
 Vector2 Zone::getSpawnPoint()

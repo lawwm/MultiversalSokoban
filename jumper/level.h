@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <stack>
+#include <memory>
 
 #include "globals.h"
 #include "tile.h"
@@ -21,12 +22,12 @@ class Player;
 struct SDL_Texture;
 
 struct Tileset {
-	SDL_Texture* Texture;
+	std::shared_ptr<SDL_Texture> Texture;
 	int FirstGid;
 	Tileset() {
 		this->FirstGid = -1;
 	}
-	Tileset(SDL_Texture* texture, int firstGid) {
+	Tileset(std::shared_ptr<SDL_Texture> texture, int firstGid) {
 		this->Texture = texture;
 		this->FirstGid = firstGid;
 	}
@@ -37,6 +38,15 @@ public:
 	Level();
 	Level(std::string mapName, Graphics& graphics);
 	~Level();
+
+	// copy constructor and operator
+	Level(const Level& t);
+	Level& operator=(const Level& t) noexcept;
+
+	// move constructor and operator
+	Level(Level&& t) noexcept;
+	Level& operator=(Level&& t) noexcept;
+
 	void update(int elapsedTime, const int& alpha);
 	void draw(Graphics& graphics);
 
@@ -50,8 +60,6 @@ private:
 	Vector2 _size;
 	Vector2 _tileSize;
 	
-	SDL_Texture* _backgroundTexture;
-
 	std::vector<Tile> _tileList;
 	std::vector<Tileset> _tilesets;
 	std::vector<Rectangle> _collisionRects;
@@ -68,6 +76,15 @@ public:
 	Stage() {};
 	Stage(std::vector<std::string> maps, Graphics& graphics);
 	~Stage();
+
+	// copy constructor and operator
+	Stage(const Stage& t)=delete;
+	Stage& operator=(const Stage& t)=delete;
+
+	// move constructor and operator
+	Stage(Stage&& t) noexcept;
+	Stage& operator=(Stage&& t) noexcept;
+
 	void update(int elapsedTime, bool& isMoving, Graphics& graphics);
 	void draw(Graphics& graphics);
 
@@ -85,7 +102,7 @@ public:
 	void prevLevel(bool& isMoving, Ticket& ticket, Player& p, std::vector<Moveable>& moveables, bool isUndoable=true);
 	
 	
-	void addFx(AnimatedSprite* fx);
+	void addFx(std::unique_ptr<AnimatedSprite>&& fx);
 
 	void undo(int ticketNum, bool& isMoving);
 
@@ -103,14 +120,14 @@ public:
 
 private:
 	std::vector<Level> _levels;
-	std::vector<AnimatedSprite*> _fx;
+	std::vector<std::unique_ptr<AnimatedSprite>> _fx;
 	
 	int _idx=0;
 	int _next=0;
 	int _alpha=255;
 	double _timeElapsed=0;
 	double _timeToUpdate=0;
-	std::stack<std::tuple<int, int>> _prevstates; //  ticket, function
+	LimitedStack<std::tuple<int, int>> _prevstates; //  ticket, function
 
 	Vector2 _spawnPoint;
 	std::vector<Vector2> _moveableSpawnPoints;
@@ -126,6 +143,15 @@ public:
 	Overworld();
 	Overworld(Vector2 spawnPoint, Graphics& graphics, std::unordered_map<std::string, std::string>& dialogueData);
 	~Overworld();
+
+	// copy constructor and operator
+	Overworld(const Overworld& t) = delete;
+	Overworld& operator=(const Overworld& t) = delete;
+
+	// move constructor and operator
+	Overworld(Overworld&& t) noexcept;
+	Overworld& operator=(Overworld&& t) noexcept;
+
 	void update(int elapsedTime, bool& isMoving, Graphics& graphics);
 	void draw(Graphics& graphics);
 	void setZoneCompleted(int zonenumber);

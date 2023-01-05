@@ -171,7 +171,7 @@ void Player::update(float elapsedTime, bool& isNotMoving, Stage& stage, Graphics
 	if (this->getVisible() && !stage.checkTileCollisions(playerCurr) && canPlayerSwitchStage) {
 		Foley::playSound("kill");
 		this->setVisible(false);
-		stage.addFx(new ExplosionSprite(graphics, Vector2(this->_x, this->_y)));
+		stage.addFx(std::make_unique<ExplosionSprite>(graphics, Vector2(this->_x, this->_y)));
 		return;
 	}
 

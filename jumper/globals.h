@@ -39,6 +39,11 @@ enum Direction {
 	DOWN
 };
 
+enum inLevelSelect {
+	YES,
+	NO,
+	ESC
+}
 struct Vector2 {
 	int x, y;
 	Vector2() :

@@ -61,11 +61,11 @@ void Game::gameLoop() {
 		{globals::overworld_exit_dialogue, "Press Esc again to confirm exit.\nPress A to continue playing."},
 	});
 
-	this->_zone = Zone(globals::data, graphics, 0);
+	this->_zone = std::move(Zone(globals::data, graphics, 0));
 	this->_player = Player(graphics, Vector2(globals::overworld_spawn_x, globals::overworld_spawn_y));
 	//this->_player = Player(graphics, Vector2(128, 128));
-	this->_overworld = Overworld(Vector2(256, 256), graphics, dialogueData);
-	
+	this->_overworld = std::move(Overworld(Vector2(256, 256), graphics, dialogueData));
+
 	this->_openingScreen = OpeningScreen(graphics);
 	this->_victoryScreen = VictoryScreen(graphics);
 	
@@ -328,13 +328,13 @@ bool Game::overworld(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 
 	if (this->_overworld.getZoneMapValue(key)) {
 		int value = this->_overworld.getZoneMapValue(key);
-		if (this->_isPlayerInLevelSelect == 0) {
-			this->_isPlayerInLevelSelect = 1;
+		if (this->_isPlayerInLevelSelect == NO) {
+			this->_isPlayerInLevelSelect = YES;
 			this->_textbox.set(std::to_string(value));
 			this->draw(graphics);
 			return true;
 		}
-		else if (this->_isPlayerInLevelSelect == 1) {
+		else if (this->_isPlayerInLevelSelect == YES) {
 			if (input.wasKeyPressed(SDL_SCANCODE_A)) {
 				this->_currScreen = ZONE;
 				this->_zone.selectZone(graphics, value-1);
@@ -343,18 +343,15 @@ bool Game::overworld(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 				Foley::playSound("menu-close");
 			}
 			else if (input.wasKeyPressed(SDL_SCANCODE_D)) {
-				this->_isPlayerInLevelSelect = 2;
+				this->_isPlayerInLevelSelect = ESC;
 				this->_textbox.clearDialogue();
 				Foley::playSound("menu-close");
 			}			
 			return true;
 		}
-		else if (this->_isPlayerInLevelSelect == 2) {
-			
-		}
 	}
 	else {
-		this->_isPlayerInLevelSelect = 0;
+		this->_isPlayerInLevelSelect = NO;
 	}
 
 

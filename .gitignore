@@ -1,6 +1,7 @@
 /vs
 ./vs
 vs
+.vs
 /jumper/x64
 
 # Prerequisites
@@ -138,7 +139,6 @@ StyleCopReport.xml
 *.vcxproj
 *.vcxproj.filters
 *.rc
-*.vcxproj~origin_bugFix
 
 # Chutzpah Test files
 _Chutzpah*
