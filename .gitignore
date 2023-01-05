@@ -135,6 +135,10 @@ StyleCopReport.xml
 *.pidb
 *.svclog
 *.scc
+*.vcxproj
+*.vcxproj.filters
+*.rc
+*.vcxproj~origin_bugFix
 
 # Chutzpah Test files
 _Chutzpah*
