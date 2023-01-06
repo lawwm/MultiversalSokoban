@@ -115,19 +115,19 @@ namespace globals {
 		
 		{{g_yellow}},	// introduce the spike tile g /done 6
 
-		{{f_room, f_ice}},	// do a level with four dimensions 
+		{{f_room, f_ice}},	// do a level with four dimensions // do this 7
 		 		
 		{{h_yellow, h_green }}, // more complicated level with spike tile /done 8
+		
+		{{j_ice, j_yellow }}, // introduce the sushi block j /done 9
 
-		{{i_yellow, i_ice }}, // level where you have to push blocks in as one line h 9 
+		{{i_yellow, i_ice }}, // level where you have to push blocks in as one line // do this 9
 	
-		{{j_ice, j_yellow }}, // introduce the sushi block j /done 10
+		{{k_ice, k_yellow }}, // idk lmao 12 many many coins with sushi in the middle. Destroy the sushi by pushing the coins.
 
-		{{k_ice, k_yellow }}, // level where you have to push blocks in as one line but with sushi block 11
+		{{l_ice, l_yellow }} // bomb level introduction 13 /do today
 
-		{{l_ice, l_yellow }} // idk lmao 12 many many coins with sushi in the middle. Destroy the sushi by pushing the coins.
-
-							// bomb level introduction 13 /do today
+		// medium difficulty bomb level 14
 
 							// medium difficulty bomb level 14
 	};

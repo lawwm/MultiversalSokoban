@@ -21,7 +21,6 @@
   <object id="251" x="160" y="176" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="17" name="endpoint" locked="1">
-  <object id="246" x="160" y="128" width="16" height="16"/>
   <object id="250" x="160" y="48" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="19" name="poison" locked="1"/>
@@ -137,7 +136,7 @@
    <tile gid="840"/>
    <tile gid="840"/>
    <tile gid="869"/>
-   <tile gid="956"/>
+   <tile gid="1012"/>
    <tile gid="902"/>
    <tile gid="840"/>
    <tile gid="840"/>
@@ -441,7 +440,7 @@
    <tile/>
    <tile/>
    <tile/>
-   <tile gid="1012"/>
+   <tile/>
    <tile/>
    <tile/>
    <tile/>

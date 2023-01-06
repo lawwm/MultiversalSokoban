@@ -52,7 +52,7 @@ void Audio::toggle() {
 	}
 }
 
-bool Audio::IsMuted = false;
+bool Audio::IsMuted = true;
 std::unordered_map<std::string, Mix_Music*> Audio::_music = {};
 std::string Audio::_key = "";
 
