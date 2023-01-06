@@ -59,42 +59,68 @@ namespace globals {
 	const std::string opening_screen = "sprites/opening_screen.png";
 	const std::string closing_screen = "sprites/closing_screen.png";
 	
-	const std::string a_room = "a_room";
+	const std::string a_yellow = "a_yellow";
 	const std::string a_ice = "a_ice";
 
-	const std::string b_room = "b_room";
+	const std::string b_yellow = "b_yellow";
 	const std::string b_ice = "b_ice";
 
 	const std::string c_room = "c_room";
 	const std::string c_ice = "c_ice";
 
-	const std::string d_room = "d_room";
-	const std::string d_ice = "d_ice";
+	const std::string d_green = "d_green";
+	const std::string d_yellow = "d_yellow";
 
-	const std::string e_room = "e_room";
-	const std::string e_ice = "e_ice";
+	const std::string e_yellow = "e_yellow";
+	const std::string e_green = "e_green";
 
 	const std::string f_room = "f_room";
 	const std::string f_ice = "f_ice";
 
-	const std::string iceLevel = "Ice1";
-	const std::string roomLevel = "Room1";
-	const std::string pierLevel = "Pier1";
-	const std::string bushLevel = "Bush1";
+	const std::string g_room = "g_room";
+	const std::string g_ice = "g_ice";
+
+	const std::string h_yellow = "h_yellow";
+	const std::string h_ice = "h_ice";
+
+	const std::string i_yellow = "i_yellow";
+	const std::string i_ice = "i_ice";
+
+	const std::string j_yellow = "j_yellow";
+	const std::string j_ice = "j_ice";
+
+	const std::string k_ice = "k_ice";
+	const std::string k_yellow = "k_yellow";
+
+	const std::string l_ice = "l_ice";
+	const std::string l_yellow = "l_yellow";
+
 	const std::string overworld = "overworld";
 	
 	const std::vector<zonedata> data = { // first element of each vector contains the element location details
-		{{a_room, a_ice }},
+		{{a_ice, a_yellow }}, // introduce player to dimension switching
 
-		{{b_room, b_ice }},
+		{{b_ice, b_yellow }}, // get the player to be better at dimension switching
 
-		{{e_ice, e_room}},
+		{{c_room, c_ice }},	// show an easy level that coins can get to the end
 		
-		{{c_room, c_ice }},
+		{{d_green, d_yellow }}, // up the number of coins
+
+		{{e_green, e_yellow}}, // show an obvious path that cannot work
 		
-		{{d_room, d_ice}},
+		{{f_room, f_ice}},	// do a harder level f
+		 
+		{{g_room, g_ice}},	// introduce the spike tile g 
 		
-		{{f_room, f_ice }}
+		{{h_yellow, h_ice }}, // level where you have to push blocks in as one line h
+
+		{{i_yellow, i_ice }}, // level exploiting the trick i
+	
+		{{j_ice, j_yellow }}, // introduce the sushi block j
+
+		{{k_ice, k_yellow }},	// level where you have to push blocks in as one line but with sushi block
+
+		{{l_ice, l_yellow }} // idk lmao
 	};
 
 	const std::string died_dialogue = "died";
