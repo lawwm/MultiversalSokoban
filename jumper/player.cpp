@@ -50,13 +50,15 @@ bool Player::canMoveToNewPosition(const Stage& stage, std::vector<Moveable*>& cr
 	const std::pair<int, int>& diff) {
 	const Rectangle playerBoxNext(this->_destx, this->_desty, this->_sourceRect.w, this->_sourceRect.h);
 	
+	
+	if (!stage.checkTileCollisions(playerBoxNext) || !stage.checkTilePoison(playerBoxNext)) return false;
 	for (int i = 0; i < crates.size(); ++i) {
 		if (crates[i]->getVisible() && crates[i]->getBoundingBox().collidesWith(playerBoxNext)) {
 			return crates[i]->canMoveToNewPosition(stage, crates, this->_pushing, diff, 1);
 		}
 	}
 
-	if (!stage.checkTileCollisions(playerBoxNext) || !stage.checkTilePoison(playerBoxNext)) return false;
+	
 	return true;
 }
 

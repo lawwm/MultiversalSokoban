@@ -234,8 +234,9 @@ bool Game::individualZone(Graphics& graphics, Input& input, int& LAST_UPDATE_TIM
 		
 		// if player decides to skip to next screen
 		if (input.isKeyHeld(SDL_SCANCODE_N) && input.wasKeyPressed(SDL_SCANCODE_N)) {
-			this->_zone.nextZone(graphics, this->_currScreen);
-			this->_player = Player(graphics, this->_zone.getSpawnPoint());
+			bool hasReachedEnd = this->_zone.nextZone(graphics, this->_currScreen);
+			Vector2 nextSpawn = hasReachedEnd ? this->_overworld.getStage().getPlayerSpawnPoint(): this->_zone.getSpawnPoint();
+			this->_player = Player(graphics, nextSpawn);
 			this->_textbox.clearDialogue();
 			Foley::playSound("menu-close");
 			return true;

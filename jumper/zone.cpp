@@ -42,15 +42,17 @@ Zone& Zone::operator=(Zone&& t) noexcept
 	return *this;
 }
 
-void Zone::nextZone(Graphics& graphics, Screen& currScreen)
+bool Zone::nextZone(Graphics& graphics, Screen& currScreen)
 {
 	if (this->_zonenumber + 1 == this->_data.size()) {
 		currScreen = VICTORY_SCREEN;
-		return;
+		return true;
 	}
 	
 	this->_zonenumber += 1;
 	this->selectZone(graphics, this->_zonenumber);
+
+	return false;
 }
 
 void Zone::selectZone(Graphics& graphics, int level)
