@@ -121,7 +121,7 @@ namespace globals {
 		
 		{{j_ice, j_yellow }}, // introduce the sushi block j /done 9
 
-		{{i_yellow, i_ice }}, // level where you have to push blocks in as one line // do this 9
+		{{i_ice, i_yellow }}, // level where you have to push blocks in as one line // do this 9
 	
 		{{k_ice, k_yellow }}, // idk lmao 12 many many coins with sushi in the middle. Destroy the sushi by pushing the coins.
 
