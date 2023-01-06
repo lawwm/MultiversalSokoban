@@ -430,7 +430,7 @@ void Stage::loadElements(std::string mapName, Graphics& graphics) {
 					}
 				}
 			}
-			else if (ss.str() == "coins" || ss.str() == "sushi") {
+			else if (ss.str() == "coins" || ss.str() == "sushi" || ss.str() == "bomb") {
 				// parse out coin positions
 				XMLElement* pObject = pObjectGroup->FirstChildElement("object");
 				if (pObject != NULL) {
@@ -445,6 +445,9 @@ void Stage::loadElements(std::string mapName, Graphics& graphics) {
 						}
 						else if (ss.str() == "sushi") {
 							this->_moveables.push_back(new Sushi(graphics, Vector2(x, y)));
+						}
+						else if (ss.str() == "bomb") {
+							this->_moveables.push_back(new Bomb(graphics, Vector2(x, y)));
 						}
 						else {
 							assert(false);

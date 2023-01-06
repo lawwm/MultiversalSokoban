@@ -51,10 +51,13 @@ namespace globals {
 	const std::string eskimo = "sprites/21.png";
 	const std::string coin = "sprites/coin-2.png";
 	const std::string sushi = "sprites/sushi.png";
+	const std::string bomb = "sprites/fireball.png";
+	
 	const std::string explode = "sprites/explode.png";
 	const std::string endpoint = "sprites/2.png";
 	const std::string dialogue = "sprites/dialogue-bubble.png";
 	const std::string chest = "sprites/little-treasure-chest.png";
+	
 	
 	const std::string opening_screen = "sprites/opening_screen.png";
 	const std::string closing_screen = "sprites/closing_screen.png";
@@ -93,7 +96,10 @@ namespace globals {
 
 	const std::string l_ice = "l_ice";
 	const std::string l_yellow = "l_yellow";
-
+		
+	const std::string m_ice = "m_ice";
+	const std::string m_yellow = "m_yellow";
+	
 	const std::string overworld = "overworld";
 	
 	const std::vector<zonedata> data = { // first element of each vector contains the element location details
@@ -107,10 +113,10 @@ namespace globals {
 
 		{{e_green, e_yellow}}, // show an obvious path that cannot work /done 5
 		
-		{{f_room, f_ice}},	// do a harder level f /do today 6
-		 
-		{{g_yellow}},	// introduce the spike tile g /done 7
-		
+		{{g_yellow}},	// introduce the spike tile g /done 6
+
+		{{f_room, f_ice}},	// do a level with four dimensions 
+		 		
 		{{h_yellow, h_green }}, // more complicated level with spike tile /done 8
 
 		{{i_yellow, i_ice }}, // level where you have to push blocks in as one line h 9 
@@ -119,7 +125,7 @@ namespace globals {
 
 		{{k_ice, k_yellow }}, // level where you have to push blocks in as one line but with sushi block 11
 
-		{{l_ice, l_yellow }} // idk lmao 12
+		{{l_ice, l_yellow }} // idk lmao 12 many many coins with sushi in the middle. Destroy the sushi by pushing the coins.
 
 							// bomb level introduction 13 /do today
 

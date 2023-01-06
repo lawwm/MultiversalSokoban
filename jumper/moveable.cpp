@@ -136,7 +136,7 @@ bool Coin::hasItWon() {
 
 /**
 Sushi class
-It is a moveable which is meant to be at endpoint in order for player to win
+It is a moveable which is meant to be destroyed in order for player to win
 */
 
 Sushi::Sushi() {};
@@ -207,5 +207,81 @@ bool Sushi::isItPossibleToWin() {
 };
 
 bool Sushi::hasItWon() {
+	return !this->getVisible();
+};
+
+/**
+Bomb class
+It is a moveable which can destroy tiles
+*/
+
+Bomb::Bomb() {};
+
+Bomb::Bomb(Graphics& graphics, Vector2 spawnPoint) :
+	Moveable(graphics, spawnPoint, globals::bomb, 0, 0, 10, 10, 100)
+{
+	this->setupAnimations();
+	this->playAnimation("Idle");
+}
+
+void Bomb::setupAnimations() {
+	this->addAnimation(1, 0, 0, "Idle", 9, 9, Vector2(3, 3));
+}
+
+void Bomb::animationDone(std::string currentAnimation) {}
+
+
+void Bomb::undo(int ticket)
+{
+	if (_prevstates.empty() || std::get<0>(_prevstates.top()) != ticket) return;
+
+	auto [ticketNumber, x, y, isVisible] = this->_prevstates.top();
+	this->_prevstates.pop();
+	this->_x = x;
+	this->_y = y;
+	this->setVisible(isVisible);
+	this->playAnimation("Idle");
+}
+
+void Bomb::storeCurrState(int ticket)
+{
+	this->_prevstates.emplace(ticket, this->_x, this->_y, this->getVisible());
+}
+
+void Bomb::restart(Vector2 spawn, int ticket)
+{
+	this->storeCurrState(ticket);
+	this->_x = spawn.x;
+	this->_y = spawn.y;
+	this->setVisible(true);
+}
+
+void Bomb::update(float elapsedTime, Stage& stage, Graphics& graphics, bool& canPlayerSwitchStage) {
+	Rectangle moveableBoxCurr(this->_x, this->_y, this->_sourceRect.w, this->_sourceRect.h);
+
+	// if a moveable collides with a hit box, it dies.
+	if (this->getVisible() && !stage.checkTileCollisions(moveableBoxCurr) && canPlayerSwitchStage) {
+		this->setVisible(false);
+		Foley::playSound("kill");
+		stage.addFx(std::make_unique<ExplosionSprite>(graphics, Vector2(this->_x, this->_y)));
+		return;
+	}
+
+	AnimatedSprite::update(elapsedTime);
+}
+
+void Bomb::draw(Graphics& graphics) {
+	AnimatedSprite::draw(graphics, this->_x, this->_y);
+}
+
+bool Bomb::collidesWith(Rectangle other) {
+	return false;
+};
+
+bool Bomb::isItPossibleToWin() {
+	return true;
+};
+
+bool Bomb::hasItWon() {
 	return !this->getVisible();
 };

@@ -89,5 +89,29 @@ public:
 private:
 	LimitedStack<std::tuple<int, int, int, int>> _prevstates; // ticket number, x, y, visible,
 };
+
+class Bomb : public Moveable { // it destroys the tile
+public:
+	Bomb();
+	Bomb(Graphics& graphics, Vector2 spawnPoint);
+	void draw(Graphics& graphics) override;
+	void update(float elapsedTime, Stage& stage, Graphics& graphics, bool& canPlayerSwitchStage) override;
+
+	void animationDone(std::string currentAnimation) override;
+	void setupAnimations() override;
+
+	void undo(int ticket) override;
+
+	void storeCurrState(int ticket) override;
+
+	void restart(Vector2 spawn, int ticket) override;
+
+	bool collidesWith(Rectangle other);
+	bool isItPossibleToWin();
+	bool hasItWon();
+private:
+	LimitedStack<std::tuple<int, int, int, int>> _prevstates; // ticket number, x, y, visible,
+};
+
 #endif
 
