@@ -77,11 +77,10 @@ namespace globals {
 	const std::string f_room = "f_room";
 	const std::string f_ice = "f_ice";
 
-	const std::string g_room = "g_room";
-	const std::string g_ice = "g_ice";
+	const std::string g_yellow = "g_yellow";
 
 	const std::string h_yellow = "h_yellow";
-	const std::string h_ice = "h_ice";
+	const std::string h_green = "h_green";
 
 	const std::string i_yellow = "i_yellow";
 	const std::string i_ice = "i_ice";
@@ -98,29 +97,33 @@ namespace globals {
 	const std::string overworld = "overworld";
 	
 	const std::vector<zonedata> data = { // first element of each vector contains the element location details
-		{{a_ice, a_yellow }}, // introduce player to dimension switching
+		{{a_ice, a_yellow }}, // introduce player to dimension switching /done 1
 
-		{{b_ice, b_yellow }}, // get the player to be better at dimension switching
+		{{b_ice, b_yellow }}, // get the player to be better at dimension switching /done 2
 
-		{{c_room, c_ice }},	// show an easy level that coins can get to the end
+		{{c_room, c_ice }},	// show an easy level that coins can get to the end /done 3
 		
-		{{d_green, d_yellow }}, // up the number of coins
+		{{d_green, d_yellow }}, // up the number of coins /done 4
 
-		{{e_green, e_yellow}}, // show an obvious path that cannot work
+		{{e_green, e_yellow}}, // show an obvious path that cannot work /done 5
 		
-		{{f_room, f_ice}},	// do a harder level f
+		{{f_room, f_ice}},	// do a harder level f /do today 6
 		 
-		{{g_room, g_ice}},	// introduce the spike tile g 
+		{{g_yellow}},	// introduce the spike tile g /done 7
 		
-		{{h_yellow, h_ice }}, // level where you have to push blocks in as one line h
+		{{h_yellow, h_green }}, // more complicated level with spike tile /done 8
 
-		{{i_yellow, i_ice }}, // level exploiting the trick i
+		{{i_yellow, i_ice }}, // level where you have to push blocks in as one line h 9 
 	
-		{{j_ice, j_yellow }}, // introduce the sushi block j
+		{{j_ice, j_yellow }}, // introduce the sushi block j /done 10
 
-		{{k_ice, k_yellow }},	// level where you have to push blocks in as one line but with sushi block
+		{{k_ice, k_yellow }}, // level where you have to push blocks in as one line but with sushi block 11
 
-		{{l_ice, l_yellow }} // idk lmao
+		{{l_ice, l_yellow }} // idk lmao 12
+
+							// bomb level introduction 13 /do today
+
+							// medium difficulty bomb level 14
 	};
 
 	const std::string died_dialogue = "died";

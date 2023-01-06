@@ -90,7 +90,7 @@ public:
 	void draw(Graphics& graphics);
 
 	/* bool checkTileCollisions
-	*  returns true if there are collisions
+	*  returns false if there are collisions
 	*/
 	bool checkTileCollisions(const Rectangle& other) const;
 	bool checkTilePoison(const Rectangle& other) const;

@@ -677,27 +677,27 @@
         </object>
         <object id="78" name="6" x="256" y="80" width="16" height="16">
             <properties>
-                <property name="iscompleted" type="bool" value="0"/>
+                <property name="iscompleted" type="bool" value="1"/>
             </properties>
         </object>
         <object id="79" name="7" x="256" y="144" width="16" height="16">
             <properties>
-                <property name="iscompleted" type="bool" value="0"/>
+                <property name="iscompleted" type="bool" value="1"/>
             </properties>
         </object>
         <object id="80" name="8" x="224" y="176" width="16" height="16">
             <properties>
-                <property name="iscompleted" type="bool" value="0"/>
+                <property name="iscompleted" type="bool" value="1"/>
             </properties>
         </object>
         <object id="81" name="10" x="96" y="208" width="16" height="16">
             <properties>
-                <property name="iscompleted" type="bool" value="0"/>
+                <property name="iscompleted" type="bool" value="1"/>
             </properties>
         </object>
         <object id="82" name="9" x="192" y="208" width="16" height="16">
             <properties>
-                <property name="iscompleted" type="bool" value="0"/>
+                <property name="iscompleted" type="bool" value="1"/>
             </properties>
         </object>
         <object id="83" name="11" x="64" y="176" width="16" height="16">

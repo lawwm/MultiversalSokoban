@@ -173,7 +173,7 @@ void Player::update(float elapsedTime, bool& isNotMoving, Stage& stage, Graphics
 	Rectangle playerCurr(this->_x, this->_y, this->_sourceRect.w, this->_sourceRect.h);
 	
 	// if player collides with a hitbox, he dies, display animation
-	if (this->getVisible() && !stage.checkTileCollisions(playerCurr) && canPlayerSwitchStage) {
+	if (this->getVisible() && (!stage.checkTileCollisions(playerCurr) || !stage.checkTilePoison(playerCurr)) && canPlayerSwitchStage) {
 		Foley::playSound("kill");
 		this->setVisible(false);
 		stage.addFx(std::make_unique<ExplosionSprite>(graphics, Vector2(this->_x, this->_y)));
