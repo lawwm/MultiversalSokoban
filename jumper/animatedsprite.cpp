@@ -59,15 +59,12 @@ void AnimatedSprite::update(int elapsedTime) {
 	Sprite::update();
 	
 	this->_timeElapsed += elapsedTime;
-	//std::cout << this->_frameIndex << " " << this->_timeElapsed << " " << elapsedTime << " " << this->_timeToUpdate << std::endl;
 	if (this->_timeElapsed > this->_timeToUpdate) {
 		this->_timeElapsed -= this->_timeToUpdate;
-		//std::cout << this->_timeElapsed << "meme" << std::endl;
 		if (this->_frameIndex < this->_animations[this->_currentAnimation].size() - 1) {
 			this->_frameIndex++;
 		}
 		else {
-			//std::cout << this->_timeElapsed << "meme" << std::endl;
 			if (this->_currentAnimationOnce == true) {
 				this->setVisible(false);
 			}

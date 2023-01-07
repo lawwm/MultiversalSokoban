@@ -104,12 +104,6 @@ void Coin::update(float elapsedTime, Stage& stage, Graphics& graphics, bool& can
 		return;
 	}
 
-	if (((int)this->_x) % 32 != 0 || ((int)this->_y) % 32 != 0) {
-		this->playAnimation("Moving");
-	}
-	else {
-		this->playAnimation("Idle");
-	}
 	AnimatedSprite::update(elapsedTime);
 }
 
@@ -264,13 +258,6 @@ void Bomb::update(float elapsedTime, Stage& stage, Graphics& graphics, bool& can
 		//add permeable to stage
 		stage.addPermeable(Vector2(this->getBoundingBox().getLeft(), this->getBoundingBox().getTop()));
 		return;
-	}
-
-	if (((int)this->_x) % 32 != 0 || ((int)this->_y) % 32 != 0) {
-		this->playAnimation("Moving");
-	}
-	else {
-		this->playAnimation("Idle");
 	}
 
 	AnimatedSprite::update(elapsedTime);
