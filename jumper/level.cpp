@@ -505,13 +505,13 @@ bool Stage::hasPlayerWon(Player& player)
 
 	// check that each check point has collided with a coin
 	for (auto& endpointSprite : this->_endpoint) {
-		bool hasCollision = player.getBoundingBox().collidesWith(endpointSprite.getBoundingBox());
+		bool hasCollisionWithCoinOrPlayer = player.getBoundingBox().collidesWith(endpointSprite.getBoundingBox());
 		for (auto& moveable : this->_moveables) {
-			hasCollision |= moveable->collidesWith(endpointSprite.getBoundingBox());
-			if (hasCollision) continue;
+			hasCollisionWithCoinOrPlayer |= moveable->collidesWith(endpointSprite.getBoundingBox());
+			if (hasCollisionWithCoinOrPlayer) continue;
 		}
 
-		if (!hasCollision) return false;
+		if (!hasCollisionWithCoinOrPlayer) return false;
 	}
 
 	// check that no coins are destroyed and all sushi are destroyed, i.e. they are in a winnable state

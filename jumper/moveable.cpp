@@ -281,5 +281,5 @@ bool Bomb::isItPossibleToWin() {
 };
 
 bool Bomb::hasItWon() {
-	return !this->getVisible();
+	return true;
 };
