@@ -100,6 +100,9 @@ namespace globals {
 	const std::string m_ice = "m_ice";
 	const std::string m_yellow = "m_yellow";
 	
+	const std::string n_ice = "n_ice";
+	const std::string n_yellow = "n_yellow";
+
 	const std::string overworld = "overworld";
 	
 	const std::vector<zonedata> data = { // first element of each vector contains the element location details
@@ -121,15 +124,15 @@ namespace globals {
 		
 		{{j_ice, j_yellow }}, // introduce the sushi block j /done 9
 
-		{{i_ice, i_yellow }}, // level where you have to push blocks in as one line // do this 9
-	
-		{{k_ice, k_yellow }}, // idk lmao 12 many many coins with sushi in the middle. Destroy the sushi by pushing the coins.
+		{{k_ice, k_yellow }}, // idk lmao 12 many many coins with sushi in the middle. Destroy the sushi by pushing the coins. /done 10
 
-		{{l_ice, l_yellow }} // bomb level introduction 13 /do today
+		{{i_ice, i_yellow }}, // level where you have to push blocks in as one line // done 11
 
-		// medium difficulty bomb level 14
+		{{l_ice, l_yellow }}, // bomb level introduction // do this 12
 
-							// medium difficulty bomb level 14
+		{{m_ice, m_yellow }}, // medium difficulty bomb level 14
+
+		{{n_ice, n_yellow }}  // medium difficulty bomb level 14
 	};
 
 	const std::string died_dialogue = "died";
