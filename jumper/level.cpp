@@ -812,7 +812,6 @@ void Overworld::setZoneCompleted(int zonenumber)
 	zonenumber++;
 	for (CompletionSprite& completionSprite : this->_completionSprites) {
 		if (completionSprite.getLevelNumber() == zonenumber) {
-			std::cout << completionSprite.getLevelNumber() << std::endl;
 			completionSprite.setCompleted(true);
 		}
 	}
@@ -830,4 +829,22 @@ int Overworld::getZoneMapValue(int key) // return 0 if cannot be found
 void Overworld::save()
 {
 	this->_save.update(globals::overworld, this->_completionSprites);
+}
+
+
+Vector2 Overworld::getPlayerSpawnPoint() {
+	if (this->_completionSprites.size() <= 0) {
+		return Vector2(0, 0);
+	}
+	Vector2 spawn(this->_completionSprites[0].getX(), this->_completionSprites[0].getY() + (globals::SPRITE_SCALE * globals::SPRITE_WIDTH));
+	for (int i = 1; i < this->_completionSprites.size(); ++i) {
+		if (this->_completionSprites[i].getCompleted()) {
+			spawn = Vector2(this->_completionSprites[i].getX(), this->_completionSprites[i].getY() + (globals::SPRITE_SCALE * globals::SPRITE_WIDTH));
+		}
+		else {
+			break;
+		}
+	}
+
+	return spawn;
 }

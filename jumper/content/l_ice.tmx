@@ -329,7 +329,7 @@
    <tile gid="717"/>
   </data>
  </layer>
- <layer id="11" name="destructible" width="20" height="15">
+ <layer id="11" name="destructible" width="20" height="15" locked="1">
   <data>
    <tile/>
    <tile/>

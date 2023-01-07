@@ -180,6 +180,8 @@ public:
 	
 	int getZoneMapValue(int key);
 	void save();
+
+	Vector2 getPlayerSpawnPoint();
 	
 	Stage& getStage();
 

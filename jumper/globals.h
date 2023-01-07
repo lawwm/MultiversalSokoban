@@ -139,9 +139,6 @@ namespace globals {
 	const std::string won_dialogue = "won";
 	const std::string exit_dialogue = "exit";
 	const std::string overworld_exit_dialogue = "overworld_exit";
-
-	const float overworld_spawn_x = 288;
-	const float overworld_spawn_y = 192;
 }
 
 #endif
