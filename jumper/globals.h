@@ -51,7 +51,7 @@ namespace globals {
 	const std::string eskimo = "sprites/21.png";
 	const std::string coin = "sprites/coin-2.png";
 	const std::string sushi = "sprites/sushi.png";
-	const std::string bomb = "sprites/fireball.png";
+	const std::string bomb = "sprites/CanonBall.png";
 	
 	const std::string explode = "sprites/explode.png";
 	const std::string endpoint = "sprites/2.png";

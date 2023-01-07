@@ -21,7 +21,6 @@ Zone::~Zone()
 
 Zone::Zone(Zone&& t) noexcept
 {
-	//std::cout << "tile move constructor" << std::endl;
 	this->_stage = std::move(t._stage);
 	this->_zonenumber = t._zonenumber;
 	this->_data = std::move(t._data);

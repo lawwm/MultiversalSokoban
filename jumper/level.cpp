@@ -498,7 +498,7 @@ void Stage::loadElements(std::string mapName, Graphics& graphics) {
 
 bool Stage::hasPlayerWon(Player& player)
 {
-	// check that player is stationary and not visible
+	// check that player is stationary and not invisible
 	if (!player.isStationary() || !player.getVisible()) {
 		return false;
 	}

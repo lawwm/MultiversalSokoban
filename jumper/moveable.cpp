@@ -213,14 +213,15 @@ It is a moveable which can destroy tiles
 Bomb::Bomb() {};
 
 Bomb::Bomb(Graphics& graphics, Vector2 spawnPoint) :
-	Moveable(graphics, spawnPoint, globals::bomb, 0, 0, 10, 10, 100)
+	Moveable(graphics, spawnPoint, globals::bomb, 0, 0, 16, 16, 100)
 {
 	this->setupAnimations();
 	this->playAnimation("Idle");
 }
 
 void Bomb::setupAnimations() {
-	this->addAnimation(1, 0, 0, "Idle", 9, 9, Vector2(3, 3));
+	this->addAnimation(5, 0, 0, "Idle", 16, 16, Vector2(0, 0));
+	this->addAnimation(1, 0, 0, "Moving", 16, 16, Vector2(0, 0));
 }
 
 void Bomb::animationDone(std::string currentAnimation) {}
@@ -263,6 +264,13 @@ void Bomb::update(float elapsedTime, Stage& stage, Graphics& graphics, bool& can
 		//add permeable to stage
 		stage.addPermeable(Vector2(this->getBoundingBox().getLeft(), this->getBoundingBox().getTop()));
 		return;
+	}
+
+	if (((int)this->_x) % 32 != 0 || ((int)this->_y) % 32 != 0) {
+		this->playAnimation("Moving");
+	}
+	else {
+		this->playAnimation("Idle");
 	}
 
 	AnimatedSprite::update(elapsedTime);

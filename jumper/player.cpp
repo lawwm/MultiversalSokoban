@@ -177,7 +177,6 @@ void Player::update(float elapsedTime, bool& isNotMoving, Stage& stage, Graphics
 	if (_x == _destx && _y == _desty) {
 		this->_pushing.clear();
 		isNotMoving = true;
-		return;
 	}
 
 	// calculate position depending on direction faced
