@@ -1,14 +1,20 @@
 #ifndef MOVEABLE_H
 #define MOVEABLE_H
 
-#include "animatedsprite.h"
 #include "level.h"
+#include "animatedsprite.h"
 #include "globals.h"
 #include "audio.h"
+#include "graphics.h"
 
 #include <stack>
+#include <iostream>
+#include <tuple>
+#include <utility>
+#include <memory>
 
 class Graphics;
+class Stage;
 
 class Moveable : public AnimatedSprite {
 public:

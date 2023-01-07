@@ -7,8 +7,16 @@
 #include "text.h"
 #include "globals.h"
 #include "audio.h"
+#include "graphics.h"
+#include "input.h"
+#include "moveable.h"
+
+#include "SDL.h"
+#include "SDL_mixer.h"
+#include "SDL_image.h"
 
 #include <vector>
+#include <iostream>
 
 class Graphics;
 class Input;

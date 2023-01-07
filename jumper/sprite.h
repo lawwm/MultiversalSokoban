@@ -7,6 +7,7 @@
 
 #include "rectangle.h"
 #include "globals.h"
+#include "graphics.h"
 
 class Graphics;
 
@@ -26,6 +27,8 @@ public:
 	const Rectangle getBoundingBox() const;
 	int getX() const;
 	int getY() const;
+
+	bool isStationary() const;
 protected:
 	SDL_Rect _sourceRect;
 	SDL_Texture* _spriteSheet;

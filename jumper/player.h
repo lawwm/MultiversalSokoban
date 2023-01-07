@@ -8,7 +8,12 @@
 #include "rectangle.h"
 #include "audio.h"
 
+#include "graphics.h"
+#include <iostream>
+
 class Graphics;
+class Stage;
+class Moveable;
 
 class Player : public AnimatedSprite {
 public:
@@ -59,8 +64,6 @@ public:
 
 	void restart(Vector2 spawn, int ticket);
 	
-	bool isStationary();
-
 	void print() {
 		std::cout << _x << " " << _y << " " << _destx << " " << _desty << std::endl;
 	}

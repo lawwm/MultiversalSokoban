@@ -1,10 +1,5 @@
 #include "moveable.h"
-#include "graphics.h"
 
-#include <iostream>
-#include <tuple>
-#include <utility>
-#include <memory>
 
 /**
 Base class for pushing functionality
@@ -102,7 +97,7 @@ void Coin::update(float elapsedTime, Stage& stage, Graphics& graphics, bool& can
 	Rectangle moveableBoxCurr(this->_x, this->_y, this->_sourceRect.w, this->_sourceRect.h);
 
 	// if a moveable collides with a hit box, it dies.
-	if (this->getVisible() && !stage.checkTileCollisions(moveableBoxCurr) && canPlayerSwitchStage) {
+	if (this->isStationary() && this->getVisible() && !stage.checkTileCollisions(moveableBoxCurr) && canPlayerSwitchStage) {
 		this->setVisible(false);
 		Foley::playSound("kill");
 		stage.addFx(std::make_unique<ExplosionSprite>(graphics, Vector2(this->_x, this->_y)));
@@ -184,7 +179,7 @@ void Sushi::update(float elapsedTime, Stage& stage, Graphics& graphics, bool& ca
 	Rectangle moveableBoxCurr(this->_x, this->_y, this->_sourceRect.w, this->_sourceRect.h);
 
 	// if a moveable collides with a hit box, it dies.
-	if (this->getVisible() && !stage.checkTileCollisions(moveableBoxCurr) && canPlayerSwitchStage) {
+	if (this->isStationary() && this->getVisible() && !stage.checkTileCollisions(moveableBoxCurr) && canPlayerSwitchStage) {
 		this->setVisible(false);
 		Foley::playSound("kill");
 		stage.addFx(std::make_unique<ExplosionSprite>(graphics, Vector2(this->_x, this->_y)));
@@ -259,11 +254,14 @@ void Bomb::restart(Vector2 spawn, int ticket)
 void Bomb::update(float elapsedTime, Stage& stage, Graphics& graphics, bool& canPlayerSwitchStage) {
 	Rectangle moveableBoxCurr(this->_x, this->_y, this->_sourceRect.w, this->_sourceRect.h);
 
-	// if a moveable collides with a hit box, it dies.
-	if (this->getVisible() && !stage.checkTileCollisions(moveableBoxCurr) && canPlayerSwitchStage) {
+	// if a moveable collides with a hit box, it explodes
+	if (this->isStationary() && this->getVisible() && !stage.checkTileCollisions(moveableBoxCurr) && canPlayerSwitchStage) {
 		this->setVisible(false);
 		Foley::playSound("kill");
 		stage.addFx(std::make_unique<ExplosionSprite>(graphics, Vector2(this->_x, this->_y)));
+		
+		//add permeable to stage
+		stage.addPermeable(Vector2(this->getBoundingBox().getLeft(), this->getBoundingBox().getTop()));
 		return;
 	}
 

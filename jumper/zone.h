@@ -6,6 +6,7 @@
 
 #include "moveable.h"
 #include "level.h"
+#include "player.h"
 
 class Zone {
 public:

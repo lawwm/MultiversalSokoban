@@ -4,9 +4,11 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <iostream>
 
 #include "sprite.h"
 #include "globals.h"
+#include "graphics.h"
 
 class Graphics;
 

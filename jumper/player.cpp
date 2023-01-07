@@ -1,6 +1,4 @@
 #include "player.h"
-#include "graphics.h"
-#include <iostream>
 
 namespace player_constants {
 	const float WALK_SPEED = 0.15f;
@@ -50,8 +48,10 @@ bool Player::canMoveToNewPosition(const Stage& stage, std::vector<Moveable*>& cr
 	const std::pair<int, int>& diff) {
 	const Rectangle playerBoxNext(this->_destx, this->_desty, this->_sourceRect.w, this->_sourceRect.h);
 	
+	if (!stage.checkTileCollisions(playerBoxNext) || !stage.checkTilePoison(playerBoxNext)) {
+		return false;
+	}
 	
-	if (!stage.checkTileCollisions(playerBoxNext) || !stage.checkTilePoison(playerBoxNext)) return false;
 	for (int i = 0; i < crates.size(); ++i) {
 		if (crates[i]->getVisible() && crates[i]->getBoundingBox().collidesWith(playerBoxNext)) {
 			return crates[i]->canMoveToNewPosition(stage, crates, this->_pushing, diff, 1);
@@ -126,14 +126,6 @@ void Player::storeCurrState(int ticket) {
 	_prevstates.emplace(ticket, this->_x, this->_y, this->getVisible(), this->_facing);
 }
 
-bool Player::isStationary() {
-	int intx = floor(this->_x);
-	int inty = floor(this->_y);
-	bool isCloseToInt = std::abs(this->_x - floor(this->_x)) < 0.000000001f && std::abs(this->_y - floor(this->_y)) < 0.000000001f;
-	int spritesize = floor(globals::SPRITE_SCALE * globals::SPRITE_WIDTH);
-	return !(intx % spritesize) && !(inty % spritesize) && isCloseToInt;
-}
-
 void Player::restart(Vector2 spawn, int ticket)
 {
 	this->storeCurrState(ticket);
@@ -173,7 +165,8 @@ void Player::update(float elapsedTime, bool& isNotMoving, Stage& stage, Graphics
 	Rectangle playerCurr(this->_x, this->_y, this->_sourceRect.w, this->_sourceRect.h);
 	
 	// if player collides with a hitbox, he dies, display animation
-	if (this->getVisible() && (!stage.checkTileCollisions(playerCurr) || !stage.checkTilePoison(playerCurr)) && canPlayerSwitchStage) {
+	if (this->isStationary() && this->getVisible() && (!stage.checkTileCollisions(playerCurr) || !stage.checkTilePoison(playerCurr)) && canPlayerSwitchStage) {
+
 		Foley::playSound("kill");
 		this->setVisible(false);
 		stage.addFx(std::make_unique<ExplosionSprite>(graphics, Vector2(this->_x, this->_y)));

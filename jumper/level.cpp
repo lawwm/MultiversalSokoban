@@ -1,18 +1,5 @@
 #include "level.h"
-#include "graphics.h"
-#include "globals.h"
-#include "player.h"
 
-#include "tinyxml2.h"
-
-#include "SDL.h"
-
-#include <sstream>
-#include <algorithm>
-#include <cmath>
-#include <iostream>
-#include <memory>
-#include <cassert>
 
 using namespace tinyxml2;
 
@@ -43,6 +30,7 @@ Level::Level(const Level& t)
 	this->_collisionRects = t._collisionRects;
 	this->_poisonRects = t._poisonRects;
 	
+	this->_permeable = t._permeable;
 }
 
 Level& Level::operator=(const Level& t) noexcept
@@ -58,6 +46,8 @@ Level& Level::operator=(const Level& t) noexcept
 	this->_collisionRects = t._collisionRects;
 	this->_poisonRects = t._poisonRects;
 
+	this->_permeable = t._permeable;
+	
 	return *this;
 }
 
@@ -73,10 +63,12 @@ Level::Level(Level&& t) noexcept
 	this->_tilesets = std::move(t._tilesets);
 	this->_collisionRects = std::move(t._collisionRects);
 	this->_poisonRects = std::move(t._poisonRects);
-
+	this->_permeable = std::move(t._permeable);
+	
 	t._tileList.clear();
 	t._tilesets.clear();
 	t._collisionRects.clear();
+	t._permeable.clear();
 }
 
 Level& Level::operator=(Level&& t) noexcept
@@ -91,10 +83,12 @@ Level& Level::operator=(Level&& t) noexcept
 	this->_tilesets = std::move(t._tilesets);
 	this->_collisionRects = std::move(t._collisionRects);
 	this->_poisonRects = std::move(t._poisonRects);
-
+	this->_permeable = std::move(t._permeable);
+	
 	t._tileList.clear();
 	t._tilesets.clear();
 	t._collisionRects.clear();
+	t._permeable.clear();
 	
 	return *this;
 }
@@ -148,6 +142,11 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 	XMLElement* pLayer = mapNode->FirstChildElement("layer");
 
 	while (pLayer) {
+		const char* name = pLayer->Attribute("name");
+		std::stringstream ss;
+		ss << name;
+		bool isDestructible = (ss.str() == "destructible");
+
 		//Loading the data element
 		XMLElement* pData = pLayer->FirstChildElement("data");
 		while (pData) {
@@ -195,7 +194,7 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 
 				//Build the actual tile and add it to the level's tile list
 				Tile tile(tls.Texture, Vector2(tileWidth, tileHeight),
-					finalTilesetPosition, finalTilePosition);
+					finalTilesetPosition, finalTilePosition, isDestructible);
 				this->_tileList.push_back(std::move(tile));
 				tileCounter++;
 
@@ -208,7 +207,7 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 
 		pLayer = pLayer->NextSiblingElement("layer");
 	}
-	
+
 	XMLElement* pObjectGroup = mapNode->FirstChildElement("objectgroup");
 
 	while (pObjectGroup) {
@@ -259,6 +258,10 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 
 }
 
+void Level::storeCurrState(int ticket) {
+	this->_prevstates.push({ ticket, this->_permeable });
+}
+
 void Level::update(int elapsedTime, const int& alpha) {
 	for (Tile& t : this->_tileList) {
 		t.update(elapsedTime, alpha);
@@ -266,8 +269,11 @@ void Level::update(int elapsedTime, const int& alpha) {
 }
 
 void Level::draw(Graphics& graphics) {
-	for (int i = 0; i < this->_tileList.size(); i++) {
-		this->_tileList.at(i).draw(graphics);
+	for (Tile& t : this->_tileList) {
+		int key = Tile::getScreenKeyValue(t.getPosition().x, t.getPosition().y);
+		if (!t.isDestructible() || this->_permeable.find(key) == this->_permeable.end()) {
+			t.draw(graphics);
+		}
 	}
 }
 
@@ -276,10 +282,16 @@ const std::vector<Rectangle>& Level::getCollision() {
 };
 
 bool Level::checkTileCollisions(const Rectangle& other) const {
-	for (int i = 0; i < _collisionRects.size(); i++) {
-		if (_collisionRects.at(i).collidesWith(other)) return false;
+	int key = Tile::getScreenKeyValue(other.getLeft(), other.getTop());
+	if (this->_permeable.find(key) != this->_permeable.end()) {
+		return true;
 	}
 
+	for (int i = 0; i < _collisionRects.size(); i++) {
+		if (_collisionRects.at(i).collidesWith(other)) {
+			return false;
+		}
+	}
 	return true;
 }
 
@@ -290,6 +302,28 @@ bool Level::checkTilePoison(const Rectangle& other) const {
 
 	return true;
 }
+
+void Level::addPermeable(Vector2 coor)
+{
+	// add permeable tile to the current level
+	int key = Tile::getScreenKeyValue(coor.x, coor.y);
+	this->_permeable[key]++;
+}
+
+void Level::undo(int ticketNum) {
+
+	// switch dimension undo
+	if (_prevstates.empty() || std::get<0>(this->_prevstates.top()) != ticketNum) return;
+
+	this->_permeable = std::get<1>(this->_prevstates.top());
+	this->_prevstates.pop();
+}
+
+void Level::restart(int ticketNum) {
+	this->storeCurrState(ticketNum);
+	this->_permeable = {};
+}
+
 
 const Vector2 Stage::getPlayerSpawnPoint() const {
 	return this->_spawnPoint;
@@ -644,6 +678,12 @@ void Stage::undo(int ticketNum, bool& isMoving)
 		m->undo(ticketNum);
 	}
 	
+
+	// undo level
+	for (auto& level : this->_levels) {
+		level.undo(ticketNum);
+	}
+
 	// switch dimension undo
 	if (_prevstates.empty() || std::get<0>(_prevstates.top()) != ticketNum) return;
 	
@@ -657,6 +697,9 @@ void Stage::undo(int ticketNum, bool& isMoving)
 void Stage::storeCurrState(int ticket, int savedIdx)
 {
 	this->_prevstates.emplace(ticket, savedIdx);
+	for (auto& level : this->_levels) {
+		level.storeCurrState(ticket);
+	}
 }
 
 void Stage::restart(int generatedTicket)
@@ -667,11 +710,23 @@ void Stage::restart(int generatedTicket)
 	this->_next = 0;
 	this->_levels[this->_idx].update(0, this->_alpha);
 
+	// restart level
+	for (auto& level : this->_levels) {
+		level.restart(generatedTicket);
+	}
+
 	// restart moveables position
 	for (int i = 0; i < _moveables.size(); ++i) {
 		this->_moveables[i]->restart(_moveableSpawnPoints[i], generatedTicket);
 	}
 }
+
+void Stage::addPermeable(Vector2 coor)
+{
+	// add permeable tile to the current level
+	this->_levels[this->_idx].addPermeable(coor);
+}
+
 
 Overworld::Overworld()
 {

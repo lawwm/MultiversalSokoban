@@ -5,8 +5,13 @@
  * Holds all information dealing with graphics for the game
  */
 
-#include "sdl.h"
+#include "SDL.h"
+#include "SDL_image.h"
+#include "SDL_ttf.h"
 
+#include "globals.h"
+
+#include <iostream>
 #include <map>
 #include <string>
 

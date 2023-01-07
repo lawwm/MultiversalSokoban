@@ -5,6 +5,11 @@
 #include <vector>
 #include <stack>
 #include <memory>
+#include <sstream>
+#include <algorithm>
+#include <cmath>
+#include <iostream>
+#include <cassert>
 
 #include "globals.h"
 #include "tile.h"
@@ -13,7 +18,11 @@
 #include "tiletype.h"
 #include "savestate.h"
 #include "audio.h"
+#include "graphics.h"
+#include "player.h"
 
+#include "tinyxml2.h"
+#include "SDL.h"
 
 
 class Graphics;
@@ -55,6 +64,11 @@ public:
 	
 	const std::vector<Rectangle>& getCollision();
 
+	void addPermeable(Vector2 coor);
+	void storeCurrState(int ticket);
+
+	void undo(int ticketNum);
+	void restart(int ticketNum);
 private:
 	std::string _mapName;
 	
@@ -65,6 +79,10 @@ private:
 	std::vector<Tileset> _tilesets;
 	std::vector<Rectangle> _collisionRects;
 	std::vector<Rectangle> _poisonRects;
+
+	std::unordered_map<int, int> _permeable;
+	LimitedStack<std::tuple<int, std::unordered_map<int, int>>> _prevstates; //  ticket, map
+	
 	/* void loadMap
 	 * Loads a map
 	 */
@@ -119,6 +137,8 @@ public:
 	bool isItPossibleToWin();
 	
 	std::vector<Moveable*>& getMoveables();
+
+	void addPermeable(Vector2 coor);
 
 private:
 	std::vector<Level> _levels;

@@ -1,22 +1,21 @@
 #include "tile.h"
-#include "graphics.h"
 
-#include "SDL.h"
-#include <iostream>
+
 Tile::Tile() {}
 
-Tile::Tile(std::shared_ptr<SDL_Texture> tileset, Vector2 size, Vector2 tilesetPosition, Vector2 position) :
+Tile::Tile(std::shared_ptr<SDL_Texture> tileset, Vector2 size, Vector2 tilesetPosition, Vector2 position, bool isDestructible) :
 	_tileset(tileset),
 	_size(size),
 	_tilesetPosition(tilesetPosition),
-	_position(Vector2(position.x* globals::SPRITE_SCALE, position.y* globals::SPRITE_SCALE))
+	_position(Vector2(position.x* globals::SPRITE_SCALE, position.y* globals::SPRITE_SCALE)),
+	_isDestructible(isDestructible)
 {
 	//std::cout << "create" << std::endl;
 }
 
 Tile::Tile(const Tile& t) 
 	: _tileset(t._tileset), _size(t._size), _tilesetPosition(t._tilesetPosition), 
-	_position(t._position)
+	_position(t._position), _isDestructible(t._isDestructible)
 {
 	//std::cout << "tile copy constructor" << std::endl;
 }
@@ -31,13 +30,14 @@ Tile& Tile::operator=(const Tile& t) noexcept
 	this->_tilesetPosition = t._tilesetPosition;
 	this->_position = t._position;
 	this->_tileset = t._tileset;
+	this->_isDestructible = t._isDestructible;
 
 	return *this;
 }
 
 Tile::Tile(Tile&& t) noexcept 
 	: _tileset(std::exchange(t._tileset, nullptr)), _size(t._size), 
-	_tilesetPosition(t._tilesetPosition), _position(t._position)
+	_tilesetPosition(t._tilesetPosition), _position(t._position), _isDestructible(t._isDestructible)
 {
 	//std::cout << "tile move constructor" << std::endl;
 }
@@ -52,6 +52,7 @@ Tile& Tile::operator=(Tile&& t) noexcept
 	this->_size = t._size;
 	this->_tilesetPosition = t._tilesetPosition;
 	this->_position = t._position;
+	this->_isDestructible = t._isDestructible;
 
 	return *this;
 }
@@ -67,3 +68,18 @@ void Tile::draw(Graphics& graphics) {
 
 	graphics.blitSurface(this->_tileset.get(), &sourceRect, &destRect);
 }
+
+
+Vector2 Tile::getPosition() const { 
+	return this->_position; 
+}
+
+bool Tile::isDestructible() const {
+	return this->_isDestructible;
+}
+
+int Tile::getScreenKeyValue(int x, int y)
+{
+	return x + globals::SCREEN_WIDTH * y;
+}
+

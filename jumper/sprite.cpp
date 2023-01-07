@@ -1,6 +1,4 @@
 #include "sprite.h"
-#include "graphics.h"
-#include "globals.h"
 
 Sprite::Sprite() {}
 
@@ -50,4 +48,12 @@ int Sprite::getX() const {
 
 int Sprite::getY() const {
 	return this->_y;
+}
+
+bool Sprite::isStationary() const {
+	int intx = floor(this->_x);
+	int inty = floor(this->_y);
+	bool isCloseToInt = std::abs(this->_x - floor(this->_x)) < 0.000000001f && std::abs(this->_y - floor(this->_y)) < 0.000000001f;
+	int spritesize = floor(globals::SPRITE_SCALE * globals::SPRITE_WIDTH);
+	return !(intx % spritesize) && !(inty % spritesize) && isCloseToInt;
 }

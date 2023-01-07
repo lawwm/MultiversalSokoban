@@ -1,13 +1,5 @@
-#include "SDL.h"
-#include "SDL_mixer.h"
-#include "SDL_image.h"
-
 #include "game.h"
-#include "graphics.h"
-#include "input.h"
-#include "moveable.h"
 
-#include <iostream>
 /* Game class
  * This class holds all information for our main game loop
  */

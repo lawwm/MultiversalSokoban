@@ -1,11 +1,6 @@
-#include "SDL.h"
-#include "SDL_image.h"
-#include "SDL_ttf.h"
-
 #include "graphics.h"
-#include "globals.h"
 
-#include <iostream>
+
 /* Graphics class
  * Holds all information dealing with graphics for the game
  */
