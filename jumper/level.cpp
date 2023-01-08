@@ -18,9 +18,7 @@ Level::~Level() {
 
 
 Level::Level(const Level& t)
-{
-	std::cout << "level copy constructor" << std::endl;
-	
+{	
 	this->_mapName = t._mapName;
 	this->_size = t._size;
 	this->_tileSize = t._tileSize;
@@ -35,8 +33,6 @@ Level::Level(const Level& t)
 
 Level& Level::operator=(const Level& t) noexcept
 {
-	//std::cout << "tile copy opeartor" << std::endl;
-
 	this->_mapName = t._mapName;
 	this->_size = t._size;
 	this->_tileSize = t._tileSize;
@@ -53,8 +49,6 @@ Level& Level::operator=(const Level& t) noexcept
 
 Level::Level(Level&& t) noexcept
 {
-	//std::cout << "tile move constructor" << std::endl;
-
 	this->_mapName = std::move(t._mapName);
 	this->_size = std::move(t._size);
 	this->_tileSize = std::move(t._tileSize);
@@ -128,7 +122,6 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 		pTileset->QueryIntAttribute("firstgid", &firstgid);
 		
 		std::shared_ptr<SDL_Texture> tex(SDL_CreateTextureFromSurface(graphics.getRenderer(), graphics.loadImage(ss.str())), [](SDL_Texture* texture) {
-			std::cout << "destory texture" << std::endl;
 			SDL_DestroyTexture(texture);
 		});
 		
@@ -344,8 +337,6 @@ Stage::~Stage() {
 
 Stage::Stage(Stage&& t) noexcept
 {
-	//std::cout << "tile move constructor" << std::endl;
-
 	this->_levels = std::move(t._levels);
 	this->_fx = std::move(t._fx);
 	
@@ -424,7 +415,6 @@ void Stage::loadElements(std::string mapName, Graphics& graphics) {
 						y = pObject->FloatAttribute("y") * globals::SPRITE_SCALE;
 
 						// add to spawn
-						std::cout << "soy " << x << " " << y << std::endl;
 						this->_spawnPoint = Vector2(x, y);
 						
 						pObject = pObject->NextSiblingElement("object");
@@ -566,7 +556,6 @@ void Stage::update(int elapsedTime, bool& isMoving, Graphics& graphics) {
 	// Update the transition between dimensions
 	if (this->_timeElapsed > this->_timeToUpdate) {
 		this->_timeElapsed -= this->_timeToUpdate;
-		//std::cout << _fx.size() << std::endl;
 		
 		if (isMoving) {
 			return;
@@ -594,7 +583,6 @@ void Stage::draw(Graphics& graphics) {
 	this->_levels[this->_idx].draw(graphics);
 
 	for (auto& ptr : _fx) {
-		//std::cout << &(this->_fx[i]) << std::endl;
 		ptr->draw(graphics);
 	}
 
@@ -738,9 +726,7 @@ Overworld::Overworld(Vector2 spawnPoint, Graphics& graphics, std::unordered_map<
 
 	// initialise chest at level select area from xml file
 	this->_save.parse(globals::overworld, this->_completionSprites, graphics);
-	
-	std::cout << "how many ocmpletion sprites" << this->_completionSprites.size() << std::endl;
-	
+		
 	// fill out coordinates map
 	for (auto& completionSprite : this->_completionSprites) {
 
@@ -797,7 +783,6 @@ void Overworld::draw(Graphics& graphics)
 	this->_overworld.draw(graphics);
 	
 	for (CompletionSprite& completionSprite : this->_completionSprites) {
-		//std::cout << completionSprite.getX() << " " << completionSprite.getY() << std::endl;
 		completionSprite.draw(graphics);
 	}
 }

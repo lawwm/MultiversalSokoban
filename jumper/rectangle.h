@@ -113,7 +113,6 @@ public:
 		else {
 			++curr;
 		}
-		//std::cout << "insert " << _ticket.top() << std::endl;
 		return this->_ticket.top();
 	}
 	
@@ -123,7 +122,6 @@ public:
 			return 0;
 		}
 		int topTicket = this->_ticket.top();
-		//std::cout << "remove " << topTicket << std::endl;
 		this->_ticket.pop();
 		return topTicket;
 	}

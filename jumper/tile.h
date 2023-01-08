@@ -15,8 +15,6 @@ public:
 	Tile();
 	Tile(std::shared_ptr<SDL_Texture> tileset, Vector2 size, Vector2 tilesetPosition, Vector2 position, bool isDestructible=false);
 	~Tile() {
-		//std::cout << "destroy" << std::endl;
-		//SDL_DestroyTexture(this->_tileset);
 	}
 	
 	// copy constructor and operator

@@ -16,7 +16,6 @@ public:
 	void parse(std::string overworldname, std::vector<CompletionSprite>& completionSprites, Graphics& graphics)
 	{
 		XMLDocument doc;
-		std::cout << "soy" << std::endl;
 		std::stringstream ss;
 		ss << overworldname << ".tmx";
 		
