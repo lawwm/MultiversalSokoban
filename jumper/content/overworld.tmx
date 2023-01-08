@@ -1,397 +1,397 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="14" nextobjectid="101">
-    <tileset firstgid="1" name="ninja" tilewidth="16" tileheight="16" tilecount="1120" columns="28">
-        <image source="tilesets/tileset.png" width="448" height="640"/>
-    </tileset>
-    <layer id="13" name="background" width="20" height="15" locked="1">
-        <data>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="525"/>
-            <tile gid="526"/>
-            <tile gid="526"/>
-            <tile gid="526"/>
-            <tile gid="526"/>
-            <tile gid="526"/>
-            <tile gid="526"/>
-            <tile gid="526"/>
-            <tile gid="526"/>
-            <tile gid="526"/>
-            <tile gid="527"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="553"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="555"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="553"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="555"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="553"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="555"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="553"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="555"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="553"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="555"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="553"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="555"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="553"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="555"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="553"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="555"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="553"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="555"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="553"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="554"/>
-            <tile gid="555"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="581"/>
-            <tile gid="582"/>
-            <tile gid="582"/>
-            <tile gid="582"/>
-            <tile gid="582"/>
-            <tile gid="582"/>
-            <tile gid="582"/>
-            <tile gid="582"/>
-            <tile gid="582"/>
-            <tile gid="582"/>
-            <tile gid="583"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-            <tile gid="717"/>
-        </data>
-    </layer>
-    <objectgroup id="7" name="collisions" locked="1">
-        <object id="97" x="64" y="0" width="208" height="16"/>
-        <object id="98" x="240" y="16" width="16" height="208"/>
-        <object id="99" x="48" y="208" width="224" height="16"/>
-        <object id="100" x="48" y="0" width="16" height="208"/>
-    </objectgroup>
-    <objectgroup id="10" name="chests">
-        <object id="73" name="1" x="80" y="32" width="16" height="16">
-            <properties>
-                <property name="iscompleted" type="bool" value="1"/>
-            </properties>
-        </object>
-        <object id="75" name="2" x="112" y="32" width="16" height="16">
-            <properties>
-                <property name="iscompleted" type="bool" value="0"/>
-            </properties>
-        </object>
-        <object id="76" name="4" x="176" y="32" width="16" height="16">
-            <properties>
-                <property name="iscompleted" type="bool" value="0"/>
-            </properties>
-        </object>
-        <object id="77" name="5" x="208" y="32" width="16" height="16">
-            <properties>
-                <property name="iscompleted" type="bool" value="1"/>
-            </properties>
-        </object>
-        <object id="78" name="6" x="96" y="96" width="16" height="16">
-            <properties>
-                <property name="iscompleted" type="bool" value="0"/>
-            </properties>
-        </object>
-        <object id="79" name="7" x="128" y="96" width="16" height="16">
-            <properties>
-                <property name="iscompleted" type="bool" value="0"/>
-            </properties>
-        </object>
-        <object id="80" name="8" x="160" y="96" width="16" height="16">
-            <properties>
-                <property name="iscompleted" type="bool" value="0"/>
-            </properties>
-        </object>
-        <object id="81" name="10" x="80" y="160" width="16" height="16">
-            <properties>
-                <property name="iscompleted" type="bool" value="0"/>
-            </properties>
-        </object>
-        <object id="82" name="9" x="192" y="96" width="16" height="16">
-            <properties>
-                <property name="iscompleted" type="bool" value="0"/>
-            </properties>
-        </object>
-        <object id="83" name="11" x="112" y="160" width="16" height="16">
-            <properties>
-                <property name="iscompleted" type="bool" value="0"/>
-            </properties>
-        </object>
-        <object id="85" name="12" x="144" y="160" width="16" height="16">
-            <properties>
-                <property name="iscompleted" type="bool" value="0"/>
-            </properties>
-        </object>
-        <object id="88" name="3" x="144" y="32" width="16" height="16">
-            <properties>
-                <property name="iscompleted" type="bool" value="0"/>
-            </properties>
-        </object>
-        <object id="92" name="13" x="176" y="160" width="16" height="16">
-            <properties>
-                <property name="iscompleted" type="bool" value="0"/>
-            </properties>
-        </object>
-        <object id="93" name="14" x="208" y="160" width="16" height="16">
-            <properties>
-                <property name="iscompleted" type="bool" value="1"/>
-            </properties>
-        </object>
-    </objectgroup>
-    <objectgroup id="11" name="spawnpoint" locked="1">
-        <object id="90" x="96" y="64" width="16" height="16"/>
-    </objectgroup>
-    <objectgroup id="12" name="endpoint" locked="1">
-        <properties>
-            <property name="visible" type="bool" value="false"/>
-        </properties>
-        <object id="95" x="304" y="208" width="16" height="16"/>
-    </objectgroup>
+ <tileset firstgid="1" name="ninja" tilewidth="16" tileheight="16" tilecount="1120" columns="28">
+  <image source="tilesets/tileset.png" width="448" height="640"/>
+ </tileset>
+ <layer id="13" name="background" width="20" height="15" locked="1">
+  <data>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="525"/>
+   <tile gid="526"/>
+   <tile gid="526"/>
+   <tile gid="526"/>
+   <tile gid="526"/>
+   <tile gid="526"/>
+   <tile gid="526"/>
+   <tile gid="526"/>
+   <tile gid="526"/>
+   <tile gid="526"/>
+   <tile gid="527"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="553"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="555"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="553"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="555"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="553"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="555"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="553"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="555"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="553"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="555"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="553"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="555"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="553"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="555"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="553"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="555"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="553"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="555"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="553"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="554"/>
+   <tile gid="555"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="581"/>
+   <tile gid="582"/>
+   <tile gid="582"/>
+   <tile gid="582"/>
+   <tile gid="582"/>
+   <tile gid="582"/>
+   <tile gid="582"/>
+   <tile gid="582"/>
+   <tile gid="582"/>
+   <tile gid="582"/>
+   <tile gid="583"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+   <tile gid="717"/>
+  </data>
+ </layer>
+ <objectgroup id="7" name="collisions" locked="1">
+  <object id="97" x="64" y="0" width="208" height="16"/>
+  <object id="98" x="240" y="16" width="16" height="208"/>
+  <object id="99" x="48" y="208" width="224" height="16"/>
+  <object id="100" x="48" y="0" width="16" height="208"/>
+ </objectgroup>
+ <objectgroup id="10" name="chests" locked="1">
+  <object id="73" name="1" x="80" y="32" width="16" height="16">
+   <properties>
+    <property name="iscompleted" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="75" name="2" x="112" y="32" width="16" height="16">
+   <properties>
+    <property name="iscompleted" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="76" name="4" x="176" y="32" width="16" height="16">
+   <properties>
+    <property name="iscompleted" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="77" name="5" x="208" y="32" width="16" height="16">
+   <properties>
+    <property name="iscompleted" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="78" name="6" x="96" y="96" width="16" height="16">
+   <properties>
+    <property name="iscompleted" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="79" name="7" x="128" y="96" width="16" height="16">
+   <properties>
+    <property name="iscompleted" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="80" name="8" x="160" y="96" width="16" height="16">
+   <properties>
+    <property name="iscompleted" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="81" name="10" x="80" y="160" width="16" height="16">
+   <properties>
+    <property name="iscompleted" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="82" name="9" x="192" y="96" width="16" height="16">
+   <properties>
+    <property name="iscompleted" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="83" name="11" x="112" y="160" width="16" height="16">
+   <properties>
+    <property name="iscompleted" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="85" name="12" x="144" y="160" width="16" height="16">
+   <properties>
+    <property name="iscompleted" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="88" name="3" x="144" y="32" width="16" height="16">
+   <properties>
+    <property name="iscompleted" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="92" name="13" x="176" y="160" width="16" height="16">
+   <properties>
+    <property name="iscompleted" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="93" name="14" x="208" y="160" width="16" height="16">
+   <properties>
+    <property name="iscompleted" type="bool" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="11" name="spawnpoint" locked="1">
+  <object id="90" x="96" y="64" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup id="12" name="endpoint" locked="1">
+  <properties>
+   <property name="visible" type="bool" value="false"/>
+  </properties>
+  <object id="95" x="304" y="208" width="16" height="16"/>
+ </objectgroup>
 </map>

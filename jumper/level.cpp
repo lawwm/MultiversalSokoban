@@ -568,9 +568,11 @@ void Stage::update(int elapsedTime, bool& isMoving, Graphics& graphics) {
 		// for transition when switching levels
 		if (this->_alpha > 0) { // fade out previous stage
 			this->_levels[this->_idx].update(elapsedTime, this->_alpha);
-		} else if (this->_alpha == 0) { // set current idx to next idx 
-			this->_idx = this->_next; 
-		} else { // fade in next stage
+		} 
+		else { // fade in next stage
+			// set current idx to next idx 
+			this->_idx = this->_next;
+			
 			this->_levels[this->_idx].update(elapsedTime, -1 * this->_alpha);
 			if (this->_alpha <= -255) {
 				this->_alpha = 255;
@@ -578,7 +580,7 @@ void Stage::update(int elapsedTime, bool& isMoving, Graphics& graphics) {
 			}
 		}
 		
-		this->_alpha -= 1;
+		this->_alpha -= 2;
 		
 	}
 }
