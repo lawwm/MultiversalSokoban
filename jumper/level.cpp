@@ -742,7 +742,7 @@ Overworld::Overworld(Vector2 spawnPoint, Graphics& graphics, std::unordered_map<
 	
 		// insert into the dialogueData
 		std::string stagenumber = std::to_string(completionSprite.getLevelNumber());
-		std::string prompt = "Press A to proceed to Stage " + stagenumber + ".";
+		std::string prompt = "Press A to proceed to Stage " + stagenumber + ".\nPress D to continue choosing level.";
 		dialogueData[stagenumber] = prompt;
 	}
 }

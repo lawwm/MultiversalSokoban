@@ -67,7 +67,7 @@ namespace globals {
 	const std::string victory_music = dir + "audio/victory-music.wav";
 	
 	// fonts
-	const std::string zxSpectrum = dir + "fonts/zx-spectrum.ttf";
+	const std::string minimal = dir + "fonts/Minimal5x7.ttf";
 	
 	// sprites
 	

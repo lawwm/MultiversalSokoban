@@ -307,6 +307,7 @@ bool Game::overworld(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 			return false;
 		}
 		else if (input.wasKeyPressed(SDL_SCANCODE_A)) { // close menu
+			this->_isPlayerInLevelSelect = ESC;
 			Foley::playSound("menu-close");
 			this->_textbox.clearDialogue();
 		}

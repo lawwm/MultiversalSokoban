@@ -10,20 +10,9 @@ OpeningScreen::~OpeningScreen()
 
 OpeningScreen::OpeningScreen(Graphics& graphics)
 {
-	TTF_Font* font = TTF_OpenFont("fonts/zx-spectrum.ttf", 11);
 	SDL_Color white = { 255, 255, 255 };
 	int texW = 0;
 	int texH = 0;
-
-	SDL_Surface* surfaceMessage = TTF_RenderText_Blended_Wrapped(font, "Press A to start", white, 504);
-	SDL_Texture* message = SDL_CreateTextureFromSurface(graphics.getRenderer(), surfaceMessage);
-
-	// find dimensions of the created texture, and assign it to output so it is not stretched
-	SDL_QueryTexture(message, NULL, NULL, &texW, &texH);
-	SDL_Rect message_rect{ 198, 400, texW, texH };
-
-	_texts["start"] = std::make_pair(message, message_rect);
-	
 
 	this->_background = Sprite(graphics, globals::opening_screen, 0, 0, 600, 480, 0, 0);
 }

@@ -8,6 +8,6 @@ Entry point
 
 
 int main() {
-	Game game;
+    Game game;
 	return 0;
 }
