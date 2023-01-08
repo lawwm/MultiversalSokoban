@@ -97,6 +97,10 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 
 	XMLElement* mapNode = doc.FirstChildElement("map");
 
+	if (mapNode == nullptr) {
+		throw "no map found";
+	}
+	
 	//Get the width and the height of the whole map and store it in _size
 	int width, height;
 	mapNode->QueryIntAttribute("width", &width);

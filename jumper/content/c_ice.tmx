@@ -4,44 +4,24 @@
   <image source="tilesets/tileset.png" width="448" height="640"/>
  </tileset>
  <objectgroup id="6" name="collisions">
-  <object id="174" x="96" y="64" width="64" height="16"/>
-  <object id="175" x="80" y="64" width="16" height="128"/>
-  <object id="176" x="96" y="176" width="112" height="16"/>
-  <object id="177" x="192" y="112" width="16" height="64"/>
-  <object id="192" x="80" y="176" width="64" height="16"/>
-  <object id="194" x="128" y="160" width="16" height="16"/>
-  <object id="195" x="144" y="176" width="16" height="16"/>
-  <object id="196" x="160" y="80" width="64" height="16"/>
-  <object id="197" x="208" y="96" width="16" height="48"/>
-  <object id="198" x="64" y="64" width="32" height="64"/>
-  <object id="200" x="176" y="96" width="16" height="32"/>
-  <object id="201" x="96" y="144" width="16" height="16"/>
-  <object id="203" x="112" y="128" width="48" height="16"/>
-  <object id="204" x="96" y="112" width="32" height="16"/>
-  <object id="205" x="144" y="112" width="16" height="32"/>
+  <object id="174" x="96" y="48" width="64" height="16"/>
+  <object id="175" x="80" y="48" width="16" height="128"/>
+  <object id="176" x="96" y="160" width="112" height="16"/>
+  <object id="177" x="192" y="96" width="16" height="64"/>
+  <object id="192" x="80" y="160" width="64" height="16"/>
+  <object id="194" x="128" y="144" width="16" height="16"/>
+  <object id="195" x="144" y="160" width="16" height="16"/>
+  <object id="196" x="160" y="64" width="64" height="16"/>
+  <object id="197" x="208" y="80" width="16" height="48"/>
+  <object id="198" x="64" y="48" width="32" height="64"/>
+  <object id="200" x="176" y="80" width="16" height="32"/>
+  <object id="201" x="96" y="128" width="16" height="16"/>
+  <object id="203" x="112" y="112" width="48" height="16"/>
+  <object id="204" x="96" y="96" width="32" height="16"/>
+  <object id="205" x="144" y="96" width="16" height="32"/>
  </objectgroup>
  <layer id="10" name="Tile Layer 1" width="20" height="15">
   <data>
-   <tile gid="547"/>
-   <tile gid="547"/>
-   <tile gid="547"/>
-   <tile gid="547"/>
-   <tile gid="547"/>
-   <tile gid="547"/>
-   <tile gid="547"/>
-   <tile gid="547"/>
-   <tile gid="547"/>
-   <tile gid="547"/>
-   <tile gid="547"/>
-   <tile gid="547"/>
-   <tile gid="547"/>
-   <tile gid="547"/>
-   <tile gid="547"/>
-   <tile gid="547"/>
-   <tile gid="547"/>
-   <tile gid="547"/>
-   <tile gid="547"/>
-   <tile gid="547"/>
    <tile gid="547"/>
    <tile gid="547"/>
    <tile gid="547"/>
@@ -322,6 +302,26 @@
    <tile gid="547"/>
    <tile gid="547"/>
    <tile gid="547"/>
+   <tile gid="547"/>
+   <tile gid="547"/>
+   <tile gid="547"/>
+   <tile gid="547"/>
+   <tile gid="547"/>
+   <tile gid="547"/>
+   <tile gid="547"/>
+   <tile gid="547"/>
+   <tile gid="547"/>
+   <tile gid="547"/>
+   <tile gid="547"/>
+   <tile gid="547"/>
+   <tile gid="547"/>
+   <tile gid="547"/>
+   <tile gid="547"/>
+   <tile gid="547"/>
+   <tile gid="547"/>
+   <tile gid="547"/>
+   <tile gid="547"/>
+   <tile gid="547"/>
   </data>
  </layer>
  <layer id="11" name="Tile Layer 2" width="20" height="15">
@@ -416,26 +416,6 @@
    <tile/>
    <tile/>
    <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
    <tile gid="680"/>
    <tile gid="680"/>
    <tile/>
@@ -535,6 +515,26 @@
    <tile/>
    <tile/>
    <tile gid="680"/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
    <tile/>
    <tile/>
    <tile/>
