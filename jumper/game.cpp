@@ -238,14 +238,14 @@ bool Game::individualZone(Graphics& graphics, Input& input, int& LAST_UPDATE_TIM
 
 	// undo or restart
 	if (_canPlayerMove && _canPlayerSwitchStage && !hasPlayerWon) {
-		if (input.isKeyHeld(SDL_SCANCODE_Z) && input.wasKeyPressed(SDL_SCANCODE_Z)) {
+		if (input.wasKeyPressed(SDL_SCANCODE_Z)) {
 			this->undo();
 			Foley::playSound("undo");
 			if (this->_textbox.getKey() == globals::died_dialogue) {
 				this->_textbox.clearDialogue();
 			}
 		}
-		else if (input.isKeyHeld(SDL_SCANCODE_R) && input.wasKeyPressed(SDL_SCANCODE_R)) {
+		else if (input.wasKeyPressed(SDL_SCANCODE_R)) {
 			this->restart(graphics);
 			Foley::playSound("undo");
 			if (this->_textbox.getKey() == globals::died_dialogue) {

@@ -9,7 +9,11 @@ Graphics::Graphics() {
 	SDL_CreateWindowAndRenderer(globals::SCREEN_WIDTH, globals::SCREEN_HEIGHT, 0, &this->_window, &this->_renderer);
 
 	TTF_Init(); // might need to move this to game.cpp
-	SDL_SetWindowTitle(this->_window, "Jumper");
+	
+	SDL_Surface* icon = IMG_Load("sprites/icon.png");
+	
+	SDL_SetWindowTitle(this->_window, "Sokoban of the Multiverse");
+	SDL_SetWindowIcon(this->_window, icon);
 }
 
 Graphics::~Graphics() {
@@ -19,7 +23,6 @@ Graphics::~Graphics() {
 }
 
 SDL_Surface* Graphics::loadImage(const std::string& filePath) {
-	std::cout << filePath << std::endl;
 	if (this->_spriteSheets.count(filePath) == 0) {
 		this->_spriteSheets[filePath] = IMG_Load(filePath.c_str());
 	}

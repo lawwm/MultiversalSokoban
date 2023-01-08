@@ -381,7 +381,7 @@
         </object>
         <object id="93" name="14" x="208" y="160" width="16" height="16">
             <properties>
-                <property name="iscompleted" type="bool" value="0"/>
+                <property name="iscompleted" type="bool" value="1"/>
             </properties>
         </object>
     </objectgroup>
