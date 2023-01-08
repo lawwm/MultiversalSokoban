@@ -49,88 +49,89 @@ namespace globals {
 	const float SPRITE_WIDTH = 16.0f;
 	
 	// directory
-
+	const std::string dir = "content/";
+	
 	// sound
-	const std::string walk_sound = "audio/walk-sound.wav";
-	const std::string collide_sound = "audio/collide-sound.wav";
-	const std::string kill_sound = "audio/kill-sound.wav";
-	const std::string menu_sound = "audio/menu-sound.wav";
-	const std::string transition_sound = "audio/transition-sound.wav";
-	const std::string victory_sound = "audio/victory-sound.wav";
-	const std::string menu_close_sound = "audio/menu-close-sound.wav";
-	const std::string undo_sound = "audio/undo-sound.wav";
+	const std::string walk_sound = dir + "audio/walk-sound.wav";
+	const std::string collide_sound = dir + "audio/collide-sound.wav";
+	const std::string kill_sound = dir + "audio/kill-sound.wav";
+	const std::string menu_sound = dir + "audio/menu-sound.wav";
+	const std::string transition_sound = dir + "audio/transition-sound.wav";
+	const std::string victory_sound = dir + "audio/victory-sound.wav";
+	const std::string menu_close_sound = dir + "audio/menu-close-sound.wav";
+	const std::string undo_sound = dir + "audio/undo-sound.wav";
 	
 	// music
-	const std::string opening_music = "audio/opening-music.wav";
-	const std::string game_music = "audio/game-music.wav";
-	const std::string victory_music = "audio/victory-music.wav";
+	const std::string opening_music = dir + "audio/opening-music.wav";
+	const std::string game_music = dir + "audio/game-music.wav";
+	const std::string victory_music = dir + "audio/victory-music.wav";
 	
 	// fonts
-	const std::string zxSpectrum = "fonts/zx-spectrum.ttf";
+	const std::string zxSpectrum = dir + "fonts/zx-spectrum.ttf";
 	
 	// sprites
 	
-	const std::string eskimo = "sprites/21.png";
-	const std::string coin = "sprites/coin-2.png";
-	const std::string sushi = "sprites/sushi.png";
-	const std::string bomb = "sprites/CanonBall.png";
+	const std::string eskimo = dir + "sprites/21.png";
+	const std::string coin = dir + "sprites/coin-2.png";
+	const std::string sushi = dir + "sprites/sushi.png";
+	const std::string bomb = dir + "sprites/CanonBall.png";
 	
-	const std::string explode = "sprites/explode.png";
-	const std::string endpoint = "sprites/2.png";
-	const std::string dialogue = "sprites/dialogue-bubble.png";
-	const std::string chest = "sprites/little-treasure-chest.png";
+	const std::string explode = dir + "sprites/explode.png";
+	const std::string endpoint = dir + "sprites/2.png";
+	const std::string dialogue = dir + "sprites/dialogue-bubble.png";
+	const std::string chest = dir + "sprites/little-treasure-chest.png";
 	
 	
 	// screens
 
-	const std::string opening_screen = "sprites/opening_screen.png";
-	const std::string closing_screen = "sprites/closing_screen.png";
+	const std::string opening_screen = dir + "sprites/opening_screen.png";
+	const std::string closing_screen = dir + "sprites/closing_screen.png";
 	
 
 	// maps
 
-	const std::string a_yellow = "a_yellow";
-	const std::string a_ice = "a_ice";
+	const std::string a_yellow = dir + "a_yellow";
+	const std::string a_ice = dir + "a_ice";
 
-	const std::string b_yellow = "b_yellow";
-	const std::string b_ice = "b_ice";
+	const std::string b_yellow = dir + "b_yellow";
+	const std::string b_ice = dir + "b_ice";
 
-	const std::string c_room = "c_room";
-	const std::string c_ice = "c_ice";
+	const std::string c_room = dir + "c_room";
+	const std::string c_ice = dir + "c_ice";
 
-	const std::string d_green = "d_green";
-	const std::string d_yellow = "d_yellow";
+	const std::string d_green = dir + "d_green";
+	const std::string d_yellow = dir + "d_yellow";
 
-	const std::string e_yellow = "e_yellow";
-	const std::string e_green = "e_green";
+	const std::string e_yellow = dir + "e_yellow";
+	const std::string e_green = dir + "e_green";
 
-	const std::string f_room = "f_room";
-	const std::string f_ice = "f_ice";
+	const std::string f_room = dir + "f_room";
+	const std::string f_ice = dir + "f_ice";
 
-	const std::string g_yellow = "g_yellow";
+	const std::string g_yellow = dir + "g_yellow";
 
-	const std::string h_yellow = "h_yellow";
-	const std::string h_green = "h_green";
+	const std::string h_yellow = dir + "h_yellow";
+	const std::string h_green = dir + "h_green";
 
-	const std::string i_yellow = "i_yellow";
-	const std::string i_ice = "i_ice";
+	const std::string i_yellow = dir + "i_yellow";
+	const std::string i_ice = dir + "i_ice";
 
-	const std::string j_yellow = "j_yellow";
-	const std::string j_ice = "j_ice";
+	const std::string j_yellow = dir + "j_yellow";
+	const std::string j_ice = dir + "j_ice";
 
-	const std::string k_ice = "k_ice";
-	const std::string k_yellow = "k_yellow";
+	const std::string k_ice = dir + "k_ice";
+	const std::string k_yellow = dir + "k_yellow";
 
-	const std::string l_ice = "l_ice";
-	const std::string l_yellow = "l_yellow";
+	const std::string l_ice = dir + "l_ice";
+	const std::string l_yellow = dir + "l_yellow";
 		
-	const std::string m_ice = "m_ice";
-	const std::string m_yellow = "m_yellow";
+	const std::string m_ice = dir + "m_ice";
+	const std::string m_yellow = dir + "m_yellow";
 	
-	const std::string n_ice = "n_ice";
-	const std::string n_yellow = "n_yellow";
+	const std::string n_ice = dir + "n_ice";
+	const std::string n_yellow = dir + "n_yellow";
 
-	const std::string overworld = "overworld";
+	const std::string overworld = dir + "overworld";
 	
 	const std::vector<zonedata> data = { // first element of each vector contains the element location details
 		{{a_ice, a_yellow }}, // introduce player to dimension switching /done 1
