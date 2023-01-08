@@ -62,9 +62,9 @@ namespace globals {
 	const std::string undo_sound = dir + "audio/undo-sound.wav";
 	
 	// music
-	const std::string opening_music = dir + "audio/opening-music.wav";
-	const std::string game_music = dir + "audio/game-music.wav";
-	const std::string victory_music = dir + "audio/victory-music.wav";
+	const std::string opening_music = dir + "audio/opening-music.ogg";
+	const std::string game_music = dir + "audio/game-music.ogg";
+	const std::string victory_music = dir + "audio/victory-music.ogg";
 	
 	// fonts
 	const std::string minimal = dir + "fonts/Minimal5x7.ttf";

@@ -3,7 +3,7 @@
  <tileset firstgid="1" name="fantasy" tilewidth="16" tileheight="16" tilecount="1120" columns="28">
   <image source="tilesets/tileset.png" width="448" height="640"/>
  </tileset>
- <layer id="9" name="lowestest" width="20" height="15">
+ <layer id="9" name="lowestest" width="20" height="15" locked="1">
   <data>
    <tile gid="840"/>
    <tile gid="840"/>
@@ -352,8 +352,8 @@
    <tile gid="840"/>
    <tile gid="840"/>
    <tile gid="840"/>
-   <tile gid="840"/>
    <tile gid="848"/>
+   <tile gid="849"/>
    <tile gid="849"/>
    <tile gid="852"/>
    <tile gid="853"/>
@@ -372,8 +372,8 @@
    <tile gid="840"/>
    <tile gid="840"/>
    <tile gid="840"/>
-   <tile gid="840"/>
    <tile gid="876"/>
+   <tile gid="991"/>
    <tile gid="991"/>
    <tile gid="991"/>
    <tile gid="1020"/>
@@ -392,8 +392,8 @@
    <tile gid="840"/>
    <tile gid="840"/>
    <tile gid="840"/>
-   <tile gid="840"/>
    <tile gid="876"/>
+   <tile gid="991"/>
    <tile gid="991"/>
    <tile gid="991"/>
    <tile gid="991"/>
@@ -412,8 +412,8 @@
    <tile gid="840"/>
    <tile gid="840"/>
    <tile gid="840"/>
-   <tile gid="840"/>
    <tile gid="876"/>
+   <tile gid="991"/>
    <tile gid="991"/>
    <tile gid="991"/>
    <tile gid="992"/>
@@ -432,8 +432,8 @@
    <tile gid="840"/>
    <tile gid="840"/>
    <tile gid="840"/>
-   <tile gid="840"/>
    <tile gid="960"/>
+   <tile gid="961"/>
    <tile gid="961"/>
    <tile gid="961"/>
    <tile gid="965"/>
@@ -611,10 +611,10 @@
    <tile gid="840"/>
   </data>
  </layer>
- <objectgroup id="6" name="collisions">
+ <objectgroup id="6" name="collisions" locked="1">
   <object id="63" x="64" y="32" width="64" height="16"/>
-  <object id="64" x="64" y="48" width="16" height="64"/>
-  <object id="65" x="80" y="96" width="48" height="16"/>
+  <object id="64" x="48" y="48" width="16" height="64"/>
+  <object id="65" x="64" y="96" width="48" height="16"/>
   <object id="66" x="112" y="80" width="112" height="16"/>
   <object id="67" x="208" y="96" width="64" height="16"/>
   <object id="68" x="112" y="48" width="112" height="16"/>
