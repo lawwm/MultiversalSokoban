@@ -2,6 +2,7 @@
 #define AUDIO_H
 
 #include "SDL_mixer.h"
+#include "globals.h"
 
 #include <iostream>
 #include <unordered_map>

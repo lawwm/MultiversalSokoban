@@ -48,6 +48,28 @@ namespace globals {
 	const float SPRITE_SCALE = 2.0f;
 	const float SPRITE_WIDTH = 16.0f;
 	
+	// directory
+
+	// sound
+	const std::string walk_sound = "audio/walk-sound.wav";
+	const std::string collide_sound = "audio/collide-sound.wav";
+	const std::string kill_sound = "audio/kill-sound.wav";
+	const std::string menu_sound = "audio/menu-sound.wav";
+	const std::string transition_sound = "audio/transition-sound.wav";
+	const std::string victory_sound = "audio/victory-sound.wav";
+	const std::string menu_close_sound = "audio/menu-close-sound.wav";
+	const std::string undo_sound = "audio/undo-sound.wav";
+	
+	// music
+	const std::string opening_music = "audio/opening-music.wav";
+	const std::string game_music = "audio/game-music.wav";
+	const std::string victory_music = "audio/victory-music.wav";
+	
+	// fonts
+	const std::string zxSpectrum = "fonts/zx-spectrum.ttf";
+	
+	// sprites
+	
 	const std::string eskimo = "sprites/21.png";
 	const std::string coin = "sprites/coin-2.png";
 	const std::string sushi = "sprites/sushi.png";
@@ -59,9 +81,14 @@ namespace globals {
 	const std::string chest = "sprites/little-treasure-chest.png";
 	
 	
+	// screens
+
 	const std::string opening_screen = "sprites/opening_screen.png";
 	const std::string closing_screen = "sprites/closing_screen.png";
 	
+
+	// maps
+
 	const std::string a_yellow = "a_yellow";
 	const std::string a_ice = "a_ice";
 

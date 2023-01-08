@@ -57,16 +57,6 @@ VictoryScreen::VictoryScreen(Graphics& graphics)
 	int texW = 0;
 	int texH = 0;
 
-	//SDL_Surface* surfaceMessage = TTF_RenderText_Blended_Wrapped(font, "You have mastered multiversal travel!\n         Congratulations (:", white, 504);
-	//SDL_Texture* message = SDL_CreateTextureFromSurface(graphics.getRenderer(), surfaceMessage);
-
-	//// find dimensions of the created texture, and assign it to output so it is not stretched
-	//SDL_QueryTexture(message, NULL, NULL, &texW, &texH);
-	//SDL_Rect message_rect{ 60, 380, texW, texH };
-
-	//_texts["start"] = std::make_pair(message, message_rect);
-
-
 	this->_background = Sprite(graphics, globals::closing_screen, 0, 0, 600, 480, 0, 0);
 }
 

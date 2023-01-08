@@ -3,9 +3,9 @@
 
 void Audio::initializeData() {
 	_music = {
-		{ "opening", Mix_LoadMUS("audio/opening-music.wav") },
-		{ "game", Mix_LoadMUS("audio/game-music.wav") },
-		{ "victory", Mix_LoadMUS("audio/victory-music.wav")},
+		{ "opening", Mix_LoadMUS(globals::opening_music.c_str()) },
+		{ "game", Mix_LoadMUS(globals::game_music.c_str()) },
+		{ "victory", Mix_LoadMUS(globals::victory_music.c_str())},
 	};
 }
 
@@ -68,14 +68,14 @@ void Foley::toggle() {
 
 void Foley::initializeData() {
 	_sound = {
-		{ "walk", Mix_LoadWAV("audio/walk-sound.wav") },
-		{ "collide", Mix_LoadWAV("audio/collide-sound.wav") },
-		{ "kill", Mix_LoadWAV("audio/kill-sound.wav") },
-		{ "menu", Mix_LoadWAV("audio/menu-sound.wav") },
-		{ "transition", Mix_LoadWAV("audio/transition-sound.wav") },
-		{ "victory", Mix_LoadWAV("audio/victory-sound.wav") },
-		{ "menu-close", Mix_LoadWAV("audio/menu-close-sound.wav") },
-		{ "undo", Mix_LoadWAV("audio/undo-sound.wav") }
+		{ "walk", Mix_LoadWAV(globals::walk_sound.c_str()) },
+		{ "collide", Mix_LoadWAV(globals::collide_sound.c_str()) },
+		{ "kill", Mix_LoadWAV(globals::kill_sound.c_str()) },
+		{ "menu", Mix_LoadWAV(globals::menu_sound.c_str()) },
+		{ "transition", Mix_LoadWAV(globals::transition_sound.c_str()) },
+		{ "victory", Mix_LoadWAV(globals::victory_sound.c_str()) },
+		{ "menu-close", Mix_LoadWAV(globals::menu_close_sound.c_str()) },
+		{ "undo", Mix_LoadWAV(globals::undo_sound.c_str()) }
 	};
 }
 

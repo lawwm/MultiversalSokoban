@@ -15,7 +15,8 @@ public:
 	TextBox() {}
 
 	TextBox(Graphics& graphics, std::unordered_map<std::string, std::string>& texts) {
-		TTF_Font* font = TTF_OpenFont("fonts/zx-spectrum.ttf", 11);
+
+		TTF_Font* font = TTF_OpenFont(globals::zxSpectrum.c_str(), 11);
 		SDL_Color white = { 0, 0, 0 };
 		int texW = 0;
 		int texH = 0;
