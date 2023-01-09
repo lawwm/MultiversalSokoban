@@ -166,6 +166,7 @@ namespace globals {
 	const std::string died_dialogue = "died";
 	const std::string won_dialogue = "won";
 	const std::string exit_dialogue = "exit";
+	const std::string opening_exit_dialogue = "opening_exit";
 	const std::string overworld_exit_dialogue = "overworld_exit";
 }
 

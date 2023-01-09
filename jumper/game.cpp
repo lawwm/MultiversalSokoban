@@ -50,6 +50,7 @@ void Game::gameLoop() {
 		{globals::died_dialogue, "You lost. Press Z to undo or R to restart"},
 		{globals::won_dialogue, "You won. Press N to proceed."},
 		{globals::exit_dialogue, "Press Esc again to confirm exit.\nPress A to continue playing.\nPress D for level select."},
+		{globals::opening_exit_dialogue, "Press Esc again to confirm exit.\nPress A to continue playing."},
 		{globals::overworld_exit_dialogue, "Press Esc again to confirm exit.\nPress A to continue playing."},
 	});
 
@@ -137,6 +138,7 @@ void Game::draw(Graphics& graphics) {
 	}
 	else if (this->_currScreen == START_SCREEN) {
 		this->_openingScreen.draw(graphics);
+		this->_textbox.draw(graphics);
 	}
 	else if (this->_currScreen == VICTORY_SCREEN) {
 		this->_victoryScreen.draw(graphics);
@@ -385,14 +387,26 @@ bool Game::overworld(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 bool Game::openingscreen(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 {
 	Audio::setCurrentMusic("opening");
-	
-	if (input.wasKeyPressed(SDL_SCANCODE_A)) {
+
+	if (input.wasKeyPressed(SDL_SCANCODE_A) && this->_textbox.getKey() != globals::opening_exit_dialogue) {
 		this->_currScreen = OVERWORLD;
 		Foley::playSound("menu");
 		return true;
 	}
-	else if (input.wasKeyPressed(SDL_SCANCODE_ESCAPE))  {
-		return false;
+	else if (input.wasKeyPressed(SDL_SCANCODE_ESCAPE) || this->_textbox.getKey() == globals::opening_exit_dialogue)  {
+		//leave game
+		if (input.wasKeyPressed(SDL_SCANCODE_ESCAPE) && this->_textbox.getKey() == globals::opening_exit_dialogue) {
+			return false;
+		}
+		else if (input.wasKeyPressed(SDL_SCANCODE_D) || input.wasKeyPressed(SDL_SCANCODE_A)) {
+			this->_textbox.clearDialogue();
+			Foley::playSound("menu-close");
+		}
+		else if (this->_textbox.getKey() != globals::opening_exit_dialogue) { // first clicking exit
+			this->_textbox.set(globals::opening_exit_dialogue);
+			this->draw(graphics);
+		}
+		return true;
 	}
 
 	const int CURRENT_TIME_MS = SDL_GetTicks64();
