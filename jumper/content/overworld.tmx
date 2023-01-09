@@ -313,7 +313,7 @@
   <object id="99" x="48" y="208" width="224" height="16"/>
   <object id="100" x="48" y="0" width="16" height="208"/>
  </objectgroup>
- <objectgroup id="10" name="chests" locked="1">
+ <objectgroup id="10" name="chests">
   <object id="73" name="1" x="80" y="32" width="16" height="16">
    <properties>
     <property name="iscompleted" type="bool" value="false"/>

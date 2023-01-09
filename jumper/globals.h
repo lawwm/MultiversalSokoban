@@ -136,13 +136,13 @@ namespace globals {
 	const std::vector<zonedata> data = { // first element of each vector contains the element location details
 		{{a_ice, a_yellow }}, // introduce player to dimension switching /done 1
 
-		{{b_ice, b_yellow }}, // get the player to be better at dimension switching /done 2
-
-		{{c_room, c_ice }},	// show an easy level that coins can get to the end /done 3
+		{{c_room, c_ice }},	// get the player to be better at dimension switching /done 2
 		
-		{{d_green, d_yellow }}, // up the number of coins /done 4
+		{{b_ice, b_yellow }}, // show an easy level that coins can get to the end /done 3
+		
+		{{e_green, e_yellow}}, // show an obvious path that cannot work /done 4
 
-		{{e_green, e_yellow}}, // show an obvious path that cannot work /done 5
+		{{d_green, d_yellow }}, // up the number of coins /done 5
 		
 		{{g_yellow}},	// introduce the spike tile g /done 6
 

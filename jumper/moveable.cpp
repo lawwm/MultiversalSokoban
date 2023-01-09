@@ -112,15 +112,15 @@ void Coin::draw(Graphics& graphics) {
 }
 
 bool Coin::collidesWith(Rectangle other) {
-	return this->getBoundingBox().collidesWith(other);
+	return this->getVisible() && this->getBoundingBox().collidesWith(other);
 };
 
 bool Coin::isItPossibleToWin() {
-	return this->getVisible();
+	return true;
 };
 
 bool Coin::hasItWon() {
-	return this->getVisible();
+	return true;
 };
 
 /**
