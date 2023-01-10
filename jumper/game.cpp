@@ -32,10 +32,53 @@ Game::Game() {
 		return;
 	}
 
+	this->gameSize();
+
 	this->gameLoop();
 }
 
 Game::~Game() {
+
+}
+
+void Game::gameSize() {
+	Graphics graphics;
+	Input input;
+	SDL_Event event;
+
+	this->_staticScreen = StaticScreen(graphics);
+
+	while (true) {
+		if (SDL_PollEvent(&event)) {
+			if (event.type == SDL_KEYDOWN) {
+				if (event.key.repeat == 0) {
+					input.keyDownEvent(event);
+				}
+			}
+			else if (event.type == SDL_KEYUP) {
+				input.keyUpEvent(event);
+			}
+			else if (event.type == SDL_QUIT) {
+				return;
+			}
+		}
+
+		if (input.wasKeyPressed(SDL_SCANCODE_1)) {
+			Window::setWindowSize(0);
+			return;
+		}
+		else if (input.wasKeyPressed(SDL_SCANCODE_2)) {
+			Window::setWindowSize(1);
+			return;
+		}
+		else if (input.wasKeyPressed(SDL_SCANCODE_3)) {
+			Window::setWindowSize(2);
+			return;
+		}
+		graphics.clear();
+		this->_staticScreen.draw(graphics);
+		graphics.flip();
+	}
 
 }
 
@@ -49,9 +92,9 @@ void Game::gameLoop() {
 	std::unordered_map<std::string, std::string> dialogueData({
 		{globals::died_dialogue, "You lost. Press Z to undo or R to restart"},
 		{globals::won_dialogue, "You won. Press N to proceed."},
-		{globals::exit_dialogue, "Press Esc again to confirm exit.\nPress A to continue playing.\nPress D for level select."},
+		{globals::exit_dialogue, "Press Esc again to confirm exit. \nPress A to continue playing.\nPress D for level select."},
 		{globals::opening_exit_dialogue, "Press Esc again to confirm exit.\nPress A to continue playing."},
-		{globals::overworld_exit_dialogue, "Press Esc again to confirm exit.\nPress A to continue playing."},
+		{globals::overworld_exit_dialogue, "Press Esc again to confirm exit. \nPress A to continue playing."},
 	});
 
 	this->_zone = std::move(Zone(globals::data, graphics, 0));
@@ -321,7 +364,7 @@ bool Game::overworld(Graphics& graphics, Input& input, int& LAST_UPDATE_TIME)
 	}
 	
 	// level select
-	float key = this->_player.getY() * globals::SCREEN_WIDTH + this->_player.getX();
+	float key = this->_player.getY() * Window::getScreenWidth() + this->_player.getX();
 
 	if (this->_overworld.getZoneMapValue(key)) {
 		int value = this->_overworld.getZoneMapValue(key);

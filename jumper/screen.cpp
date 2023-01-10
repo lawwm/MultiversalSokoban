@@ -61,3 +61,28 @@ void VictoryScreen::update(float elapsedTime, Graphics& graphics)
 {
 	this->_background.update();
 }
+
+
+
+StaticScreen::StaticScreen()
+{
+}
+
+StaticScreen::~StaticScreen()
+{
+}
+
+StaticScreen::StaticScreen(Graphics& graphics)
+{
+	this->_background = Sprite(graphics, globals::setting_screen, 0, 0, 600, 480, 0, 0);
+}
+
+void StaticScreen::draw(Graphics& graphics)
+{
+	this->_background.draw(graphics, 0, 0, 300, 240);
+}
+
+void StaticScreen::update(float elapsedTime, Graphics& graphics)
+{
+	this->_background.update();
+}

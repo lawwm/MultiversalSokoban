@@ -1,9 +1,5 @@
 #include "player.h"
 
-namespace player_constants {
-	const float WALK_SPEED = 0.15f;
-}
-
 Player::Player() {};
 
 Player::Player(Graphics& graphics, Vector2 spawnPoint) :
@@ -64,26 +60,26 @@ bool Player::canMoveToNewPosition(const Stage& stage, std::vector<Moveable*>& cr
 
 void Player::moveLeft(bool& isMoving, const Stage& stage,
 	 std::vector<Moveable*>& crates, Ticket& ticket) {
-	move(isMoving, stage, crates, -player_constants::WALK_SPEED, 0.0f,
-		-32, 0, "RunLeft", LEFT, ticket);
+	move(isMoving, stage, crates, -Window::getPlayerSpeed(), 0.0f,
+		-(Window::getSpriteScale() * globals::SPRITE_WIDTH), 0, "RunLeft", LEFT, ticket);
 }
 
 void Player::moveRight(bool& isMoving, const Stage& stage,
 	 std::vector<Moveable*>& crates, Ticket& ticket) {
-	move(isMoving, stage, crates, player_constants::WALK_SPEED, 0.0f,
-		32, 0, "RunRight", RIGHT, ticket);
+	move(isMoving, stage, crates, Window::getPlayerSpeed(), 0.0f,
+		(Window::getSpriteScale() * globals::SPRITE_WIDTH), 0, "RunRight", RIGHT, ticket);
 }
 
 void Player::moveUp(bool& isMoving, const Stage& stage,
 	 std::vector<Moveable*>& crates, Ticket& ticket) {
-	move(isMoving, stage, crates, 0.0f, -player_constants::WALK_SPEED,
-		0, -32, "RunUp", UP, ticket);
+	move(isMoving, stage, crates, 0.0f, -Window::getPlayerSpeed(),
+		0, -(Window::getSpriteScale() * globals::SPRITE_WIDTH), "RunUp", UP, ticket);
 }
 
 void Player::moveDown(bool& isMoving, const Stage& stage,
 	 std::vector<Moveable*>& crates, Ticket& ticket) {
-	move(isMoving, stage, crates, 0.0f, player_constants::WALK_SPEED,
-		0, 32, "RunDown", DOWN, ticket);
+	move(isMoving, stage, crates, 0.0f, Window::getPlayerSpeed(),
+		0, (Window::getSpriteScale() * globals::SPRITE_WIDTH), "RunDown", DOWN, ticket);
 }
 
 void Player::move(bool& isMoving, const Stage& stage,

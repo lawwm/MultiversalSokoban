@@ -5,6 +5,7 @@
 #include <sstream>
 
 #include "tinyxml2.h"
+#include "windowsize.h"
 
 using namespace tinyxml2;
 
@@ -64,7 +65,7 @@ public:
 					pProperties = pProperties->NextSiblingElement("properties");
 				}
 
-				completionSprites.emplace_back(graphics, Vector2(x * globals::SPRITE_SCALE, y * globals::SPRITE_SCALE), levelNumber, isCompleted);
+				completionSprites.emplace_back(graphics, Vector2(x * Window::getSpriteScale(), y * Window::getSpriteScale()), levelNumber, isCompleted);
 				
 				pObject = pObject->NextSiblingElement("object");
 			}

@@ -10,6 +10,7 @@
 #include "graphics.h"
 #include "input.h"
 #include "moveable.h"
+#include "windowsize.h"
 
 #include "SDL.h"
 #include "SDL_mixer.h"
@@ -38,10 +39,13 @@ private:
 	
 	void initialisePlayer(Graphics& graphics);
 
+	void gameSize();
+
 	Zone _zone;
 	Overworld _overworld;
 	OpeningScreen _openingScreen;
 	VictoryScreen _victoryScreen;
+	StaticScreen _staticScreen;
 	
 	TextBox _textbox;
 	Player _player;

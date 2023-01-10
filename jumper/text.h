@@ -6,6 +6,7 @@
 #include "graphics.h"
 #include "globals.h";
 #include "audio.h"
+#include "windowsize.h"
 
 #include <vector>
 #include <unordered_map>
@@ -16,18 +17,18 @@ public:
 
 	TextBox(Graphics& graphics, std::unordered_map<std::string, std::string>& texts) {
 
-		TTF_Font* font = TTF_OpenFont(globals::minimal.c_str(), 25);
+		TTF_Font* font = TTF_OpenFont(globals::minimal.c_str(), Window::getTextSize());
 		SDL_Color white = { 0, 0, 0 };
 		int texW = 0;
 		int texH = 0;
 		for (auto [key, value] : texts) {
 			// Create texture from the text
-			SDL_Surface* surfaceMessage = TTF_RenderText_Blended_Wrapped(font, value.c_str(), white, 504);
+			SDL_Surface* surfaceMessage = TTF_RenderText_Blended_Wrapped(font, value.c_str(), white, 252 * Window::getSpriteScale());
 			SDL_Texture* message = SDL_CreateTextureFromSurface(graphics.getRenderer(), surfaceMessage);
 			
 			// find dimensions of the created texture, and assign it to output so it is not stretched
 			SDL_QueryTexture(message, NULL, NULL, &texW, &texH);
-			SDL_Rect message_rect{ 69, 357, texW, texH };
+			SDL_Rect message_rect{ 34.5 * Window::getSpriteScale(), 178.5 * Window::getSpriteScale(), texW, texH};
 
 			_texts[key] = std::make_pair(message, message_rect);
 		}
@@ -59,7 +60,7 @@ public:
 		if (_currKey == "") {
 			return;
 		}
-		this->_dialogue.draw(graphics, 48, 336, 252, 48); // x offset, y offset, width, height
+		this->_dialogue.draw(graphics, 24 * Window::getSpriteScale(), 168 * Window::getSpriteScale(), 252, 48); // x offset, y offset, width, height
 		graphics.blitSurface(_texts[_currKey].first, nullptr, &_texts[_currKey].second);
 	}
 

@@ -22,20 +22,20 @@ Sprite::Sprite(Graphics& graphics, const std::string& filePath, int sourceX, int
 Sprite::~Sprite() {}
 
 void Sprite::draw(Graphics& graphics, int x, int y) {
-	SDL_Rect destinationRectangle = { x, y, this->_sourceRect.w * globals::SPRITE_SCALE,
-			this->_sourceRect.h * globals::SPRITE_SCALE };
+	SDL_Rect destinationRectangle = { x, y, this->_sourceRect.w * Window::getSpriteScale(),
+			this->_sourceRect.h * Window::getSpriteScale() };
 	graphics.blitSurface(this->_spriteSheet, &this->_sourceRect, &destinationRectangle);
 }
 
 void Sprite::draw(Graphics& graphics, int x, int y, int width, int height) {
-	SDL_Rect destinationRectangle = { x, y, width * globals::SPRITE_SCALE,
-			height* globals::SPRITE_SCALE };
+	SDL_Rect destinationRectangle = { x, y, width * Window::getSpriteScale(),
+			height* Window::getSpriteScale() };
 	graphics.blitSurface(this->_spriteSheet, &this->_sourceRect, &destinationRectangle);
 }
 
 void Sprite::update() {
 	this->_boundingBox = Rectangle(this->_x, this->_y,
-		this->_sourceRect.w * globals::SPRITE_SCALE, this->_sourceRect.h * globals::SPRITE_SCALE);
+		this->_sourceRect.w * Window::getSpriteScale(), this->_sourceRect.h * Window::getSpriteScale());
 }
 
 const Rectangle Sprite::getBoundingBox() const {
@@ -54,6 +54,6 @@ bool Sprite::isStationary() const {
 	int intx = floor(this->_x);
 	int inty = floor(this->_y);
 	bool isCloseToInt = std::abs(this->_x - floor(this->_x)) < 0.000000001f && std::abs(this->_y - floor(this->_y)) < 0.000000001f;
-	int spritesize = floor(globals::SPRITE_SCALE * globals::SPRITE_WIDTH);
+	int spritesize = floor(Window::getSpriteScale() * globals::SPRITE_WIDTH);
 	return !(intx % spritesize) && !(inty % spritesize) && isCloseToInt;
 }

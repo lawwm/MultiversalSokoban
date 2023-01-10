@@ -41,4 +41,19 @@ private:
 	Sprite _background;
 };
 
+
+class StaticScreen {
+public:
+	StaticScreen();
+	~StaticScreen();
+
+	StaticScreen(Graphics& graphics);
+
+	void draw(Graphics& graphics);
+	void update(float elapsedTime, Graphics& graphics);
+
+private:
+	Sprite _background;
+};
+
 #endif

@@ -225,10 +225,10 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 				// make the rectangle one unit smaller from each side so that player 
 				// character can move within tight spaces
 				Rectangle rec(
-					std::ceil(x)* globals::SPRITE_SCALE,
-					std::ceil(y)* globals::SPRITE_SCALE,
-					std::ceil(width)* globals::SPRITE_SCALE,
-					std::ceil(height)* globals::SPRITE_SCALE
+					std::ceil(x)* Window::getSpriteScale(),
+					std::ceil(y)* Window::getSpriteScale(),
+					std::ceil(width)* Window::getSpriteScale(),
+					std::ceil(height)* Window::getSpriteScale()
 				);
 				if (ss.str() == "collisions") {
 					this->_collisionRects.push_back(rec);
@@ -247,12 +247,6 @@ void Level::loadMap(std::string mapName, Graphics& graphics) {
 
 		pObjectGroup = pObjectGroup->NextSiblingElement("objectgroup");
 	}
-	
-
-	
-
-	
-
 }
 
 void Level::storeCurrState(int ticket) {
@@ -415,8 +409,8 @@ void Stage::loadElements(std::string mapName, Graphics& graphics) {
 				if (pObject != NULL) {
 					while (pObject) {
 						float x, y;
-						x = pObject->FloatAttribute("x") * globals::SPRITE_SCALE;
-						y = pObject->FloatAttribute("y") * globals::SPRITE_SCALE;
+						x = pObject->FloatAttribute("x") * Window::getSpriteScale();
+						y = pObject->FloatAttribute("y") * Window::getSpriteScale();
 
 						// add to spawn
 						this->_spawnPoint = Vector2(x, y);
@@ -432,8 +426,8 @@ void Stage::loadElements(std::string mapName, Graphics& graphics) {
 					while (pObject) {
 						float x, y;
 						bool shouldShow = true;
-						x = pObject->FloatAttribute("x") * globals::SPRITE_SCALE;
-						y = pObject->FloatAttribute("y") * globals::SPRITE_SCALE;
+						x = pObject->FloatAttribute("x") * Window::getSpriteScale();
+						y = pObject->FloatAttribute("y") * Window::getSpriteScale();
 
 						// check properties for whether the chest has been completed
 						XMLElement* pProperties = pObjectGroup->FirstChildElement("properties");
@@ -464,8 +458,8 @@ void Stage::loadElements(std::string mapName, Graphics& graphics) {
 				if (pObject != NULL) {
 					while (pObject) {
 						float x, y;
-						x = pObject->FloatAttribute("x") * globals::SPRITE_SCALE;
-						y = pObject->FloatAttribute("y") * globals::SPRITE_SCALE;
+						x = pObject->FloatAttribute("x") * Window::getSpriteScale();
+						y = pObject->FloatAttribute("y") * Window::getSpriteScale();
 
 						// add to moveables
 						if (ss.str() == "coins") {
@@ -737,7 +731,7 @@ Overworld::Overworld(Vector2 spawnPoint, Graphics& graphics, std::unordered_map<
 	for (auto& completionSprite : this->_completionSprites) {
 
 		// fill out coordinates map
-		int key = completionSprite.getX() + completionSprite.getY() * globals::SCREEN_WIDTH;
+		int key = completionSprite.getX() + completionSprite.getY() * Window::getScreenWidth();
 		this->_overworldzone_map.insert({ key, completionSprite.getLevelNumber() });
 	
 		// insert into the dialogueData
@@ -827,10 +821,10 @@ Vector2 Overworld::getPlayerSpawnPoint() {
 	if (this->_completionSprites.size() <= 0) {
 		return Vector2(0, 0);
 	}
-	Vector2 spawn(this->_completionSprites[0].getX(), this->_completionSprites[0].getY() + (globals::SPRITE_SCALE * globals::SPRITE_WIDTH));
+	Vector2 spawn(this->_completionSprites[0].getX(), this->_completionSprites[0].getY() + (Window::getSpriteScale() * globals::SPRITE_WIDTH));
 	for (int i = 1; i < this->_completionSprites.size(); ++i) {
 		if (this->_completionSprites[i].getCompleted()) {
-			spawn = Vector2(this->_completionSprites[i].getX(), this->_completionSprites[i].getY() + (globals::SPRITE_SCALE * globals::SPRITE_WIDTH));
+			spawn = Vector2(this->_completionSprites[i].getX(), this->_completionSprites[i].getY() + (Window::getSpriteScale() * globals::SPRITE_WIDTH));
 		}
 		else {
 			break;

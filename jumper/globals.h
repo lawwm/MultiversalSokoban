@@ -42,10 +42,6 @@ struct Vector2 {
 typedef std::tuple<std::vector<std::string>> zonedata; // paths to map, spawn coordinates, end points, coordinates of moveables, 
 
 namespace globals {
-	const int SCREEN_WIDTH = 600;
-	const int SCREEN_HEIGHT = 480;
-
-	const float SPRITE_SCALE = 2.0f;
 	const float SPRITE_WIDTH = 16.0f;
 	
 	// directory
@@ -86,7 +82,7 @@ namespace globals {
 
 	const std::string opening_screen = dir + "sprites/opening_screen.png";
 	const std::string closing_screen = dir + "sprites/closing_screen.png";
-	
+	const std::string setting_screen = dir + "sprites/setting_screen.png";
 
 	// maps
 

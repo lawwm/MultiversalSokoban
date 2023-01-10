@@ -7,7 +7,7 @@ Tile::Tile(std::shared_ptr<SDL_Texture> tileset, Vector2 size, Vector2 tilesetPo
 	_tileset(tileset),
 	_size(size),
 	_tilesetPosition(tilesetPosition),
-	_position(Vector2(position.x* globals::SPRITE_SCALE, position.y* globals::SPRITE_SCALE)),
+	_position(Vector2(position.x* Window::getSpriteScale(), position.y* Window::getSpriteScale())),
 	_isDestructible(isDestructible)
 {
 }
@@ -56,7 +56,7 @@ void Tile::update(int elapsedTime, const int& alpha) {
 
 void Tile::draw(Graphics& graphics) {
 	SDL_Rect destRect = { this->_position.x, this->_position.y,
-			this->_size.x * globals::SPRITE_SCALE, this->_size.y * globals::SPRITE_SCALE };
+			this->_size.x * Window::getSpriteScale(), this->_size.y * Window::getSpriteScale() };
 	SDL_Rect sourceRect = { this->_tilesetPosition.x, this->_tilesetPosition.y, this->_size.x, this->_size.y };
 
 	graphics.blitSurface(this->_tileset.get(), &sourceRect, &destRect);
@@ -73,6 +73,6 @@ bool Tile::isDestructible() const {
 
 int Tile::getScreenKeyValue(int x, int y)
 {
-	return x + globals::SCREEN_WIDTH * y;
+	return x + Window::getScreenWidth() * y;
 }
 

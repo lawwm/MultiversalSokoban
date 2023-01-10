@@ -6,7 +6,11 @@
  */
 
 Graphics::Graphics() {
-	SDL_CreateWindowAndRenderer(globals::SCREEN_WIDTH, globals::SCREEN_HEIGHT, 0, &this->_window, &this->_renderer);
+	this->_window = SDL_CreateWindow("Sokoban of the Multiverse", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, Window::getScreenWidth(), Window::getScreenHeight(), Window::getScreenSetting());
+	SDL_SetWindowBordered(this->_window, SDL_TRUE);
+
+	
+	this->_renderer = SDL_CreateRenderer(this->_window, -1, SDL_RENDERER_ACCELERATED);
 
 	TTF_Init(); // might need to move this to game.cpp
 	
