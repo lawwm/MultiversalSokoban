@@ -37,4 +37,15 @@ protected:
 
 	float _x, _y;	
 };
+
+class AlphaSprite : Sprite {
+public:
+	AlphaSprite();
+	AlphaSprite(Graphics& graphics, const std::string& filePath, int sourceX, int sourceY, int width, int height,
+		float posX, float posY);
+	~AlphaSprite();
+	void draw(Graphics& graphics, int x, int y);
+	void draw(Graphics& graphics, int x, int y, int width, int height);
+	void update(int alpha);
+};
 #endif

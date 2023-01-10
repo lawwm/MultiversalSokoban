@@ -83,6 +83,7 @@ namespace globals {
 	const std::string opening_screen = dir + "sprites/opening_screen.png";
 	const std::string closing_screen = dir + "sprites/closing_screen.png";
 	const std::string setting_screen = dir + "sprites/setting_screen.png";
+	const std::string black_screen = dir + "sprites/black_screen.png";
 
 	// maps
 

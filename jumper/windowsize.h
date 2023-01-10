@@ -26,4 +26,12 @@ private:
 	static std::vector<std::tuple<float, float, int, int, int, Uint32>> _windowSettings; // sprite scale, player speed, screen width, screen height, text size 
 	static int idx;
 };
+
+class Effects {
+public:
+	static void toggleTransitionEffect();
+	static bool showTransitionEffect();
+private:
+	static bool _showTransitionEffect;
+};
 #endif

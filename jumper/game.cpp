@@ -136,6 +136,9 @@ void Game::gameLoop() {
 		else if (input.wasKeyPressed(SDL_SCANCODE_K)) {
 			Foley::toggle();
 		}
+		else if (input.wasKeyPressed(SDL_SCANCODE_L)) {
+			Effects::toggleTransitionEffect();
+		}
 
 		if (this->_currScreen == ZONE) {
 			if (!individualZone(graphics, input, LAST_UPDATE_TIME)) {

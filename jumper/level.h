@@ -156,6 +156,8 @@ private:
 	std::vector<Moveable*> _moveables;
 	std::vector<EndPointSprite> _endpoint;
 
+	AlphaSprite _blackScreen;
+	
 	void prevLevel(bool& isMoving);
 	void nextLevel(bool& isMoving);
 };

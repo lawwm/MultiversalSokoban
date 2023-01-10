@@ -254,9 +254,6 @@ void Level::storeCurrState(int ticket) {
 }
 
 void Level::update(int elapsedTime, const int& alpha) {
-	for (Tile& t : this->_tileList) {
-		t.update(elapsedTime, alpha);
-	}
 }
 
 void Level::draw(Graphics& graphics) {
@@ -327,6 +324,7 @@ Stage::Stage(std::vector<std::string> maps, Graphics& graphics)
 	}
 	
 	this->loadElements(maps[0], graphics);
+	this->_blackScreen = AlphaSprite(graphics, globals::black_screen, 0, 0, 600, 480, 0, 0);
 }
 
 Stage::~Stage() {
@@ -349,6 +347,8 @@ Stage::Stage(Stage&& t) noexcept
 	this->_moveableSpawnPoints = std::move(t._moveableSpawnPoints);
 	this->_moveables = std::move(t._moveables);
 	this->_endpoint = std::move(t._endpoint);
+
+	this->_blackScreen = t._blackScreen;
 
 	t._levels.clear();
 	t._fx.clear();
@@ -376,6 +376,8 @@ Stage& Stage::operator=(Stage&& t) noexcept
 	this->_moveableSpawnPoints = std::move(t._moveableSpawnPoints);
 	this->_moveables = std::move(t._moveables);
 	this->_endpoint = std::move(t._endpoint);
+
+	this->_blackScreen = t._blackScreen;
 
 	t._levels.clear();
 	t._fx.clear();
@@ -562,6 +564,7 @@ void Stage::update(int elapsedTime, bool& isMoving, Graphics& graphics) {
 		// for transition when switching levels
 		if (this->_alpha > 0) { // fade out previous stage
 			this->_levels[this->_idx].update(elapsedTime, this->_alpha);
+			this->_blackScreen.update(this->_alpha);
 		} 
 		else { // fade in next stage
 			// set current idx to next idx 
@@ -572,6 +575,7 @@ void Stage::update(int elapsedTime, bool& isMoving, Graphics& graphics) {
 				this->_alpha = 255;
 				isMoving = true;
 			}
+			this->_blackScreen.update(this->_alpha);
 		}
 		
 		this->_alpha -= 2;
@@ -581,7 +585,7 @@ void Stage::update(int elapsedTime, bool& isMoving, Graphics& graphics) {
 
 void Stage::draw(Graphics& graphics) {
 	this->_levels[this->_idx].draw(graphics);
-
+	this->_blackScreen.draw(graphics, 0, 0);
 	for (auto& ptr : _fx) {
 		ptr->draw(graphics);
 	}

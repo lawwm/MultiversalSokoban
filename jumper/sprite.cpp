@@ -57,3 +57,31 @@ bool Sprite::isStationary() const {
 	int spritesize = floor(Window::getSpriteScale() * globals::SPRITE_WIDTH);
 	return !(intx % spritesize) && !(inty % spritesize) && isCloseToInt;
 }
+
+
+
+AlphaSprite::AlphaSprite() {}
+
+AlphaSprite::AlphaSprite(Graphics& graphics, const std::string& filePath, int sourceX, int sourceY, int width, int height,
+	float posX, float posY) :
+	Sprite(graphics, filePath, sourceX, sourceY, width, height, posX, posY)
+{
+	this->update(255);
+}
+
+AlphaSprite::~AlphaSprite() {}
+
+void AlphaSprite::draw(Graphics& graphics, int x, int y) {
+	Sprite::draw(graphics, x, y);
+}
+
+void AlphaSprite::draw(Graphics& graphics, int x, int y, int width, int height) {
+	Sprite::draw(graphics, x, y, width, height);
+}
+
+void AlphaSprite::update(int alpha) {
+	if (!Effects::showTransitionEffect()) {
+		return;
+	}
+	SDL_SetTextureAlphaMod(this->_spriteSheet, 255 - std::abs(alpha));
+}

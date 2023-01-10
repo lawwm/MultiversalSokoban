@@ -37,3 +37,12 @@ void Window::setWindowSize(int index) {
 	idx = index;
 }
 
+void Effects::toggleTransitionEffect() {
+	_showTransitionEffect = !_showTransitionEffect;
+}
+
+bool Effects::showTransitionEffect() {
+	return _showTransitionEffect;
+}
+
+bool Effects::_showTransitionEffect = true;
