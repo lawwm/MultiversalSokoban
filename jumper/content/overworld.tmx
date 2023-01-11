@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="14" nextobjectid="101">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="14" nextobjectid="102">
  <tileset firstgid="1" name="ninja" tilewidth="16" tileheight="16" tilecount="1120" columns="28">
   <image source="tilesets/tileset.png" width="448" height="640"/>
  </tileset>
@@ -334,37 +334,37 @@
     <property name="iscompleted" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="78" name="6" x="96" y="96" width="16" height="16">
+  <object id="78" name="6" x="80" y="96" width="16" height="16">
    <properties>
     <property name="iscompleted" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="79" name="7" x="128" y="96" width="16" height="16">
+  <object id="79" name="7" x="112" y="96" width="16" height="16">
    <properties>
     <property name="iscompleted" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="80" name="8" x="160" y="96" width="16" height="16">
+  <object id="80" name="8" x="144" y="96" width="16" height="16">
    <properties>
     <property name="iscompleted" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="81" name="10" x="80" y="160" width="16" height="16">
+  <object id="81" name="10" x="208" y="96" width="16" height="16">
    <properties>
     <property name="iscompleted" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="82" name="9" x="192" y="96" width="16" height="16">
+  <object id="82" name="9" x="176" y="96" width="16" height="16">
    <properties>
     <property name="iscompleted" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="83" name="11" x="112" y="160" width="16" height="16">
+  <object id="83" name="11" x="80" y="160" width="16" height="16">
    <properties>
     <property name="iscompleted" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="85" name="12" x="144" y="160" width="16" height="16">
+  <object id="85" name="12" x="112" y="160" width="16" height="16">
    <properties>
     <property name="iscompleted" type="bool" value="false"/>
    </properties>
@@ -374,12 +374,17 @@
     <property name="iscompleted" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="92" name="13" x="176" y="160" width="16" height="16">
+  <object id="92" name="13" x="144" y="160" width="16" height="16">
    <properties>
     <property name="iscompleted" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="93" name="14" x="208" y="160" width="16" height="16">
+  <object id="93" name="14" x="176" y="160" width="16" height="16">
+   <properties>
+    <property name="iscompleted" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="101" name="15" x="208" y="160" width="16" height="16">
    <properties>
     <property name="iscompleted" type="bool" value="false"/>
    </properties>

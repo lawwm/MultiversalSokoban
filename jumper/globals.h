@@ -128,10 +128,14 @@ namespace globals {
 	const std::string n_ice = dir + "n_ice";
 	const std::string n_yellow = dir + "n_yellow";
 
+	const std::string z_ice = dir + "z_ice";
+
 	const std::string overworld = dir + "overworld";
 	
 	const std::vector<zonedata> data = { // first element of each vector contains the element location details
 		{{a_ice, a_yellow }}, // introduce player to dimension switching /done 1
+
+		{{z_ice}},
 
 		{{c_room, c_ice }},	// get the player to be better at dimension switching /done 2
 		
