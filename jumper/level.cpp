@@ -317,6 +317,7 @@ const Vector2 Stage::getPlayerSpawnPoint() const {
 	return this->_spawnPoint;
 }
 
+// constructor
 Stage::Stage(std::vector<std::string> maps, Graphics& graphics)
 {
 	for (auto& map : maps) {
@@ -348,7 +349,7 @@ Stage::Stage(Stage&& t) noexcept
 	this->_moveables = std::move(t._moveables);
 	this->_endpoint = std::move(t._endpoint);
 
-	this->_blackScreen = t._blackScreen;
+	this->_blackScreen = std::move(t._blackScreen);
 
 	t._levels.clear();
 	t._fx.clear();
@@ -377,7 +378,7 @@ Stage& Stage::operator=(Stage&& t) noexcept
 	this->_moveables = std::move(t._moveables);
 	this->_endpoint = std::move(t._endpoint);
 
-	this->_blackScreen = t._blackScreen;
+	this->_blackScreen = std::move(t._blackScreen);
 
 	t._levels.clear();
 	t._fx.clear();
@@ -562,23 +563,18 @@ void Stage::update(int elapsedTime, bool& isMoving, Graphics& graphics) {
 		}
 
 		// for transition when switching levels
-		if (this->_alpha > 0) { // fade out previous stage
-			this->_levels[this->_idx].update(elapsedTime, this->_alpha);
-			this->_blackScreen.update(this->_alpha);
-		} 
-		else { // fade in next stage
-			// set current idx to next idx 
-			this->_idx = this->_next;
-			
-			this->_levels[this->_idx].update(elapsedTime, -1 * this->_alpha);
-			if (this->_alpha <= -255) {
-				this->_alpha = 255;
-				isMoving = true;
-			}
-			this->_blackScreen.update(this->_alpha);
+		if (this->_alpha <= -255) {
+			this->_alpha = 255;
+			isMoving = true;
 		}
-		
-		this->_alpha -= 2;
+		this->_levels[this->_idx].update(elapsedTime, this->_alpha);
+		this->_blackScreen.update(this->_alpha);
+		if (this->_alpha <= 0) {
+			this->_idx = this->_next;
+		}
+
+
+		this->_alpha -= 6;
 		
 	}
 }

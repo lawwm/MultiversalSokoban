@@ -66,16 +66,22 @@ AlphaSprite::AlphaSprite(Graphics& graphics, const std::string& filePath, int so
 	float posX, float posY) :
 	Sprite(graphics, filePath, sourceX, sourceY, width, height, posX, posY)
 {
-	this->update(255);
+	SDL_SetTextureAlphaMod(this->_spriteSheet, 0);
 }
 
 AlphaSprite::~AlphaSprite() {}
 
 void AlphaSprite::draw(Graphics& graphics, int x, int y) {
+	if (!Effects::showTransitionEffect()) {
+		return;
+	}
 	Sprite::draw(graphics, x, y);
 }
 
 void AlphaSprite::draw(Graphics& graphics, int x, int y, int width, int height) {
+	if (!Effects::showTransitionEffect()) {
+		return;
+	}
 	Sprite::draw(graphics, x, y, width, height);
 }
 
@@ -83,5 +89,6 @@ void AlphaSprite::update(int alpha) {
 	if (!Effects::showTransitionEffect()) {
 		return;
 	}
-	SDL_SetTextureAlphaMod(this->_spriteSheet, 255 - std::abs(alpha));
+	this->_alpha = 255 - std::abs(alpha);
+	SDL_SetTextureAlphaMod(this->_spriteSheet, this->_alpha);
 }

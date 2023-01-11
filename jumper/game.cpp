@@ -171,7 +171,7 @@ void Game::gameLoop() {
 
 void Game::draw(Graphics& graphics) {
 	graphics.clear();
-
+	
 	if (this->_currScreen == OVERWORLD) {
 		this->_overworld.draw(graphics);
 		this->_player.draw(graphics);
@@ -189,7 +189,7 @@ void Game::draw(Graphics& graphics) {
 	else if (this->_currScreen == VICTORY_SCREEN) {
 		this->_victoryScreen.draw(graphics);
 	}
-	
+
 	
 	graphics.flip();
 }
@@ -305,7 +305,8 @@ bool Game::individualZone(Graphics& graphics, Input& input, int& LAST_UPDATE_TIM
 
 
 	// movement and switching dimension
-	if (_canPlayerMove && _canPlayerSwitchStage && this->_player.getVisible() && !hasPlayerWon && this->_zone.isItPossibleToWin()) {
+	if (_canPlayerMove && _canPlayerSwitchStage && this->_player.getVisible() && !hasPlayerWon 
+		&& this->_zone.isItPossibleToWin() && this->_player.isStationary()) {
 
 		if (input.isKeyHeld(SDL_SCANCODE_LEFT) == true) {
 			this->_player.moveLeft(this->_canPlayerMove, this->_zone.getStage(), this->_zone.getMoveables(), this->_ticket);
@@ -319,10 +320,10 @@ bool Game::individualZone(Graphics& graphics, Input& input, int& LAST_UPDATE_TIM
 		else if (input.isKeyHeld(SDL_SCANCODE_DOWN) == true) {
 			this->_player.moveDown(this->_canPlayerMove, this->_zone.getStage(), this->_zone.getMoveables(), this->_ticket);
 		}
-		else if (input.isKeyHeld(SDL_SCANCODE_A) && input.wasKeyPressed(SDL_SCANCODE_A)) {
+		else if (input.wasKeyPressed(SDL_SCANCODE_A)) {
 			this->_zone.getStage().prevLevel(this->_canPlayerSwitchStage, this->_ticket, this->_player, this->_zone.getMoveables());
 		}
-		else if (input.isKeyHeld(SDL_SCANCODE_D) && input.wasKeyPressed(SDL_SCANCODE_D)) {
+		else if (input.wasKeyPressed(SDL_SCANCODE_D)) {
 			this->_zone.getStage().nextLevel(this->_canPlayerSwitchStage, this->_ticket, this->_player, this->_zone.getMoveables());
 		}
 

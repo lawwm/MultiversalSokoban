@@ -47,5 +47,8 @@ public:
 	void draw(Graphics& graphics, int x, int y);
 	void draw(Graphics& graphics, int x, int y, int width, int height);
 	void update(int alpha);
+
+private:
+	int _alpha;
 };
 #endif

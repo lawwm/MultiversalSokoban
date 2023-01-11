@@ -26,7 +26,7 @@
   <object id="261" x="64" y="112" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="19" name="poison" locked="1"/>
- <layer id="10" name="Tile Layer 1" width="20" height="15">
+ <layer id="10" name="Tile Layer 1" width="20" height="15" locked="1">
   <data>
    <tile gid="379"/>
    <tile gid="379"/>
@@ -330,7 +330,7 @@
    <tile gid="379"/>
   </data>
  </layer>
- <layer id="11" name="destructible" width="20" height="15" locked="1">
+ <layer id="11" name="destructible" width="20" height="15">
   <data>
    <tile/>
    <tile/>
@@ -403,8 +403,7 @@
    <tile/>
    <tile/>
    <tile/>
-   <tile gid="270"/>
-   <tile gid="270"/>
+   <tile/>
    <tile gid="270"/>
    <tile/>
    <tile/>
@@ -414,6 +413,7 @@
    <tile/>
    <tile/>
    <tile/>
+   <tile/>
    <tile gid="270"/>
    <tile gid="270"/>
    <tile/>
@@ -435,9 +435,9 @@
    <tile/>
    <tile/>
    <tile gid="270"/>
+   <tile/>
    <tile gid="270"/>
-   <tile gid="270"/>
-   <tile gid="270"/>
+   <tile/>
    <tile/>
    <tile gid="270"/>
    <tile/>
